@@ -8,18 +8,20 @@
   
     <meta name="keywords" content="Jared Qiu's Blog" />
   
-  <meta name="description" content="Hexo官网什么是Hexo&amp;emsp;&amp;emsp;Hexo is a fast, simple and powerful blog framework. You write posts in Markdown (or other languages) and Hexo generates static files with a beautiful theme in seconds. ( Hexo">
+  <meta name="description" content="什么是Hexo&amp;emsp;&amp;emsp;Hexo is a fast, simple and powerful blog framework. You write posts in Markdown (or other languages) and Hexo generates static files with a beautiful theme in seconds. ( Hexo 是一个快速、">
 <meta name="keywords" content="Hexo,GitHub Pages,个人博客,开源项目">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo整合GitHub Pages">
 <meta property="og:url" content="http://yoursite.com/2018/02/08/Hexo整合GitHub Pages/index.html">
 <meta property="og:site_name" content="Jared Qiu&#39;s Blog">
-<meta property="og:description" content="Hexo官网什么是Hexo&amp;emsp;&amp;emsp;Hexo is a fast, simple and powerful blog framework. You write posts in Markdown (or other languages) and Hexo generates static files with a beautiful theme in seconds. ( Hexo">
+<meta property="og:description" content="什么是Hexo&amp;emsp;&amp;emsp;Hexo is a fast, simple and powerful blog framework. You write posts in Markdown (or other languages) and Hexo generates static files with a beautiful theme in seconds. ( Hexo 是一个快速、">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-02-08T09:25:49.834Z">
+<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/201829/image.png">
+<meta property="og:updated_time" content="2018-02-09T03:32:13.826Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo整合GitHub Pages">
-<meta name="twitter:description" content="Hexo官网什么是Hexo&amp;emsp;&amp;emsp;Hexo is a fast, simple and powerful blog framework. You write posts in Markdown (or other languages) and Hexo generates static files with a beautiful theme in seconds. ( Hexo">
+<meta name="twitter:description" content="什么是Hexo&amp;emsp;&amp;emsp;Hexo is a fast, simple and powerful blog framework. You write posts in Markdown (or other languages) and Hexo generates static files with a beautiful theme in seconds. ( Hexo 是一个快速、">
+<meta name="twitter:image" content="http://p3ry9qsas.bkt.clouddn.com/201829/image.png">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -140,25 +142,54 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <h2 id="Hexo官网"><a href="#Hexo官网" class="headerlink" title="Hexo官网"></a><a href="https://hexo.io/" target="_blank" rel="noopener">Hexo官网</a></h2><h3 id="什么是Hexo"><a href="#什么是Hexo" class="headerlink" title="什么是Hexo"></a>什么是Hexo</h3><p>&emsp;&emsp;Hexo is a fast, simple and powerful blog framework. You write posts in Markdown (or other languages) and Hexo generates static files with a beautiful theme in seconds. ( Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。)</p>
-<h3 id="准备Node和Git环境"><a href="#准备Node和Git环境" class="headerlink" title="准备Node和Git环境"></a>准备Node和Git环境</h3><ol>
-<li><p>到<a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node官网</a>下载对应系统的安装包，如果是Windows系统安装也很简单，下载最新版本的msi安装包，一路点击Next就行，会自动添加Path环境，安装完了之后按Windows窗口键+R，输入cmd打开命令提示符界面，用node -v测试即可（Tip：使用如下的命令可以更改为国内<a href="https://npm.taobao.org/" target="_blank" rel="noopener">淘宝的NPM镜像</a>：npm install -g cnpm –registry=<a href="https://registry.npm.taobao.org，" target="_blank" rel="noopener">https://registry.npm.taobao.org，</a> 这样以后就可以使用 cnpm 命令来安装模块了，cnpm install <module_name>）</module_name></p>
+            <h3 id="什么是Hexo"><a href="#什么是Hexo" class="headerlink" title="什么是Hexo"></a>什么是<a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a></h3><p>&emsp;&emsp;Hexo is a fast, simple and powerful blog framework. You write posts in Markdown (or other languages) and Hexo generates static files with a beautiful theme in seconds. ( Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页 )</p>
+<h3 id="准备Node和Git环境"><a href="#准备Node和Git环境" class="headerlink" title="准备Node和Git环境"></a>准备<a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node</a>和<a href="https://git-scm.com/" target="_blank" rel="noopener">Git</a>环境</h3><ol>
+<li><p>到Node官网下载对应系统的安装包，如果是Windows系统安装也很简单，下载最新版本的msi安装包，一路点击Next就行，会自动添加Path环境，安装完了之后按Windows窗口键+R，输入cmd打开命令提示符界面，用node -v测试即可（提示：使用如下的命令可以更改为国内<a href="https://npm.taobao.org/" target="_blank" rel="noopener">淘宝的NPM镜像</a>：npm install -g cnpm –registry=<a href="https://registry.npm.taobao.org，" target="_blank" rel="noopener">https://registry.npm.taobao.org，</a> 这样以后就可以使用 cnpm 命令来安装模块了，cnpm install <module_name>）</module_name></p>
 </li>
 <li><p>安装Git和配置好Git环境，这里就不在赘述了，安装完了可以用git –version来测试</p>
 </li>
 </ol>
-<h3 id="安装hexo，推荐官方文档"><a href="#安装hexo，推荐官方文档" class="headerlink" title="安装hexo，推荐官方文档"></a>安装hexo，推荐<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">官方文档</a></h3><ol>
-<li>输入cnpm install hexo -g，开始安装Hexo</li>
+<h3 id="安装hexo-官方文档"><a href="#安装hexo-官方文档" class="headerlink" title="安装hexo(官方文档)"></a>安装hexo(<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">官方文档</a>)</h3><ol>
+<li>输入cnpm install hexo -g，开始安装</li>
 <li>输入hexo -v，检查hexo是否安装成功</li>
-<li>创建一个文件夹，在当前文件夹打开命令行界面，输入hexo init，开始初始化当前文件夹，初始化完了可以看到最后输出的一句是：“Start blogging with Hexo！”</li>
+<li>创建一个文件夹，在当前文件夹打开命令行界面，输入hexo init，开始初始化，初始化完了可以看到最后输出的一句是：“Start blogging with Hexo！”</li>
 <li>输出cnpm install，安装依赖的组件</li>
 <li>输入hexo g（等价于hexo generate），开始生成Hexo</li>
-<li>输入hexo s（等价于hexo server），开启本地服务，通过访问本地默认的4000端口<a href="http://localhost:4000/" target="_blank" rel="noopener">网址</a>即可查看效果。在端口占用的情况下，可以通过输入“hexo server -p 端口号”来改变端口号</li>
+<li>输入hexo s（等价于hexo server），开启本地服务，通过访问本地默认的4000端口<a href="http://localhost:4000/" target="_blank" rel="noopener">网址</a>即可查看效果。在端口占用的情况下，可以通过输入“hexo server -p [port]”来改变端口号</li>
+<li>关联你的GitHub Page所在的仓库，在当前文件夹下，找到_config.yml文件，在文件末尾找到和修改repo值</li>
 </ol>
-<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3>
+<p><img src="http://p3ry9qsas.bkt.clouddn.com/201829/image.png" alt="配置_config.yml" title="_config.yml"></p>
+<ol>
+<li>尝试新建一篇博客，执行命令：hexo new post “my first blog”，你可以在_posts文件夹下看到已经创建了一个“my first blog.md”的文件</li>
+<li>生成及部署文章之前，使用如下命令安装一个扩展：cnpm install hexo-deployer-git –save</li>
+<li>编辑好md文章后，使用命令：hexo d -g，开始生成和部署</li>
+<li>部署成功后访问地址：https://<user_name>.github.io. 你就可以看到刚才新增的文章了。</user_name></li>
+</ol>
+<h3 id="关联自己的域名"><a href="#关联自己的域名" class="headerlink" title="关联自己的域名"></a>关联自己的域名</h3><ol>
+<li>在source文件夹下新建一个CNAME的文件，里面输入自己的域名，如：blog.mariojd.cn</li>
+<li>使用命令hexo d -g部署到远程仓库</li>
+<li>到域名提供商那里添加相应的解析</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>主机记录</th>
+<th>记录类型</th>
+<th>记录值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>blog</td>
+<td>CNAME</td>
+<td>happyjared.github.io.</td>
+</tr>
+</tbody>
+</table>
+
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年02月08日 17:25</p>
+        <p>最后更新： 2018年02月09日 11:32</p>
         <p>原始链接： <a class="post-url" href="/2018/02/08/Hexo整合GitHub Pages/" title="Hexo整合GitHub Pages">http://yoursite.com/2018/02/08/Hexo整合GitHub Pages/</a></p>
         <footer>
             <a href="http://yoursite.com">
@@ -282,7 +313,7 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Hexo官网"><span class="post-toc-text">Hexo官网</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#什么是Hexo"><span class="post-toc-text">什么是Hexo</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#准备Node和Git环境"><span class="post-toc-text">准备Node和Git环境</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装hexo，推荐官方文档"><span class="post-toc-text">安装hexo，推荐官方文档</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参考链接"><span class="post-toc-text">参考链接</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#什么是Hexo"><span class="post-toc-text">什么是Hexo</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#准备Node和Git环境"><span class="post-toc-text">准备Node和Git环境</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装hexo-官方文档"><span class="post-toc-text">安装hexo(官方文档)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#关联自己的域名"><span class="post-toc-text">关联自己的域名</span></a></li></ol>
         </nav>
     </aside>
     

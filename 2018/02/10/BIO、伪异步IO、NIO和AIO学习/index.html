@@ -3,30 +3,23 @@
 <head>
   <meta charset="utf-8">
   
-  <title>IDEA快捷键拆解系列（一） | Jared Qiu&#39;s Blog</title>
+  <title>BIO、伪异步IO、NIO和AIO学习 | Jared Qiu&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="Jared Qiu's Blog" />
   
-  <meta name="description" content="&amp;emsp;&amp;emsp;这是IDEA快捷键拆解系列的第一篇文章。计划先从最顶部的每一个导航栏，以及中间区域的快捷键提示开始讲起。在此之前，请记住非常重要的一个快捷键： Alt + 下划线那个符号。举个栗子，在最左上角有++F++ile这么个导航项，所以对应的快捷键就是：Alt + F，其它任意有下划线的都是同样的操作，也包括导航项展开的任意子项，只要字符串中带有某一下划线的字符，你就可以通过这种形">
-<meta name="keywords" content="IDEA,编辑器,JetBrains,开发经验">
+  <meta name="description" content="BIO（同步阻塞，一请求一应答） 伪异步IO（同步阻塞，线程池） NIO （同步非阻塞，多路复用） AIO（异步非阻塞，异步通道）     Client数：线程数 1：1 N：M（N &amp;gt;= M） M：1 N：0   API难度 简单 简单 复杂 较复杂   调试难度 简单 简单 复杂 较复杂   可靠性 最差 差 高 高   吞吐量 最低 低 高 高">
+<meta name="keywords" content="IO,Java,Study">
 <meta property="og:type" content="article">
-<meta property="og:title" content="IDEA快捷键拆解系列（一）">
-<meta property="og:url" content="http://yoursite.com/2018/02/10/IDEA快捷键拆解系列（一）/index.html">
+<meta property="og:title" content="BIO、伪异步IO、NIO和AIO学习">
+<meta property="og:url" content="http://yoursite.com/2018/02/10/BIO、伪异步IO、NIO和AIO学习/index.html">
 <meta property="og:site_name" content="Jared Qiu&#39;s Blog">
-<meta property="og:description" content="&amp;emsp;&amp;emsp;这是IDEA快捷键拆解系列的第一篇文章。计划先从最顶部的每一个导航栏，以及中间区域的快捷键提示开始讲起。在此之前，请记住非常重要的一个快捷键： Alt + 下划线那个符号。举个栗子，在最左上角有++F++ile这么个导航项，所以对应的快捷键就是：Alt + F，其它任意有下划线的都是同样的操作，也包括导航项展开的任意子项，只要字符串中带有某一下划线的字符，你就可以通过这种形">
+<meta property="og:description" content="BIO（同步阻塞，一请求一应答） 伪异步IO（同步阻塞，线程池） NIO （同步非阻塞，多路复用） AIO（异步非阻塞，异步通道）     Client数：线程数 1：1 N：M（N &amp;gt;= M） M：1 N：0   API难度 简单 简单 复杂 较复杂   调试难度 简单 简单 复杂 较复杂   可靠性 最差 差 高 高   吞吐量 最低 低 高 高">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/2018210/idea01.png">
-<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/2018210/idea_middle.png">
-<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/2018210/ideasearchwverywhere.png">
-<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/2018210/20180210145134.png">
-<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/2018210/20180210145650.png">
-<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/2018210/20180210150057.png">
-<meta property="og:updated_time" content="2018-02-10T07:12:08.535Z">
+<meta property="og:updated_time" content="2018-02-11T03:13:19.003Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="IDEA快捷键拆解系列（一）">
-<meta name="twitter:description" content="&amp;emsp;&amp;emsp;这是IDEA快捷键拆解系列的第一篇文章。计划先从最顶部的每一个导航栏，以及中间区域的快捷键提示开始讲起。在此之前，请记住非常重要的一个快捷键： Alt + 下划线那个符号。举个栗子，在最左上角有++F++ile这么个导航项，所以对应的快捷键就是：Alt + F，其它任意有下划线的都是同样的操作，也包括导航项展开的任意子项，只要字符串中带有某一下划线的字符，你就可以通过这种形">
-<meta name="twitter:image" content="http://p3ry9qsas.bkt.clouddn.com/2018210/idea01.png">
+<meta name="twitter:title" content="BIO、伪异步IO、NIO和AIO学习">
+<meta name="twitter:description" content="BIO（同步阻塞，一请求一应答） 伪异步IO（同步阻塞，线程池） NIO （同步非阻塞，多路复用） AIO（异步非阻塞，异步通道）     Client数：线程数 1：1 N：M（N &amp;gt;= M） M：1 N：0   API难度 简单 简单 复杂 较复杂   调试难度 简单 简单 复杂 较复杂   可靠性 最差 差 高 高   吞吐量 最低 低 高 高">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -111,14 +104,14 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap"><article id="post-IDEA快捷键拆解系列（一）" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main" class="body-wrap"><article id="post-BIO、伪异步IO、NIO和AIO学习" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="post-title" itemprop="name">
-      IDEA快捷键拆解系列（一）
+      BIO、伪异步IO、NIO和AIO学习
     </h1>
     <div class="post-title-bar">
       <ul>
@@ -126,9 +119,9 @@
               <li>
                   <i class="fa fa-book"></i>
                   
-                      <a href="/categories/编辑器/">编辑器</a>
+                      <a href="/categories/IO/">IO</a>
                   
-                      <a href="/categories/快捷键/">快捷键</a>
+                      <a href="/categories/Java/">Java</a>
                   
               </li>
           
@@ -149,135 +142,59 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <p>&emsp;&emsp;这是IDEA快捷键拆解系列的第一篇文章。计划先从最顶部的每一个导航栏，以及中间区域的快捷键提示开始讲起。在此之前，请记住非常重要的一个快捷键： <strong>Alt + 下划线那个符号</strong>。举个栗子，在最左上角有++F++ile这么个导航项，所以对应的快捷键就是：<code>Alt</code> + <code>F</code>，其它任意有下划线的都是同样的操作，也包括导航项展开的任意子项，只要字符串中带有某一下划线的字符，你就可以通过这种形式来进行快速定位。当然了，除此之外，你还可以通过 <code>↑</code>和 <code>↓</code>来上下移动，然后通过<code>Enter</code>键来展开相应的子项。</p>
-<p><img src="http://p3ry9qsas.bkt.clouddn.com/2018210/idea01.png" alt="idea初识" title="idea初识"></p>
-<p>&emsp;&emsp;在整个IDEA编辑器中，中间区域的快捷键是最明显，所以应该也是最重要的，以下是对每一项的拆解介绍</p>
-<p><img src="http://p3ry9qsas.bkt.clouddn.com/2018210/idea_middle.png" alt="中间区域的快捷键" title="IDEA中间部分的快捷键提示"></p>
-<h3 id="中间区域快捷键提示区"><a href="#中间区域快捷键提示区" class="headerlink" title="中间区域快捷键提示区"></a>中间区域快捷键提示区</h3><table>
+            <table>
 <thead>
 <tr>
-<th>作用</th>
-<th>快捷键</th>
-<th>拆解</th>
+<th></th>
+<th>BIO（同步阻塞，一请求一应答）</th>
+<th>伪异步IO（同步阻塞，线程池）</th>
+<th>NIO （同步非阻塞，多路复用）</th>
+<th>AIO（异步非阻塞，异步通道）</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Search Everywhere</td>
-<td>Double Shift</td>
-<td>全局搜索，按两下<code>Shift</code>弹出此界面，再按两下<code>Shift</code>可以搜索非当前项目的文件，右上角还可以设置展示的类型。 <img src="http://p3ry9qsas.bkt.clouddn.com/2018210/ideasearchwverywhere.png" alt="Search Everywhere" title="ideasearchwverywhere"></td>
+<td>Client数：线程数</td>
+<td>1：1</td>
+<td>N：M（N &gt;= M）</td>
+<td>M：1</td>
+<td>N：0</td>
 </tr>
 <tr>
-<td>Project View</td>
-<td>Alt + 1</td>
-<td>Project面板的展开与折叠切换，还用于代码区快速跳转至项目区</td>
+<td>API难度</td>
+<td>简单</td>
+<td>简单</td>
+<td>复杂</td>
+<td>较复杂</td>
 </tr>
 <tr>
-<td>Go to File</td>
-<td>Ctrl + Shift + N</td>
-<td>搜素文件，按<code>Ctrl</code>+<code>Shift</code>+<code>N</code>弹出此界面，再按一下<code>Ctrl</code>+<code>Shift</code>+<code>N</code>可以搜索非当前项目的文件，右上角还可以设置搜索的文件类型。<img src="http://p3ry9qsas.bkt.clouddn.com/2018210/20180210145134.png" alt="Go to File" title="Go to File"></td>
+<td>调试难度</td>
+<td>简单</td>
+<td>简单</td>
+<td>复杂</td>
+<td>较复杂</td>
 </tr>
 <tr>
-<td>Recent Files</td>
-<td>Ctrl + E</td>
-<td>按<code>Ctrl</code>+<code>E</code>可以弹出记录了最近操作的面板，一般左边对应的是整个IDEA界面周边的各个功能选项，右边则是你最近操作的文件列表。左右方向键用于左右跳转，上下方向键用于切换，确定键用于打开。<img src="http://p3ry9qsas.bkt.clouddn.com/2018210/20180210145650.png" alt="Recent Files" title="Recent Files"></td>
+<td>可靠性</td>
+<td>最差</td>
+<td>差</td>
+<td>高</td>
+<td>高</td>
 </tr>
 <tr>
-<td>Navigation Bar</td>
-<td>Alt + Home</td>
-<td>跳转到项目导航条，也可以通过这种方式进行文件查找和打开。<img src="http://p3ry9qsas.bkt.clouddn.com/2018210/20180210150057.png" alt="Navigation Bar" title="Navigation Bar"></td>
+<td>吞吐量</td>
+<td>最低</td>
+<td>低</td>
+<td>高</td>
+<td>高</td>
 </tr>
 </tbody>
 </table>
-<h3 id="F-ile导航项及其子项"><a href="#F-ile导航项及其子项" class="headerlink" title="++F++ile导航项及其子项"></a>++F++ile导航项及其子项</h3><p>&emsp;&emsp;这一部分是关于++F++ile导航项及其每一个子项的拆解介绍，加粗的也是个人认为比较重要的。</p>
-<ul>
-<li>New<ul>
-<li>Project</li>
-<li>Project from Existing Sources</li>
-<li>Proejct from Version Control<ul>
-<li>GitHub</li>
-<li>Git</li>
-<li>Mercurial</li>
-<li>Subversion</li>
-<li>TFS</li>
-</ul>
-</li>
-<li>Module</li>
-<li>Module from Existing Sources</li>
-<li>Java Class</li>
-<li>Aspect</li>
-<li>File</li>
-<li>Scratch File: Ctrl + Alt + Shift + Insert</li>
-<li>Directory</li>
-<li>FXML File</li>
-<li>package-info.java</li>
-<li>HTML File</li>
-<li>Styleshoot</li>
-<li>JavaScript File</li>
-<li>TypeScript File</li>
-<li>CFML/CFC file</li>
-<li>CoffeeScript File</li>
-<li>JavaFXApplication</li>
-<li>Singleton</li>
-<li>XSLT Stylesheet</li>
-<li>Edit File Templates</li>
-<li>GUI Form</li>
-<li>Dialog</li>
-<li>Form Snapshot</li>
-<li>Resource Bundle</li>
-<li>XML Configuration File<ul>
-<li>JSP Tag Library Descriptor</li>
-<li>Spring Config</li>
-</ul>
-</li>
-<li>Diagram<ul>
-<li>Java Class Diagram</li>
-<li>Module Dependencies</li>
-</ul>
-</li>
-<li>Google Guice<ul>
-<li>Guice Module</li>
-<li>Guice Provider</li>
-<li>Guice Binding Annotation</li>
-<li>Guice Scope Annotation</li>
-<li>Guice Method Interceptor</li>
-</ul>
-</li>
-<li>Data Source</li>
-</ul>
-</li>
-<li>Open</li>
-<li>Open URL</li>
-<li>Open Recent…</li>
-<li>Close Project</li>
-<li>==Settings: Ctrl + Alt + S (设置)==</li>
-<li>==Project Structure: Ctrl + Alt + Shift + S (项目设置)==</li>
-<li>==Other Settings (通用的其它配置)==<ul>
-<li>Default Settings</li>
-<li>Default Project Structure</li>
-</ul>
-</li>
-<li>Import Settings</li>
-<li>Export Settings</li>
-<li>Export to Eclipse</li>
-<li>Settings Repository</li>
-<li>Save All: Ctrl + S</li>
-<li>Synchronized: Ctrl + Alt + Y</li>
-<li>==Invalidate Caches/Restart (删除缓存或重启IDEA)==</li>
-<li>Export to HTML</li>
-<li>Print</li>
-<li>Add Favorites…</li>
-<li>==File Encoding==</li>
-<li>Line Separators…</li>
-<li>Make File Read-only</li>
-<li>Power Save Mode</li>
-<li>Exit</li>
-</ul>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年02月10日 15:12</p>
-        <p>原始链接： <a class="post-url" href="/2018/02/10/IDEA快捷键拆解系列（一）/" title="IDEA快捷键拆解系列（一）">http://yoursite.com/2018/02/10/IDEA快捷键拆解系列（一）/</a></p>
+        <p>最后更新： 2018年02月11日 11:13</p>
+        <p>原始链接： <a class="post-url" href="/2018/02/10/BIO、伪异步IO、NIO和AIO学习/" title="BIO、伪异步IO、NIO和AIO学习">http://yoursite.com/2018/02/10/BIO、伪异步IO、NIO和AIO学习/</a></p>
         <footer>
             <a href="http://yoursite.com">
                 <img src="/images/logo.png" alt="Jared Qiu">
@@ -334,7 +251,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/02/10/IDEA快捷键拆解系列（一）/&title=《IDEA快捷键拆解系列（一）》 — Jared Qiu's Blog&pic=http://p3ry9qsas.bkt.clouddn.com/201829/idea2017.1.png" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/02/10/BIO、伪异步IO、NIO和AIO学习/&title=《BIO、伪异步IO、NIO和AIO学习》 — Jared Qiu's Blog&pic=http://p3ry9qsas.bkt.clouddn.com/2018210/javaio.jpg" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -344,22 +261,22 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/02/10/IDEA快捷键拆解系列（一）/&title=《IDEA快捷键拆解系列（一）》 — Jared Qiu's Blog&source=Coding爱好者，有代码小洁癖，主攻Java，也喜欢Python和JavaScript，为人乐观、积极、向上、勤奋、和善、易相处，讲卫生，爱学习，爱码字..." data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/02/10/BIO、伪异步IO、NIO和AIO学习/&title=《BIO、伪异步IO、NIO和AIO学习》 — Jared Qiu's Blog&source=Coding爱好者，有代码小洁癖，主攻Java，也喜欢Python和JavaScript，为人乐观、积极、向上、勤奋、和善、易相处，讲卫生，爱学习，爱码字..." data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
           <li>
-            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/02/10/IDEA快捷键拆解系列（一）/" data-title="Facebook">
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/02/10/BIO、伪异步IO、NIO和AIO学习/" data-title="Facebook">
               <i class="fa fa-facebook"></i>
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《IDEA快捷键拆解系列（一）》 — Jared Qiu's Blog&url=http://yoursite.com/2018/02/10/IDEA快捷键拆解系列（一）/&via=http://yoursite.com" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《BIO、伪异步IO、NIO和AIO学习》 — Jared Qiu's Blog&url=http://yoursite.com/2018/02/10/BIO、伪异步IO、NIO和AIO学习/&via=http://yoursite.com" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
           <li>
-            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/02/10/IDEA快捷键拆解系列（一）/" data-title="Google+">
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/02/10/BIO、伪异步IO、NIO和AIO学习/" data-title="Google+">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -369,7 +286,7 @@
 <div class="post-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;" id="wxShare-close">×</a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2018/02/10/IDEA快捷键拆解系列（一）/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2018/02/10/BIO、伪异步IO、NIO和AIO学习/" alt="微信分享二维码">
 </div>
 
 <div class="mask"></div>
@@ -381,13 +298,11 @@
   <li class="article-footer-tags">
     <i class="fa fa-tags"></i>
       
-    <a href="/tags/IDEA/" class="color5">IDEA</a>
+    <a href="/tags/IO/" class="color3">IO</a>
       
-    <a href="/tags/编辑器/" class="color4">编辑器</a>
+    <a href="/tags/Java/" class="color5">Java</a>
       
-    <a href="/tags/JetBrains/" class="color5">JetBrains</a>
-      
-    <a href="/tags/开发经验/" class="color5">开发经验</a>
+    <a href="/tags/Study/" class="color1">Study</a>
       
   </li>
 
@@ -398,18 +313,22 @@
 </article>
 
 
-    <aside class="post-toc-pos post-toc-top" id="post-toc">
-        <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#中间区域快捷键提示区"><span class="post-toc-text">中间区域快捷键提示区</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#F-ile导航项及其子项"><span class="post-toc-text">++F++ile导航项及其子项</span></a></li></ol>
-        </nav>
-    </aside>
-    
 
 <nav id="article-nav">
   
+    <a href="/2018/02/10/IDEA快捷键拆解系列（一）/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          IDEA快捷键拆解系列（一）
+        
+      </span>
+    </a>
   
-    <a href="/2018/02/10/BIO、伪异步IO、NIO和AIO学习/" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">BIO、伪异步IO、NIO和AIO学习</span>
+  
+    <a href="/2018/02/09/IDEA快捷键拆解系列（前言）/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">IDEA快捷键拆解系列（前言）</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   
@@ -418,7 +337,7 @@
 
 
     
-        <div id="SOHUCS" sid="IDEA快捷键拆解系列（一）" ></div>
+        <div id="SOHUCS" sid="BIO、伪异步IO、NIO和AIO学习" ></div>
 <script type="text/javascript">
     (function(){
         var appid = 'cytsi4W0L';

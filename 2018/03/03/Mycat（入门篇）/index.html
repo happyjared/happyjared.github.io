@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Mycat（入门篇） | Jared Qiu&#39;s Blog | 不只是技术</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="Jared Qiu's Blog | 不只是技术的...个人博客，编码爱好者，有代码小洁癖。" />
+  
+  <meta name="description" content="Mycat是什么&amp;emsp;&amp;emsp;Mycat是一款基于阿里开源产品Cobar而研发的开源数据库分库分表中间件（基于Java语言开发）。官网所言：Mycat国内最活跃的、性能最好的开源数据库中间件！  一个彻底开源的，面向企业应用开发的大数据库集群 支持事务、ACID、可以替代MySQL的加强版数据库 一个可以视为MySQL集群的企业级数据库，用来替代昂贵的Oracle集群 一个融合内存缓存技">
+<meta name="keywords" content="Mycat,数据库中间件,入门篇">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mycat（入门篇）">
+<meta property="og:url" content="http://yoursite.com/2018/03/03/Mycat（入门篇）/index.html">
+<meta property="og:site_name" content="Jared Qiu&#39;s Blog | 不只是技术">
+<meta property="og:description" content="Mycat是什么&amp;emsp;&amp;emsp;Mycat是一款基于阿里开源产品Cobar而研发的开源数据库分库分表中间件（基于Java语言开发）。官网所言：Mycat国内最活跃的、性能最好的开源数据库中间件！  一个彻底开源的，面向企业应用开发的大数据库集群 支持事务、ACID、可以替代MySQL的加强版数据库 一个可以视为MySQL集群的企业级数据库，用来替代昂贵的Oracle集群 一个融合内存缓存技">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-03-03T09:53:03.903Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mycat（入门篇）">
+<meta name="twitter:description" content="Mycat是什么&amp;emsp;&amp;emsp;Mycat是一款基于阿里开源产品Cobar而研发的开源数据库分库分表中间件（基于Java语言开发）。官网所言：Mycat国内最活跃的、性能最好的开源数据库中间件！  一个彻底开源的，面向企业应用开发的大数据库集群 支持事务、ACID、可以替代MySQL的加强版数据库 一个可以视为MySQL集群的企业级数据库，用来替代昂贵的Oracle集群 一个融合内存缓存技">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?7d6076888c62ff336f5b580c57fd4141";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+  
+
+</head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <!--<div id="banner"></div>-->
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title"></span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <!--<div id="header-title">-->
+                    <!---->
+                <!--</div>-->
+                <div id="header-description">
+                    
+                    <h4>
+                        先做好写代码这件事
+                    </h4>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="Home" target="_blank" href="//mariojd.cn">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/happyjared">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-Mycat（入门篇）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      Mycat（入门篇）
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/数据库中间件/">数据库中间件</a>
+                  
+                      <a href="/categories/Mycat/">Mycat</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-03-03
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h3 id="Mycat是什么"><a href="#Mycat是什么" class="headerlink" title="Mycat是什么"></a>Mycat是什么</h3><p>&emsp;&emsp;Mycat是一款基于阿里开源产品Cobar而研发的开源数据库分库分表中间件（基于Java语言开发）。官网所言：Mycat国内最活跃的、性能最好的开源数据库中间件！</p>
+<ul>
+<li>一个彻底开源的，面向企业应用开发的大数据库集群</li>
+<li>支持事务、ACID、可以替代MySQL的加强版数据库</li>
+<li>一个可以视为MySQL集群的企业级数据库，用来替代昂贵的Oracle集群</li>
+<li>一个融合内存缓存技术、NoSQL技术、HDFS大数据的新型SQL Server</li>
+<li>结合传统数据库和新型分布式数据仓库的新一代企业级数据库产品</li>
+<li>一个新颖的数据库中间件产品</li>
+</ul>
+<h3 id="Mycat关键特性"><a href="#Mycat关键特性" class="headerlink" title="Mycat关键特性"></a>Mycat关键特性</h3><ul>
+<li>支持SQL92标准</li>
+<li>支持MySQL、Oracle、DB2、SQL Server、PostgreSQL等DB的常见SQL语法</li>
+<li>遵守Mysql原生协议，跨语言，跨平台，跨数据库的通用中间件代理</li>
+<li>基于心跳的自动故障切换，支持读写分离，支持MySQL主从，以及galera cluster集群</li>
+<li>支持Galera for MySQL集群，Percona Cluster或者MariaDB cluster</li>
+<li>基于Nio实现，有效管理线程，解决高并发问题</li>
+<li>支持数据的多片自动路由与聚合，支持sum,count,max等常用的聚合函数,支持跨库分页</li>
+<li>支持单库内部任意join，支持跨库2表join，甚至基于caltlet的多表join</li>
+<li>支持通过全局表，ER关系的分片策略，实现了高效的多表join查询</li>
+<li>支持多租户方案</li>
+<li>支持分布式事务（弱xa）</li>
+<li>支持XA分布式事务（1.6.5）</li>
+<li>支持全局序列号，解决分布式下的主键生成问题</li>
+<li>分片规则丰富，插件化开发，易于扩展</li>
+<li>强大的web，命令行监控</li>
+<li>支持前端作为MySQL通用代理，后端JDBC方式支持MySQL、PostgreSQL、Oracle、DB2、SQLServer、MongoDB、巨杉</li>
+<li>支持密码加密</li>
+<li>支持服务降级</li>
+<li>支持IP白名单</li>
+<li>支持SQL黑名单、sql注入攻击拦截</li>
+<li>支持prepare预编译指令（1.6）</li>
+<li>支持非堆内存(Direct Memory)聚合计算（1.6）</li>
+<li>支持PostgreSQL的native协议（1.6）</li>
+<li>支持mysql和oracle存储过程，out参数、多结果集返回（1.6）</li>
+<li>支持zookeeper协调主从切换、zk序列、配置zk化（1.6）</li>
+<li>支持库内分表（1.6）</li>
+<li>集群基于ZooKeeper管理，在线升级，扩容，智能优化，大数据处理（2.0开发版）</li>
+</ul>
+<h3 id="安装与使用"><a href="#安装与使用" class="headerlink" title="安装与使用"></a>安装与使用</h3><ul>
+<li><p>下载（目前最新发行版是1.6.5）：<a href="http://dl.mycat.io/" target="_blank" rel="noopener">http://dl.mycat.io/</a></p>
+</li>
+<li><p>安装：解压即可</p>
+</li>
+<li><p>配置：Mycat是基于Java开发的，确保安装好了Java环境，可命令行输入：java -version 进行测试。Linux下还需配置Mycat的解压目录：vim  /etc/profile，配置完成后使用：source /etc/profile：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=xxx</span><br><span class="line">export MYCAT_HOME=xxx</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>运行（Linux）：</p>
+<ul>
+<li>./mycat start 启动</li>
+<li>./mycat stop 停止</li>
+<li>./mycat console 前台运行</li>
+<li>./mycat install 添加到系统自动启动（暂未实现）</li>
+<li>./mycat remove 取消随系统自动启动（暂未实现）</li>
+<li>./mycat restart 重启服务</li>
+<li>./mycat pause 暂停</li>
+<li>./mycat status 查看启动状态</li>
+</ul>
+</li>
+<li><p>运行（Windows）：<br>&emsp;&emsp;双击bin/tartup_nowrap.bat，如果出现闪退，可在cmd命令行运行，并查看出错原因</p>
+</li>
+<li><p>内存配置：<br>&emsp;&emsp;启动前，一般需要修改JVM配置参数，打开conf/wrapper.conf文件，可根据本机配置情况修改为512M或其它值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># Java Additional Parameters</span><br><span class="line">#wrapper.java.additional.1=</span><br><span class="line">wrapper.java.additional.1=-DMYCAT_HOME=.</span><br><span class="line">wrapper.java.additional.2=-server</span><br><span class="line">wrapper.java.additional.3=-XX:MaxPermSize=64M</span><br><span class="line">wrapper.java.additional.4=-XX:+AggressiveOpts</span><br><span class="line">wrapper.java.additional.5=-XX:MaxDirectMemorySize=2G</span><br><span class="line">wrapper.java.additional.6=-Dcom.sun.management.jmxremote</span><br><span class="line">wrapper.java.additional.7=-Dcom.sun.management.jmxremote.port=1984</span><br><span class="line">wrapper.java.additional.8=-Dcom.sun.management.jmxremote.authenticate=false</span><br><span class="line">wrapper.java.additional.9=-Dcom.sun.management.jmxremote.ssl=false</span><br><span class="line">wrapper.java.additional.10=-Xmx4G</span><br><span class="line">wrapper.java.additional.11=-Xms1G</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>连接测试：</p>
+<ul>
+<li>测试mycat与测试mysql完全一致，mysql怎么连接，mycat就怎么连接</li>
+<li>命令行：mysql -uroot -proot -P8066 -h127.0.0.1（其中，user和password可在conf/server.xml配置查找，8066是默认的服务端口，也可以在conf/server.xml中配置修改）</li>
+<li>客户端：1.3和1.4版本目前部分工具无法连接，会提示database not selected，建议使用高版本的Mycat，1.5版本已经修复了部分客户端工具的连接</li>
+</ul>
+</li>
+</ul>
+<h3 id="常见分库分表产品对比"><a href="#常见分库分表产品对比" class="headerlink" title="常见分库分表产品对比"></a>常见分库分表产品对比</h3><table>
+<thead>
+<tr>
+<th>分库分表产品</th>
+<th>MyCat</th>
+<th>Sharding-JDBC</th>
+<th>Cobar</th>
+<th>Cobar-client</th>
+<th>TDDL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>分库</td>
+<td>有</td>
+<td>有</td>
+<td>有</td>
+<td>有</td>
+<td>未开源</td>
+</tr>
+<tr>
+<td>分表</td>
+<td>有</td>
+<td>有</td>
+<td>无</td>
+<td>无</td>
+<td>未开源</td>
+</tr>
+<tr>
+<td>中间层</td>
+<td>是</td>
+<td>否</td>
+<td>是</td>
+<td>否</td>
+<td>否</td>
+</tr>
+<tr>
+<td>ORM支持</td>
+<td>任意</td>
+<td>任意</td>
+<td>任意</td>
+<td>仅MyBatis</td>
+<td>任意</td>
+</tr>
+<tr>
+<td>数据库支持</td>
+<td>任意</td>
+<td>任意</td>
+<td>仅MySQL</td>
+<td>任意</td>
+<td>任意</td>
+</tr>
+<tr>
+<td>社区情况</td>
+<td>活跃</td>
+<td>活跃</td>
+<td>停更</td>
+<td>未知</td>
+<td>未知</td>
+</tr>
+</tbody>
+</table>
+<h3 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h3><blockquote>
+<p><a href="http://www.mycat.io/" target="_blank" rel="noopener">Mycat官网</a><br><a href="http://songwie.com/teachs?searthstr=Mycat&amp;start=0&amp;limit=100" target="_blank" rel="noopener">Mycat从零开始</a><br><a href="http://www.mycat.io/document/Mycat_V1.6.0.pdf" target="_blank" rel="noopener">Mycat权威指南</a><br><a href="https://github.com/MyCATApache/Mycat-Server" target="_blank" rel="noopener">GitHub：Mycat-Server</a><br><a href="https://github.com/MyCATApache/Mycat-Server/wiki" target="_blank" rel="noopener">Wiki：Mycat-Server</a><br><a href="https://github.com/MyCATApache/Mycat-Server/issues" target="_blank" rel="noopener">Issues：Mycat-Server</a><br><a href="https://www.guokr.com/blog/475765/" target="_blank" rel="noopener">mysql中间件研究（Atlas，Cobar，TDDL）</a><br><a href="http://songwie.com/articlelist/44" target="_blank" rel="noopener">mysql中间件研究（Atlas，Cobar，TDDL，Mycat，Heisenberg，Oceanus，Vitess，OneProxy）</a></p>
+</blockquote>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年03月03日 17:53</p>
+        <p>原始链接： <a class="post-url" href="/2018/03/03/Mycat（入门篇）/" title="Mycat（入门篇）">http://yoursite.com/2018/03/03/Mycat（入门篇）/</a></p>
+        <footer>
+            <a href="http://yoursite.com">
+                <img src="/images/logo.png" alt="Jared Qiu">
+                Jared Qiu
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赞赏支持
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/03/03/Mycat（入门篇）/&title=《Mycat（入门篇）》 — Jared Qiu's Blog | 不只是技术&pic=http://p3ry9qsas.bkt.clouddn.com/201833/mycat架构图.png "mycat架构图"" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/03/03/Mycat（入门篇）/&title=《Mycat（入门篇）》 — Jared Qiu's Blog | 不只是技术&source=Coding爱好者，有代码小洁癖，主攻Java，也喜欢Python和JavaScript，为人乐观、积极、向上、勤奋、和善、易相处，讲卫生，爱学习，爱码字..." data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/03/03/Mycat（入门篇）/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Mycat（入门篇）》 — Jared Qiu's Blog | 不只是技术&url=http://yoursite.com/2018/03/03/Mycat（入门篇）/&via=http://yoursite.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/03/03/Mycat（入门篇）/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2018/03/03/Mycat（入门篇）/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/Mycat/" class="color1">Mycat</a>
+      
+    <a href="/tags/数据库中间件/" class="color2">数据库中间件</a>
+      
+    <a href="/tags/入门篇/" class="color4">入门篇</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Mycat是什么"><span class="post-toc-text">Mycat是什么</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Mycat关键特性"><span class="post-toc-text">Mycat关键特性</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装与使用"><span class="post-toc-text">安装与使用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#常见分库分表产品对比"><span class="post-toc-text">常见分库分表产品对比</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#相关链接"><span class="post-toc-text">相关链接</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+  
+    <a href="/2018/03/03/Mycat（实践篇 - 基于PostgreSQL的水平切分、主从复制、读写分离）/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Mycat（实践篇 - 基于PostgreSQL的水平切分、主从复制、读写分离）</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        <div id="SOHUCS" sid="Mycat（入门篇）" ></div>
+<script type="text/javascript">
+    (function(){
+        var appid = 'cytsi4W0L';
+        var conf = 'prod_302a63175740fd2ee2587f9345477b4c';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2018 Jared Qiu<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://yoursite.com",
+      animate: false,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/IO/">IO</a><a class="category-link" href="/categories/IO/Java/">Java</a><a class="category-link" href="/categories/docker/">docker</a><a class="category-link" href="/categories/开源项目/">开源项目</a><a class="category-link" href="/categories/数据库中间件/">数据库中间件</a><a class="category-link" href="/categories/数据库中间件/Mycat/">Mycat</a><a class="category-link" href="/categories/编辑器/">编辑器</a><a class="category-link" href="/categories/编辑器/个人感悟/">个人感悟</a><a class="category-link" href="/categories/编辑器/快捷键/">快捷键</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/Eclipse/" style="font-size: 10px;">Eclipse</a> <a href="/tags/GitHub-Pages/" style="font-size: 15px;">GitHub Pages</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDEA/" style="font-size: 15px;">IDEA</a> <a href="/tags/IO/" style="font-size: 10px;">IO</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/JetBrains/" style="font-size: 10px;">JetBrains</a> <a href="/tags/Mycat/" style="font-size: 20px;">Mycat</a> <a href="/tags/Study/" style="font-size: 10px;">Study</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/postgresql/" style="font-size: 10px;">postgresql</a> <a href="/tags/个人博客/" style="font-size: 15px;">个人博客</a> <a href="/tags/个人感悟/" style="font-size: 10px;">个人感悟</a> <a href="/tags/主从复制/" style="font-size: 15px;">主从复制</a> <a href="/tags/入门/" style="font-size: 10px;">入门</a> <a href="/tags/入门篇/" style="font-size: 10px;">入门篇</a> <a href="/tags/实践篇/" style="font-size: 15px;">实践篇</a> <a href="/tags/容器/" style="font-size: 10px;">容器</a> <a href="/tags/开发经验/" style="font-size: 10px;">开发经验</a> <a href="/tags/开源项目/" style="font-size: 15px;">开源项目</a> <a href="/tags/数据库中间件/" style="font-size: 20px;">数据库中间件</a> <a href="/tags/编辑器/" style="font-size: 15px;">编辑器</a> <a href="/tags/读写分离/" style="font-size: 15px;">读写分离</a> <a href="/tags/配置篇/" style="font-size: 10px;">配置篇</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/Eclipse/" style="font-size: 10px;">Eclipse</a> <a href="/tags/GitHub-Pages/" style="font-size: 15px;">GitHub Pages</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDEA/" style="font-size: 15px;">IDEA</a> <a href="/tags/IO/" style="font-size: 10px;">IO</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/JetBrains/" style="font-size: 10px;">JetBrains</a> <a href="/tags/Mycat/" style="font-size: 20px;">Mycat</a> <a href="/tags/Study/" style="font-size: 10px;">Study</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/postgresql/" style="font-size: 10px;">postgresql</a> <a href="/tags/个人博客/" style="font-size: 15px;">个人博客</a> <a href="/tags/个人感悟/" style="font-size: 10px;">个人感悟</a> <a href="/tags/主从复制/" style="font-size: 15px;">主从复制</a> <a href="/tags/入门/" style="font-size: 10px;">入门</a> <a href="/tags/入门篇/" style="font-size: 10px;">入门篇</a> <a href="/tags/实践篇/" style="font-size: 15px;">实践篇</a> <a href="/tags/容器/" style="font-size: 10px;">容器</a> <a href="/tags/开发经验/" style="font-size: 10px;">开发经验</a> <a href="/tags/开源项目/" style="font-size: 15px;">开源项目</a> <a href="/tags/数据库中间件/" style="font-size: 20px;">数据库中间件</a> <a href="/tags/编辑器/" style="font-size: 15px;">编辑器</a> <a href="/tags/读写分离/" style="font-size: 15px;">读写分离</a> <a href="/tags/配置篇/" style="font-size: 10px;">配置篇</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>

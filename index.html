@@ -141,8 +141,8 @@
             <p>
                 写在前面&emsp;&emsp;Mycat作为独立的数据库中间件，我们只需要进行相关的配置，就可以非常方便的帮我们实现水平切分、垂直切分、读写分离等功能，但PostgreSQL的主从复制需要我们通过其它方式实现。这里假设我们已经搭建好相关的环境，下面就开始我们的实践吧！
 准备环境
-PostgreSQL(Version : 10.1)主从环境搭建
-对应数据库建立（以下例子中使用的都是默认存在的...
+PostgreSQL(Version : 5.7)主从环境搭建
+对应数据库建立（以下例子中使用的都是默认存在的p...
             </p>
         </div>
       
@@ -164,11 +164,11 @@ PostgreSQL(Version : 10.1)主从环境搭建
       
     <a href="/tags/实践篇/" class="color4">实践篇</a>
       
-    <a href="/tags/postgresql/" class="color1">postgresql</a>
-      
     <a href="/tags/主从复制/" class="color5">主从复制</a>
       
     <a href="/tags/读写分离/" class="color5">读写分离</a>
+      
+    <a href="/tags/postgresql/" class="color1">postgresql</a>
       
   </li>
 
@@ -218,8 +218,8 @@ PostgreSQL(Version : 10.1)主从环境搭建
             <p>
                 写在前面&emsp;&emsp;Mycat作为独立的数据库中间件，我们只需要进行相关的配置，就可以非常方便的帮我们实现水平切分、垂直切分、读写分离等功能，但Mysql的主从复制需要我们通过其它方式实现。这里假设我们已经搭建好相关的环境，下面就开始我们的实践吧！
 准备环境
-Mysql(Version : 5.7)主从环境搭建
-对应数据库建立（以下例子中要建的数据库是：master1mycat ...
+Mysql主从环境搭建
+对应数据库建立（以下例子中要建的数据库是：master1mycat 和 master2mycat）...
             </p>
         </div>
       
@@ -241,11 +241,11 @@ Mysql(Version : 5.7)主从环境搭建
       
     <a href="/tags/实践篇/" class="color4">实践篇</a>
       
+    <a href="/tags/mysql/" class="color1">mysql</a>
+      
     <a href="/tags/主从复制/" class="color5">主从复制</a>
       
     <a href="/tags/读写分离/" class="color5">读写分离</a>
-      
-    <a href="/tags/mysql/" class="color1">mysql</a>
       
   </li>
 
@@ -367,12 +367,12 @@ log4j.xml： 日志存放在logs/log中，每天一个文件，...
         </div>
         <div class="article-feed">
             <p>
-                Mycat是什么&emsp;&emsp;Mycat是一款基于阿里开源产品Cobar而研发的开源数据库分库分表中间件（基于Java语言开发）。官网所言：Mycat国内最活跃的、性能最好的开源数据库中间件！
+                Mycat是什么Mycat是一款基于阿里开源产品Cobar而研发的开源数据库分库分表中间件（基于Java语言开发）。官网所言：Mycat国内最活跃的、性能最好的开源数据库中间件！
 
 一个彻底开源的，面向企业应用开发的大数据库集群
 支持事务、ACID、可以替代MySQL的加强版数据库
 一个可以视为MySQL集群的企业级数据库，用来替代昂贵的Oracle集群
-一个融合内存...
+一个融合内存缓存技术、NoSQL技术...
             </p>
         </div>
       
@@ -399,6 +399,72 @@ log4j.xml： 日志存放在logs/log中，每天一个文件，...
         </ul>
         
             <a href="/2018/03/01/Mycat（入门篇）/#more" class="article-more-link"  target="_blank" >&lt;&lt; 阅读全文 &gt;&gt;</a>
+        
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article id="post-Docker（二）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/11/Docker（二）/"  target="_blank"  >Docker（二）</a>
+    </h1>
+  
+
+          
+              <span class="header-cate">
+                <i class="fa fa-map-marker"></i>
+                  
+                  <a href="/categories/docker/">docker</a>
+                  
+              </span>
+          
+      </header>
+    
+    <div class="article-entry " itemprop="articleBody">
+      
+        <div class="article-img">
+            <a href="/2018/02/11/Docker（二）/"  target="_blank" >
+                
+                <img src="http://p3ry9qsas.bkt.clouddn.com/2018211/20180211153224.png" alt="Docker（二）" title="Docker（二）">
+                
+            </a>
+        </div>
+        <div class="article-feed">
+            <p>
+                1、Dockerfile
+FROM 。FROM指令必须指定且需要在Dockerfile其他指令的前面，指定的基础image可以是官方远程仓库中的，也可以位于本地仓库。后续的指令都依赖于该指令指定的image。当在同一个Dockerfile中建立多个镜像时，可以使用多个FROM指令。
+123FROM &lt;image&gt;FROM &lt;image&gt;:&lt;tag&gt;FROM...
+            </p>
+        </div>
+      
+        
+    </div>
+    <footer class="article-footer">
+        
+        <ul class="article-footer-menu">
+            
+                <li><i class="fa fa-calendar"></i>2018-02-11</li>
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/docker/" class="color2">docker</a>
+      
+    <a href="/tags/容器/" class="color3">容器</a>
+      
+  </li>
+
+        </ul>
+        
+            <a href="/2018/02/11/Docker（二）/#more" class="article-more-link"  target="_blank" >&lt;&lt; 阅读全文 &gt;&gt;</a>
         
     </footer>
   </div>
@@ -472,14 +538,87 @@ log4j.xml： 日志存放在logs/log中，每天一个文件，...
 
 
   
-    <article id="post-BIO、伪异步IO、NIO和AIO学习" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-面向切面的Spring - 《Spring实战》第4章（笔记）" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/10/BIO、伪异步IO、NIO和AIO学习/"  target="_blank"  >BIO、伪异步IO、NIO和AIO学习</a>
+      <a class="article-title" href="/2018/02/11/面向切面的Spring - 《Spring实战》第4章（笔记）/"  target="_blank"  >面向切面的Spring - 《Spring实战》第4章（笔记）</a>
+    </h1>
+  
+
+          
+              <span class="header-cate">
+                <i class="fa fa-map-marker"></i>
+                  
+                  <a href="/categories/Spring/">Spring</a>
+                  
+              </span>
+          
+      </header>
+    
+    <div class="article-entry " itemprop="articleBody">
+      
+        <div class="article-img">
+            <a href="/2018/02/11/面向切面的Spring - 《Spring实战》第4章（笔记）/"  target="_blank" >
+                
+                <img src="http://p3ry9qsas.bkt.clouddn.com/2018226/u=1661417806,849915562&fm=27&gp=0.jpg" alt="面向切面的Spring - 《Spring实战》第4章（笔记）" title="面向切面的Spring - 《Spring实战》第4章（笔记）">
+                
+            </a>
+        </div>
+        <div class="article-feed">
+            <p>
+                &emsp;&emsp;本文是博主在看完《Spring实战》第4章：面向切面的Spring后的一些实践笔记。
+实战案例
+create Entity
+123456789101112@Table(name = "tb_user")@Entity@Datapublic class User &#123;    @Id    @GeneratedValue    private Integer id...
+            </p>
+        </div>
+      
+        
+    </div>
+    <footer class="article-footer">
+        
+        <ul class="article-footer-menu">
+            
+                <li><i class="fa fa-calendar"></i>2018-02-11</li>
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/《Springinaction》/" class="color4">《Spring in action》</a>
+      
+    <a href="/tags/Spring/" class="color2">Spring</a>
+      
+    <a href="/tags/AcpectJ/" class="color3">AcpectJ</a>
+      
+    <a href="/tags/Aop/" class="color4">Aop</a>
+      
+    <a href="/tags/读书笔记/" class="color5">读书笔记</a>
+      
+  </li>
+
+        </ul>
+        
+            <a href="/2018/02/11/面向切面的Spring - 《Spring实战》第4章（笔记）/#more" class="article-more-link"  target="_blank" >&lt;&lt; 阅读全文 &gt;&gt;</a>
+        
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article id="post-BIO、伪异步IO、NIO和AIO的学习" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/02/10/BIO、伪异步IO、NIO和AIO的学习/"  target="_blank"  >BIO、伪异步IO、NIO和AIO学习</a>
     </h1>
   
 
@@ -498,7 +637,7 @@ log4j.xml： 日志存放在logs/log中，每天一个文件，...
     <div class="article-entry " itemprop="articleBody">
       
         <div class="article-img">
-            <a href="/2018/02/10/BIO、伪异步IO、NIO和AIO学习/"  target="_blank" >
+            <a href="/2018/02/10/BIO、伪异步IO、NIO和AIO的学习/"  target="_blank" >
                 
                 <img src="http://p3ry9qsas.bkt.clouddn.com/2018210/javaio.jpg" alt="BIO、伪异步IO、NIO和AIO学习" title="BIO、伪异步IO、NIO和AIO学习">
                 
@@ -580,7 +719,7 @@ API难度
 
         </ul>
         
-            <a href="/2018/02/10/BIO、伪异步IO、NIO和AIO学习/#more" class="article-more-link"  target="_blank" >&lt;&lt; 阅读全文 &gt;&gt;</a>
+            <a href="/2018/02/10/BIO、伪异步IO、NIO和AIO的学习/#more" class="article-more-link"  target="_blank" >&lt;&lt; 阅读全文 &gt;&gt;</a>
         
     </footer>
   </div>
@@ -588,14 +727,14 @@ API难度
 
 
   
-    <article id="post-IDEA快捷键拆解系列（一）" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-IDEA快捷键拆解（一）" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/10/IDEA快捷键拆解系列（一）/"  target="_blank"  >IDEA快捷键拆解系列（一）</a>
+      <a class="article-title" href="/2018/02/10/IDEA快捷键拆解（一）/"  target="_blank"  >IDEA快捷键拆解系列（一）</a>
     </h1>
   
 
@@ -614,7 +753,7 @@ API难度
     <div class="article-entry " itemprop="articleBody">
       
         <div class="article-img">
-            <a href="/2018/02/10/IDEA快捷键拆解系列（一）/"  target="_blank" >
+            <a href="/2018/02/10/IDEA快捷键拆解（一）/"  target="_blank" >
                 
                 <img src="http://p3ry9qsas.bkt.clouddn.com/201829/idea2017.1.png" alt="IDEA快捷键拆解系列（一）" title="IDEA快捷键拆解系列（一）">
                 
@@ -650,7 +789,7 @@ API难度
 
         </ul>
         
-            <a href="/2018/02/10/IDEA快捷键拆解系列（一）/#more" class="article-more-link"  target="_blank" >&lt;&lt; 阅读全文 &gt;&gt;</a>
+            <a href="/2018/02/10/IDEA快捷键拆解（一）/#more" class="article-more-link"  target="_blank" >&lt;&lt; 阅读全文 &gt;&gt;</a>
         
     </footer>
   </div>
@@ -658,14 +797,14 @@ API难度
 
 
   
-    <article id="post-IDEA快捷键拆解系列（前言）" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-IDEA快捷键拆解系列前言" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/09/IDEA快捷键拆解系列（前言）/"  target="_blank"  >IDEA快捷键拆解系列（前言）</a>
+      <a class="article-title" href="/2018/02/09/IDEA快捷键拆解系列前言/"  target="_blank"  >IDEA快捷键拆解系列（前言）</a>
     </h1>
   
 
@@ -684,7 +823,7 @@ API难度
     <div class="article-entry " itemprop="articleBody">
       
         <div class="article-img">
-            <a href="/2018/02/09/IDEA快捷键拆解系列（前言）/"  target="_blank" >
+            <a href="/2018/02/09/IDEA快捷键拆解系列前言/"  target="_blank" >
                 
                 <img src="http://p3ry9qsas.bkt.clouddn.com/201829/u=853652386,3086888368&fm=27&gp=0.jpg" alt="IDEA快捷键拆解系列（前言）" title="IDEA快捷键拆解系列（前言）">
                 
@@ -710,9 +849,9 @@ API难度
       
     <a href="/tags/IDEA/" class="color5">IDEA</a>
       
-    <a href="/tags/Eclipse/" class="color3">Eclipse</a>
-      
     <a href="/tags/编辑器/" class="color4">编辑器</a>
+      
+    <a href="/tags/Eclipse/" class="color3">Eclipse</a>
       
     <a href="/tags/个人感悟/" class="color5">个人感悟</a>
       
@@ -720,141 +859,7 @@ API难度
 
         </ul>
         
-            <a href="/2018/02/09/IDEA快捷键拆解系列（前言）/#more" class="article-more-link"  target="_blank" >&lt;&lt; 阅读全文 &gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-Hexo整合GitHub Pages" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/08/Hexo整合GitHub Pages/"  target="_blank"  >Hexo整合GitHub Pages</a>
-    </h1>
-  
-
-          
-              <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                  
-                  <a href="/categories/开源项目/">开源项目</a>
-                  
-              </span>
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2018/02/08/Hexo整合GitHub Pages/"  target="_blank" >
-                
-                <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1518070832976&di=e22411c7144157f5f23ef513c0f44a2f&imgtype=0&src=http%3A%2F%2Fpic4.zhimg.com%2Fd4c1239e75c02e8482c22017a6c8d407_r.jpg" alt="Hexo整合GitHub Pages" title="Hexo整合GitHub Pages">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                什么是Hexo&emsp;&emsp;Hexo is a fast, simple and powerful blog framework. You write posts in Markdown (or other languages) and Hexo generates static files with a beautiful theme in seconds. ( Hexo 是一个...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2018-02-08</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/Hexo/" class="color5">Hexo</a>
-      
-    <a href="/tags/GitHubPages/" class="color3">GitHub Pages</a>
-      
-    <a href="/tags/个人博客/" class="color5">个人博客</a>
-      
-    <a href="/tags/开源项目/" class="color5">开源项目</a>
-      
-  </li>
-
-        </ul>
-        
-            <a href="/2018/02/08/Hexo整合GitHub Pages/#more" class="article-more-link"  target="_blank" >&lt;&lt; 阅读全文 &gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-GitHub Pages介绍及搭建" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/07/GitHub Pages介绍及搭建/"  target="_blank"  >GitHub Pages介绍及搭建</a>
-    </h1>
-  
-
-          
-              <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                  
-                  <a href="/categories/开源项目/">开源项目</a>
-                  
-              </span>
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2018/02/07/GitHub Pages介绍及搭建/"  target="_blank" >
-                
-                <img src="https://upload-images.jianshu.io/upload_images/32598-33c5e1c4c2d28724.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/700" alt="GitHub Pages介绍及搭建" title="GitHub Pages介绍及搭建">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                GitHub Page&emsp;&emsp;GitHub Page，一般多用于托管个人的静态网站，所以现在很多人也用来它来搭建私人博客，也算是省去了购买服务器、域名等等一系列复杂的操作。搭建博客网站有各种各样的方法，像懂php的可以用WordPress，懂Java的可以用Jpress等等。但如果你想简单和简约，那么我强烈推荐你使用Github Page。&emsp;&emsp;在学习以下内...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2018-02-07</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/GitHubPages/" class="color3">GitHub Pages</a>
-      
-    <a href="/tags/个人博客/" class="color5">个人博客</a>
-      
-    <a href="/tags/开源项目/" class="color5">开源项目</a>
-      
-  </li>
-
-        </ul>
-        
-            <a href="/2018/02/07/GitHub Pages介绍及搭建/#more" class="article-more-link"  target="_blank" >&lt;&lt; 阅读全文 &gt;&gt;</a>
+            <a href="/2018/02/09/IDEA快捷键拆解系列前言/#more" class="article-more-link"  target="_blank" >&lt;&lt; 阅读全文 &gt;&gt;</a>
         
     </footer>
   </div>
@@ -863,6 +868,10 @@ API难度
 
   
 
+
+  <nav id="page-nav">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next >></a>
+  </nav>
 </section>
         
       </div>
@@ -916,10 +925,10 @@ API难度
 <div class="sidebar-menu-box" id="sidebar-menu-box">
     <div class="sidebar-menu-box-container">
         <div id="sidebar-menu-box-categories">
-            <a class="category-link" href="/categories/IO/">IO</a><a class="category-link" href="/categories/IO/Java/">Java</a><a class="category-link" href="/categories/docker/">docker</a><a class="category-link" href="/categories/开源项目/">开源项目</a><a class="category-link" href="/categories/数据库中间件/">数据库中间件</a><a class="category-link" href="/categories/数据库中间件/Mycat/">Mycat</a><a class="category-link" href="/categories/编辑器/">编辑器</a><a class="category-link" href="/categories/编辑器/个人感悟/">个人感悟</a><a class="category-link" href="/categories/编辑器/快捷键/">快捷键</a>
+            <a class="category-link" href="/categories/IO/">IO</a><a class="category-link" href="/categories/IO/Java/">Java</a><a class="category-link" href="/categories/Java/">Java</a><a class="category-link" href="/categories/Java/Lombok/">Lombok</a><a class="category-link" href="/categories/Spring/">Spring</a><a class="category-link" href="/categories/docker/">docker</a><a class="category-link" href="/categories/开源项目/">开源项目</a><a class="category-link" href="/categories/数据库中间件/">数据库中间件</a><a class="category-link" href="/categories/数据库中间件/Mycat/">Mycat</a><a class="category-link" href="/categories/编辑器/">编辑器</a><a class="category-link" href="/categories/编辑器/个人感悟/">个人感悟</a><a class="category-link" href="/categories/编辑器/快捷键/">快捷键</a>
         </div>
         <div id="sidebar-menu-box-tags">
-            <a href="/tags/Eclipse/" style="font-size: 10px;">Eclipse</a> <a href="/tags/GitHub-Pages/" style="font-size: 15px;">GitHub Pages</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDEA/" style="font-size: 15px;">IDEA</a> <a href="/tags/IO/" style="font-size: 10px;">IO</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/JetBrains/" style="font-size: 10px;">JetBrains</a> <a href="/tags/Mycat/" style="font-size: 20px;">Mycat</a> <a href="/tags/Study/" style="font-size: 10px;">Study</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/postgresql/" style="font-size: 10px;">postgresql</a> <a href="/tags/个人博客/" style="font-size: 15px;">个人博客</a> <a href="/tags/个人感悟/" style="font-size: 10px;">个人感悟</a> <a href="/tags/主从复制/" style="font-size: 15px;">主从复制</a> <a href="/tags/入门/" style="font-size: 10px;">入门</a> <a href="/tags/入门篇/" style="font-size: 10px;">入门篇</a> <a href="/tags/实践篇/" style="font-size: 15px;">实践篇</a> <a href="/tags/容器/" style="font-size: 10px;">容器</a> <a href="/tags/开发经验/" style="font-size: 10px;">开发经验</a> <a href="/tags/开源项目/" style="font-size: 15px;">开源项目</a> <a href="/tags/数据库中间件/" style="font-size: 20px;">数据库中间件</a> <a href="/tags/编辑器/" style="font-size: 15px;">编辑器</a> <a href="/tags/读写分离/" style="font-size: 15px;">读写分离</a> <a href="/tags/配置篇/" style="font-size: 10px;">配置篇</a>
+            <a href="/tags/AcpectJ/" style="font-size: 10px;">AcpectJ</a> <a href="/tags/Aop/" style="font-size: 10px;">Aop</a> <a href="/tags/Eclipse/" style="font-size: 10px;">Eclipse</a> <a href="/tags/GitHub-Pages/" style="font-size: 15px;">GitHub Pages</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDEA/" style="font-size: 15px;">IDEA</a> <a href="/tags/IO/" style="font-size: 10px;">IO</a> <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Java类库/" style="font-size: 10px;">Java类库</a> <a href="/tags/JetBrains/" style="font-size: 10px;">JetBrains</a> <a href="/tags/Lombok/" style="font-size: 10px;">Lombok</a> <a href="/tags/Mycat/" style="font-size: 20px;">Mycat</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/Study/" style="font-size: 10px;">Study</a> <a href="/tags/docker/" style="font-size: 15px;">docker</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/postgresql/" style="font-size: 10px;">postgresql</a> <a href="/tags/《Spring-in-action》/" style="font-size: 10px;">《Spring in action》</a> <a href="/tags/个人博客/" style="font-size: 15px;">个人博客</a> <a href="/tags/个人感悟/" style="font-size: 10px;">个人感悟</a> <a href="/tags/主从复制/" style="font-size: 15px;">主从复制</a> <a href="/tags/入门/" style="font-size: 10px;">入门</a> <a href="/tags/入门篇/" style="font-size: 10px;">入门篇</a> <a href="/tags/实践篇/" style="font-size: 15px;">实践篇</a> <a href="/tags/容器/" style="font-size: 15px;">容器</a> <a href="/tags/开发经验/" style="font-size: 10px;">开发经验</a> <a href="/tags/开源项目/" style="font-size: 15px;">开源项目</a> <a href="/tags/数据库中间件/" style="font-size: 20px;">数据库中间件</a> <a href="/tags/编辑器/" style="font-size: 15px;">编辑器</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a> <a href="/tags/读写分离/" style="font-size: 15px;">读写分离</a> <a href="/tags/配置篇/" style="font-size: 10px;">配置篇</a>
         </div>
     </div>
     <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
@@ -946,7 +955,7 @@ API难度
     <div class="mobile-header-tag-container">
         <span class="title">Tags</span>
         <div id="mobile-header-container-tags">
-            <a href="/tags/Eclipse/" style="font-size: 10px;">Eclipse</a> <a href="/tags/GitHub-Pages/" style="font-size: 15px;">GitHub Pages</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDEA/" style="font-size: 15px;">IDEA</a> <a href="/tags/IO/" style="font-size: 10px;">IO</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/JetBrains/" style="font-size: 10px;">JetBrains</a> <a href="/tags/Mycat/" style="font-size: 20px;">Mycat</a> <a href="/tags/Study/" style="font-size: 10px;">Study</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/postgresql/" style="font-size: 10px;">postgresql</a> <a href="/tags/个人博客/" style="font-size: 15px;">个人博客</a> <a href="/tags/个人感悟/" style="font-size: 10px;">个人感悟</a> <a href="/tags/主从复制/" style="font-size: 15px;">主从复制</a> <a href="/tags/入门/" style="font-size: 10px;">入门</a> <a href="/tags/入门篇/" style="font-size: 10px;">入门篇</a> <a href="/tags/实践篇/" style="font-size: 15px;">实践篇</a> <a href="/tags/容器/" style="font-size: 10px;">容器</a> <a href="/tags/开发经验/" style="font-size: 10px;">开发经验</a> <a href="/tags/开源项目/" style="font-size: 15px;">开源项目</a> <a href="/tags/数据库中间件/" style="font-size: 20px;">数据库中间件</a> <a href="/tags/编辑器/" style="font-size: 15px;">编辑器</a> <a href="/tags/读写分离/" style="font-size: 15px;">读写分离</a> <a href="/tags/配置篇/" style="font-size: 10px;">配置篇</a>
+            <a href="/tags/AcpectJ/" style="font-size: 10px;">AcpectJ</a> <a href="/tags/Aop/" style="font-size: 10px;">Aop</a> <a href="/tags/Eclipse/" style="font-size: 10px;">Eclipse</a> <a href="/tags/GitHub-Pages/" style="font-size: 15px;">GitHub Pages</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDEA/" style="font-size: 15px;">IDEA</a> <a href="/tags/IO/" style="font-size: 10px;">IO</a> <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Java类库/" style="font-size: 10px;">Java类库</a> <a href="/tags/JetBrains/" style="font-size: 10px;">JetBrains</a> <a href="/tags/Lombok/" style="font-size: 10px;">Lombok</a> <a href="/tags/Mycat/" style="font-size: 20px;">Mycat</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/Study/" style="font-size: 10px;">Study</a> <a href="/tags/docker/" style="font-size: 15px;">docker</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/postgresql/" style="font-size: 10px;">postgresql</a> <a href="/tags/《Spring-in-action》/" style="font-size: 10px;">《Spring in action》</a> <a href="/tags/个人博客/" style="font-size: 15px;">个人博客</a> <a href="/tags/个人感悟/" style="font-size: 10px;">个人感悟</a> <a href="/tags/主从复制/" style="font-size: 15px;">主从复制</a> <a href="/tags/入门/" style="font-size: 10px;">入门</a> <a href="/tags/入门篇/" style="font-size: 10px;">入门篇</a> <a href="/tags/实践篇/" style="font-size: 15px;">实践篇</a> <a href="/tags/容器/" style="font-size: 15px;">容器</a> <a href="/tags/开发经验/" style="font-size: 10px;">开发经验</a> <a href="/tags/开源项目/" style="font-size: 15px;">开源项目</a> <a href="/tags/数据库中间件/" style="font-size: 20px;">数据库中间件</a> <a href="/tags/编辑器/" style="font-size: 15px;">编辑器</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a> <a href="/tags/读写分离/" style="font-size: 15px;">读写分离</a> <a href="/tags/配置篇/" style="font-size: 10px;">配置篇</a>
         </div>
     </div>
 </div>

@@ -8,18 +8,18 @@
   
     <meta name="keywords" content="Jared Qiu's Blog | 不只是技术的...个人博客，编码爱好者，有代码小洁癖。" />
   
-  <meta name="description" content="Mycat是什么&amp;emsp;&amp;emsp;Mycat是一款基于阿里开源产品Cobar而研发的开源数据库分库分表中间件（基于Java语言开发）。官网所言：Mycat国内最活跃的、性能最好的开源数据库中间件！  一个彻底开源的，面向企业应用开发的大数据库集群 支持事务、ACID、可以替代MySQL的加强版数据库 一个可以视为MySQL集群的企业级数据库，用来替代昂贵的Oracle集群 一个融合内存缓存技">
+  <meta name="description" content="Mycat是什么Mycat是一款基于阿里开源产品Cobar而研发的开源数据库分库分表中间件（基于Java语言开发）。官网所言：Mycat国内最活跃的、性能最好的开源数据库中间件！  一个彻底开源的，面向企业应用开发的大数据库集群 支持事务、ACID、可以替代MySQL的加强版数据库 一个可以视为MySQL集群的企业级数据库，用来替代昂贵的Oracle集群 一个融合内存缓存技术、NoSQL技术、HD">
 <meta name="keywords" content="Mycat,数据库中间件,入门篇">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mycat（入门篇）">
 <meta property="og:url" content="http://yoursite.com/2018/03/01/Mycat（入门篇）/index.html">
 <meta property="og:site_name" content="Jared Qiu&#39;s Blog | 不只是技术">
-<meta property="og:description" content="Mycat是什么&amp;emsp;&amp;emsp;Mycat是一款基于阿里开源产品Cobar而研发的开源数据库分库分表中间件（基于Java语言开发）。官网所言：Mycat国内最活跃的、性能最好的开源数据库中间件！  一个彻底开源的，面向企业应用开发的大数据库集群 支持事务、ACID、可以替代MySQL的加强版数据库 一个可以视为MySQL集群的企业级数据库，用来替代昂贵的Oracle集群 一个融合内存缓存技">
+<meta property="og:description" content="Mycat是什么Mycat是一款基于阿里开源产品Cobar而研发的开源数据库分库分表中间件（基于Java语言开发）。官网所言：Mycat国内最活跃的、性能最好的开源数据库中间件！  一个彻底开源的，面向企业应用开发的大数据库集群 支持事务、ACID、可以替代MySQL的加强版数据库 一个可以视为MySQL集群的企业级数据库，用来替代昂贵的Oracle集群 一个融合内存缓存技术、NoSQL技术、HD">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-05T02:02:56.565Z">
+<meta property="og:updated_time" content="2018-03-05T08:23:14.807Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mycat（入门篇）">
-<meta name="twitter:description" content="Mycat是什么&amp;emsp;&amp;emsp;Mycat是一款基于阿里开源产品Cobar而研发的开源数据库分库分表中间件（基于Java语言开发）。官网所言：Mycat国内最活跃的、性能最好的开源数据库中间件！  一个彻底开源的，面向企业应用开发的大数据库集群 支持事务、ACID、可以替代MySQL的加强版数据库 一个可以视为MySQL集群的企业级数据库，用来替代昂贵的Oracle集群 一个融合内存缓存技">
+<meta name="twitter:description" content="Mycat是什么Mycat是一款基于阿里开源产品Cobar而研发的开源数据库分库分表中间件（基于Java语言开发）。官网所言：Mycat国内最活跃的、性能最好的开源数据库中间件！  一个彻底开源的，面向企业应用开发的大数据库集群 支持事务、ACID、可以替代MySQL的加强版数据库 一个可以视为MySQL集群的企业级数据库，用来替代昂贵的Oracle集群 一个融合内存缓存技术、NoSQL技术、HD">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -143,7 +143,7 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <h3 id="Mycat是什么"><a href="#Mycat是什么" class="headerlink" title="Mycat是什么"></a>Mycat是什么</h3><p>&emsp;&emsp;Mycat是一款基于阿里开源产品Cobar而研发的开源数据库分库分表中间件（基于Java语言开发）。官网所言：Mycat国内最活跃的、性能最好的开源数据库中间件！</p>
+            <h3 id="Mycat是什么"><a href="#Mycat是什么" class="headerlink" title="Mycat是什么"></a>Mycat是什么</h3><p>Mycat是一款基于阿里开源产品Cobar而研发的开源数据库分库分表中间件（基于Java语言开发）。官网所言：Mycat国内最活跃的、性能最好的开源数据库中间件！</p>
 <ul>
 <li>一个彻底开源的，面向企业应用开发的大数据库集群</li>
 <li>支持事务、ACID、可以替代MySQL的加强版数据库</li>
@@ -201,9 +201,9 @@
 <li>./mycat status 查看启动状态</li>
 </ul>
 </li>
-<li><p>运行（Windows）：<br>&emsp;&emsp;双击bin/tartup_nowrap.bat，如果出现闪退，可在cmd命令行运行，并查看出错原因</p>
+<li><p>运行（Windows）：双击bin/tartup_nowrap.bat，如果出现闪退，可在cmd命令行运行，并查看出错原因</p>
 </li>
-<li><p>内存配置：<br>&emsp;&emsp;启动前，一般需要修改JVM配置参数，打开conf/wrapper.conf文件，可根据本机配置情况修改为512M或其它值。</p>
+<li><p>内存配置：启动前，一般需要修改JVM配置参数，打开conf/wrapper.conf文件，可根据本机配置情况修改为512M或其它值</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># Java Additional Parameters</span><br><span class="line">#wrapper.java.additional.1=</span><br><span class="line">wrapper.java.additional.1=-DMYCAT_HOME=.</span><br><span class="line">wrapper.java.additional.2=-server</span><br><span class="line">wrapper.java.additional.3=-XX:MaxPermSize=64M</span><br><span class="line">wrapper.java.additional.4=-XX:+AggressiveOpts</span><br><span class="line">wrapper.java.additional.5=-XX:MaxDirectMemorySize=2G</span><br><span class="line">wrapper.java.additional.6=-Dcom.sun.management.jmxremote</span><br><span class="line">wrapper.java.additional.7=-Dcom.sun.management.jmxremote.port=1984</span><br><span class="line">wrapper.java.additional.8=-Dcom.sun.management.jmxremote.authenticate=false</span><br><span class="line">wrapper.java.additional.9=-Dcom.sun.management.jmxremote.ssl=false</span><br><span class="line">wrapper.java.additional.10=-Xmx4G</span><br><span class="line">wrapper.java.additional.11=-Xms1G</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>连接测试：</p>
@@ -277,12 +277,12 @@
 </tbody>
 </table>
 <h3 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h3><blockquote>
-<p><a href="http://www.mycat.io/" target="_blank" rel="noopener">Mycat官网</a><br><a href="http://songwie.com/teachs?searthstr=Mycat&amp;start=0&amp;limit=100" target="_blank" rel="noopener">Mycat从零开始</a><br><a href="http://www.mycat.io/document/Mycat_V1.6.0.pdf" target="_blank" rel="noopener">Mycat权威指南</a><br><a href="https://github.com/MyCATApache/Mycat-Server" target="_blank" rel="noopener">GitHub：Mycat-Server</a><br><a href="https://github.com/MyCATApache/Mycat-Server/wiki" target="_blank" rel="noopener">Wiki：Mycat-Server</a><br><a href="https://github.com/MyCATApache/Mycat-Server/issues" target="_blank" rel="noopener">Issues：Mycat-Server</a><br><a href="https://www.guokr.com/blog/475765/" target="_blank" rel="noopener">mysql中间件研究（Atlas，Cobar，TDDL）</a><br><a href="http://songwie.com/articlelist/44" target="_blank" rel="noopener">mysql中间件研究（Atlas，Cobar，TDDL，Mycat，Heisenberg，Oceanus，Vitess，OneProxy）</a></p>
+<p><a href="http://www.mycat.io/" target="_blank" rel="noopener">Mycat官网</a><br><a href="http://songwie.com/teachs?searthstr=Mycat&amp;start=0&amp;limit=100" target="_blank" rel="noopener">Mycat从零开始</a><br><a href="http://www.mycat.io/document/Mycat_V1.6.0.pdf" target="_blank" rel="noopener">Mycat权威指南</a><br><a href="https://github.com/MyCATApache/Mycat-Server" target="_blank" rel="noopener">GitHub：Mycat-Server</a><br><a href="https://github.com/MyCATApache/Mycat-Server/wiki" target="_blank" rel="noopener">Wiki：Mycat-Server</a><br><a href="https://github.com/MyCATApache/Mycat-Server/issues" target="_blank" rel="noopener">Issues：Mycat-Server</a><br><a href="https://www.guokr.com/blog/475765/" target="_blank" rel="noopener">mysql中间件研究（Atlas，Cobar，TDDL）</a><br><a href="http://songwie.com/articlelist/44" target="_blank" rel="noopener">mysql中间件研究（Atlas，Cobar，TDDL，Mycat，Heisenberg，Oceanus，Vitess，OneProxy）</a>  </p>
 </blockquote>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年03月05日 10:02</p>
+        <p>最后更新： 2018年03月05日 16:23</p>
         <p>原始链接： <a class="post-url" href="/2018/03/01/Mycat（入门篇）/" title="Mycat（入门篇）">http://yoursite.com/2018/03/01/Mycat（入门篇）/</a></p>
         <footer>
             <a href="http://yoursite.com">
@@ -422,8 +422,8 @@
     </a>
   
   
-    <a href="/2018/02/11/Docker（一）/" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">Docker（一）</span>
+    <a href="/2018/02/11/Docker（二）/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Docker（二）</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   
@@ -494,10 +494,10 @@
 <div class="sidebar-menu-box" id="sidebar-menu-box">
     <div class="sidebar-menu-box-container">
         <div id="sidebar-menu-box-categories">
-            <a class="category-link" href="/categories/IO/">IO</a><a class="category-link" href="/categories/IO/Java/">Java</a><a class="category-link" href="/categories/docker/">docker</a><a class="category-link" href="/categories/开源项目/">开源项目</a><a class="category-link" href="/categories/数据库中间件/">数据库中间件</a><a class="category-link" href="/categories/数据库中间件/Mycat/">Mycat</a><a class="category-link" href="/categories/编辑器/">编辑器</a><a class="category-link" href="/categories/编辑器/个人感悟/">个人感悟</a><a class="category-link" href="/categories/编辑器/快捷键/">快捷键</a>
+            <a class="category-link" href="/categories/IO/">IO</a><a class="category-link" href="/categories/IO/Java/">Java</a><a class="category-link" href="/categories/Java/">Java</a><a class="category-link" href="/categories/Java/Lombok/">Lombok</a><a class="category-link" href="/categories/Spring/">Spring</a><a class="category-link" href="/categories/docker/">docker</a><a class="category-link" href="/categories/开源项目/">开源项目</a><a class="category-link" href="/categories/数据库中间件/">数据库中间件</a><a class="category-link" href="/categories/数据库中间件/Mycat/">Mycat</a><a class="category-link" href="/categories/编辑器/">编辑器</a><a class="category-link" href="/categories/编辑器/个人感悟/">个人感悟</a><a class="category-link" href="/categories/编辑器/快捷键/">快捷键</a>
         </div>
         <div id="sidebar-menu-box-tags">
-            <a href="/tags/Eclipse/" style="font-size: 10px;">Eclipse</a> <a href="/tags/GitHub-Pages/" style="font-size: 15px;">GitHub Pages</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDEA/" style="font-size: 15px;">IDEA</a> <a href="/tags/IO/" style="font-size: 10px;">IO</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/JetBrains/" style="font-size: 10px;">JetBrains</a> <a href="/tags/Mycat/" style="font-size: 20px;">Mycat</a> <a href="/tags/Study/" style="font-size: 10px;">Study</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/postgresql/" style="font-size: 10px;">postgresql</a> <a href="/tags/个人博客/" style="font-size: 15px;">个人博客</a> <a href="/tags/个人感悟/" style="font-size: 10px;">个人感悟</a> <a href="/tags/主从复制/" style="font-size: 15px;">主从复制</a> <a href="/tags/入门/" style="font-size: 10px;">入门</a> <a href="/tags/入门篇/" style="font-size: 10px;">入门篇</a> <a href="/tags/实践篇/" style="font-size: 15px;">实践篇</a> <a href="/tags/容器/" style="font-size: 10px;">容器</a> <a href="/tags/开发经验/" style="font-size: 10px;">开发经验</a> <a href="/tags/开源项目/" style="font-size: 15px;">开源项目</a> <a href="/tags/数据库中间件/" style="font-size: 20px;">数据库中间件</a> <a href="/tags/编辑器/" style="font-size: 15px;">编辑器</a> <a href="/tags/读写分离/" style="font-size: 15px;">读写分离</a> <a href="/tags/配置篇/" style="font-size: 10px;">配置篇</a>
+            <a href="/tags/AcpectJ/" style="font-size: 10px;">AcpectJ</a> <a href="/tags/Aop/" style="font-size: 10px;">Aop</a> <a href="/tags/Eclipse/" style="font-size: 10px;">Eclipse</a> <a href="/tags/GitHub-Pages/" style="font-size: 15px;">GitHub Pages</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDEA/" style="font-size: 15px;">IDEA</a> <a href="/tags/IO/" style="font-size: 10px;">IO</a> <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Java类库/" style="font-size: 10px;">Java类库</a> <a href="/tags/JetBrains/" style="font-size: 10px;">JetBrains</a> <a href="/tags/Lombok/" style="font-size: 10px;">Lombok</a> <a href="/tags/Mycat/" style="font-size: 20px;">Mycat</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/Study/" style="font-size: 10px;">Study</a> <a href="/tags/docker/" style="font-size: 15px;">docker</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/postgresql/" style="font-size: 10px;">postgresql</a> <a href="/tags/《Spring-in-action》/" style="font-size: 10px;">《Spring in action》</a> <a href="/tags/个人博客/" style="font-size: 15px;">个人博客</a> <a href="/tags/个人感悟/" style="font-size: 10px;">个人感悟</a> <a href="/tags/主从复制/" style="font-size: 15px;">主从复制</a> <a href="/tags/入门/" style="font-size: 10px;">入门</a> <a href="/tags/入门篇/" style="font-size: 10px;">入门篇</a> <a href="/tags/实践篇/" style="font-size: 15px;">实践篇</a> <a href="/tags/容器/" style="font-size: 15px;">容器</a> <a href="/tags/开发经验/" style="font-size: 10px;">开发经验</a> <a href="/tags/开源项目/" style="font-size: 15px;">开源项目</a> <a href="/tags/数据库中间件/" style="font-size: 20px;">数据库中间件</a> <a href="/tags/编辑器/" style="font-size: 15px;">编辑器</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a> <a href="/tags/读写分离/" style="font-size: 15px;">读写分离</a> <a href="/tags/配置篇/" style="font-size: 10px;">配置篇</a>
         </div>
     </div>
     <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
@@ -524,7 +524,7 @@
     <div class="mobile-header-tag-container">
         <span class="title">Tags</span>
         <div id="mobile-header-container-tags">
-            <a href="/tags/Eclipse/" style="font-size: 10px;">Eclipse</a> <a href="/tags/GitHub-Pages/" style="font-size: 15px;">GitHub Pages</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDEA/" style="font-size: 15px;">IDEA</a> <a href="/tags/IO/" style="font-size: 10px;">IO</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/JetBrains/" style="font-size: 10px;">JetBrains</a> <a href="/tags/Mycat/" style="font-size: 20px;">Mycat</a> <a href="/tags/Study/" style="font-size: 10px;">Study</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/postgresql/" style="font-size: 10px;">postgresql</a> <a href="/tags/个人博客/" style="font-size: 15px;">个人博客</a> <a href="/tags/个人感悟/" style="font-size: 10px;">个人感悟</a> <a href="/tags/主从复制/" style="font-size: 15px;">主从复制</a> <a href="/tags/入门/" style="font-size: 10px;">入门</a> <a href="/tags/入门篇/" style="font-size: 10px;">入门篇</a> <a href="/tags/实践篇/" style="font-size: 15px;">实践篇</a> <a href="/tags/容器/" style="font-size: 10px;">容器</a> <a href="/tags/开发经验/" style="font-size: 10px;">开发经验</a> <a href="/tags/开源项目/" style="font-size: 15px;">开源项目</a> <a href="/tags/数据库中间件/" style="font-size: 20px;">数据库中间件</a> <a href="/tags/编辑器/" style="font-size: 15px;">编辑器</a> <a href="/tags/读写分离/" style="font-size: 15px;">读写分离</a> <a href="/tags/配置篇/" style="font-size: 10px;">配置篇</a>
+            <a href="/tags/AcpectJ/" style="font-size: 10px;">AcpectJ</a> <a href="/tags/Aop/" style="font-size: 10px;">Aop</a> <a href="/tags/Eclipse/" style="font-size: 10px;">Eclipse</a> <a href="/tags/GitHub-Pages/" style="font-size: 15px;">GitHub Pages</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDEA/" style="font-size: 15px;">IDEA</a> <a href="/tags/IO/" style="font-size: 10px;">IO</a> <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Java类库/" style="font-size: 10px;">Java类库</a> <a href="/tags/JetBrains/" style="font-size: 10px;">JetBrains</a> <a href="/tags/Lombok/" style="font-size: 10px;">Lombok</a> <a href="/tags/Mycat/" style="font-size: 20px;">Mycat</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/Study/" style="font-size: 10px;">Study</a> <a href="/tags/docker/" style="font-size: 15px;">docker</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/postgresql/" style="font-size: 10px;">postgresql</a> <a href="/tags/《Spring-in-action》/" style="font-size: 10px;">《Spring in action》</a> <a href="/tags/个人博客/" style="font-size: 15px;">个人博客</a> <a href="/tags/个人感悟/" style="font-size: 10px;">个人感悟</a> <a href="/tags/主从复制/" style="font-size: 15px;">主从复制</a> <a href="/tags/入门/" style="font-size: 10px;">入门</a> <a href="/tags/入门篇/" style="font-size: 10px;">入门篇</a> <a href="/tags/实践篇/" style="font-size: 15px;">实践篇</a> <a href="/tags/容器/" style="font-size: 15px;">容器</a> <a href="/tags/开发经验/" style="font-size: 10px;">开发经验</a> <a href="/tags/开源项目/" style="font-size: 15px;">开源项目</a> <a href="/tags/数据库中间件/" style="font-size: 20px;">数据库中间件</a> <a href="/tags/编辑器/" style="font-size: 15px;">编辑器</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a> <a href="/tags/读写分离/" style="font-size: 15px;">读写分离</a> <a href="/tags/配置篇/" style="font-size: 10px;">配置篇</a>
         </div>
     </div>
 </div>

@@ -8,21 +8,21 @@
   
     <meta name="keywords" content="Jared Qiu's Blog | 不只是技术的...个人博客，编码爱好者，有代码小洁癖。" />
   
-  <meta name="description" content="写在前面&amp;emsp;&amp;emsp;Mycat作为独立的数据库中间件，我们只需要进行相关的配置，就可以非常方便的帮我们实现水平切分、垂直切分、读写分离等功能，但Mysql的主从复制需要我们通过其它方式实现。这里假设我们已经搭建好相关的环境，下面就开始我们的实践吧！ 准备环境 Mysql(Version : 5.7)主从环境搭建 对应数据库建立（以下例子中要建的数据库是：master1mycat 和 m">
-<meta name="keywords" content="Mycat,数据库中间件,实践篇,主从复制,读写分离,mysql">
+  <meta name="description" content="写在前面&amp;emsp;&amp;emsp;Mycat作为独立的数据库中间件，我们只需要进行相关的配置，就可以非常方便的帮我们实现水平切分、垂直切分、读写分离等功能，但Mysql的主从复制需要我们通过其它方式实现。这里假设我们已经搭建好相关的环境，下面就开始我们的实践吧！ 准备环境 Mysql主从环境搭建 对应数据库建立（以下例子中要建的数据库是：master1mycat 和 master2mycat）  配">
+<meta name="keywords" content="Mycat,数据库中间件,实践篇,mysql,主从复制,读写分离">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mycat（实践篇 - 基于Mysql的水平切分、主从复制、读写分离）">
 <meta property="og:url" content="http://yoursite.com/2018/03/03/Mycat（实践篇 - 基于Mysql的水平切分、主从复制、读写分离）/index.html">
 <meta property="og:site_name" content="Jared Qiu&#39;s Blog | 不只是技术">
-<meta property="og:description" content="写在前面&amp;emsp;&amp;emsp;Mycat作为独立的数据库中间件，我们只需要进行相关的配置，就可以非常方便的帮我们实现水平切分、垂直切分、读写分离等功能，但Mysql的主从复制需要我们通过其它方式实现。这里假设我们已经搭建好相关的环境，下面就开始我们的实践吧！ 准备环境 Mysql(Version : 5.7)主从环境搭建 对应数据库建立（以下例子中要建的数据库是：master1mycat 和 m">
+<meta property="og:description" content="写在前面&amp;emsp;&amp;emsp;Mycat作为独立的数据库中间件，我们只需要进行相关的配置，就可以非常方便的帮我们实现水平切分、垂直切分、读写分离等功能，但Mysql的主从复制需要我们通过其它方式实现。这里假设我们已经搭建好相关的环境，下面就开始我们的实践吧！ 准备环境 Mysql主从环境搭建 对应数据库建立（以下例子中要建的数据库是：master1mycat 和 master2mycat）  配">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/20180303163348.png">
 <meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/20180303163646.png">
 <meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/20180303read111.png">
-<meta property="og:updated_time" content="2018-03-05T02:07:37.085Z">
+<meta property="og:updated_time" content="2018-03-05T08:23:14.808Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mycat（实践篇 - 基于Mysql的水平切分、主从复制、读写分离）">
-<meta name="twitter:description" content="写在前面&amp;emsp;&amp;emsp;Mycat作为独立的数据库中间件，我们只需要进行相关的配置，就可以非常方便的帮我们实现水平切分、垂直切分、读写分离等功能，但Mysql的主从复制需要我们通过其它方式实现。这里假设我们已经搭建好相关的环境，下面就开始我们的实践吧！ 准备环境 Mysql(Version : 5.7)主从环境搭建 对应数据库建立（以下例子中要建的数据库是：master1mycat 和 m">
+<meta name="twitter:description" content="写在前面&amp;emsp;&amp;emsp;Mycat作为独立的数据库中间件，我们只需要进行相关的配置，就可以非常方便的帮我们实现水平切分、垂直切分、读写分离等功能，但Mysql的主从复制需要我们通过其它方式实现。这里假设我们已经搭建好相关的环境，下面就开始我们的实践吧！ 准备环境 Mysql主从环境搭建 对应数据库建立（以下例子中要建的数据库是：master1mycat 和 master2mycat）  配">
 <meta name="twitter:image" content="http://p3ry9qsas.bkt.clouddn.com/20180303163348.png">
   
   
@@ -149,7 +149,7 @@
             
             <h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>&emsp;&emsp;Mycat作为独立的数据库中间件，我们只需要进行相关的配置，就可以非常方便的帮我们实现水平切分、垂直切分、读写分离等功能，但Mysql的主从复制需要我们通过其它方式实现。这里假设我们已经搭建好相关的环境，下面就开始我们的实践吧！</p>
 <h3 id="准备环境"><a href="#准备环境" class="headerlink" title="准备环境"></a>准备环境</h3><ul>
-<li>Mysql(Version : 5.7)主从环境搭建</li>
+<li>Mysql主从环境搭建</li>
 <li>对应数据库建立（以下例子中要建的数据库是：master1mycat 和 master2mycat）</li>
 </ul>
 <h3 id="配置server-xml"><a href="#配置server-xml" class="headerlink" title="配置server.xml"></a>配置server.xml</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">user</span> <span class="attr">name</span>=<span class="string">"mysqlmycat"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"password"</span>&gt;</span>mysqlmycat<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"schemas"</span>&gt;</span>mysqlmycats<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">user</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -198,7 +198,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年03月05日 10:07</p>
+        <p>最后更新： 2018年03月05日 16:23</p>
         <p>原始链接： <a class="post-url" href="/2018/03/03/Mycat（实践篇 - 基于Mysql的水平切分、主从复制、读写分离）/" title="Mycat（实践篇 - 基于Mysql的水平切分、主从复制、读写分离）">http://yoursite.com/2018/03/03/Mycat（实践篇 - 基于Mysql的水平切分、主从复制、读写分离）/</a></p>
         <footer>
             <a href="http://yoursite.com">
@@ -309,11 +309,11 @@
       
     <a href="/tags/实践篇/" class="color4">实践篇</a>
       
+    <a href="/tags/mysql/" class="color1">mysql</a>
+      
     <a href="/tags/主从复制/" class="color5">主从复制</a>
       
     <a href="/tags/读写分离/" class="color5">读写分离</a>
-      
-    <a href="/tags/mysql/" class="color1">mysql</a>
       
   </li>
 
@@ -416,10 +416,10 @@
 <div class="sidebar-menu-box" id="sidebar-menu-box">
     <div class="sidebar-menu-box-container">
         <div id="sidebar-menu-box-categories">
-            <a class="category-link" href="/categories/IO/">IO</a><a class="category-link" href="/categories/IO/Java/">Java</a><a class="category-link" href="/categories/docker/">docker</a><a class="category-link" href="/categories/开源项目/">开源项目</a><a class="category-link" href="/categories/数据库中间件/">数据库中间件</a><a class="category-link" href="/categories/数据库中间件/Mycat/">Mycat</a><a class="category-link" href="/categories/编辑器/">编辑器</a><a class="category-link" href="/categories/编辑器/个人感悟/">个人感悟</a><a class="category-link" href="/categories/编辑器/快捷键/">快捷键</a>
+            <a class="category-link" href="/categories/IO/">IO</a><a class="category-link" href="/categories/IO/Java/">Java</a><a class="category-link" href="/categories/Java/">Java</a><a class="category-link" href="/categories/Java/Lombok/">Lombok</a><a class="category-link" href="/categories/Spring/">Spring</a><a class="category-link" href="/categories/docker/">docker</a><a class="category-link" href="/categories/开源项目/">开源项目</a><a class="category-link" href="/categories/数据库中间件/">数据库中间件</a><a class="category-link" href="/categories/数据库中间件/Mycat/">Mycat</a><a class="category-link" href="/categories/编辑器/">编辑器</a><a class="category-link" href="/categories/编辑器/个人感悟/">个人感悟</a><a class="category-link" href="/categories/编辑器/快捷键/">快捷键</a>
         </div>
         <div id="sidebar-menu-box-tags">
-            <a href="/tags/Eclipse/" style="font-size: 10px;">Eclipse</a> <a href="/tags/GitHub-Pages/" style="font-size: 15px;">GitHub Pages</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDEA/" style="font-size: 15px;">IDEA</a> <a href="/tags/IO/" style="font-size: 10px;">IO</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/JetBrains/" style="font-size: 10px;">JetBrains</a> <a href="/tags/Mycat/" style="font-size: 20px;">Mycat</a> <a href="/tags/Study/" style="font-size: 10px;">Study</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/postgresql/" style="font-size: 10px;">postgresql</a> <a href="/tags/个人博客/" style="font-size: 15px;">个人博客</a> <a href="/tags/个人感悟/" style="font-size: 10px;">个人感悟</a> <a href="/tags/主从复制/" style="font-size: 15px;">主从复制</a> <a href="/tags/入门/" style="font-size: 10px;">入门</a> <a href="/tags/入门篇/" style="font-size: 10px;">入门篇</a> <a href="/tags/实践篇/" style="font-size: 15px;">实践篇</a> <a href="/tags/容器/" style="font-size: 10px;">容器</a> <a href="/tags/开发经验/" style="font-size: 10px;">开发经验</a> <a href="/tags/开源项目/" style="font-size: 15px;">开源项目</a> <a href="/tags/数据库中间件/" style="font-size: 20px;">数据库中间件</a> <a href="/tags/编辑器/" style="font-size: 15px;">编辑器</a> <a href="/tags/读写分离/" style="font-size: 15px;">读写分离</a> <a href="/tags/配置篇/" style="font-size: 10px;">配置篇</a>
+            <a href="/tags/AcpectJ/" style="font-size: 10px;">AcpectJ</a> <a href="/tags/Aop/" style="font-size: 10px;">Aop</a> <a href="/tags/Eclipse/" style="font-size: 10px;">Eclipse</a> <a href="/tags/GitHub-Pages/" style="font-size: 15px;">GitHub Pages</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDEA/" style="font-size: 15px;">IDEA</a> <a href="/tags/IO/" style="font-size: 10px;">IO</a> <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Java类库/" style="font-size: 10px;">Java类库</a> <a href="/tags/JetBrains/" style="font-size: 10px;">JetBrains</a> <a href="/tags/Lombok/" style="font-size: 10px;">Lombok</a> <a href="/tags/Mycat/" style="font-size: 20px;">Mycat</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/Study/" style="font-size: 10px;">Study</a> <a href="/tags/docker/" style="font-size: 15px;">docker</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/postgresql/" style="font-size: 10px;">postgresql</a> <a href="/tags/《Spring-in-action》/" style="font-size: 10px;">《Spring in action》</a> <a href="/tags/个人博客/" style="font-size: 15px;">个人博客</a> <a href="/tags/个人感悟/" style="font-size: 10px;">个人感悟</a> <a href="/tags/主从复制/" style="font-size: 15px;">主从复制</a> <a href="/tags/入门/" style="font-size: 10px;">入门</a> <a href="/tags/入门篇/" style="font-size: 10px;">入门篇</a> <a href="/tags/实践篇/" style="font-size: 15px;">实践篇</a> <a href="/tags/容器/" style="font-size: 15px;">容器</a> <a href="/tags/开发经验/" style="font-size: 10px;">开发经验</a> <a href="/tags/开源项目/" style="font-size: 15px;">开源项目</a> <a href="/tags/数据库中间件/" style="font-size: 20px;">数据库中间件</a> <a href="/tags/编辑器/" style="font-size: 15px;">编辑器</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a> <a href="/tags/读写分离/" style="font-size: 15px;">读写分离</a> <a href="/tags/配置篇/" style="font-size: 10px;">配置篇</a>
         </div>
     </div>
     <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
@@ -446,7 +446,7 @@
     <div class="mobile-header-tag-container">
         <span class="title">Tags</span>
         <div id="mobile-header-container-tags">
-            <a href="/tags/Eclipse/" style="font-size: 10px;">Eclipse</a> <a href="/tags/GitHub-Pages/" style="font-size: 15px;">GitHub Pages</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDEA/" style="font-size: 15px;">IDEA</a> <a href="/tags/IO/" style="font-size: 10px;">IO</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/JetBrains/" style="font-size: 10px;">JetBrains</a> <a href="/tags/Mycat/" style="font-size: 20px;">Mycat</a> <a href="/tags/Study/" style="font-size: 10px;">Study</a> <a href="/tags/docker/" style="font-size: 10px;">docker</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/postgresql/" style="font-size: 10px;">postgresql</a> <a href="/tags/个人博客/" style="font-size: 15px;">个人博客</a> <a href="/tags/个人感悟/" style="font-size: 10px;">个人感悟</a> <a href="/tags/主从复制/" style="font-size: 15px;">主从复制</a> <a href="/tags/入门/" style="font-size: 10px;">入门</a> <a href="/tags/入门篇/" style="font-size: 10px;">入门篇</a> <a href="/tags/实践篇/" style="font-size: 15px;">实践篇</a> <a href="/tags/容器/" style="font-size: 10px;">容器</a> <a href="/tags/开发经验/" style="font-size: 10px;">开发经验</a> <a href="/tags/开源项目/" style="font-size: 15px;">开源项目</a> <a href="/tags/数据库中间件/" style="font-size: 20px;">数据库中间件</a> <a href="/tags/编辑器/" style="font-size: 15px;">编辑器</a> <a href="/tags/读写分离/" style="font-size: 15px;">读写分离</a> <a href="/tags/配置篇/" style="font-size: 10px;">配置篇</a>
+            <a href="/tags/AcpectJ/" style="font-size: 10px;">AcpectJ</a> <a href="/tags/Aop/" style="font-size: 10px;">Aop</a> <a href="/tags/Eclipse/" style="font-size: 10px;">Eclipse</a> <a href="/tags/GitHub-Pages/" style="font-size: 15px;">GitHub Pages</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDEA/" style="font-size: 15px;">IDEA</a> <a href="/tags/IO/" style="font-size: 10px;">IO</a> <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Java类库/" style="font-size: 10px;">Java类库</a> <a href="/tags/JetBrains/" style="font-size: 10px;">JetBrains</a> <a href="/tags/Lombok/" style="font-size: 10px;">Lombok</a> <a href="/tags/Mycat/" style="font-size: 20px;">Mycat</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/Study/" style="font-size: 10px;">Study</a> <a href="/tags/docker/" style="font-size: 15px;">docker</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/postgresql/" style="font-size: 10px;">postgresql</a> <a href="/tags/《Spring-in-action》/" style="font-size: 10px;">《Spring in action》</a> <a href="/tags/个人博客/" style="font-size: 15px;">个人博客</a> <a href="/tags/个人感悟/" style="font-size: 10px;">个人感悟</a> <a href="/tags/主从复制/" style="font-size: 15px;">主从复制</a> <a href="/tags/入门/" style="font-size: 10px;">入门</a> <a href="/tags/入门篇/" style="font-size: 10px;">入门篇</a> <a href="/tags/实践篇/" style="font-size: 15px;">实践篇</a> <a href="/tags/容器/" style="font-size: 15px;">容器</a> <a href="/tags/开发经验/" style="font-size: 10px;">开发经验</a> <a href="/tags/开源项目/" style="font-size: 15px;">开源项目</a> <a href="/tags/数据库中间件/" style="font-size: 20px;">数据库中间件</a> <a href="/tags/编辑器/" style="font-size: 15px;">编辑器</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a> <a href="/tags/读写分离/" style="font-size: 15px;">读写分离</a> <a href="/tags/配置篇/" style="font-size: 10px;">配置篇</a>
         </div>
     </div>
 </div>

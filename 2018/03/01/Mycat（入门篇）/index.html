@@ -3,27 +3,23 @@
 <head>
   <meta charset="utf-8">
   
-  <title>IDEA快捷键拆解系列（前言） | Jared Qiu&#39;s Blog | 不只是技术</title>
+  <title>Mycat（入门篇） | Jared Qiu&#39;s Blog | 不只是技术</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="Jared Qiu's Blog | 不只是技术的...个人博客，编码爱好者，有代码小洁癖。" />
   
-  <meta name="description" content="&amp;emsp;&amp;emsp;之前还在学校那会，大一接触、大二入门写代码用的IDE都是Eclipse，后来也不知道从哪里看到了IDEA，然后就慢慢开始接触和入坑了。这也不是一篇吐槽者的记录，但我现在确实已经对Eclipse这款编辑器不太感冒了，只记得打开的界面是白色的，操作一下就得卡一会，代码提示也不友好，所以像我这种喜欢黑色主题的又怎么可能看得下去。以前用Eclipse的时候也装过其它主题，但总感觉适">
-<meta name="keywords" content="IDEA,Eclipse,编辑器,个人感悟">
+  <meta name="description" content="Mycat是什么&amp;emsp;&amp;emsp;Mycat是一款基于阿里开源产品Cobar而研发的开源数据库分库分表中间件（基于Java语言开发）。官网所言：Mycat国内最活跃的、性能最好的开源数据库中间件！  一个彻底开源的，面向企业应用开发的大数据库集群 支持事务、ACID、可以替代MySQL的加强版数据库 一个可以视为MySQL集群的企业级数据库，用来替代昂贵的Oracle集群 一个融合内存缓存技">
+<meta name="keywords" content="Mycat,数据库中间件,入门篇">
 <meta property="og:type" content="article">
-<meta property="og:title" content="IDEA快捷键拆解系列（前言）">
-<meta property="og:url" content="http://yoursite.com/2018/02/09/IDEA快捷键拆解系列（前言）/index.html">
+<meta property="og:title" content="Mycat（入门篇）">
+<meta property="og:url" content="http://yoursite.com/2018/03/01/Mycat（入门篇）/index.html">
 <meta property="og:site_name" content="Jared Qiu&#39;s Blog | 不只是技术">
-<meta property="og:description" content="&amp;emsp;&amp;emsp;之前还在学校那会，大一接触、大二入门写代码用的IDE都是Eclipse，后来也不知道从哪里看到了IDEA，然后就慢慢开始接触和入坑了。这也不是一篇吐槽者的记录，但我现在确实已经对Eclipse这款编辑器不太感冒了，只记得打开的界面是白色的，操作一下就得卡一会，代码提示也不友好，所以像我这种喜欢黑色主题的又怎么可能看得下去。以前用Eclipse的时候也装过其它主题，但总感觉适">
+<meta property="og:description" content="Mycat是什么&amp;emsp;&amp;emsp;Mycat是一款基于阿里开源产品Cobar而研发的开源数据库分库分表中间件（基于Java语言开发）。官网所言：Mycat国内最活跃的、性能最好的开源数据库中间件！  一个彻底开源的，面向企业应用开发的大数据库集群 支持事务、ACID、可以替代MySQL的加强版数据库 一个可以视为MySQL集群的企业级数据库，用来替代昂贵的Oracle集群 一个融合内存缓存技">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/2018210/jetbrain_products.png">
-<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/2018210/20180210112119.png">
-<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/2018210/toolbox.png">
-<meta property="og:updated_time" content="2018-02-10T03:22:22.479Z">
+<meta property="og:updated_time" content="2018-03-05T02:02:56.565Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="IDEA快捷键拆解系列（前言）">
-<meta name="twitter:description" content="&amp;emsp;&amp;emsp;之前还在学校那会，大一接触、大二入门写代码用的IDE都是Eclipse，后来也不知道从哪里看到了IDEA，然后就慢慢开始接触和入坑了。这也不是一篇吐槽者的记录，但我现在确实已经对Eclipse这款编辑器不太感冒了，只记得打开的界面是白色的，操作一下就得卡一会，代码提示也不友好，所以像我这种喜欢黑色主题的又怎么可能看得下去。以前用Eclipse的时候也装过其它主题，但总感觉适">
-<meta name="twitter:image" content="http://p3ry9qsas.bkt.clouddn.com/2018210/jetbrain_products.png">
+<meta name="twitter:title" content="Mycat（入门篇）">
+<meta name="twitter:description" content="Mycat是什么&amp;emsp;&amp;emsp;Mycat是一款基于阿里开源产品Cobar而研发的开源数据库分库分表中间件（基于Java语言开发）。官网所言：Mycat国内最活跃的、性能最好的开源数据库中间件！  一个彻底开源的，面向企业应用开发的大数据库集群 支持事务、ACID、可以替代MySQL的加强版数据库 一个可以视为MySQL集群的企业级数据库，用来替代昂贵的Oracle集群 一个融合内存缓存技">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -109,14 +105,14 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap"><article id="post-IDEA快捷键拆解系列（前言）" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main" class="body-wrap"><article id="post-Mycat（入门篇）" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="post-title" itemprop="name">
-      IDEA快捷键拆解系列（前言）
+      Mycat（入门篇）
     </h1>
     <div class="post-title-bar">
       <ul>
@@ -124,14 +120,14 @@
               <li>
                   <i class="fa fa-book"></i>
                   
-                      <a href="/categories/编辑器/">编辑器</a>
+                      <a href="/categories/数据库中间件/">数据库中间件</a>
                   
-                      <a href="/categories/个人感悟/">个人感悟</a>
+                      <a href="/categories/Mycat/">Mycat</a>
                   
               </li>
           
         <li>
-          <i class="fa fa-calendar"></i>  2018-02-09
+          <i class="fa fa-calendar"></i>  2018-03-01
         </li>
         <li>
           <i class="fa fa-eye"></i>
@@ -147,19 +143,147 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <p>&emsp;&emsp;之前还在学校那会，大一接触、大二入门写代码用的IDE都是Eclipse，后来也不知道从哪里看到了IDEA，然后就慢慢开始接触和入坑了。这也不是一篇吐槽者的记录，但我现在确实已经对Eclipse这款编辑器不太感冒了，只记得打开的界面是白色的，操作一下就得卡一会，代码提示也不友好，所以像我这种喜欢黑色主题的又怎么可能看得下去。以前用Eclipse的时候也装过其它主题，但总感觉适配不太好，使用了几个学期也还对快捷键不是很熟悉，总之个人体验是不太好。</p>
-<p>&emsp;&emsp;接触IDEA到现在也有一年多了，以前在学校的时候就觉得这款编辑起码打开很快，智能提示很棒，但对编辑器基本的结构、快捷键等都不算太熟悉，现在出来实习了，也才开始慢慢重视起快捷键的培养。好的东西花点时间去了解和学习都是非常值得的，对于程序员这种职业来说，提高速度就意味提高了生产率。提高了生产率，你就有了更多的时间去展开新的学习。熟练使用快捷键的好处不只是节省时间，更是将你的大脑从重复机械的劳动中解放出来，让你的时间能够关注到更重要的部分。大到操作系统，小到浏览器，都有自己各种各样的快捷键。尤其对于程序员天天使用的IDE来说，掌握快捷键尤其重要。从现在开始，打印一份IDE的快捷键大全放在桌面上，每天都要熟悉其中的几个，我相信用不了几个星期你就会发现你的编程效率会提升非常多。我想这也就是我为什么会写这么一个快捷键系列的原因吧。</p>
-<p>&emsp;&emsp;<a href="https://www.jetbrains.com/" target="_blank" rel="noopener">JetBrains</a>是一家很棒的公司，他做的事正如官网的Title上写得那样：Developer Tools for Professionals and Teams，在Products中我们能看到他已经开发出了这么多优秀的开发者工具，如果通过这一系列的教程能让你基本掌握IDEA的快捷键，那么你就可以非常轻松的迁移到像PyCharm、WebStrom、GoLand等等这一系列其他语言开发者喜欢的工具上，因为它们都出自同一家公司的产品，所以很多快捷键都是一通百通，特别好上手。</p>
-<p><img src="http://p3ry9qsas.bkt.clouddn.com/2018210/jetbrain_products.png" alt="JetBrains products" title="JetBrain Products"></p>
-<p>&emsp;&emsp;如果说你还在犹豫什么，那么产品需要付费可能是阻挡你进步的唯一理由了，但JetBrains其实是有提供免费的社区版，相较与旗舰版虽然少了一些功能，但对于学生或者普通开发者而言，社区版的这些功能基本都是够用的。但如果你确实想使用旗舰版，大天朝有很多的鬼点子可以自己去了解一下，还是支持一下正版吧，毕竟都是苦逼的开发狗。</p>
-<p><img src="http://p3ry9qsas.bkt.clouddn.com/2018210/20180210112119.png" alt="IDEA Download" title="IDEA Download"></p>
-<p>&emsp;&emsp;第一次安装IDEA，建议还是先下载JetBrains的<a href="https://www.jetbrains.com/toolbox/app/" target="_blank" rel="noopener">Toolbox</a>，这是JetBrains开发的一款用于控制工具和项目的小应用、小面板。我们通过这款工具来下载、安装甚至升级编辑器都是非常方便的。不积跬步，无以至千里。要想成为优秀程序员的你，光有一腔热血是远远不够的，要持之以恒，要坚持不懈的学习，与大家共勉。废话就不多说了，装好IDEA，一起来拆解吧！</p>
-<p><img src="http://p3ry9qsas.bkt.clouddn.com/2018210/toolbox.png" alt="toolbox" title="Toolbox"></p>
+            <h3 id="Mycat是什么"><a href="#Mycat是什么" class="headerlink" title="Mycat是什么"></a>Mycat是什么</h3><p>&emsp;&emsp;Mycat是一款基于阿里开源产品Cobar而研发的开源数据库分库分表中间件（基于Java语言开发）。官网所言：Mycat国内最活跃的、性能最好的开源数据库中间件！</p>
+<ul>
+<li>一个彻底开源的，面向企业应用开发的大数据库集群</li>
+<li>支持事务、ACID、可以替代MySQL的加强版数据库</li>
+<li>一个可以视为MySQL集群的企业级数据库，用来替代昂贵的Oracle集群</li>
+<li>一个融合内存缓存技术、NoSQL技术、HDFS大数据的新型SQL Server</li>
+<li>结合传统数据库和新型分布式数据仓库的新一代企业级数据库产品</li>
+<li>一个新颖的数据库中间件产品</li>
+</ul>
+<h3 id="Mycat关键特性"><a href="#Mycat关键特性" class="headerlink" title="Mycat关键特性"></a>Mycat关键特性</h3><ul>
+<li>支持SQL92标准</li>
+<li>支持MySQL、Oracle、DB2、SQL Server、PostgreSQL等DB的常见SQL语法</li>
+<li>遵守Mysql原生协议，跨语言，跨平台，跨数据库的通用中间件代理</li>
+<li>基于心跳的自动故障切换，支持读写分离，支持MySQL主从，以及galera cluster集群</li>
+<li>支持Galera for MySQL集群，Percona Cluster或者MariaDB cluster</li>
+<li>基于Nio实现，有效管理线程，解决高并发问题</li>
+<li>支持数据的多片自动路由与聚合，支持sum,count,max等常用的聚合函数,支持跨库分页</li>
+<li>支持单库内部任意join，支持跨库2表join，甚至基于caltlet的多表join</li>
+<li>支持通过全局表，ER关系的分片策略，实现了高效的多表join查询</li>
+<li>支持多租户方案</li>
+<li>支持分布式事务（弱xa）</li>
+<li>支持XA分布式事务（1.6.5）</li>
+<li>支持全局序列号，解决分布式下的主键生成问题</li>
+<li>分片规则丰富，插件化开发，易于扩展</li>
+<li>强大的web，命令行监控</li>
+<li>支持前端作为MySQL通用代理，后端JDBC方式支持MySQL、PostgreSQL、Oracle、DB2、SQLServer、MongoDB、巨杉</li>
+<li>支持密码加密</li>
+<li>支持服务降级</li>
+<li>支持IP白名单</li>
+<li>支持SQL黑名单、sql注入攻击拦截</li>
+<li>支持prepare预编译指令（1.6）</li>
+<li>支持非堆内存(Direct Memory)聚合计算（1.6）</li>
+<li>支持PostgreSQL的native协议（1.6）</li>
+<li>支持mysql和oracle存储过程，out参数、多结果集返回（1.6）</li>
+<li>支持zookeeper协调主从切换、zk序列、配置zk化（1.6）</li>
+<li>支持库内分表（1.6）</li>
+<li>集群基于ZooKeeper管理，在线升级，扩容，智能优化，大数据处理（2.0开发版）</li>
+</ul>
+<h3 id="安装与使用"><a href="#安装与使用" class="headerlink" title="安装与使用"></a>安装与使用</h3><ul>
+<li><p>下载（目前最新发行版是1.6.5）：<a href="http://dl.mycat.io/" target="_blank" rel="noopener">http://dl.mycat.io/</a></p>
+</li>
+<li><p>安装：解压即可</p>
+</li>
+<li><p>配置：Mycat是基于Java开发的，确保安装好了Java环境，可命令行输入：java -version 进行测试。Linux下还需配置Mycat的解压目录：vim  /etc/profile，配置完成后使用：source /etc/profile：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=xxx</span><br><span class="line">export MYCAT_HOME=xxx</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>运行（Linux）：</p>
+<ul>
+<li>./mycat start 启动</li>
+<li>./mycat stop 停止</li>
+<li>./mycat console 前台运行</li>
+<li>./mycat install 添加到系统自动启动（暂未实现）</li>
+<li>./mycat remove 取消随系统自动启动（暂未实现）</li>
+<li>./mycat restart 重启服务</li>
+<li>./mycat pause 暂停</li>
+<li>./mycat status 查看启动状态</li>
+</ul>
+</li>
+<li><p>运行（Windows）：<br>&emsp;&emsp;双击bin/tartup_nowrap.bat，如果出现闪退，可在cmd命令行运行，并查看出错原因</p>
+</li>
+<li><p>内存配置：<br>&emsp;&emsp;启动前，一般需要修改JVM配置参数，打开conf/wrapper.conf文件，可根据本机配置情况修改为512M或其它值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># Java Additional Parameters</span><br><span class="line">#wrapper.java.additional.1=</span><br><span class="line">wrapper.java.additional.1=-DMYCAT_HOME=.</span><br><span class="line">wrapper.java.additional.2=-server</span><br><span class="line">wrapper.java.additional.3=-XX:MaxPermSize=64M</span><br><span class="line">wrapper.java.additional.4=-XX:+AggressiveOpts</span><br><span class="line">wrapper.java.additional.5=-XX:MaxDirectMemorySize=2G</span><br><span class="line">wrapper.java.additional.6=-Dcom.sun.management.jmxremote</span><br><span class="line">wrapper.java.additional.7=-Dcom.sun.management.jmxremote.port=1984</span><br><span class="line">wrapper.java.additional.8=-Dcom.sun.management.jmxremote.authenticate=false</span><br><span class="line">wrapper.java.additional.9=-Dcom.sun.management.jmxremote.ssl=false</span><br><span class="line">wrapper.java.additional.10=-Xmx4G</span><br><span class="line">wrapper.java.additional.11=-Xms1G</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>连接测试：</p>
+<ul>
+<li>测试mycat与测试mysql完全一致，mysql怎么连接，mycat就怎么连接</li>
+<li>命令行：mysql -uroot -proot -P8066 -h127.0.0.1（其中，user和password可在conf/server.xml配置查找，8066是默认的服务端口，也可以在conf/server.xml中配置修改）</li>
+<li>客户端：1.3和1.4版本目前部分工具无法连接，会提示database not selected，建议使用高版本的Mycat，1.5版本已经修复了部分客户端工具的连接</li>
+</ul>
+</li>
+</ul>
+<h3 id="常见分库分表产品对比"><a href="#常见分库分表产品对比" class="headerlink" title="常见分库分表产品对比"></a>常见分库分表产品对比</h3><table>
+<thead>
+<tr>
+<th>分库分表产品</th>
+<th>MyCat</th>
+<th>Sharding-JDBC</th>
+<th>Cobar</th>
+<th>Cobar-client</th>
+<th>TDDL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>分库</td>
+<td>有</td>
+<td>有</td>
+<td>有</td>
+<td>有</td>
+<td>未开源</td>
+</tr>
+<tr>
+<td>分表</td>
+<td>有</td>
+<td>有</td>
+<td>无</td>
+<td>无</td>
+<td>未开源</td>
+</tr>
+<tr>
+<td>中间层</td>
+<td>是</td>
+<td>否</td>
+<td>是</td>
+<td>否</td>
+<td>否</td>
+</tr>
+<tr>
+<td>ORM支持</td>
+<td>任意</td>
+<td>任意</td>
+<td>任意</td>
+<td>仅MyBatis</td>
+<td>任意</td>
+</tr>
+<tr>
+<td>数据库支持</td>
+<td>任意</td>
+<td>任意</td>
+<td>仅MySQL</td>
+<td>任意</td>
+<td>任意</td>
+</tr>
+<tr>
+<td>社区情况</td>
+<td>活跃</td>
+<td>活跃</td>
+<td>停更</td>
+<td>未知</td>
+<td>未知</td>
+</tr>
+</tbody>
+</table>
+<h3 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h3><blockquote>
+<p><a href="http://www.mycat.io/" target="_blank" rel="noopener">Mycat官网</a><br><a href="http://songwie.com/teachs?searthstr=Mycat&amp;start=0&amp;limit=100" target="_blank" rel="noopener">Mycat从零开始</a><br><a href="http://www.mycat.io/document/Mycat_V1.6.0.pdf" target="_blank" rel="noopener">Mycat权威指南</a><br><a href="https://github.com/MyCATApache/Mycat-Server" target="_blank" rel="noopener">GitHub：Mycat-Server</a><br><a href="https://github.com/MyCATApache/Mycat-Server/wiki" target="_blank" rel="noopener">Wiki：Mycat-Server</a><br><a href="https://github.com/MyCATApache/Mycat-Server/issues" target="_blank" rel="noopener">Issues：Mycat-Server</a><br><a href="https://www.guokr.com/blog/475765/" target="_blank" rel="noopener">mysql中间件研究（Atlas，Cobar，TDDL）</a><br><a href="http://songwie.com/articlelist/44" target="_blank" rel="noopener">mysql中间件研究（Atlas，Cobar，TDDL，Mycat，Heisenberg，Oceanus，Vitess，OneProxy）</a></p>
+</blockquote>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年02月10日 11:22</p>
-        <p>原始链接： <a class="post-url" href="/2018/02/09/IDEA快捷键拆解系列（前言）/" title="IDEA快捷键拆解系列（前言）">http://yoursite.com/2018/02/09/IDEA快捷键拆解系列（前言）/</a></p>
+        <p>最后更新： 2018年03月05日 10:02</p>
+        <p>原始链接： <a class="post-url" href="/2018/03/01/Mycat（入门篇）/" title="Mycat（入门篇）">http://yoursite.com/2018/03/01/Mycat（入门篇）/</a></p>
         <footer>
             <a href="http://yoursite.com">
                 <img src="/images/logo.png" alt="Jared Qiu">
@@ -216,7 +340,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/02/09/IDEA快捷键拆解系列（前言）/&title=《IDEA快捷键拆解系列（前言）》 — Jared Qiu's Blog | 不只是技术&pic=http://p3ry9qsas.bkt.clouddn.com/201829/u=853652386,3086888368&fm=27&gp=0.jpg" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/03/01/Mycat（入门篇）/&title=《Mycat（入门篇）》 — Jared Qiu's Blog | 不只是技术&pic=http://p3ry9qsas.bkt.clouddn.com/201833/mycat架构图.png "mycat架构图"" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -226,22 +350,22 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/02/09/IDEA快捷键拆解系列（前言）/&title=《IDEA快捷键拆解系列（前言）》 — Jared Qiu's Blog | 不只是技术&source=Coding爱好者，有代码小洁癖，主攻Java，也喜欢Python和JavaScript，为人乐观、积极、向上、勤奋、和善、易相处，讲卫生，爱学习，爱码字..." data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/03/01/Mycat（入门篇）/&title=《Mycat（入门篇）》 — Jared Qiu's Blog | 不只是技术&source=Coding爱好者，有代码小洁癖，主攻Java，也喜欢Python和JavaScript，为人乐观、积极、向上、勤奋、和善、易相处，讲卫生，爱学习，爱码字..." data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
           <li>
-            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/02/09/IDEA快捷键拆解系列（前言）/" data-title="Facebook">
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/03/01/Mycat（入门篇）/" data-title="Facebook">
               <i class="fa fa-facebook"></i>
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《IDEA快捷键拆解系列（前言）》 — Jared Qiu's Blog | 不只是技术&url=http://yoursite.com/2018/02/09/IDEA快捷键拆解系列（前言）/&via=http://yoursite.com" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Mycat（入门篇）》 — Jared Qiu's Blog | 不只是技术&url=http://yoursite.com/2018/03/01/Mycat（入门篇）/&via=http://yoursite.com" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
           <li>
-            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/02/09/IDEA快捷键拆解系列（前言）/" data-title="Google+">
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/03/01/Mycat（入门篇）/" data-title="Google+">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -251,7 +375,7 @@
 <div class="post-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;" id="wxShare-close">×</a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2018/02/09/IDEA快捷键拆解系列（前言）/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2018/03/01/Mycat（入门篇）/" alt="微信分享二维码">
 </div>
 
 <div class="mask"></div>
@@ -263,13 +387,11 @@
   <li class="article-footer-tags">
     <i class="fa fa-tags"></i>
       
-    <a href="/tags/IDEA/" class="color5">IDEA</a>
+    <a href="/tags/Mycat/" class="color1">Mycat</a>
       
-    <a href="/tags/Eclipse/" class="color3">Eclipse</a>
+    <a href="/tags/数据库中间件/" class="color2">数据库中间件</a>
       
-    <a href="/tags/编辑器/" class="color4">编辑器</a>
-      
-    <a href="/tags/个人感悟/" class="color5">个人感悟</a>
+    <a href="/tags/入门篇/" class="color4">入门篇</a>
       
   </li>
 
@@ -280,22 +402,28 @@
 </article>
 
 
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Mycat是什么"><span class="post-toc-text">Mycat是什么</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Mycat关键特性"><span class="post-toc-text">Mycat关键特性</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装与使用"><span class="post-toc-text">安装与使用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#常见分库分表产品对比"><span class="post-toc-text">常见分库分表产品对比</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#相关链接"><span class="post-toc-text">相关链接</span></a></li></ol>
+        </nav>
+    </aside>
+    
 
 <nav id="article-nav">
   
-    <a href="/2018/02/10/IDEA快捷键拆解系列（一）/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/03/02/Mycat（配置篇）/" id="article-nav-newer" class="article-nav-link-wrap">
 
       <span class="article-nav-title">
         <i class="fa fa-hand-o-left" aria-hidden="true"></i>
         
-          IDEA快捷键拆解系列（一）
+          Mycat（配置篇）
         
       </span>
     </a>
   
   
-    <a href="/2018/02/08/Hexo整合GitHub Pages/" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">Hexo整合GitHub Pages</span>
+    <a href="/2018/02/11/Docker（一）/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Docker（一）</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   
@@ -304,7 +432,7 @@
 
 
     
-        <div id="SOHUCS" sid="IDEA快捷键拆解系列（前言）" ></div>
+        <div id="SOHUCS" sid="Mycat（入门篇）" ></div>
 <script type="text/javascript">
     (function(){
         var appid = 'cytsi4W0L';

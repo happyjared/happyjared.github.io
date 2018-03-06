@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Jared Qiu&#39;s Blog | 不只是技术">
 <meta property="og:description" content="1、Docker简述&amp;emsp;&amp;emsp;Docker是基于Golang语言编写的一种轻量级的容器技术。自2013年问世以来，不管是在云服务、微服务还是DevOps企业中，都有越来越多的公司使用Docker 来作为基础设施自动化的工具 。Docker简单、轻量且高效，使用起来比较容易上手，所以很适合一些迭代开发较快的互联网公司，特别是当系统架构庞大或者是业务复杂到连开发和部署都比较困难的时候，使">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-05T08:23:14.804Z">
+<meta property="og:updated_time" content="2018-03-06T02:12:19.592Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker（一）">
 <meta name="twitter:description" content="1、Docker简述&amp;emsp;&amp;emsp;Docker是基于Golang语言编写的一种轻量级的容器技术。自2013年问世以来，不管是在云服务、微服务还是DevOps企业中，都有越来越多的公司使用Docker 来作为基础设施自动化的工具 。Docker简单、轻量且高效，使用起来比较容易上手，所以很适合一些迭代开发较快的互联网公司，特别是当系统架构庞大或者是业务复杂到连开发和部署都比较困难的时候，使">
@@ -149,10 +149,14 @@
 <li>Docker 是为开发人员和系统管理员用于构建、发布、并运行分布式应用程序的开放式平台。该平台由 Docker 引擎（一个便携、轻巧的运行时和打包工具） 和 Docker Hub （一个共享应用程序和自动化工作流的云服务）等组成。</li>
 </ul>
 <h3 id="3、相关概念"><a href="#3、相关概念" class="headerlink" title="3、相关概念"></a>3、相关概念</h3><ul>
-<li>注册服务器（Registry）：注册服务器是存放仓库的地方，其上往往存放着多个仓库；</li>
-<li>仓库（Repository）：类似代码仓库，是Docker集中存放镜像文件的场所，根据存储的镜像公开分享与否，Docker仓库又分为公开仓库（public）和私有仓库（private）两种形式。目前，最大的公开仓库是Docker Hub，存放了数量庞大的镜像供用户下载。国内的公开仓库包括Docker Pool、网易蜂巢等，可以提供稳定的国内访问；</li>
-<li>镜像（Image）：Docker镜像（Image）类似于虚拟机的镜像，可以理解为一个面向Docker引擎的只读模板，里面包含了文件系统。例如：一个镜像可以完全包含了Ubuntu操作系统环境，可以把它称作一个Ubuntu镜像。镜像也可以安装了Apache应用程序（或其他软件），可以把它称为一个Apache镜像。镜像是创建Docker容器的基础，用户可以从网上下载一个已经做好的应用镜像，并通过命令直接使用。总之，应用（容器）运行是需要环境的，而镜像就是来提供这种环境的；</li>
-<li>容器（Container）：Docker容器（Container）类似于一个轻量级的沙箱子（因为Docker是基于Linux内核的虚拟技术，所以消耗资源十分少），Docker利用容器来运行和隔离应用。容器是从镜像创建的应用运行实例，可以将其启动、开始、停止、删除，而容器间都是相互隔离、互不可见的。可以把每个容器看作一个简易版的Linux系统环境（包括了root用户权限、进程空间、用户空间和网络空间），以及与运行在其中的应用程序打包而成的应用盒子。</li>
+<li><p>注册服务器（Registry）<br>&emsp;&emsp;注册服务器是存放仓库的地方，其上往往存放着多个仓库</p>
+</li>
+<li><p>仓库（Repository）<br>&emsp;&emsp;类似代码仓库，是Docker集中存放镜像文件的场所，根据存储的镜像公开分享与否，Docker仓库又分为公开仓库（public）和私有仓库（private）两种形式。目前，最大的公开仓库是Docker Hub，存放了数量庞大的镜像供用户下载。国内的公开仓库包括Docker Pool、网易蜂巢等，可以提供稳定的国内访问</p>
+</li>
+<li><p>镜像（Image）<br>&emsp;&emsp;Docker镜像（Image）类似于虚拟机的镜像，可以理解为一个面向Docker引擎的只读模板，里面包含了文件系统。例如：一个镜像可以完全包含了Ubuntu操作系统环境，可以把它称作一个Ubuntu镜像。镜像也可以安装了Apache应用程序（或其他软件），可以把它称为一个Apache镜像。镜像是创建Docker容器的基础，用户可以从网上下载一个已经做好的应用镜像，并通过命令直接使用。总之，应用（容器）运行是需要环境的，而镜像就是来提供这种环境的</p>
+</li>
+<li><p>容器（Container）<br>&emsp;&emsp;Docker容器（Container）类似于一个轻量级的沙箱子（因为Docker是基于Linux内核的虚拟技术，所以消耗资源十分少），Docker利用容器来运行和隔离应用。容器是从镜像创建的应用运行实例，可以将其启动、开始、停止、删除，而容器间都是相互隔离、互不可见的。可以把每个容器看作一个简易版的Linux系统环境（包括了root用户权限、进程空间、用户空间和网络空间），以及与运行在其中的应用程序打包而成的应用盒子</p>
+</li>
 </ul>
 <h3 id="4、Docker-的优点"><a href="#4、Docker-的优点" class="headerlink" title="4、Docker 的优点"></a>4、Docker 的优点</h3><ul>
 <li>轻量：所有容器在一台机器上共享同一个操作系统内核，这样他们立即开始，并更有效地利用内存。Image（也就是镜像） 是从分层文件系统的构建，这样他们能够共享公共文件，使得磁盘使用率和 Image 的下载更加高效；</li>
@@ -162,8 +166,8 @@
 <li>高可控性：Docker 使得开发人员保存从基础设施到应用的代码，帮助 IT 运维人管理拥有标准的、安全的、可扩展的操作环境；</li>
 <li>高可移植性：Docker 允许自由选择，可以是从笔记本电脑到一个团队，从私人基础设施到公共云提供商。</li>
 </ul>
-<h3 id="5、Docker安装"><a href="#5、Docker安装" class="headerlink" title="5、Docker安装"></a>5、Docker安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">   sudo yum install docker（centos）</span><br><span class="line">   sudo apt-get install docker.io （ubuntu）</span><br><span class="line">systemctl start docker</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">   sudo wget -qO- https://get.docker.com/ | sh **or** curl -sSL http://acs-public-mirror.oss-cn-hangzhou.aliyuncs.com/docker-engine/internet | sh -</span><br><span class="line">sudo usermod -aG docker &lt;username&gt;</span><br><span class="line">systemctl start docker</span><br></pre></td></tr></table></figure>
+<h3 id="5、Docker安装"><a href="#5、Docker安装" class="headerlink" title="5、Docker安装"></a>5、Docker安装</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">   sudo yum install docker（centos）</span><br><span class="line">   sudo apt-get install docker.io （ubuntu）</span><br><span class="line">systemctl start docker</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">   sudo wget -qO- https://get.docker.com/ | sh **or** curl -sSL http://acs-public-mirror.oss-cn-hangzhou.aliyuncs.com/docker-engine/internet | sh -</span><br><span class="line">sudo usermod -aG docker &lt;username&gt;</span><br><span class="line">systemctl start docker</span><br></pre></td></tr></table></figure>
 <h3 id="6、Docker常用命令及参数"><a href="#6、Docker常用命令及参数" class="headerlink" title="6、Docker常用命令及参数"></a>6、Docker常用命令及参数</h3><table>
 <thead>
 <tr>
@@ -228,12 +232,12 @@
 <li>拷贝war包到挂载目录</li>
 </ol>
 <h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><blockquote>
-<p>Docker，从入门到实践：<a href="http://udn.yyuap.com/doc/docker_practice/index.html" target="_blank" rel="noopener">http://udn.yyuap.com/doc/docker_practice/index.html</a><br>使用Spring Cloud与Docker实战微服务：<a href="http://book.itmuch.com/" target="_blank" rel="noopener">http://book.itmuch.com/</a><br>简述 Docker：<a href="http://www.importnew.com/24658.html" target="_blank" rel="noopener">http://www.importnew.com/24658.html</a><br>Docker 镜像、容器、仓库的概念：<a href="http://blog.csdn.net/SmalOSnail/article/details/53117496" target="_blank" rel="noopener">http://blog.csdn.net/SmalOSnail/article/details/53117496</a><br>Docker实践 - 安装Docker并在容器里运行tomcat：<a href="http://blog.csdn.net/massivestars/article/details/54352484" target="_blank" rel="noopener">http://blog.csdn.net/massivestars/article/details/54352484</a><br>Docker官方文档：<a href="https://docs.docker.com/engine/understanding-docker/" target="_blank" rel="noopener">https://docs.docker.com/engine/understanding-docker/</a><br>Docker中文文档：<a href="http://git.oschina.net/widuu/chinese_docker" target="_blank" rel="noopener">http://git.oschina.net/widuu/chinese_docker</a><br>Docker Hub：<a href="https://hub.docker.com/" target="_blank" rel="noopener">https://hub.docker.com/</a><br>Dockerfile文档：<a href="https://docs.docker.com/engine/reference/builder/#dockerfile-reference" target="_blank" rel="noopener">https://docs.docker.com/engine/reference/builder/#dockerfile-reference</a><br>Dockerfile最佳实践：<a href="https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/#build-cache" target="_blank" rel="noopener">https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/#build-cache</a></p>
+<p>Docker，从入门到实践：<a href="http://udn.yyuap.com/doc/docker_practice/index.html" target="_blank" rel="noopener">http://udn.yyuap.com/doc/docker_practice/index.html</a><br>使用Spring Cloud与Docker实战微服务：<a href="http://book.itmuch.com/" target="_blank" rel="noopener">http://book.itmuch.com/</a><br>简述 Docker：<a href="http://www.importnew.com/24658.html" target="_blank" rel="noopener">http://www.importnew.com/24658.html</a><br>Docker 镜像、容器、仓库的概念：<a href="http://blog.csdn.net/SmalOSnail/article/details/53117496" target="_blank" rel="noopener">http://blog.csdn.net/SmalOSnail/article/details/53117496</a><br>Docker实践 - 安装Docker并在容器里运行tomcat：<a href="http://blog.csdn.net/massivestars/article/details/54352484" target="_blank" rel="noopener">http://blog.csdn.net/massivestars/article/details/54352484</a><br>Docker官方文档：<a href="https://docs.docker.com/engine/understanding-docker/" target="_blank" rel="noopener">https://docs.docker.com/engine/understanding-docker/</a><br>Docker中文文档：<a href="http://git.oschina.net/widuu/chinese_docker" target="_blank" rel="noopener">http://git.oschina.net/widuu/chinese_docker</a><br>Docker Hub：<a href="https://hub.docker.com/" target="_blank" rel="noopener">https://hub.docker.com/</a><br>Dockerfile文档：<a href="https://docs.docker.com/engine/reference/builder/#dockerfile-reference" target="_blank" rel="noopener">https://docs.docker.com/engine/reference/builder/#dockerfile-reference</a><br>Dockerfile最佳实践：<a href="https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/#build-cache" target="_blank" rel="noopener">https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/#build-cache</a>  </p>
 </blockquote>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年03月05日 16:23</p>
+        <p>最后更新： 2018年03月06日 10:12</p>
         <p>原始链接： <a class="post-url" href="/2018/02/11/Docker（一）/" title="Docker（一）">http://yoursite.com/2018/02/11/Docker（一）/</a></p>
         <footer>
             <a href="http://yoursite.com">

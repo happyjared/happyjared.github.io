@@ -19,7 +19,7 @@
 <meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/201833/687474703a2f2f736f6e677769652e636f6d2f61747461636865642f696d6167652f32303136303230352f32303136303230353136343535385f3135342e706e67.png">
 <meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/201833/testmycat.png">
 <meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/201833/201833testfind.png">
-<meta property="og:updated_time" content="2018-03-05T08:23:14.808Z">
+<meta property="og:updated_time" content="2018-03-06T02:12:19.595Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mycat（配置篇）">
 <meta name="twitter:description" content="Mycat目录说明 bin：启动目录 conf：配置文件目录 server.xml：是Mycat服务器参数调整和用户授权的配置文件 schema.xml：是逻辑库定义和表以及分片定义的配置文件 rule.xml：  是分片规则的配置文件，分片规则的具体一些参数信息单独存放为文件，也在这个目录下，配置文件修改需要重启MyCAT log4j.xml： 日志存放在logs/log中，每天一个文件，日志的">
@@ -164,7 +164,7 @@
 <h3 id="配置文件目录说明图："><a href="#配置文件目录说明图：" class="headerlink" title="配置文件目录说明图："></a>配置文件目录说明图：</h3><p><img src="http://p3ry9qsas.bkt.clouddn.com/201833/687474703a2f2f736f6e677769652e636f6d2f61747461636865642f696d6167652f32303136303230352f32303136303230353136343535385f3135342e706e67.png" alt="Mycat3大配置文件" title="Mycat3大配置文件"></p>
 <h3 id="3大配置文件说明"><a href="#3大配置文件说明" class="headerlink" title="3大配置文件说明"></a>3大配置文件说明</h3><h4 id="server-xml"><a href="#server-xml" class="headerlink" title="server.xml"></a>server.xml</h4><p>&emsp;&emsp;包含了Mycat需要的系统配置信息，用户配置信息以及逻辑库配置信息，源代码中的映射类为：SystemConfig.class</p>
 <ul>
-<li>添加如下配置：相当于建立了一个叫做mycat用户，对应密码为mycat，该用户管理了mycats这个逻辑库。当然了，也可以为用户添加管理多个逻辑库，以,（英文逗号）分隔开即可<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">user</span> <span class="attr">name</span>=<span class="string">"mycat"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"password"</span>&gt;</span>mycat<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"schemas"</span>&gt;</span>mycats<span class="tag">&lt;/<span class="name">property</span>&gt;</span><span class="comment">&lt;!--schemas：逻辑库名称，具体配置在scheme.xml中--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">user</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<li>添加如下配置：相当于建立了一个叫做mycat用户，对应密码为mycat，该用户管理了mycats这个逻辑库。当然了，也可以为用户添加管理多个逻辑库，以,（英文逗号）分隔开即可<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">user</span> <span class="attr">name</span>=<span class="string">"mycat"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"password"</span>&gt;</span>mycat<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"schemas"</span>&gt;</span>mycats<span class="tag">&lt;/<span class="name">property</span>&gt;</span><span class="comment">&lt;!--schemas：逻辑库名称，具体配置在scheme.xml中--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">user</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h4 id="schema-xml"><a href="#schema-xml" class="headerlink" title="schema.xml"></a>schema.xml</h4><p>&emsp;&emsp;可以说是最重要的配置文件，管理着 MyCat 的逻辑库、表、分片规则、DataNode 以及 DataSource</p>
@@ -195,7 +195,7 @@
 </li>
 </ul>
 <ol>
-<li>测试添加<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testAdd</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">long</span> i = <span class="number">0</span>; i &lt; <span class="number">50</span>; i++) &#123;</span><br><span class="line">            User user = <span class="keyword">new</span> User();</span><br><span class="line">            user.setId(i);</span><br><span class="line">            user.setName(<span class="string">"ls"</span> + i);</span><br><span class="line">            userDao.save(user);</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li>测试添加<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testAdd</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">long</span> i = <span class="number">0</span>; i &lt; <span class="number">50</span>; i++) &#123;</span><br><span class="line">		User user = <span class="keyword">new</span> User();</span><br><span class="line">		user.setId(i);</span><br><span class="line">		user.setName(<span class="string">"ls"</span> + i);</span><br><span class="line">		userDao.save(user);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>测试结果：数据按id取模的方式划分到了两个数据库中</p>
@@ -215,7 +215,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年03月05日 16:23</p>
+        <p>最后更新： 2018年03月06日 10:12</p>
         <p>原始链接： <a class="post-url" href="/2018/03/02/Mycat（配置篇）/" title="Mycat（配置篇）">http://yoursite.com/2018/03/02/Mycat（配置篇）/</a></p>
         <footer>
             <a href="http://yoursite.com">

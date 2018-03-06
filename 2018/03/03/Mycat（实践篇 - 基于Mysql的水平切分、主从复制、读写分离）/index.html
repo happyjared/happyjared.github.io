@@ -8,21 +8,21 @@
   
     <meta name="keywords" content="Jared Qiu's Blog | 不只是技术的...个人博客，编码爱好者，有代码小洁癖。" />
   
-  <meta name="description" content="写在前面&amp;emsp;&amp;emsp;Mycat作为独立的数据库中间件，我们只需要进行相关的配置，就可以非常方便的帮我们实现水平切分、垂直切分、读写分离等功能，但Mysql的主从复制需要我们通过其它方式实现。这里假设我们已经搭建好相关的环境，下面就开始我们的实践吧！ 准备环境 Mysql主从环境搭建 对应数据库建立（以下例子中要建的数据库是：master1mycat 和 master2mycat）  配">
+  <meta name="description" content="写在前面&amp;emsp;&amp;emsp;Mycat作为独立的数据库中间件，我们只需要进行相关的配置，就可以非常方便的帮我们实现水平切分、垂直切分、读写分离等功能，但Mysql的主从复制需要我们通过其它方式实现。这里假设我们已经搭建好相关的环境，下面就开始我们的实践吧！ 准备环境 Mysql(Version : 5.7)主从环境搭建 对应数据库建立（以下例子中要建的数据库是：master1mycat 和 m">
 <meta name="keywords" content="Mycat,数据库中间件,实践篇,mysql,主从复制,读写分离">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mycat（实践篇 - 基于Mysql的水平切分、主从复制、读写分离）">
 <meta property="og:url" content="http://yoursite.com/2018/03/03/Mycat（实践篇 - 基于Mysql的水平切分、主从复制、读写分离）/index.html">
 <meta property="og:site_name" content="Jared Qiu&#39;s Blog | 不只是技术">
-<meta property="og:description" content="写在前面&amp;emsp;&amp;emsp;Mycat作为独立的数据库中间件，我们只需要进行相关的配置，就可以非常方便的帮我们实现水平切分、垂直切分、读写分离等功能，但Mysql的主从复制需要我们通过其它方式实现。这里假设我们已经搭建好相关的环境，下面就开始我们的实践吧！ 准备环境 Mysql主从环境搭建 对应数据库建立（以下例子中要建的数据库是：master1mycat 和 master2mycat）  配">
+<meta property="og:description" content="写在前面&amp;emsp;&amp;emsp;Mycat作为独立的数据库中间件，我们只需要进行相关的配置，就可以非常方便的帮我们实现水平切分、垂直切分、读写分离等功能，但Mysql的主从复制需要我们通过其它方式实现。这里假设我们已经搭建好相关的环境，下面就开始我们的实践吧！ 准备环境 Mysql(Version : 5.7)主从环境搭建 对应数据库建立（以下例子中要建的数据库是：master1mycat 和 m">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/20180303163348.png">
 <meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/20180303163646.png">
 <meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/20180303read111.png">
-<meta property="og:updated_time" content="2018-03-05T08:23:14.808Z">
+<meta property="og:updated_time" content="2018-03-06T02:12:19.594Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mycat（实践篇 - 基于Mysql的水平切分、主从复制、读写分离）">
-<meta name="twitter:description" content="写在前面&amp;emsp;&amp;emsp;Mycat作为独立的数据库中间件，我们只需要进行相关的配置，就可以非常方便的帮我们实现水平切分、垂直切分、读写分离等功能，但Mysql的主从复制需要我们通过其它方式实现。这里假设我们已经搭建好相关的环境，下面就开始我们的实践吧！ 准备环境 Mysql主从环境搭建 对应数据库建立（以下例子中要建的数据库是：master1mycat 和 master2mycat）  配">
+<meta name="twitter:description" content="写在前面&amp;emsp;&amp;emsp;Mycat作为独立的数据库中间件，我们只需要进行相关的配置，就可以非常方便的帮我们实现水平切分、垂直切分、读写分离等功能，但Mysql的主从复制需要我们通过其它方式实现。这里假设我们已经搭建好相关的环境，下面就开始我们的实践吧！ 准备环境 Mysql(Version : 5.7)主从环境搭建 对应数据库建立（以下例子中要建的数据库是：master1mycat 和 m">
 <meta name="twitter:image" content="http://p3ry9qsas.bkt.clouddn.com/20180303163348.png">
   
   
@@ -149,7 +149,7 @@
             
             <h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>&emsp;&emsp;Mycat作为独立的数据库中间件，我们只需要进行相关的配置，就可以非常方便的帮我们实现水平切分、垂直切分、读写分离等功能，但Mysql的主从复制需要我们通过其它方式实现。这里假设我们已经搭建好相关的环境，下面就开始我们的实践吧！</p>
 <h3 id="准备环境"><a href="#准备环境" class="headerlink" title="准备环境"></a>准备环境</h3><ul>
-<li>Mysql主从环境搭建</li>
+<li>Mysql(Version : 5.7)主从环境搭建</li>
 <li>对应数据库建立（以下例子中要建的数据库是：master1mycat 和 master2mycat）</li>
 </ul>
 <h3 id="配置server-xml"><a href="#配置server-xml" class="headerlink" title="配置server.xml"></a>配置server.xml</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">user</span> <span class="attr">name</span>=<span class="string">"mysqlmycat"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"password"</span>&gt;</span>mysqlmycat<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"schemas"</span>&gt;</span>mysqlmycats<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">user</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -193,12 +193,12 @@
 <li>删除及修改请自行测试</li>
 </ol>
 <h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><blockquote>
-<p><a href="http://www.mycat.io/" target="_blank" rel="noopener">Mycat官网</a><br><a href="http://songwie.com/teachs?searthstr=Mycat&amp;start=0&amp;limit=100" target="_blank" rel="noopener">Mycat从零开始</a><br><a href="http://www.mycat.io/document/Mycat_V1.6.0.pdf" target="_blank" rel="noopener">Mycat权威指南</a><br><a href="https://github.com/MyCATApache/Mycat-Server" target="_blank" rel="noopener">GitHub：Mycat-Server</a><br><a href="https://github.com/MyCATApache/Mycat-Server/wiki" target="_blank" rel="noopener">Wiki：Mycat-Server</a><br><a href="https://github.com/MyCATApache/Mycat-Server/issues" target="_blank" rel="noopener">Issues：Mycat-Server</a><br><a href="https://www.guokr.com/blog/475765/" target="_blank" rel="noopener">mysql中间件研究（Atlas，Cobar，TDDL）</a><br><a href="http://songwie.com/articlelist/44" target="_blank" rel="noopener">mysql中间件研究（Atlas，Cobar，TDDL，Mycat，Heisenberg，Oceanus，Vitess，OneProxy）</a></p>
+<p><a href="http://www.mycat.io/" target="_blank" rel="noopener">Mycat官网</a><br><a href="http://songwie.com/teachs?searthstr=Mycat&amp;start=0&amp;limit=100" target="_blank" rel="noopener">Mycat从零开始</a><br><a href="http://www.mycat.io/document/Mycat_V1.6.0.pdf" target="_blank" rel="noopener">Mycat权威指南</a><br><a href="https://github.com/MyCATApache/Mycat-Server" target="_blank" rel="noopener">GitHub：Mycat-Server</a><br><a href="https://github.com/MyCATApache/Mycat-Server/wiki" target="_blank" rel="noopener">Wiki：Mycat-Server</a><br><a href="https://github.com/MyCATApache/Mycat-Server/issues" target="_blank" rel="noopener">Issues：Mycat-Server</a><br><a href="https://www.guokr.com/blog/475765/" target="_blank" rel="noopener">mysql中间件研究（Atlas，Cobar，TDDL）</a><br><a href="http://songwie.com/articlelist/44" target="_blank" rel="noopener">mysql中间件研究（Atlas，Cobar，TDDL，Mycat，Heisenberg，Oceanus，Vitess，OneProxy）</a>  </p>
 </blockquote>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年03月05日 16:23</p>
+        <p>最后更新： 2018年03月06日 10:12</p>
         <p>原始链接： <a class="post-url" href="/2018/03/03/Mycat（实践篇 - 基于Mysql的水平切分、主从复制、读写分离）/" title="Mycat（实践篇 - 基于Mysql的水平切分、主从复制、读写分离）">http://yoursite.com/2018/03/03/Mycat（实践篇 - 基于Mysql的水平切分、主从复制、读写分离）/</a></p>
         <footer>
             <a href="http://yoursite.com">

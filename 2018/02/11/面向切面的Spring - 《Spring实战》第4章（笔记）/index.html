@@ -8,18 +8,24 @@
   
     <meta name="keywords" content="Jared Qiu's Blog | 不只是技术的...个人博客，编码爱好者，有代码小洁癖。" />
   
-  <meta name="description" content="写在前面&amp;emsp;&amp;emsp;本文是博主在看完《Spring实战》第4章：面向切面的Spring后的一些实践笔记。&amp;emsp;&amp;emsp;为什么要用AOP呢？《Spring实战》作者在书中也明确提到了，使用AOP，可以让代码逻辑更多的去关注自己本身的业务，而不用混杂和关注一些其它的东西。包括：安全，缓存，事务，日志等等。 名词概念通知(advice):  切面（Aspect）切面是通知和切入点的">
+  <meta name="description" content="写在前面&amp;emsp;&amp;emsp;本文是博主在看完面向切面的Spring（《Spring实战》第4章）后的一些实践笔记。&amp;emsp;&amp;emsp;为什么要用AOP呢？作者在书中也明确提到了，使用AOP，可以让代码逻辑更多的去关注自己本身的业务，而不用混杂和关注一些其它的东西。包括：安全，缓存，事务，日志等等。 名词概念 通知（Advice）  &amp;emsp;&amp;emsp;定义了切面做什么和什么时候去做。简">
 <meta name="keywords" content="《Spring in action》,Spring,AcpectJ,Aop,读书笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="面向切面的Spring - 《Spring实战》第4章（笔记）">
 <meta property="og:url" content="http://yoursite.com/2018/02/11/面向切面的Spring - 《Spring实战》第4章（笔记）/index.html">
 <meta property="og:site_name" content="Jared Qiu&#39;s Blog | 不只是技术">
-<meta property="og:description" content="写在前面&amp;emsp;&amp;emsp;本文是博主在看完《Spring实战》第4章：面向切面的Spring后的一些实践笔记。&amp;emsp;&amp;emsp;为什么要用AOP呢？《Spring实战》作者在书中也明确提到了，使用AOP，可以让代码逻辑更多的去关注自己本身的业务，而不用混杂和关注一些其它的东西。包括：安全，缓存，事务，日志等等。 名词概念通知(advice):  切面（Aspect）切面是通知和切入点的">
+<meta property="og:description" content="写在前面&amp;emsp;&amp;emsp;本文是博主在看完面向切面的Spring（《Spring实战》第4章）后的一些实践笔记。&amp;emsp;&amp;emsp;为什么要用AOP呢？作者在书中也明确提到了，使用AOP，可以让代码逻辑更多的去关注自己本身的业务，而不用混杂和关注一些其它的东西。包括：安全，缓存，事务，日志等等。 名词概念 通知（Advice）  &amp;emsp;&amp;emsp;定义了切面做什么和什么时候去做。简">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-06T09:28:10.489Z">
+<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/201837/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180307102122.png">
+<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/201837/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180307102142.png">
+<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/201836/20180306aop.png">
+<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/201837/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180307105708.png">
+<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/201837/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180307105755.png">
+<meta property="og:updated_time" content="2018-03-07T03:22:32.239Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面向切面的Spring - 《Spring实战》第4章（笔记）">
-<meta name="twitter:description" content="写在前面&amp;emsp;&amp;emsp;本文是博主在看完《Spring实战》第4章：面向切面的Spring后的一些实践笔记。&amp;emsp;&amp;emsp;为什么要用AOP呢？《Spring实战》作者在书中也明确提到了，使用AOP，可以让代码逻辑更多的去关注自己本身的业务，而不用混杂和关注一些其它的东西。包括：安全，缓存，事务，日志等等。 名词概念通知(advice):  切面（Aspect）切面是通知和切入点的">
+<meta name="twitter:description" content="写在前面&amp;emsp;&amp;emsp;本文是博主在看完面向切面的Spring（《Spring实战》第4章）后的一些实践笔记。&amp;emsp;&amp;emsp;为什么要用AOP呢？作者在书中也明确提到了，使用AOP，可以让代码逻辑更多的去关注自己本身的业务，而不用混杂和关注一些其它的东西。包括：安全，缓存，事务，日志等等。 名词概念 通知（Advice）  &amp;emsp;&amp;emsp;定义了切面做什么和什么时候去做。简">
+<meta name="twitter:image" content="http://p3ry9qsas.bkt.clouddn.com/201837/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180307102122.png">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -141,15 +147,74 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>&emsp;&emsp;本文是博主在看完《Spring实战》第4章：面向切面的Spring后的一些实践笔记。<br>&emsp;&emsp;为什么要用AOP呢？《Spring实战》作者在书中也明确提到了，使用AOP，可以让代码逻辑更多的去关注自己本身的业务，而不用混杂和关注一些其它的东西。包括：安全，缓存，事务，日志等等。</p>
-<h3 id="名词概念"><a href="#名词概念" class="headerlink" title="名词概念"></a>名词概念</h3><p>通知(advice):</p>
-<ul>
-<li><p>切面（Aspect）<br>切面是通知和切入点的结合。现在发现了吧，没连接点什么事，链接点就是为了让你好理解切点搞出来的，明白这个概念就行了。通知说明了干什么和什么时候干（什么时候通过方法名中的befor，after，around等就能知道），二切入点说明了在哪干（指定到底是哪个方法），这就是一个完整的切面定义</p>
-</li>
-<li><p>切点（Pointcut）<br>上面说的连接点的基础上，来定义切入点，你的一个类里，有15个方法，那就有十几个连接点了对吧，但是你并不想在所有方法附件都使用通知（使用叫织入，下面再说），你只是想让其中几个，在调用这几个方法之前、之后或者抛出异常时干点什么，那么就用切入点来定义这几个方法，让切点来筛选连接点，选中那几个你想要的方法。</p>
-</li>
+            <h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>&emsp;&emsp;本文是博主在看完面向切面的Spring（《Spring实战》第4章）后的一些实践笔记。<br>&emsp;&emsp;为什么要用AOP呢？作者在书中也明确提到了，使用AOP，可以让代码逻辑更多的去关注自己本身的业务，而不用混杂和关注一些其它的东西。包括：安全，缓存，事务，日志等等。</p>
+<h3 id="名词概念"><a href="#名词概念" class="headerlink" title="名词概念"></a>名词概念</h3><ul>
+<li>通知（Advice）</li>
 </ul>
-<h3 id="语法解析"><a href="#语法解析" class="headerlink" title="语法解析"></a>语法解析</h3><h3 id="实战测试"><a href="#实战测试" class="headerlink" title="实战测试"></a>实战测试</h3><ol>
+<p>&emsp;&emsp;定义了切面做什么和什么时候去做。简单点来说，就是AOP执行时会调用的方法，通知除了定义切面要完成的工作(What)，还会定位什么时候(When)去履行这项工作，是在方法调用前，还是调用之后，还是前后都是，还是抛出异常时</p>
+<blockquote>
+<p>在切面定义中，一共有以下五种通知类型</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Before</td>
+<td>某方法调用之前发出通知</td>
+</tr>
+<tr>
+<td>After</td>
+<td>某方法完成之后发出通知，<strong>不考虑方法运行的结果</strong></td>
+</tr>
+<tr>
+<td>AfterReturning</td>
+<td>将通知放置在被通知的方法<strong>成功执行</strong>之后</td>
+</tr>
+<tr>
+<td>AfterThrowing</td>
+<td>将通知放置在被通知的方法<strong>抛出异常</strong>之后</td>
+</tr>
+<tr>
+<td>Around</td>
+<td>通知包裹在被通知的方法的周围，在方法调用之前和之后发出（环绕通知 = 前置 + 目标方法执行 + 后置通知）</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>切点，也叫切入点（Pointcut） </li>
+</ul>
+<p>&emsp;&emsp;上面说的连接点的基础上，来定义切入点，你的一个类里，有15个方法，那就有十几个连接点了对吧，但是你并不想在所有方法附件都使用通知（使用叫织入，下面再说），你只是想让其中几个，在调用这几个方法之前、之后或者抛出异常时干点什么，那么就用切入点来定义这几个方法，让切点来筛选连接点，选中那几个你想要的方法</p>
+<ul>
+<li>连接点，也叫参加点（JoinPoint）</li>
+</ul>
+<p>&emsp;&emsp;连接点是切面在应用程序执行过程中插入的地方，可能是方法调用（前、后）的时候，也可能是异常抛出的时候。连接点如果可以说是切点的全集，那么切点就是连接点的子集</p>
+<ul>
+<li>切面（Aspect） </li>
+</ul>
+<p>&emsp;&emsp;切面其实就是通知和切点的结合。通知说明了干什么和什么时候干（通过方法上使用@Before、@After等就能知道），则切点说明了在哪干（指定到底是哪个方法），这就组成了一个完整的切面定义</p>
+<h3 id="Spring对AOP的支持"><a href="#Spring对AOP的支持" class="headerlink" title="Spring对AOP的支持"></a>Spring对AOP的支持</h3><ul>
+<li>Spring建议在Java中编写AOP，虽然用XML也可以实现</li>
+<li>Spring通过使用代理类，在运行阶段将切面编织进bean中</li>
+<li>Spring只支持方法级别的连接点，不像AspectJ还可以通过构造器或属性注入</li>
+</ul>
+<h3 id="切点表达式"><a href="#切点表达式" class="headerlink" title="切点表达式"></a>切点表达式</h3><p>&emsp;&emsp;切点表达式算是一些比较概念性的知识，下面截了两个图供大家参考参考</p>
+<p><img src="http://p3ry9qsas.bkt.clouddn.com/201837/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180307102122.png" alt="切点表达式1" title="切点表达式1"></p>
+<p><img src="http://p3ry9qsas.bkt.clouddn.com/201837/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180307102142.png" alt="切点表达式2" title="切点表达式2"></p>
+<p>&emsp;&emsp;看得头晕了吧，不过好在只有execution()是用来执行匹配的，剩下的都是为了限制或定制连接点要匹配的位置<br>&emsp;&emsp;以下是execution()定义的格式（其中，带?号的为可选，否则必须给出） :</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">execution(modifiers-pattern? ret-type-pattern declaring-type-pattern? name-pattern(param-pattern)</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;还是举个真实栗子模仿一下吧</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">execution(* com.example.aspectj.UserDao.updateName(..))</span><br></pre></td></tr></table></figure>
+<ul>
+<li>execution：用于定义什么方法执行时会被触发，这里是指com.example.aspectj包下的UserDao接口中的updateName方法执行时触发</li>
+<li>*   ：忽略方法返回值类型</li>
+<li>(..) ：匹配任意参数</li>
+</ul>
+<h3 id="实战测试（SpringBoot-JPA）"><a href="#实战测试（SpringBoot-JPA）" class="headerlink" title="实战测试（SpringBoot + JPA）"></a>实战测试（SpringBoot + JPA）</h3><ol>
 <li>Create Entity</li>
 </ol>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Table</span>(name = <span class="string">"tb_user"</span>)</span><br><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Id</span></span><br><span class="line">    <span class="meta">@GeneratedValue</span></span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -166,16 +231,18 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Aspect</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserAspectjOne</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Resource</span></span><br><span class="line">    <span class="keyword">private</span> UserService userService;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Before</span>(<span class="string">"execution(* com.example.aspectj.UserDao.updateName(..))"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">before</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"1.------------before()"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@After</span>(<span class="string">"execution(* com.example.aspectj.UserDao.updateName(..))"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">after</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"1.------------after()"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@AfterReturning</span>(<span class="string">"execution(* com.example.aspectj.UserDao.updateName(..))"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterReturning</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"1.------------afterReturning()"</span>);</span><br><span class="line">        User user = <span class="keyword">new</span> User();</span><br><span class="line">        user.setName(<span class="string">"afterReturning1"</span>);</span><br><span class="line">        userService.save(user);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@AfterThrowing</span>(<span class="string">"execution(* com.example.aspectj.UserDao.updateName(..))"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterThrowing</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"1.------------afterThrowing()"</span>);</span><br><span class="line">        User user = <span class="keyword">new</span> User();</span><br><span class="line">        user.setName(<span class="string">"afterThrowing1"</span>);</span><br><span class="line">        userService.save(user);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Create Configuration</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="comment">// @EnableAspectJAutoProxy //实测可以不添加该注解</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AspectjConfiguration</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> UserAspectjOne <span class="title">userAspectjOne</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> UserAspectjOne();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="comment">// @EnableAspectJAutoProxy //实测可以不添加该注解，因为SpringBoot中已经默认开启了AOP功能</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AspectjConfiguration</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> UserAspectjOne <span class="title">userAspectjOne</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> UserAspectjOne();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>Test updateName() with UserAspectjOne</p>
-<ul>
+</ol>
+<p><img src="http://p3ry9qsas.bkt.clouddn.com/201836/20180306aop.png" alt="SpringBoot已经默认开启了aop" title="SpringBoot已经默认开启了aop"></p>
+<ol>
+<li>Test updateName() with UserAspectjOne<ul>
 <li>6.1 先往数据库里添加一条数据<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testAdd</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       User user = <span class="keyword">new</span> User();</span><br><span class="line">       user.setName(<span class="string">"jared"</span>);</span><br><span class="line">       userDao.save(user);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
 </ol>
-<pre><code>![添加User][1]
+<pre><code>![添加User][4]
 
 
 - 6.2 测试正常执行updateName()
@@ -184,11 +251,11 @@
 
 - 6.3.1 打印结果 
 
-![输出结果][2]
+![输出结果][5]
 
 - 6.3.2 数据库结果
 
-![数据库结果][3]
+![数据库结果][6]
 
 - 6.4 测试非正常执行updateName()，只需要把UserDao类中updateName()上的@Modifying或者@Transactional注解去掉即可
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testUpdateName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       userService.update(<span class="string">"error jared qiu"</span>, <span class="number">1</span>);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
@@ -196,11 +263,11 @@
 
 - 6.5.1 打印结果 
 
-![输出结果][4]
+![输出结果][7]
 
 - 6.5.2 数据库结果
 
-![数据库结果][5]
+![数据库结果][8]
 </code></pre><h3 id="第二种风格的切面"><a href="#第二种风格的切面" class="headerlink" title="第二种风格的切面"></a>第二种风格的切面</h3><ol>
 <li><p>Create Aspect（依旧使用了@Before、@After、@AfterReturning和@AfterThrowing这四个注解，但新增了@Pointcut注解，把切面的定义抽离了出来进行统一）</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Aspect</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserAspectjTwo</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Resource</span></span><br><span class="line">    <span class="keyword">private</span> UserService userService;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Pointcut</span>(<span class="string">"execution(* com.example.aspectj.UserDao.updateName(..))"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">pointcut</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Before</span>(<span class="string">"pointcut()"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">before</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"2.------------before()"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@After</span>(<span class="string">"pointcut()"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">after</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"2.------------after()"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@AfterReturning</span>(<span class="string">"pointcut()"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterReturning</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"2.------------afterReturning()"</span>);</span><br><span class="line">        User user = <span class="keyword">new</span> User();</span><br><span class="line">        user.setName(<span class="string">"afterReturning2"</span>);</span><br><span class="line">        userService.save(user);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@AfterThrowing</span>(<span class="string">"pointcut()"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterThrowing</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"2.------------afterThrowing()"</span>);</span><br><span class="line">        User user = <span class="keyword">new</span> User();</span><br><span class="line">        user.setName(<span class="string">"afterThrowing2"</span>);</span><br><span class="line">        userService.save(user);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -215,7 +282,7 @@
 </ul>
 </li>
 </ol>
-<pre><code>![添加User][6]
+<pre><code>![添加User][9]
 
 
 - 6.2 测试正常执行updateName()
@@ -224,11 +291,11 @@
 
 - 6.3.1 打印结果 
 
-![输出结果][7]
+![输出结果][10]
 
 - 6.3.2 数据库结果
 
-![数据库结果][8]
+![数据库结果][11]
 
 - 6.4 测试非正常执行updateName()，只需要把UserDao类中updateName()上的@Modifying或者@Transactional注解去掉即可
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testUpdateName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       userService.update(<span class="string">"error jared qiu"</span>, <span class="number">1</span>);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
@@ -236,11 +303,11 @@
 
 - 6.5.1 打印结果 
 
-![输出结果][9]
+![输出结果][12]
 
 - 6.5.2 数据库结果
 
-![数据库结果][10]
+![数据库结果][13]
 </code></pre><h3 id="第三种风格的切面"><a href="#第三种风格的切面" class="headerlink" title="第三种风格的切面"></a>第三种风格的切面</h3><ol>
 <li><p>Create Aspect（使用了@Around这个环绕注解）</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Aspect</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserAspectjThree</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Resource</span></span><br><span class="line">    <span class="keyword">private</span> UserService userService;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 方法的返回值类型须与切面所在方法的返回值类型保持一致</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Around</span>(<span class="string">"execution(* com.example.aspectj.UserDao.updateName(..))"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">around</span><span class="params">(ProceedingJoinPoint joinPoint)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">"3.------------before()"</span>);</span><br><span class="line">			System.out.println(<span class="string">"3.------------after()"</span>);</span><br><span class="line">            joinPoint.proceed();<span class="comment">//用于启动目标方法执行（必须）</span></span><br><span class="line">            System.out.println(<span class="string">"3.------------afterReturning()"</span>);</span><br><span class="line">            User user = <span class="keyword">new</span> User();</span><br><span class="line">            user.setName(<span class="string">"afterReturning3"</span>);</span><br><span class="line">            userService.save(user);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Throwable e) &#123;</span><br><span class="line">            System.out.println(<span class="string">"3.------------afterThrowing()"</span>);</span><br><span class="line">            User user = <span class="keyword">new</span> User();</span><br><span class="line">            user.setName(<span class="string">"afterThrowing3"</span>);</span><br><span class="line">            userService.save(user);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -255,7 +322,7 @@
 </ul>
 </li>
 </ol>
-<pre><code>![添加User][11]
+<pre><code>![添加User][14]
 
 - 6.2 测试正常执行updateName()
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testUpdateName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       userService.update(<span class="string">"jared qiu"</span>, <span class="number">1</span>);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
@@ -263,11 +330,11 @@
 
 - 6.3.1 打印结果 
 
-![输出结果][12]
+![输出结果][15]
 
 - 6.3.2 数据库结果
 
-![数据库结果][13]
+![数据库结果][16]
 
 - 6.4 测试非正常执行updateName()，只需要把UserDao类中updateName()上的@Modifying或者@Transactional注解去掉即可
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testUpdateName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       userService.update(<span class="string">"error jared qiu"</span>, <span class="number">1</span>);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
@@ -275,11 +342,11 @@
 
 - 6.5.1 打印结果 
 
-![输出结果][14]
+![输出结果][17]
 
 - 6.5.2 数据库结果
 
-![数据库结果][15]
+![数据库结果][18]
 </code></pre><h3 id="第四种风格的切面"><a href="#第四种风格的切面" class="headerlink" title="第四种风格的切面"></a>第四种风格的切面</h3><ol>
 <li><p>Create Aspect（依旧使用了@Around这个环绕注解，但加入了@Pointcut注解和传递了参数）</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Aspect</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserAspectjFour</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Resource</span></span><br><span class="line">    <span class="keyword">private</span> UserService userService;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Pointcut</span>(<span class="string">"execution(* com.example.aspectj.UserDao.updateName(String,*)) &amp;&amp; args(name,*)"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">pointcut</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Around</span>(value = <span class="string">"pointcut(name)"</span>, argNames = <span class="string">"joinPoint,name"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">around</span><span class="params">(ProceedingJoinPoint joinPoint, String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">"4.------------before()"</span>);</span><br><span class="line">            System.out.println(<span class="string">"4.------------after()"</span>);</span><br><span class="line">            Object proceed = joinPoint.proceed();</span><br><span class="line">            System.out.println(proceed);</span><br><span class="line">            System.out.println(<span class="string">"4.------------afterReturning()"</span>);</span><br><span class="line">            User user = <span class="keyword">new</span> User();</span><br><span class="line">            user.setName(<span class="string">"afterReturning4"</span> + name);</span><br><span class="line">            userService.save(user);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Throwable e) &#123;</span><br><span class="line">            System.out.println(<span class="string">"4.------------afterThrowing()"</span>);</span><br><span class="line">            User user = <span class="keyword">new</span> User();</span><br><span class="line">            user.setName(<span class="string">"afterThrowing4"</span> + name);</span><br><span class="line">            userService.save(user);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -294,7 +361,7 @@
 </ul>
 </li>
 </ol>
-<pre><code>![添加User][16]
+<pre><code>![添加User][19]
 
 - 6.2 测试正常执行updateName()
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testUpdateName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       userService.update(<span class="string">"jared qiu"</span>, <span class="number">1</span>);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
@@ -302,11 +369,11 @@
 
 - 6.3.1 打印结果 
 
-![输出结果][17]
+![输出结果][20]
 
 - 6.3.2 数据库结果
 
-![数据库结果][18]
+![数据库结果][21]
 
 - 6.4 测试非正常执行updateName()，只需要把UserDao类中updateName()上的@Modifying或者@Transactional注解去掉即可
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testUpdateName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       userService.update(<span class="string">"error jared qiu"</span>, <span class="number">1</span>);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
@@ -314,18 +381,24 @@
 
 - 6.5.1 打印结果 
 
-![输出结果][19]
+![输出结果][22]
 
 - 6.5.2 数据库结果
 
-![数据库结果][20]
-</code></pre><h3 id="学习链接"><a href="#学习链接" class="headerlink" title="学习链接"></a>学习链接</h3><blockquote>
-<p><a href="http://www.eclipse.org/aspectj/" target="_blank" rel="noopener">AspectJ</a>  </p>
+![数据库结果][23]
+</code></pre><h3 id="扩展-EnableAspectJAutoProxy"><a href="#扩展-EnableAspectJAutoProxy" class="headerlink" title="扩展@EnableAspectJAutoProxy"></a>扩展@EnableAspectJAutoProxy</h3><ul>
+<li>表示开启AOP代理自动配置，如果配@EnableAspectJAutoProxy表示使用cglib进行代理对象的生成；设置@EnableAspectJAutoProxy(exposeProxy=true)表示通过aop框架暴露该代理对象，使得aopContext能够直接访问</li>
+<li>从@EnableAspectJAutoProxy的定义可以看出，它引入AspectJAutoProxyRegister.class对象，该对象是基于注解@EnableAspectJAutoProxy注册了一个AnnotationAwareAspectJAutoProxyCreator，通过调用AopConfigUtils.registerAspectJAnnotationAutoProxyCreatorIfNecessary(registry)，注册了一个aop代理对象生成器</li>
+</ul>
+<p><img src="http://p3ry9qsas.bkt.clouddn.com/201837/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180307105708.png" alt="@EnableAspectJAutoProxy" title="@EnableAspectJAutoProxy"></p>
+<p><img src="http://p3ry9qsas.bkt.clouddn.com/201837/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180307105755.png" alt="AspectJAutoProxyRegistrar" title="AspectJAutoProxyRegistrar"></p>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><blockquote>
+<p><a href="http://www.eclipse.org/aspectj/" target="_blank" rel="noopener">AspectJ</a><br><a href="https://www.jianshu.com/p/63c7f788b1d6" target="_blank" rel="noopener">Spring AOP系列</a><br><a href="http://chiyx.iteye.com/blog/1568600" target="_blank" rel="noopener">Spring AOP中JoinPoint的表达式定义描述</a></p>
 </blockquote>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年03月06日 17:28</p>
+        <p>最后更新： 2018年03月07日 11:22</p>
         <p>原始链接： <a class="post-url" href="/2018/02/11/面向切面的Spring - 《Spring实战》第4章（笔记）/" title="面向切面的Spring - 《Spring实战》第4章（笔记）">http://yoursite.com/2018/02/11/面向切面的Spring - 《Spring实战》第4章（笔记）/</a></p>
         <footer>
             <a href="http://yoursite.com">
@@ -451,7 +524,7 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#写在前面"><span class="post-toc-text">写在前面</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#名词概念"><span class="post-toc-text">名词概念</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#语法解析"><span class="post-toc-text">语法解析</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#实战测试"><span class="post-toc-text">实战测试</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#第一种风格的切面"><span class="post-toc-text">第一种风格的切面</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#第二种风格的切面"><span class="post-toc-text">第二种风格的切面</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#第三种风格的切面"><span class="post-toc-text">第三种风格的切面</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#第四种风格的切面"><span class="post-toc-text">第四种风格的切面</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#学习链接"><span class="post-toc-text">学习链接</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#写在前面"><span class="post-toc-text">写在前面</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#名词概念"><span class="post-toc-text">名词概念</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Spring对AOP的支持"><span class="post-toc-text">Spring对AOP的支持</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#切点表达式"><span class="post-toc-text">切点表达式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#实战测试（SpringBoot-JPA）"><span class="post-toc-text">实战测试（SpringBoot + JPA）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#第一种风格的切面"><span class="post-toc-text">第一种风格的切面</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#第二种风格的切面"><span class="post-toc-text">第二种风格的切面</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#第三种风格的切面"><span class="post-toc-text">第三种风格的切面</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#第四种风格的切面"><span class="post-toc-text">第四种风格的切面</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#扩展-EnableAspectJAutoProxy"><span class="post-toc-text">扩展@EnableAspectJAutoProxy</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参考链接"><span class="post-toc-text">参考链接</span></a></li></ol>
         </nav>
     </aside>
     

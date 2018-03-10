@@ -3,28 +3,23 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Java类库：Lombok | Jared Qiu&#39;s Blog | 不只是技术</title>
+  <title>Docker + PostgreSQL（10.1）主从环境搭建 | Jared Qiu&#39;s Blog | 不只是技术</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="Jared Qiu's Blog | 不只是技术的...个人博客，编码爱好者，有代码小洁癖。" />
   
-  <meta name="description" content="本文前言&amp;emsp;&amp;emsp;前阵子闲逛的时候，留意到了Lombok这个Java第三方库，后来亲自试用了一下，还真有一种相见恨晚的感觉，对于博主这样的懒人来说，这简直是太实用了，趁着周末，所以赶紧把好东西写出来分享一下。 关于Lombok&amp;emsp;&amp;emsp;引述官网介绍：  Project Lombok is a java library that automatically plugs i">
-<meta name="keywords" content="Java,Lombok,Java类库">
+  <meta name="description" content="运行PostgreSQL主库1docker run --name pgmaster -p 5432:5432 -e POSTGRES_PASSWORD=pgmaster -v $(pwd)/pgmaster:/var/lib/postgresql/data -d postgres 从库1docker run --name pgslave -p 5433:5432 -e POSTGRES_PASSW">
+<meta name="keywords" content="主从搭建,PostgreSQL,Docker">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java类库：Lombok">
-<meta property="og:url" content="http://yoursite.com/2017/10/22/Java类库：Lombok/index.html">
+<meta property="og:title" content="Docker + PostgreSQL（10.1）主从环境搭建">
+<meta property="og:url" content="http://yoursite.com/2018/03/08/Docker + PostgreSQL（10.1）主从环境搭建/index.html">
 <meta property="og:site_name" content="Jared Qiu&#39;s Blog | 不只是技术">
-<meta property="og:description" content="本文前言&amp;emsp;&amp;emsp;前阵子闲逛的时候，留意到了Lombok这个Java第三方库，后来亲自试用了一下，还真有一种相见恨晚的感觉，对于博主这样的懒人来说，这简直是太实用了，趁着周末，所以赶紧把好东西写出来分享一下。 关于Lombok&amp;emsp;&amp;emsp;引述官网介绍：  Project Lombok is a java library that automatically plugs i">
+<meta property="og:description" content="运行PostgreSQL主库1docker run --name pgmaster -p 5432:5432 -e POSTGRES_PASSWORD=pgmaster -v $(pwd)/pgmaster:/var/lib/postgresql/data -d postgres 从库1docker run --name pgslave -p 5433:5432 -e POSTGRES_PASSW">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/201835/clip-20171022150359.png">
-<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/201835/clip-20171022150500.png">
-<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/201835/clip-20171022144213.png">
-<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/201835/clip-2017102214421333.png">
-<meta property="og:updated_time" content="2018-03-05T08:23:14.806Z">
+<meta property="og:updated_time" content="2018-03-10T10:24:16.471Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java类库：Lombok">
-<meta name="twitter:description" content="本文前言&amp;emsp;&amp;emsp;前阵子闲逛的时候，留意到了Lombok这个Java第三方库，后来亲自试用了一下，还真有一种相见恨晚的感觉，对于博主这样的懒人来说，这简直是太实用了，趁着周末，所以赶紧把好东西写出来分享一下。 关于Lombok&amp;emsp;&amp;emsp;引述官网介绍：  Project Lombok is a java library that automatically plugs i">
-<meta name="twitter:image" content="http://p3ry9qsas.bkt.clouddn.com/201835/clip-20171022150359.png">
+<meta name="twitter:title" content="Docker + PostgreSQL（10.1）主从环境搭建">
+<meta name="twitter:description" content="运行PostgreSQL主库1docker run --name pgmaster -p 5432:5432 -e POSTGRES_PASSWORD=pgmaster -v $(pwd)/pgmaster:/var/lib/postgresql/data -d postgres 从库1docker run --name pgslave -p 5433:5432 -e POSTGRES_PASSW">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -110,14 +105,14 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap"><article id="post-Java类库：Lombok" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main" class="body-wrap"><article id="post-Docker + PostgreSQL（10.1）主从环境搭建" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="post-title" itemprop="name">
-      Java类库：Lombok
+      Docker + PostgreSQL（10.1）主从环境搭建
     </h1>
     <div class="post-title-bar">
       <ul>
@@ -125,14 +120,14 @@
               <li>
                   <i class="fa fa-book"></i>
                   
-                      <a href="/categories/Java/">Java</a>
+                      <a href="/categories/PostgreSQL/">PostgreSQL</a>
                   
-                      <a href="/categories/Lombok/">Lombok</a>
+                      <a href="/categories/Docker/">Docker</a>
                   
               </li>
           
         <li>
-          <i class="fa fa-calendar"></i>  2017-10-22
+          <i class="fa fa-calendar"></i>  2018-03-08
         </li>
         <li>
           <i class="fa fa-eye"></i>
@@ -148,59 +143,40 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <h3 id="本文前言"><a href="#本文前言" class="headerlink" title="本文前言"></a>本文前言</h3><p>&emsp;&emsp;前阵子闲逛的时候，留意到了Lombok这个Java第三方库，后来亲自试用了一下，还真有一种相见恨晚的感觉，对于博主这样的懒人来说，这简直是太实用了，趁着周末，所以赶紧把好东西写出来分享一下。</p>
-<h3 id="关于Lombok"><a href="#关于Lombok" class="headerlink" title="关于Lombok"></a>关于Lombok</h3><p>&emsp;&emsp;引述官网介绍：</p>
-<blockquote>
-<p>Project Lombok is a java library that automatically plugs into your editor and build tools, spicing up your java.Never write another getter or equals method again. Early access to future java features such as val, and much more.<strong>（Lombok是一个java库，它可以自动插入您的编辑器和构建工具，为您的java提供帮助。再也不要写其他的getter或equals方法了。尽早访问诸如val之类的未来java特性）</strong></p>
-</blockquote>
-<p>&emsp;&emsp;PS：单人开发项目中使用极佳，或多人协作开发中使用相同的配置环境，毕竟编译器还没有那么的智能和友善o(╥﹏╥)o…</p>
-<h3 id="使用效果"><a href="#使用效果" class="headerlink" title="使用效果"></a>使用效果</h3><ul>
-<li>未使用Lombok前的POJO大概是这样的（为了方便，下面把Entity、DTO、VO之类的都统称为POJO）</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Table</span>(name = <span class="string">"tb_user"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Id</span></span><br><span class="line">    <span class="meta">@GeneratedValue</span></span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String nickname;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Integer <span class="title">getId</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> id;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(Integer id)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.id = id;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getNickname</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> nickname;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setNickname</span><span class="params">(String nickname)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.nickname = nickname;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"User&#123;"</span> +</span><br><span class="line">                <span class="string">"nickname='"</span> + nickname + <span class="string">'\''</span> +</span><br><span class="line">                <span class="string">", id="</span> + id +</span><br><span class="line">                <span class="string">'&#125;'</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="http://p3ry9qsas.bkt.clouddn.com/201835/clip-20171022150359.png" alt="simple entity" title="simple entity"></p>
-<ul>
-<li>使用了Lombok之后的POJO是这样的</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Table</span>(name = <span class="string">"tb_user"</span>)</span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Id</span></span><br><span class="line">    <span class="meta">@GeneratedValue</span></span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String nickname;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="http://p3ry9qsas.bkt.clouddn.com/201835/clip-20171022150500.png" alt="use lombok" title="use lombok"></p>
-<h3 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h3><ol>
-<li><p>添加依赖</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;lombok&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+            <h3 id="运行PostgreSQL"><a href="#运行PostgreSQL" class="headerlink" title="运行PostgreSQL"></a>运行PostgreSQL</h3><h4 id="主库"><a href="#主库" class="headerlink" title="主库"></a>主库</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name pgmaster -p 5432:5432 -e POSTGRES_PASSWORD=pgmaster -v $(pwd)/pgmaster:/var/lib/postgresql/data -d postgres</span><br></pre></td></tr></table></figure>
+<h4 id="从库"><a href="#从库" class="headerlink" title="从库"></a>从库</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name pgslave -p 5433:5432 -e POSTGRES_PASSWORD=pgslave -v $(pwd)/pgslave:/var/lib/postgresql/data -d postgres</span><br></pre></td></tr></table></figure>
+<p>以下操作需进入主、从库对应的挂载目录执行</p>
+<h3 id="配置master（主库）"><a href="#配置master（主库）" class="headerlink" title="配置master（主库）"></a>配置master（主库）</h3><h4 id="编辑pg-hba-conf，在最下面添加如下："><a href="#编辑pg-hba-conf，在最下面添加如下：" class="headerlink" title="编辑pg_hba.conf，在最下面添加如下："></a>编辑pg_hba.conf，在最下面添加如下：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">host    replication     &lt;replication_username&gt;      &lt;slave_ip&gt;/32          md5</span><br></pre></td></tr></table></figure>
+<h4 id="编辑postgresql-conf（亲测，非必须），更改如下："><a href="#编辑postgresql-conf（亲测，非必须），更改如下：" class="headerlink" title="编辑postgresql.conf（亲测，非必须），更改如下："></a>编辑postgresql.conf（亲测，非必须），更改如下：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">synchronous_standby_names = &apos;*&apos;</span><br></pre></td></tr></table></figure>
+<h4 id="进入容器，登录PostgreSQL，创建复制用户并验证"><a href="#进入容器，登录PostgreSQL，创建复制用户并验证" class="headerlink" title="进入容器，登录PostgreSQL，创建复制用户并验证"></a>进入容器，登录PostgreSQL，创建复制用户并验证</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 进入容器</span><br><span class="line">		docker exec -it pgmaster bash</span><br><span class="line"># 连接PostgreSQL</span><br><span class="line">		psql -U postgres</span><br><span class="line"># 创建用户</span><br><span class="line">		set synchronous_commit =off;</span><br><span class="line">		create role &lt;replication_username&gt; login replication encrypted password &apos;&lt;replication_username_password&gt;&apos;;  </span><br><span class="line"># 验证用户</span><br><span class="line">		\du</span><br></pre></td></tr></table></figure>
+<h3 id="配置Slave（从库）"><a href="#配置Slave（从库）" class="headerlink" title="配置Slave（从库）"></a>配置Slave（从库）</h3><h4 id="编辑pg-hba-conf，在最下面添加如下：-1"><a href="#编辑pg-hba-conf，在最下面添加如下：-1" class="headerlink" title="编辑pg_hba.conf，在最下面添加如下："></a>编辑pg_hba.conf，在最下面添加如下：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">host    replication     &lt;replication_username&gt;      &lt;master_ip&gt;/32        	 md5</span><br></pre></td></tr></table></figure>
+<h4 id="编辑postgresql-conf（亲测，非必须），更改如下：-1"><a href="#编辑postgresql-conf（亲测，非必须），更改如下：-1" class="headerlink" title="编辑postgresql.conf（亲测，非必须），更改如下："></a>编辑postgresql.conf（亲测，非必须），更改如下：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hot_standby_feedback = on</span><br></pre></td></tr></table></figure>
+<h4 id="建立recovery-conf，添加如下内容："><a href="#建立recovery-conf，添加如下内容：" class="headerlink" title="建立recovery.conf，添加如下内容："></a>建立recovery.conf，添加如下内容：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">standby_mode = &apos;on&apos;</span><br><span class="line">primary_conninfo = &apos;host=&lt;master_ip&gt; port=&lt;master_port&gt; user=&lt;replication_username&gt; password=&lt;replication_username_password&gt;&apos;</span><br></pre></td></tr></table></figure>
+<h3 id="同步主从库并测试"><a href="#同步主从库并测试" class="headerlink" title="同步主从库并测试"></a>同步主从库并测试</h3><ol>
+<li><p>停止PostgreSQL</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker stop pgmaster &amp;&amp; docker stop pgslave</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>下载插件</p>
+<li><p>同步文件</p>
+<ul>
+<li><p>方法1：rsync</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rsync -cva --inplace --exclude=*pg_xlog* $(pwd)/pgmaster/ &lt;slave_ip&gt;:$(pwd)/pgslave/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>方法2：pg_basebackup</p>
+</li>
+</ul>
+</li>
+<li><p>先后启动主库、从库服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker start pgmaster &amp;&amp; docker start pgslave</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>连接测试</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it pgmaster bash</span><br><span class="line">psql -U postgres -x -c &quot;select * from pg_stat_replication;&quot;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<p><img src="http://p3ry9qsas.bkt.clouddn.com/201835/clip-20171022144213.png" alt="下载插件" title="下载插件"></p>
-<ol>
-<li>开启支持</li>
-</ol>
-<p><img src="http://p3ry9qsas.bkt.clouddn.com/201835/clip-2017102214421333.png" alt="开启支持" title="开启支持"></p>
-<h3 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h3><ul>
-<li><code>@Data</code>（最常用） </li>
-</ul>
-<p>&emsp;&emsp;如果在类上用这个注解，就相当于为当前类的非final字段添加了getter()、setter()、toString()、equals()以及hashCode()方法，同时这也是一个多功能组合注解，组合了下面要讲解的@ToString，@EqualsAndHashCode，@Getter，@Setter和@RequiredArgsConstructor这五个注解</p>
-<ul>
-<li><code>@NoArgsConstructor, @RequiredArgsConstructor、@AllArgsConstructor</code> （较常用） </li>
-</ul>
-<p>&emsp;&emsp;分别对应可生成无参构造器，指定参数的构造器和包含全部字段的构造器。第1个和第3个注解还是比较挺实用的，如果要生成部分参数的构造器，博主是比较建议手动生成，感觉注解还不太好用了。（注意：当类中有final字段没有被初始化时，编译器就会报错，此时可用@NoArgsConstructor(force = true)，然后就会为没有初始化的final字段设置默认值 0 / false / null。而对于具有约束的字段（如@NonNull字段），则不会生成检查或分配，因此要注意正确初始化final修饰的字段，否则这些约束都是无效的</p>
-<ul>
-<li><code>@Getter、@Setter、@ToString、@EqualsAndHashCode</code> （不常用） </li>
-</ul>
-<p>&emsp;&emsp;这几个注解都很好理解，见其名知其意，只是要注意注解的使用位置。对于@Getter和@Setter，默认生成的方法是public的，如果要修改方法的修饰符，可以设置AccessLevel的值，如：@Getter(access = AccessLevel.PROTECTED)</p>
-<ul>
-<li><code>@NonNull，@Cleanup，@Value，@Builder，@SneakyThrows，@Synchronized...</code>（最不常用）</li>
-</ul>
-<p>&emsp;&emsp;这些注解的具体用法还是参考Lombok官网吧</p>
-<h3 id="文章小结"><a href="#文章小结" class="headerlink" title="文章小结"></a>文章小结</h3><p>&emsp;&emsp;具体到实现原理方面，在下面的参考链接中也有相关的介绍，感兴趣的还请自行研究。结合最近的使用情况，觉得最舒服的就是临时加字段的情况下，也不需要我们再补上getter()、setter()和toString()。一般来说，我们只需要在POJO上用<code>@Data</code> 一个注解就基本满足了，还有<code>@NoArgsConstructor，@AllArgsConstructor</code>这两个注解有时候也经常用得上。</p>
-<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><blockquote>
-<p><a href="https://projectlombok.org" target="_blank" rel="noopener">Lombok官网</a><br><a href="http://www.jianshu.com/p/365ea41b3573" target="_blank" rel="noopener">lombok - 简书</a><br><a href="https://my.oschina.net/darkness/blog/510808/" target="_blank" rel="noopener">lombok的使用和原理</a></p>
-</blockquote>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年03月05日 16:23</p>
-        <p>原始链接： <a class="post-url" href="/2017/10/22/Java类库：Lombok/" title="Java类库：Lombok">http://yoursite.com/2017/10/22/Java类库：Lombok/</a></p>
+        <p>最后更新： 2018年03月10日 18:24</p>
+        <p>原始链接： <a class="post-url" href="/2018/03/08/Docker + PostgreSQL（10.1）主从环境搭建/" title="Docker + PostgreSQL（10.1）主从环境搭建">http://yoursite.com/2018/03/08/Docker + PostgreSQL（10.1）主从环境搭建/</a></p>
         <footer>
             <a href="http://yoursite.com">
                 <img src="/images/logo.png" alt="Jared Qiu">
@@ -257,7 +233,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/10/22/Java类库：Lombok/&title=《Java类库：Lombok》 — Jared Qiu's Blog | 不只是技术&pic=http://p3ry9qsas.bkt.clouddn.com/201835/微信截图_20180305141748.png "微信截图_20180305141748"" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/03/08/Docker + PostgreSQL（10.1）主从环境搭建/&title=《Docker + PostgreSQL（10.1）主从环境搭建》 — Jared Qiu's Blog | 不只是技术&pic=http://p3ry9qsas.bkt.clouddn.com/201837/u=1782028824,1536037822&fm=27&gp=0.jpg "PostgreSQL with Docker"" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -267,22 +243,22 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/10/22/Java类库：Lombok/&title=《Java类库：Lombok》 — Jared Qiu's Blog | 不只是技术&source=Coding爱好者，有代码小洁癖，主攻Java，也喜欢Python和JavaScript，为人乐观、积极、向上、勤奋、和善、易相处，讲卫生，爱学习，爱码字..." data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/03/08/Docker + PostgreSQL（10.1）主从环境搭建/&title=《Docker + PostgreSQL（10.1）主从环境搭建》 — Jared Qiu's Blog | 不只是技术&source=Coding爱好者，有代码小洁癖，主攻Java，也喜欢Python和JavaScript，为人乐观、积极、向上、勤奋、和善、易相处，讲卫生，爱学习，爱码字..." data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
           <li>
-            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/10/22/Java类库：Lombok/" data-title="Facebook">
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/03/08/Docker + PostgreSQL（10.1）主从环境搭建/" data-title="Facebook">
               <i class="fa fa-facebook"></i>
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Java类库：Lombok》 — Jared Qiu's Blog | 不只是技术&url=http://yoursite.com/2017/10/22/Java类库：Lombok/&via=http://yoursite.com" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Docker + PostgreSQL（10.1）主从环境搭建》 — Jared Qiu's Blog | 不只是技术&url=http://yoursite.com/2018/03/08/Docker + PostgreSQL（10.1）主从环境搭建/&via=http://yoursite.com" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
           <li>
-            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/10/22/Java类库：Lombok/" data-title="Google+">
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/03/08/Docker + PostgreSQL（10.1）主从环境搭建/" data-title="Google+">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -292,7 +268,7 @@
 <div class="post-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;" id="wxShare-close">×</a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2017/10/22/Java类库：Lombok/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2018/03/08/Docker + PostgreSQL（10.1）主从环境搭建/" alt="微信分享二维码">
 </div>
 
 <div class="mask"></div>
@@ -304,11 +280,11 @@
   <li class="article-footer-tags">
     <i class="fa fa-tags"></i>
       
-    <a href="/tags/Java/" class="color5">Java</a>
+    <a href="/tags/主从搭建/" class="color5">主从搭建</a>
       
-    <a href="/tags/Lombok/" class="color2">Lombok</a>
+    <a href="/tags/PostgreSQL/" class="color1">PostgreSQL</a>
       
-    <a href="/tags/Java类库/" class="color2">Java类库</a>
+    <a href="/tags/Docker/" class="color2">Docker</a>
       
   </li>
 
@@ -321,30 +297,25 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#本文前言"><span class="post-toc-text">本文前言</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#关于Lombok"><span class="post-toc-text">关于Lombok</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用效果"><span class="post-toc-text">使用效果</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#环境搭建"><span class="post-toc-text">环境搭建</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用说明"><span class="post-toc-text">使用说明</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#文章小结"><span class="post-toc-text">文章小结</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参考链接"><span class="post-toc-text">参考链接</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#运行PostgreSQL"><span class="post-toc-text">运行PostgreSQL</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#主库"><span class="post-toc-text">主库</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#从库"><span class="post-toc-text">从库</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置master（主库）"><span class="post-toc-text">配置master（主库）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#编辑pg-hba-conf，在最下面添加如下："><span class="post-toc-text">编辑pg_hba.conf，在最下面添加如下：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#编辑postgresql-conf（亲测，非必须），更改如下："><span class="post-toc-text">编辑postgresql.conf（亲测，非必须），更改如下：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#进入容器，登录PostgreSQL，创建复制用户并验证"><span class="post-toc-text">进入容器，登录PostgreSQL，创建复制用户并验证</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置Slave（从库）"><span class="post-toc-text">配置Slave（从库）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#编辑pg-hba-conf，在最下面添加如下：-1"><span class="post-toc-text">编辑pg_hba.conf，在最下面添加如下：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#编辑postgresql-conf（亲测，非必须），更改如下：-1"><span class="post-toc-text">编辑postgresql.conf（亲测，非必须），更改如下：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#建立recovery-conf，添加如下内容："><span class="post-toc-text">建立recovery.conf，添加如下内容：</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#同步主从库并测试"><span class="post-toc-text">同步主从库并测试</span></a></li></ol>
         </nav>
     </aside>
     
 
 <nav id="article-nav">
   
-    <a href="/2018/02/07/GitHub Pages介绍及搭建/" id="article-nav-newer" class="article-nav-link-wrap">
-
-      <span class="article-nav-title">
-        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
-        
-          GitHub Pages介绍及搭建
-        
-      </span>
-    </a>
   
+    <a href="/2018/03/07/Docker + MySQL（5.7）主从环境搭建/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Docker + MySQL（5.7）主从环境搭建</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
   
 </nav>
 
 
 
     
-        <div id="SOHUCS" sid="Java类库：Lombok" ></div>
+        <div id="SOHUCS" sid="Docker + PostgreSQL（10.1）主从环境搭建" ></div>
 <script type="text/javascript">
     (function(){
         var appid = 'cytsi4W0L';

@@ -105,6 +105,147 @@
       <div class="outer">
         <section id="main" class="body-wrap">
   
+    <article id="post-Docker + PostgreSQL（10.1）主从环境搭建" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/08/Docker + PostgreSQL（10.1）主从环境搭建/"  target="_blank"  >Docker + PostgreSQL（10.1）主从环境搭建</a>
+    </h1>
+  
+
+          
+              <span class="header-cate">
+                <i class="fa fa-map-marker"></i>
+                  
+                  <a href="/categories/PostgreSQL/">PostgreSQL</a>
+                  
+                  <a href="/categories/Docker/">Docker</a>
+                  
+              </span>
+          
+      </header>
+    
+    <div class="article-entry " itemprop="articleBody">
+      
+        <div class="article-img">
+            <a href="/2018/03/08/Docker + PostgreSQL（10.1）主从环境搭建/"  target="_blank" >
+                
+                <img src="http://p3ry9qsas.bkt.clouddn.com/201837/u=1782028824,1536037822&fm=27&gp=0.jpg "PostgreSQL with Docker"" alt="Docker + PostgreSQL（10.1）主从环境搭建" title="Docker + PostgreSQL（10.1）主从环境搭建">
+                
+            </a>
+        </div>
+        <div class="article-feed">
+            <p>
+                运行PostgreSQL主库1docker run --name pgmaster -p 5432:5432 -e POSTGRES_PASSWORD=pgmaster -v $(pwd)/pgmaster:/var/lib/postgresql/data -d postgres
+从库1docker run --name pgslave -p 5433:5432 -e POSTGRES_PA...
+            </p>
+        </div>
+      
+        
+    </div>
+    <footer class="article-footer">
+        
+        <ul class="article-footer-menu">
+            
+                <li><i class="fa fa-calendar"></i>2018-03-08</li>
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/主从搭建/" class="color5">主从搭建</a>
+      
+    <a href="/tags/PostgreSQL/" class="color1">PostgreSQL</a>
+      
+    <a href="/tags/Docker/" class="color2">Docker</a>
+      
+  </li>
+
+        </ul>
+        
+            <a href="/2018/03/08/Docker + PostgreSQL（10.1）主从环境搭建/#more" class="article-more-link"  target="_blank" >&lt;&lt; 阅读全文 &gt;&gt;</a>
+        
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article id="post-Docker + MySQL（5.7）主从环境搭建" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/07/Docker + MySQL（5.7）主从环境搭建/"  target="_blank"  >Docker + MySQL（5.7）主从环境搭建</a>
+    </h1>
+  
+
+          
+              <span class="header-cate">
+                <i class="fa fa-map-marker"></i>
+                  
+                  <a href="/categories/MySQL/">MySQL</a>
+                  
+                  <a href="/categories/Docker/">Docker</a>
+                  
+              </span>
+          
+      </header>
+    
+    <div class="article-entry " itemprop="articleBody">
+      
+        <div class="article-img">
+            <a href="/2018/03/07/Docker + MySQL（5.7）主从环境搭建/"  target="_blank" >
+                
+                <img src="http://p3ry9qsas.bkt.clouddn.com/201837/u=1782028824,1536037822&fm=27&gp=0.jpg "MySQL with Docker"" alt="Docker + MySQL（5.7）主从环境搭建" title="Docker + MySQL（5.7）主从环境搭建">
+                
+            </a>
+        </div>
+        <div class="article-feed">
+            <p>
+                配置my.cnf
+安装包安装的就找/etc/my.cnf进行添加
+在挂载目录下建好对应的*.cn文件  [mysqld]  log-bin=mysql-bin   //[必须]启用二进制日志  server-id=222      //[必须]服务器唯一ID，默认是1，一般取IP最后一段
+
+运行容器docker run –name mysqlmaster1 -v /root/mysql/co...
+            </p>
+        </div>
+      
+        
+    </div>
+    <footer class="article-footer">
+        
+        <ul class="article-footer-menu">
+            
+                <li><i class="fa fa-calendar"></i>2018-03-07</li>
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/MySQL/" class="color1">MySQL</a>
+      
+    <a href="/tags/主从搭建/" class="color5">主从搭建</a>
+      
+    <a href="/tags/Docker/" class="color2">Docker</a>
+      
+  </li>
+
+        </ul>
+        
+            <a href="/2018/03/07/Docker + MySQL（5.7）主从环境搭建/#more" class="article-more-link"  target="_blank" >&lt;&lt; 阅读全文 &gt;&gt;</a>
+        
+    </footer>
+  </div>
+</article>
+
+
+  
     <article id="post-Python学习资源汇总" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -142,29 +283,35 @@ Python官网
 Pip
 
 在线资源
-菜鸟教程 - Python3教程
+菜鸟教程
 慕课网
-极客学院Wiki : Python
-极客学院Course : Python
+极客学院
 伯乐在线
+网易云课堂
+实验楼
 
 Web开发
 Django
 Flask
+Sanic
 Tornado
 webpy
 Bottle
 
-爬虫相关
+网页爬虫
 urllib
 Requests
 BeautifulSoup
+lxml
+PyQuery
 Selenium
 Scrapy
+PySpider
 
-公众号
-Python那些事
-P...
+数据科学
+NumPy
+Pandas
+Matp...
             </p>
         </div>
       
@@ -189,134 +336,6 @@ P...
         </ul>
         
             <a href="/2018/03/06/Python学习资源汇总/#more" class="article-more-link"  target="_blank" >&lt;&lt; 阅读全文 &gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-PostgreSQL10.1主从环境搭建" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/06/PostgreSQL10.1主从环境搭建/"  target="_blank"  >PostgreSQL10.1主从环境搭建</a>
-    </h1>
-  
-
-          
-              <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                  
-                  <a href="/categories/PostgreSQL/">PostgreSQL</a>
-                  
-              </span>
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2018/03/06/PostgreSQL10.1主从环境搭建/"  target="_blank" >
-                
-                <img src="http://p3ry9qsas.bkt.clouddn.com/201836/u=1975914367,1746514367&fm=27&gp=0.jpg "PostgreSQL"" alt="PostgreSQL10.1主从环境搭建" title="PostgreSQL10.1主从环境搭建">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2018-03-06</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/主从搭建/" class="color5">主从搭建</a>
-      
-    <a href="/tags/PostgreSQL/" class="color1">PostgreSQL</a>
-      
-  </li>
-
-        </ul>
-        
-            <a href="/2018/03/06/PostgreSQL10.1主从环境搭建/#more" class="article-more-link"  target="_blank" >&lt;&lt; 阅读全文 &gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-MySQL5.7主从环境搭建" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/06/MySQL5.7主从环境搭建/"  target="_blank"  >MySQL5.7主从环境搭建</a>
-    </h1>
-  
-
-          
-              <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                  
-                  <a href="/categories/MySQL/">MySQL</a>
-                  
-              </span>
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2018/03/06/MySQL5.7主从环境搭建/"  target="_blank" >
-                
-                <img src="http://p3ry9qsas.bkt.clouddn.com/201836/b73241c59db3b2c9628dd641638e56cc.jpg "MYSQL"" alt="MySQL5.7主从环境搭建" title="MySQL5.7主从环境搭建">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2018-03-06</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/MySQL/" class="color1">MySQL</a>
-      
-    <a href="/tags/主从搭建/" class="color5">主从搭建</a>
-      
-  </li>
-
-        </ul>
-        
-            <a href="/2018/03/06/MySQL5.7主从环境搭建/#more" class="article-more-link"  target="_blank" >&lt;&lt; 阅读全文 &gt;&gt;</a>
         
     </footer>
   </div>
@@ -889,10 +908,10 @@ FROM 。FROM指令必须指定且需要在Dockerfile其他指令的前面，指�
 <div class="sidebar-menu-box" id="sidebar-menu-box">
     <div class="sidebar-menu-box-container">
         <div id="sidebar-menu-box-categories">
-            <a class="category-link" href="/categories/IO/">IO</a><a class="category-link" href="/categories/IO/Java/">Java</a><a class="category-link" href="/categories/Java/">Java</a><a class="category-link" href="/categories/Java/Lombok/">Lombok</a><a class="category-link" href="/categories/MySQL/">MySQL</a><a class="category-link" href="/categories/PostgreSQL/">PostgreSQL</a><a class="category-link" href="/categories/Spring/">Spring</a><a class="category-link" href="/categories/docker/">docker</a><a class="category-link" href="/categories/python/">python</a><a class="category-link" href="/categories/开源项目/">开源项目</a><a class="category-link" href="/categories/数据库中间件/">数据库中间件</a><a class="category-link" href="/categories/数据库中间件/Mycat/">Mycat</a><a class="category-link" href="/categories/编辑器/">编辑器</a><a class="category-link" href="/categories/编辑器/个人感悟/">个人感悟</a><a class="category-link" href="/categories/编辑器/快捷键/">快捷键</a>
+            <a class="category-link" href="/categories/IO/">IO</a><a class="category-link" href="/categories/IO/Java/">Java</a><a class="category-link" href="/categories/Java/">Java</a><a class="category-link" href="/categories/Java/Lombok/">Lombok</a><a class="category-link" href="/categories/MySQL/">MySQL</a><a class="category-link" href="/categories/MySQL/Docker/">Docker</a><a class="category-link" href="/categories/PostgreSQL/">PostgreSQL</a><a class="category-link" href="/categories/PostgreSQL/Docker/">Docker</a><a class="category-link" href="/categories/Spring/">Spring</a><a class="category-link" href="/categories/docker/">docker</a><a class="category-link" href="/categories/python/">python</a><a class="category-link" href="/categories/开源项目/">开源项目</a><a class="category-link" href="/categories/数据库中间件/">数据库中间件</a><a class="category-link" href="/categories/数据库中间件/Mycat/">Mycat</a><a class="category-link" href="/categories/编辑器/">编辑器</a><a class="category-link" href="/categories/编辑器/个人感悟/">个人感悟</a><a class="category-link" href="/categories/编辑器/快捷键/">快捷键</a>
         </div>
         <div id="sidebar-menu-box-tags">
-            <a href="/tags/AcpectJ/" style="font-size: 10px;">AcpectJ</a> <a href="/tags/Aop/" style="font-size: 10px;">Aop</a> <a href="/tags/Eclipse/" style="font-size: 10px;">Eclipse</a> <a href="/tags/GitHub-Pages/" style="font-size: 15px;">GitHub Pages</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDEA/" style="font-size: 15px;">IDEA</a> <a href="/tags/IO/" style="font-size: 10px;">IO</a> <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Java类库/" style="font-size: 10px;">Java类库</a> <a href="/tags/JetBrains/" style="font-size: 10px;">JetBrains</a> <a href="/tags/Lombok/" style="font-size: 10px;">Lombok</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Mycat/" style="font-size: 20px;">Mycat</a> <a href="/tags/PostgreSQL/" style="font-size: 10px;">PostgreSQL</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/Study/" style="font-size: 10px;">Study</a> <a href="/tags/docker/" style="font-size: 15px;">docker</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/postgresql/" style="font-size: 10px;">postgresql</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/《Spring-in-action》/" style="font-size: 10px;">《Spring in action》</a> <a href="/tags/个人博客/" style="font-size: 15px;">个人博客</a> <a href="/tags/个人感悟/" style="font-size: 10px;">个人感悟</a> <a href="/tags/主从复制/" style="font-size: 15px;">主从复制</a> <a href="/tags/主从搭建/" style="font-size: 15px;">主从搭建</a> <a href="/tags/入门/" style="font-size: 10px;">入门</a> <a href="/tags/入门篇/" style="font-size: 10px;">入门篇</a> <a href="/tags/学习资源/" style="font-size: 10px;">学习资源</a> <a href="/tags/实践篇/" style="font-size: 15px;">实践篇</a> <a href="/tags/容器/" style="font-size: 15px;">容器</a> <a href="/tags/开发经验/" style="font-size: 10px;">开发经验</a> <a href="/tags/开源项目/" style="font-size: 15px;">开源项目</a> <a href="/tags/数据库中间件/" style="font-size: 20px;">数据库中间件</a> <a href="/tags/编辑器/" style="font-size: 15px;">编辑器</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a> <a href="/tags/读写分离/" style="font-size: 15px;">读写分离</a> <a href="/tags/配置篇/" style="font-size: 10px;">配置篇</a>
+            <a href="/tags/AcpectJ/" style="font-size: 10px;">AcpectJ</a> <a href="/tags/Aop/" style="font-size: 10px;">Aop</a> <a href="/tags/Docker/" style="font-size: 15px;">Docker</a> <a href="/tags/Eclipse/" style="font-size: 10px;">Eclipse</a> <a href="/tags/GitHub-Pages/" style="font-size: 15px;">GitHub Pages</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDEA/" style="font-size: 15px;">IDEA</a> <a href="/tags/IO/" style="font-size: 10px;">IO</a> <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Java类库/" style="font-size: 10px;">Java类库</a> <a href="/tags/JetBrains/" style="font-size: 10px;">JetBrains</a> <a href="/tags/Lombok/" style="font-size: 10px;">Lombok</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Mycat/" style="font-size: 20px;">Mycat</a> <a href="/tags/PostgreSQL/" style="font-size: 10px;">PostgreSQL</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/Study/" style="font-size: 10px;">Study</a> <a href="/tags/docker/" style="font-size: 15px;">docker</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/postgresql/" style="font-size: 10px;">postgresql</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/《Spring-in-action》/" style="font-size: 10px;">《Spring in action》</a> <a href="/tags/个人博客/" style="font-size: 15px;">个人博客</a> <a href="/tags/个人感悟/" style="font-size: 10px;">个人感悟</a> <a href="/tags/主从复制/" style="font-size: 15px;">主从复制</a> <a href="/tags/主从搭建/" style="font-size: 15px;">主从搭建</a> <a href="/tags/入门/" style="font-size: 10px;">入门</a> <a href="/tags/入门篇/" style="font-size: 10px;">入门篇</a> <a href="/tags/学习资源/" style="font-size: 10px;">学习资源</a> <a href="/tags/实践篇/" style="font-size: 15px;">实践篇</a> <a href="/tags/容器/" style="font-size: 15px;">容器</a> <a href="/tags/开发经验/" style="font-size: 10px;">开发经验</a> <a href="/tags/开源项目/" style="font-size: 15px;">开源项目</a> <a href="/tags/数据库中间件/" style="font-size: 20px;">数据库中间件</a> <a href="/tags/编辑器/" style="font-size: 15px;">编辑器</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a> <a href="/tags/读写分离/" style="font-size: 15px;">读写分离</a> <a href="/tags/配置篇/" style="font-size: 10px;">配置篇</a>
         </div>
     </div>
     <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
@@ -919,7 +938,7 @@ FROM 。FROM指令必须指定且需要在Dockerfile其他指令的前面，指�
     <div class="mobile-header-tag-container">
         <span class="title">Tags</span>
         <div id="mobile-header-container-tags">
-            <a href="/tags/AcpectJ/" style="font-size: 10px;">AcpectJ</a> <a href="/tags/Aop/" style="font-size: 10px;">Aop</a> <a href="/tags/Eclipse/" style="font-size: 10px;">Eclipse</a> <a href="/tags/GitHub-Pages/" style="font-size: 15px;">GitHub Pages</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDEA/" style="font-size: 15px;">IDEA</a> <a href="/tags/IO/" style="font-size: 10px;">IO</a> <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Java类库/" style="font-size: 10px;">Java类库</a> <a href="/tags/JetBrains/" style="font-size: 10px;">JetBrains</a> <a href="/tags/Lombok/" style="font-size: 10px;">Lombok</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Mycat/" style="font-size: 20px;">Mycat</a> <a href="/tags/PostgreSQL/" style="font-size: 10px;">PostgreSQL</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/Study/" style="font-size: 10px;">Study</a> <a href="/tags/docker/" style="font-size: 15px;">docker</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/postgresql/" style="font-size: 10px;">postgresql</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/《Spring-in-action》/" style="font-size: 10px;">《Spring in action》</a> <a href="/tags/个人博客/" style="font-size: 15px;">个人博客</a> <a href="/tags/个人感悟/" style="font-size: 10px;">个人感悟</a> <a href="/tags/主从复制/" style="font-size: 15px;">主从复制</a> <a href="/tags/主从搭建/" style="font-size: 15px;">主从搭建</a> <a href="/tags/入门/" style="font-size: 10px;">入门</a> <a href="/tags/入门篇/" style="font-size: 10px;">入门篇</a> <a href="/tags/学习资源/" style="font-size: 10px;">学习资源</a> <a href="/tags/实践篇/" style="font-size: 15px;">实践篇</a> <a href="/tags/容器/" style="font-size: 15px;">容器</a> <a href="/tags/开发经验/" style="font-size: 10px;">开发经验</a> <a href="/tags/开源项目/" style="font-size: 15px;">开源项目</a> <a href="/tags/数据库中间件/" style="font-size: 20px;">数据库中间件</a> <a href="/tags/编辑器/" style="font-size: 15px;">编辑器</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a> <a href="/tags/读写分离/" style="font-size: 15px;">读写分离</a> <a href="/tags/配置篇/" style="font-size: 10px;">配置篇</a>
+            <a href="/tags/AcpectJ/" style="font-size: 10px;">AcpectJ</a> <a href="/tags/Aop/" style="font-size: 10px;">Aop</a> <a href="/tags/Docker/" style="font-size: 15px;">Docker</a> <a href="/tags/Eclipse/" style="font-size: 10px;">Eclipse</a> <a href="/tags/GitHub-Pages/" style="font-size: 15px;">GitHub Pages</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDEA/" style="font-size: 15px;">IDEA</a> <a href="/tags/IO/" style="font-size: 10px;">IO</a> <a href="/tags/Java/" style="font-size: 15px;">Java</a> <a href="/tags/Java类库/" style="font-size: 10px;">Java类库</a> <a href="/tags/JetBrains/" style="font-size: 10px;">JetBrains</a> <a href="/tags/Lombok/" style="font-size: 10px;">Lombok</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Mycat/" style="font-size: 20px;">Mycat</a> <a href="/tags/PostgreSQL/" style="font-size: 10px;">PostgreSQL</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/Study/" style="font-size: 10px;">Study</a> <a href="/tags/docker/" style="font-size: 15px;">docker</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/postgresql/" style="font-size: 10px;">postgresql</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/《Spring-in-action》/" style="font-size: 10px;">《Spring in action》</a> <a href="/tags/个人博客/" style="font-size: 15px;">个人博客</a> <a href="/tags/个人感悟/" style="font-size: 10px;">个人感悟</a> <a href="/tags/主从复制/" style="font-size: 15px;">主从复制</a> <a href="/tags/主从搭建/" style="font-size: 15px;">主从搭建</a> <a href="/tags/入门/" style="font-size: 10px;">入门</a> <a href="/tags/入门篇/" style="font-size: 10px;">入门篇</a> <a href="/tags/学习资源/" style="font-size: 10px;">学习资源</a> <a href="/tags/实践篇/" style="font-size: 15px;">实践篇</a> <a href="/tags/容器/" style="font-size: 15px;">容器</a> <a href="/tags/开发经验/" style="font-size: 10px;">开发经验</a> <a href="/tags/开源项目/" style="font-size: 15px;">开源项目</a> <a href="/tags/数据库中间件/" style="font-size: 20px;">数据库中间件</a> <a href="/tags/编辑器/" style="font-size: 15px;">编辑器</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a> <a href="/tags/读写分离/" style="font-size: 15px;">读写分离</a> <a href="/tags/配置篇/" style="font-size: 10px;">配置篇</a>
         </div>
     </div>
 </div>

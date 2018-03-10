@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Jared Qiu&#39;s Blog | 不只是技术">
 <meta property="og:description" content="配置my.cnf 安装包安装的就找/etc/my.cnf进行添加 在挂载目录下建好对应的*.cn文件  [mysqld]  log-bin=mysql-bin   //[必须]启用二进制日志  server-id=222      //[必须]服务器唯一ID，默认是1，一般取IP最后一段  运行容器docker run –name mysqlmaster1 -v /root/mysql/conf/">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-10T10:24:16.471Z">
+<meta property="og:updated_time" content="2018-03-10T10:27:01.187Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker + MySQL（5.7）主从环境搭建">
 <meta name="twitter:description" content="配置my.cnf 安装包安装的就找/etc/my.cnf进行添加 在挂载目录下建好对应的*.cn文件  [mysqld]  log-bin=mysql-bin   //[必须]启用二进制日志  server-id=222      //[必须]服务器唯一ID，默认是1，一般取IP最后一段  运行容器docker run –name mysqlmaster1 -v /root/mysql/conf/">
@@ -150,18 +150,16 @@
 <h3 id="运行容器"><a href="#运行容器" class="headerlink" title="运行容器"></a>运行容器</h3><p>docker run –name mysqlmaster1 -v /root/mysql/conf/master1:/etc/mysql/conf.d -e MYSQL_ROOT_PASSWORD=mysqlmaster1 -p 3306:3306 -d mysql –character-set-server=utf8mb4 –collation-server=utf8mb4_unicode_ci<br>docker run –name mysqlslave1 -v /root/mysql/conf/slave1:/etc/mysql/conf.d -e MYSQL_ROOT_PASSWORD=mysqlslave1 -p 3307:3306 -d mysql –character-set-server=utf8mb4 –collation-server=utf8mb4_unicode_ci<br>docker run –name mysqlmaster2 -v /root/mysql/conf/master2:/etc/mysql/conf.d -e MYSQL_ROOT_PASSWORD=mysqlmaster2 -p 3308:3306 -d mysql –character-set-server=utf8mb4 –collation-server=utf8mb4_unicode_ci<br>docker run –name mysqlslave2 -v /root/mysql/conf/slave2:/etc/mysql/conf.d -e MYSQL_ROOT_PASSWORD=mysqlslave2 -p 3309:3306 -d mysql –character-set-server=utf8mb4 –collation-server=utf8mb4_unicode_ci</p>
 <h3 id="配置账户"><a href="#配置账户" class="headerlink" title="配置账户"></a>配置账户</h3><p>在主库上创建一个复制账户<br>GRANT REPLICATION SLAVE ON <em>.</em> TO ‘rep1’@’120.77.250.15’ IDENTIFIED BY ‘master1toslave1’;<br>GRANT REPLICATION SLAVE ON <em>.</em> TO ‘rep2’@’120.77.250.15’ IDENTIFIED BY ‘master2toslave2’;</p>
 <p>在master上执行show master status;记录File和Position信息 </p>
-<ol>
-<li>开始备份, 在主库执行以下命令, 让主库所有表置于只读不能写的状态, 这样达到主从库数据一致性<br>FLUSH TABLES WITH READ LOCK;</li>
-<li>将主库的数据库备份在从库还原<br>用navicat for mysql 很方便操作</li>
-<li>从库还原后, 释放主库的读锁, 这样主库恢复写权限<br>unlock tables;</li>
-</ol>
-<p>配置从库连接主库, 在从库上执行<br>CHANGE MASTER TO MASTER_HOST=’120.77.250.15’,MASTER_PORT=3306,MASTER_USER=’rep1’,MASTER_PASSWORD=’master1toslave1’,MASTER_LOG_FILE=’mysql-bin.000003’,MASTER_LOG_POS=449;<br>CHANGE MASTER TO MASTER_HOST=’120.77.250.15’,MASTER_PORT=3308,MASTER_USER=’rep2’,MASTER_PASSWORD=’master2toslave2’,MASTER_LOG_FILE=’mysql-bin.000003’,MASTER_LOG_POS=449;</p>
-<p>在从库启动 slave 线程开始同步: start slave;<br>检查从服务器复制功能状态: show slave status\G;</p>
-<p>设置从库只读<br>mysql&gt; set global read_only=1;    #1是只读，0是读写，对拥有super权限的账号是不生效的，所以在授权账号的时候尽量避免添加super权限<br>mysql&gt; show global variables like “%read_only%”;</p>
+<h3 id="执行连接"><a href="#执行连接" class="headerlink" title="执行连接"></a>执行连接</h3><p>配置从库连接主库, 在从库上执行<br>CHANGE MASTER TO MASTER_HOST=’120.77.250.15’,MASTER_PORT=3306,MASTER_USER=’rep1’,MASTER_PASSWORD=’master1toslave1’,MASTER_LOG_FILE=’mysql-bin.000003’,MASTER_LOG_POS=449;<br>CHANGE MASTER TO MASTER_HOST=’120.77.250.15’,MASTER_PORT=3308,MASTER_USER=’rep2’,MASTER_PASSWORD=’master2toslave2’,MASTER_LOG_FILE=’mysql-bin.000003’,MASTER_LOG_POS=449;</p>
+<h3 id="开启同步"><a href="#开启同步" class="headerlink" title="开启同步"></a>开启同步</h3><ul>
+<li>在从库启动 slave 线程开始同步: start slave;</li>
+<li>检查从服务器复制功能状态: show slave status\G;</li>
+</ul>
+<h3 id="设置从库只读"><a href="#设置从库只读" class="headerlink" title="设置从库只读"></a>设置从库只读</h3><p>mysql&gt; set global read_only=1;    #1是只读，0是读写，对拥有super权限的账号是不生效的，所以在授权账号的时候尽量避免添加super权限<br>mysql&gt; show global variables like “%read_only%”;</p>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年03月10日 18:24</p>
+        <p>最后更新： 2018年03月10日 18:27</p>
         <p>原始链接： <a class="post-url" href="/2018/03/07/Docker + MySQL（5.7）主从环境搭建/" title="Docker + MySQL（5.7）主从环境搭建">http://yoursite.com/2018/03/07/Docker + MySQL（5.7）主从环境搭建/</a></p>
         <footer>
             <a href="http://yoursite.com">
@@ -283,7 +281,7 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置my-cnf"><span class="post-toc-text">配置my.cnf</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#运行容器"><span class="post-toc-text">运行容器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置账户"><span class="post-toc-text">配置账户</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置my-cnf"><span class="post-toc-text">配置my.cnf</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#运行容器"><span class="post-toc-text">运行容器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置账户"><span class="post-toc-text">配置账户</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#执行连接"><span class="post-toc-text">执行连接</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#开启同步"><span class="post-toc-text">开启同步</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#设置从库只读"><span class="post-toc-text">设置从库只读</span></a></li></ol>
         </nav>
     </aside>
     

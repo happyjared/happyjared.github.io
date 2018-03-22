@@ -80,4 +80,4 @@ function initSearch() {
     }
 
     keyInput.bind('input propertychange', search);
-};
+}

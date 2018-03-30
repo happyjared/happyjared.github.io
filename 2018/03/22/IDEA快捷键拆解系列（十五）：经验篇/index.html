@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Jared Qiu&#39;s Blog | 不只是技术">
 <meta property="og:description" content="&amp;emsp;&amp;emsp;这是IDEA快捷键拆解系列的第十五篇。 &amp;emsp;&amp;emsp;本文整理了一些博主本人在学习工作中比较常用到的快捷键，有需要的可以参考一下，也欢迎留言补充。    类型 快捷键 描述     1. 查找 Ctrl + N 查找类文件   2. 查找 Ctrl + Shift + N 查找文件   3. 查找 Ctrl + F 当前文件查找   4. 查找 Ctrl + R">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-22T07:03:44.472Z">
+<meta property="og:updated_time" content="2018-03-22T10:10:22.996Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="IDEA快捷键拆解系列（十五）：经验篇">
 <meta name="twitter:description" content="&amp;emsp;&amp;emsp;这是IDEA快捷键拆解系列的第十五篇。 &amp;emsp;&amp;emsp;本文整理了一些博主本人在学习工作中比较常用到的快捷键，有需要的可以参考一下，也欢迎留言补充。    类型 快捷键 描述     1. 查找 Ctrl + N 查找类文件   2. 查找 Ctrl + Shift + N 查找文件   3. 查找 Ctrl + F 当前文件查找   4. 查找 Ctrl + R">
@@ -189,6 +189,11 @@
 <td><code>Ctrl + Shift + A</code></td>
 <td>查找指定动作</td>
 </tr>
+<tr>
+<td>8. 查找</td>
+<td><code>Double Shift</code></td>
+<td>Search everywhere</td>
+</tr>
 </tbody>
 </table>
 <table>
@@ -237,7 +242,7 @@
 </tr>
 <tr>
 <td>8. 定位</td>
-<td><code>Ctrl + B</code></td>
+<td><code>Ctrl + B</code> 或者 <code>Ctrl + 鼠标点击</code></td>
 <td>跳转声明处</td>
 </tr>
 <tr>
@@ -302,8 +307,33 @@
 </tr>
 <tr>
 <td>21. 定位</td>
-<td><code>Ctrl + Shift + Enter</code></td>
+<td><code>Shift + Enter</code></td>
 <td>将光标定位到下一行</td>
+</tr>
+<tr>
+<td>22. 定位</td>
+<td><code>Ctrl + Shift + Enter</code></td>
+<td>将光标定位到方法外</td>
+</tr>
+<tr>
+<td>23. 定位</td>
+<td><code>Ctrl + 向左箭头</code></td>
+<td>将光标定位到头部</td>
+</tr>
+<tr>
+<td>24. 定位</td>
+<td><code>Ctrl + 向右箭头</code></td>
+<td>将光标定位到尾部</td>
+</tr>
+<tr>
+<td>25. 定位</td>
+<td><code>Ctrl + ]</code></td>
+<td>将光标定位到代码块开始处</td>
+</tr>
+<tr>
+<td>26. 定位</td>
+<td><code>Ctrl + [</code></td>
+<td>将光标定位到代码块结尾处</td>
 </tr>
 </tbody>
 </table>
@@ -361,6 +391,31 @@
 <td><code>Ctrl +　Shift + W</code></td>
 <td>取消逐层往外扩展选中的内容</td>
 </tr>
+<tr>
+<td>10. 选择</td>
+<td><code>Ctrl + Shift + 向左箭头</code></td>
+<td>从光标处起，依次往左选中内容</td>
+</tr>
+<tr>
+<td>11. 选择</td>
+<td><code>Ctrl + Shift + 向右箭头</code></td>
+<td>从光标处起，依次往右选中内容</td>
+</tr>
+<tr>
+<td>12. 选择</td>
+<td><code>Shift + Home</code></td>
+<td>从光标处起，一次选中至本行的头部</td>
+</tr>
+<tr>
+<td>13. 选择</td>
+<td><code>Shift + End</code></td>
+<td>从光标处起，一次选中至本行的尾部</td>
+</tr>
+<tr>
+<td>14. 选择</td>
+<td><code>Ctrl + Shift + 空格键</code></td>
+<td>智能代码提示</td>
+</tr>
 </tbody>
 </table>
 <table>
@@ -411,6 +466,11 @@
 <td>8. 查看</td>
 <td><code>Ctrl + Alt + H</code></td>
 <td>查看方法的调用层次结构</td>
+</tr>
+<tr>
+<td>9. 查看</td>
+<td><code>Ctrl + Shift + I</code></td>
+<td>弹框查看方法实现</td>
 </tr>
 </tbody>
 </table>
@@ -546,12 +606,12 @@
 <tr>
 <td>25. 编辑</td>
 <td><code>Ctrl + Shift + 向上箭头</code></td>
-<td>光标所在区上移</td>
+<td>整行（方法）上移</td>
 </tr>
 <tr>
 <td>26. 编辑</td>
 <td><code>Ctrl + Shift + 向下箭头</code></td>
-<td>光标所在区下移</td>
+<td>整行（方法）下移</td>
 </tr>
 <tr>
 <td>27. 编辑</td>
@@ -571,7 +631,17 @@
 <tr>
 <td>30. 编辑</td>
 <td><code>Ctrl + Shift + J</code></td>
-<td>换行转换为单行连接</td>
+<td>转换为单行连接</td>
+</tr>
+<tr>
+<td>31. 编辑</td>
+<td><code>Ctrl + Delete</code></td>
+<td>从光标处往后删除</td>
+</tr>
+<tr>
+<td>32. 编辑</td>
+<td><code>Ctrl + Backspace</code></td>
+<td>从光标处往前删除</td>
 </tr>
 </tbody>
 </table>
@@ -665,6 +735,16 @@
 <td><code>Ctrl + Alt + M</code></td>
 <td>抽取方法</td>
 </tr>
+<tr>
+<td>10. 重构</td>
+<td><code>Ctrl + Alt + N</code></td>
+<td>内联</td>
+</tr>
+<tr>
+<td>11. 重构</td>
+<td><code>Ctrl + F6</code></td>
+<td>修改签名</td>
+</tr>
 </tbody>
 </table>
 <table>
@@ -751,6 +831,11 @@
 <td>8. VCS</td>
 <td><code>Ctrl + Enter</code></td>
 <td>commit、提交</td>
+</tr>
+<tr>
+<td>9. VCS</td>
+<td><code>Alt + Shift + C</code></td>
+<td>查看最近的修改</td>
 </tr>
 </tbody>
 </table>
@@ -849,6 +934,11 @@
 <td>8. 工具窗</td>
 <td><code>Alt + F4</code></td>
 <td>关闭当前IDEA</td>
+</tr>
+<tr>
+<td>9. 工具窗</td>
+<td><code>ESC</code></td>
+<td>从工具窗返回到代码区</td>
 </tr>
 </tbody>
 </table>
@@ -963,7 +1053,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年03月22日 15:03</p>
+        <p>最后更新： 2018年03月22日 18:10</p>
         <p>原始链接： <a class="post-url" href="/2018/03/22/IDEA快捷键拆解系列（十五）：经验篇/" title="IDEA快捷键拆解系列（十五）：经验篇">http://yoursite.com/2018/03/22/IDEA快捷键拆解系列（十五）：经验篇/</a></p>
         <footer>
             <a href="http://yoursite.com">
@@ -1086,6 +1176,16 @@
 
 <nav id="article-nav">
   
+    <a href="/2018/03/23/IDEA快捷键拆解系列（十六）：插件篇/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          IDEA快捷键拆解系列（十六）：插件篇
+        
+      </span>
+    </a>
+  
   
     <a href="/2018/03/21/IDEA快捷键拆解系列（十四）：Help篇/" id="article-nav-older" class="article-nav-link-wrap">
       <span class="article-nav-title">IDEA快捷键拆解系列（十四）：Help篇</span>
@@ -1159,10 +1259,10 @@
 <div class="sidebar-menu-box" id="sidebar-menu-box">
     <div class="sidebar-menu-box-container">
         <div id="sidebar-menu-box-categories">
-            <a class="category-link" href="/categories/IO/">IO</a><a class="category-link" href="/categories/IO/Java/">Java</a><a class="category-link" href="/categories/Java/">Java</a><a class="category-link" href="/categories/Java/Lombok/">Lombok</a><a class="category-link" href="/categories/MySQL/">MySQL</a><a class="category-link" href="/categories/MySQL/Docker/">Docker</a><a class="category-link" href="/categories/PostgreSQL/">PostgreSQL</a><a class="category-link" href="/categories/PostgreSQL/Docker/">Docker</a><a class="category-link" href="/categories/Spring/">Spring</a><a class="category-link" href="/categories/docker/">docker</a><a class="category-link" href="/categories/python/">python</a><a class="category-link" href="/categories/开源项目/">开源项目</a><a class="category-link" href="/categories/数据库中间件/">数据库中间件</a><a class="category-link" href="/categories/数据库中间件/Mycat/">Mycat</a><a class="category-link" href="/categories/编辑器/">编辑器</a><a class="category-link" href="/categories/编辑器/个人感悟/">个人感悟</a><a class="category-link" href="/categories/编辑器/快捷键/">快捷键</a>
+            <a class="category-link" href="/categories/Fiddler/">Fiddler</a><a class="category-link" href="/categories/IO/">IO</a><a class="category-link" href="/categories/IO/Java/">Java</a><a class="category-link" href="/categories/Java/">Java</a><a class="category-link" href="/categories/Java/Lombok/">Lombok</a><a class="category-link" href="/categories/Java/热部署/">热部署</a><a class="category-link" href="/categories/MySQL/">MySQL</a><a class="category-link" href="/categories/MySQL/Docker/">Docker</a><a class="category-link" href="/categories/PostgreSQL/">PostgreSQL</a><a class="category-link" href="/categories/PostgreSQL/Docker/">Docker</a><a class="category-link" href="/categories/Python/">Python</a><a class="category-link" href="/categories/Spring/">Spring</a><a class="category-link" href="/categories/docker/">docker</a><a class="category-link" href="/categories/开源项目/">开源项目</a><a class="category-link" href="/categories/数据库中间件/">数据库中间件</a><a class="category-link" href="/categories/数据库中间件/Mycat/">Mycat</a><a class="category-link" href="/categories/编辑器/">编辑器</a><a class="category-link" href="/categories/编辑器/个人感悟/">个人感悟</a><a class="category-link" href="/categories/编辑器/快捷键/">快捷键</a>
         </div>
         <div id="sidebar-menu-box-tags">
-            <a href="/tags/AcpectJ/" style="font-size: 10px;">AcpectJ</a> <a href="/tags/Aop/" style="font-size: 10px;">Aop</a> <a href="/tags/Docker/" style="font-size: 12.5px;">Docker</a> <a href="/tags/Eclipse/" style="font-size: 10px;">Eclipse</a> <a href="/tags/GitHub-Pages/" style="font-size: 12.5px;">GitHub Pages</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDEA/" style="font-size: 20px;">IDEA</a> <a href="/tags/IO/" style="font-size: 10px;">IO</a> <a href="/tags/Java/" style="font-size: 12.5px;">Java</a> <a href="/tags/Java类库/" style="font-size: 10px;">Java类库</a> <a href="/tags/JetBrains/" style="font-size: 17.5px;">JetBrains</a> <a href="/tags/Lombok/" style="font-size: 10px;">Lombok</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Mycat/" style="font-size: 15px;">Mycat</a> <a href="/tags/PostgreSQL/" style="font-size: 10px;">PostgreSQL</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/Study/" style="font-size: 10px;">Study</a> <a href="/tags/docker/" style="font-size: 12.5px;">docker</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/postgresql/" style="font-size: 10px;">postgresql</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/《Spring-in-action》/" style="font-size: 10px;">《Spring in action》</a> <a href="/tags/个人博客/" style="font-size: 12.5px;">个人博客</a> <a href="/tags/个人感悟/" style="font-size: 10px;">个人感悟</a> <a href="/tags/主从复制/" style="font-size: 12.5px;">主从复制</a> <a href="/tags/主从搭建/" style="font-size: 12.5px;">主从搭建</a> <a href="/tags/入门/" style="font-size: 10px;">入门</a> <a href="/tags/入门篇/" style="font-size: 10px;">入门篇</a> <a href="/tags/学习资源/" style="font-size: 10px;">学习资源</a> <a href="/tags/实践篇/" style="font-size: 12.5px;">实践篇</a> <a href="/tags/容器/" style="font-size: 12.5px;">容器</a> <a href="/tags/开源项目/" style="font-size: 12.5px;">开源项目</a> <a href="/tags/数据库中间件/" style="font-size: 15px;">数据库中间件</a> <a href="/tags/编辑器/" style="font-size: 20px;">编辑器</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a> <a href="/tags/读写分离/" style="font-size: 12.5px;">读写分离</a> <a href="/tags/配置篇/" style="font-size: 10px;">配置篇</a>
+            <a href="/tags/AcpectJ/" style="font-size: 10px;">AcpectJ</a> <a href="/tags/Aop/" style="font-size: 10px;">Aop</a> <a href="/tags/Docker/" style="font-size: 12px;">Docker</a> <a href="/tags/Eclipse/" style="font-size: 12px;">Eclipse</a> <a href="/tags/Fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/tags/GitHub-Pages/" style="font-size: 12px;">GitHub Pages</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDEA/" style="font-size: 20px;">IDEA</a> <a href="/tags/IO/" style="font-size: 10px;">IO</a> <a href="/tags/Java/" style="font-size: 14px;">Java</a> <a href="/tags/Java类库/" style="font-size: 10px;">Java类库</a> <a href="/tags/JetBrains/" style="font-size: 18px;">JetBrains</a> <a href="/tags/Lombok/" style="font-size: 10px;">Lombok</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Mycat/" style="font-size: 16px;">Mycat</a> <a href="/tags/PostgreSQL/" style="font-size: 10px;">PostgreSQL</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/Study/" style="font-size: 10px;">Study</a> <a href="/tags/docker/" style="font-size: 12px;">docker</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/postgresql/" style="font-size: 10px;">postgresql</a> <a href="/tags/《Spring-in-action》/" style="font-size: 10px;">《Spring in action》</a> <a href="/tags/个人博客/" style="font-size: 12px;">个人博客</a> <a href="/tags/个人感悟/" style="font-size: 12px;">个人感悟</a> <a href="/tags/主从复制/" style="font-size: 12px;">主从复制</a> <a href="/tags/主从搭建/" style="font-size: 12px;">主从搭建</a> <a href="/tags/代理抓包/" style="font-size: 10px;">代理抓包</a> <a href="/tags/入门/" style="font-size: 10px;">入门</a> <a href="/tags/入门篇/" style="font-size: 10px;">入门篇</a> <a href="/tags/学习资源/" style="font-size: 10px;">学习资源</a> <a href="/tags/实践篇/" style="font-size: 12px;">实践篇</a> <a href="/tags/容器/" style="font-size: 12px;">容器</a> <a href="/tags/开源项目/" style="font-size: 12px;">开源项目</a> <a href="/tags/微信开发/" style="font-size: 10px;">微信开发</a> <a href="/tags/数据库中间件/" style="font-size: 16px;">数据库中间件</a> <a href="/tags/热部署/" style="font-size: 10px;">热部署</a> <a href="/tags/编辑器/" style="font-size: 20px;">编辑器</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a> <a href="/tags/读写分离/" style="font-size: 12px;">读写分离</a> <a href="/tags/配置篇/" style="font-size: 10px;">配置篇</a>
         </div>
     </div>
     <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
@@ -1189,7 +1289,7 @@
     <div class="mobile-header-tag-container">
         <span class="title">Tags</span>
         <div id="mobile-header-container-tags">
-            <a href="/tags/AcpectJ/" style="font-size: 10px;">AcpectJ</a> <a href="/tags/Aop/" style="font-size: 10px;">Aop</a> <a href="/tags/Docker/" style="font-size: 12.5px;">Docker</a> <a href="/tags/Eclipse/" style="font-size: 10px;">Eclipse</a> <a href="/tags/GitHub-Pages/" style="font-size: 12.5px;">GitHub Pages</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDEA/" style="font-size: 20px;">IDEA</a> <a href="/tags/IO/" style="font-size: 10px;">IO</a> <a href="/tags/Java/" style="font-size: 12.5px;">Java</a> <a href="/tags/Java类库/" style="font-size: 10px;">Java类库</a> <a href="/tags/JetBrains/" style="font-size: 17.5px;">JetBrains</a> <a href="/tags/Lombok/" style="font-size: 10px;">Lombok</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Mycat/" style="font-size: 15px;">Mycat</a> <a href="/tags/PostgreSQL/" style="font-size: 10px;">PostgreSQL</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/Study/" style="font-size: 10px;">Study</a> <a href="/tags/docker/" style="font-size: 12.5px;">docker</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/postgresql/" style="font-size: 10px;">postgresql</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/《Spring-in-action》/" style="font-size: 10px;">《Spring in action》</a> <a href="/tags/个人博客/" style="font-size: 12.5px;">个人博客</a> <a href="/tags/个人感悟/" style="font-size: 10px;">个人感悟</a> <a href="/tags/主从复制/" style="font-size: 12.5px;">主从复制</a> <a href="/tags/主从搭建/" style="font-size: 12.5px;">主从搭建</a> <a href="/tags/入门/" style="font-size: 10px;">入门</a> <a href="/tags/入门篇/" style="font-size: 10px;">入门篇</a> <a href="/tags/学习资源/" style="font-size: 10px;">学习资源</a> <a href="/tags/实践篇/" style="font-size: 12.5px;">实践篇</a> <a href="/tags/容器/" style="font-size: 12.5px;">容器</a> <a href="/tags/开源项目/" style="font-size: 12.5px;">开源项目</a> <a href="/tags/数据库中间件/" style="font-size: 15px;">数据库中间件</a> <a href="/tags/编辑器/" style="font-size: 20px;">编辑器</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a> <a href="/tags/读写分离/" style="font-size: 12.5px;">读写分离</a> <a href="/tags/配置篇/" style="font-size: 10px;">配置篇</a>
+            <a href="/tags/AcpectJ/" style="font-size: 10px;">AcpectJ</a> <a href="/tags/Aop/" style="font-size: 10px;">Aop</a> <a href="/tags/Docker/" style="font-size: 12px;">Docker</a> <a href="/tags/Eclipse/" style="font-size: 12px;">Eclipse</a> <a href="/tags/Fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/tags/GitHub-Pages/" style="font-size: 12px;">GitHub Pages</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDEA/" style="font-size: 20px;">IDEA</a> <a href="/tags/IO/" style="font-size: 10px;">IO</a> <a href="/tags/Java/" style="font-size: 14px;">Java</a> <a href="/tags/Java类库/" style="font-size: 10px;">Java类库</a> <a href="/tags/JetBrains/" style="font-size: 18px;">JetBrains</a> <a href="/tags/Lombok/" style="font-size: 10px;">Lombok</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Mycat/" style="font-size: 16px;">Mycat</a> <a href="/tags/PostgreSQL/" style="font-size: 10px;">PostgreSQL</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Spring/" style="font-size: 10px;">Spring</a> <a href="/tags/Study/" style="font-size: 10px;">Study</a> <a href="/tags/docker/" style="font-size: 12px;">docker</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/postgresql/" style="font-size: 10px;">postgresql</a> <a href="/tags/《Spring-in-action》/" style="font-size: 10px;">《Spring in action》</a> <a href="/tags/个人博客/" style="font-size: 12px;">个人博客</a> <a href="/tags/个人感悟/" style="font-size: 12px;">个人感悟</a> <a href="/tags/主从复制/" style="font-size: 12px;">主从复制</a> <a href="/tags/主从搭建/" style="font-size: 12px;">主从搭建</a> <a href="/tags/代理抓包/" style="font-size: 10px;">代理抓包</a> <a href="/tags/入门/" style="font-size: 10px;">入门</a> <a href="/tags/入门篇/" style="font-size: 10px;">入门篇</a> <a href="/tags/学习资源/" style="font-size: 10px;">学习资源</a> <a href="/tags/实践篇/" style="font-size: 12px;">实践篇</a> <a href="/tags/容器/" style="font-size: 12px;">容器</a> <a href="/tags/开源项目/" style="font-size: 12px;">开源项目</a> <a href="/tags/微信开发/" style="font-size: 10px;">微信开发</a> <a href="/tags/数据库中间件/" style="font-size: 16px;">数据库中间件</a> <a href="/tags/热部署/" style="font-size: 10px;">热部署</a> <a href="/tags/编辑器/" style="font-size: 20px;">编辑器</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a> <a href="/tags/读写分离/" style="font-size: 12px;">读写分离</a> <a href="/tags/配置篇/" style="font-size: 10px;">配置篇</a>
         </div>
     </div>
 </div>

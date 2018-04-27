@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Docker + MySQL（5.7）主从环境搭建 | Jared Qiu&#39;s Blog | 不只是技术</title>
+  <title>Docker + MySQL（5.7）主从环境搭建 | happyJared - 博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-    <meta name="keywords" content="Jared Qiu's Blog | 不只是技术的...个人博客，编码爱好者，有代码小洁癖。" />
+    <meta name="keywords" content="happyJared - 博客。编码爱好者，代码小洁癖。" />
   
   <meta name="description" content="配置my.cnf 安装包安装的就找/etc/my.cnf进行添加 在挂载目录下建好对应的*.cn文件  [mysqld]  log-bin=mysql-bin   //[必须]启用二进制日志  server-id=222      //[必须]服务器唯一ID，默认是1，一般取IP最后一段  运行容器docker run –name mysqlmaster1 -v /root/mysql/conf/">
 <meta name="keywords" content="MySQL,Docker,主从搭建">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Docker + MySQL（5.7）主从环境搭建">
 <meta property="og:url" content="http://yoursite.com/2018/03/07/Docker + MySQL（5.7）主从环境搭建/index.html">
-<meta property="og:site_name" content="Jared Qiu&#39;s Blog | 不只是技术">
+<meta property="og:site_name" content="happyJared - 博客">
 <meta property="og:description" content="配置my.cnf 安装包安装的就找/etc/my.cnf进行添加 在挂载目录下建好对应的*.cn文件  [mysqld]  log-bin=mysql-bin   //[必须]启用二进制日志  server-id=222      //[必须]服务器唯一ID，默认是1，一般取IP最后一段  运行容器docker run –name mysqlmaster1 -v /root/mysql/conf/">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2018-03-17T03:27:53.593Z">
@@ -85,7 +85,7 @@
                 <div id="header-description">
                     
                     <h4>
-                        先做好写代码这件事
+                        先做好写代码这事
                     </h4>
                     
                 </div>
@@ -93,11 +93,17 @@
             <nav class="header-nav">
                 <div class="social">
                     
-                        <a title="Home" target="_blank" href="//mariojd.cn">
-                            <i class="fa fa-home fa-2x"></i></a>
-                    
-                        <a title="Github" target="_blank" href="//github.com/happyjared">
+                        <a title="github" target="_blank" href="//github.com/happyjared">
                             <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="微博" target="_blank" href="//weibo.com/u/5633332995">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="简书" target="_blank" href="//www.jianshu.com/u/000a530f461c">
+                            <i class="fa fa-book fa-2x"></i></a>
+                    
+                        <a title="qq" target="_blank" href="//wpa.qq.com/msgrd?v=3&uin=1394223902&site=qq&menu=yes">
+                            <i class="fa fa-qq fa-2x"></i></a>
                     
                 </div>
             </nav>
@@ -217,7 +223,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/03/07/Docker + MySQL（5.7）主从环境搭建/&title=《Docker + MySQL（5.7）主从环境搭建》 — Jared Qiu's Blog | 不只是技术&pic=http://p3ry9qsas.bkt.clouddn.com/201837/u=1782028824,1536037822&fm=27&gp=0.jpg "MySQL with Docker"" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/03/07/Docker + MySQL（5.7）主从环境搭建/&title=《Docker + MySQL（5.7）主从环境搭建》 — happyJared - 博客&pic=http://p3ry9qsas.bkt.clouddn.com/201837/u=1782028824,1536037822&fm=27&gp=0.jpg "MySQL with Docker"" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -227,7 +233,7 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/03/07/Docker + MySQL（5.7）主从环境搭建/&title=《Docker + MySQL（5.7）主从环境搭建》 — Jared Qiu's Blog | 不只是技术&source=Coding爱好者，有代码小洁癖，主攻Java，也喜欢Python和JavaScript，为人乐观、积极、向上、勤奋、和善、易相处，讲卫生，爱学习，爱码字..." data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/03/07/Docker + MySQL（5.7）主从环境搭建/&title=《Docker + MySQL（5.7）主从环境搭建》 — happyJared - 博客&source=Java developer, like Python and javascript，为人乐观、积极、向上、勤奋、和善、好相处，讲卫生，爱学习，爱码字，爱..." data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
@@ -237,7 +243,7 @@
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Docker + MySQL（5.7）主从环境搭建》 — Jared Qiu's Blog | 不只是技术&url=http://yoursite.com/2018/03/07/Docker + MySQL（5.7）主从环境搭建/&via=http://yoursite.com" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Docker + MySQL（5.7）主从环境搭建》 — happyJared - 博客&url=http://yoursite.com/2018/03/07/Docker + MySQL（5.7）主从环境搭建/&via=http://yoursite.com" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>

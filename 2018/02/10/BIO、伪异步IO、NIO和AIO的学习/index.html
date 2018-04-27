@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>BIO、伪异步IO、NIO和AIO学习 | Jared Qiu&#39;s Blog | 不只是技术</title>
+  <title>BIO、伪异步IO、NIO和AIO学习 | happyJared - 博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-    <meta name="keywords" content="Jared Qiu's Blog | 不只是技术的...个人博客，编码爱好者，有代码小洁癖。" />
+    <meta name="keywords" content="happyJared - 博客。编码爱好者，代码小洁癖。" />
   
   <meta name="description" content="BIO（同步阻塞，一请求一应答） 伪异步IO（同步阻塞，线程池） NIO （同步非阻塞，多路复用） AIO（异步非阻塞，异步通道）     Client数：线程数 1：1 N：M（N &amp;gt;= M） M：1 N：0   API难度 简单 简单 复杂 较复杂   调试难度 简单 简单 复杂 较复杂   可靠性 最差 差 高 高   吞吐量 最低 低 高 高">
 <meta name="keywords" content="IO,Java,Study">
 <meta property="og:type" content="article">
 <meta property="og:title" content="BIO、伪异步IO、NIO和AIO学习">
 <meta property="og:url" content="http://yoursite.com/2018/02/10/BIO、伪异步IO、NIO和AIO的学习/index.html">
-<meta property="og:site_name" content="Jared Qiu&#39;s Blog | 不只是技术">
+<meta property="og:site_name" content="happyJared - 博客">
 <meta property="og:description" content="BIO（同步阻塞，一请求一应答） 伪异步IO（同步阻塞，线程池） NIO （同步非阻塞，多路复用） AIO（异步非阻塞，异步通道）     Client数：线程数 1：1 N：M（N &amp;gt;= M） M：1 N：0   API难度 简单 简单 复杂 较复杂   调试难度 简单 简单 复杂 较复杂   可靠性 最差 差 高 高   吞吐量 最低 低 高 高">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2018-03-17T03:27:53.592Z">
@@ -85,7 +85,7 @@
                 <div id="header-description">
                     
                     <h4>
-                        先做好写代码这件事
+                        先做好写代码这事
                     </h4>
                     
                 </div>
@@ -93,11 +93,17 @@
             <nav class="header-nav">
                 <div class="social">
                     
-                        <a title="Home" target="_blank" href="//mariojd.cn">
-                            <i class="fa fa-home fa-2x"></i></a>
-                    
-                        <a title="Github" target="_blank" href="//github.com/happyjared">
+                        <a title="github" target="_blank" href="//github.com/happyjared">
                             <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="微博" target="_blank" href="//weibo.com/u/5633332995">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="简书" target="_blank" href="//www.jianshu.com/u/000a530f461c">
+                            <i class="fa fa-book fa-2x"></i></a>
+                    
+                        <a title="qq" target="_blank" href="//wpa.qq.com/msgrd?v=3&uin=1394223902&site=qq&menu=yes">
+                            <i class="fa fa-qq fa-2x"></i></a>
                     
                 </div>
             </nav>
@@ -252,7 +258,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/02/10/BIO、伪异步IO、NIO和AIO的学习/&title=《BIO、伪异步IO、NIO和AIO学习》 — Jared Qiu's Blog | 不只是技术&pic=http://p3ry9qsas.bkt.clouddn.com/2018210/javaio.jpg" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/02/10/BIO、伪异步IO、NIO和AIO的学习/&title=《BIO、伪异步IO、NIO和AIO学习》 — happyJared - 博客&pic=http://p3ry9qsas.bkt.clouddn.com/2018210/javaio.jpg" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -262,7 +268,7 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/02/10/BIO、伪异步IO、NIO和AIO的学习/&title=《BIO、伪异步IO、NIO和AIO学习》 — Jared Qiu's Blog | 不只是技术&source=Coding爱好者，有代码小洁癖，主攻Java，也喜欢Python和JavaScript，为人乐观、积极、向上、勤奋、和善、易相处，讲卫生，爱学习，爱码字..." data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/02/10/BIO、伪异步IO、NIO和AIO的学习/&title=《BIO、伪异步IO、NIO和AIO学习》 — happyJared - 博客&source=Java developer, like Python and javascript，为人乐观、积极、向上、勤奋、和善、好相处，讲卫生，爱学习，爱码字，爱..." data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
@@ -272,7 +278,7 @@
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《BIO、伪异步IO、NIO和AIO学习》 — Jared Qiu's Blog | 不只是技术&url=http://yoursite.com/2018/02/10/BIO、伪异步IO、NIO和AIO的学习/&via=http://yoursite.com" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《BIO、伪异步IO、NIO和AIO学习》 — happyJared - 博客&url=http://yoursite.com/2018/02/10/BIO、伪异步IO、NIO和AIO的学习/&via=http://yoursite.com" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -317,19 +323,19 @@
 
 <nav id="article-nav">
   
-    <a href="/2018/02/10/Docker（二）/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/02/10/IDEA快捷键拆解系列（一）/" id="article-nav-newer" class="article-nav-link-wrap">
 
       <span class="article-nav-title">
         <i class="fa fa-hand-o-left" aria-hidden="true"></i>
         
-          Docker（二）
+          IDEA快捷键拆解系列（一）
         
       </span>
     </a>
   
   
-    <a href="/2018/02/09/IDEA快捷键拆解系列（前言）/" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">IDEA快捷键拆解系列（前言）</span>
+    <a href="/2018/02/09/Docker（一）/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Docker（一）</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   

@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Mycat（实践篇 - 基于PostgreSQL的水平切分、主从复制、读写分离） | Jared Qiu&#39;s Blog | 不只是技术</title>
+  <title>Mycat（实践篇 - 基于PostgreSQL的水平切分、主从复制、读写分离） | happyJared - 博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-    <meta name="keywords" content="Jared Qiu's Blog | 不只是技术的...个人博客，编码爱好者，有代码小洁癖。" />
+    <meta name="keywords" content="happyJared - 博客。编码爱好者，代码小洁癖。" />
   
   <meta name="description" content="写在前面&amp;emsp;&amp;emsp;Mycat作为独立的数据库中间件，我们只需要进行相关的配置，就可以非常方便的帮我们实现水平切分、垂直切分、读写分离等功能，但PostgreSQL的主从复制需要我们通过其它方式实现。这里假设我们已经搭建好相关的环境，下面就开始我们的实践吧！ 准备环境 PostgreSQL(Version : 10.1)主从环境搭建 对应数据库建立（以下例子中使用的都是默认存在的pos">
-<meta name="keywords" content="Mycat,数据库中间件,实践篇,postgresql,主从复制,读写分离">
+<meta name="keywords" content="Mycat,数据库中间件,实践篇,主从复制,读写分离,postgresql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mycat（实践篇 - 基于PostgreSQL的水平切分、主从复制、读写分离）">
 <meta property="og:url" content="http://yoursite.com/2018/03/04/Mycat（实践篇 - 基于PostgreSQL的水平切分、主从复制、读写分离）/index.html">
-<meta property="og:site_name" content="Jared Qiu&#39;s Blog | 不只是技术">
+<meta property="og:site_name" content="happyJared - 博客">
 <meta property="og:description" content="写在前面&amp;emsp;&amp;emsp;Mycat作为独立的数据库中间件，我们只需要进行相关的配置，就可以非常方便的帮我们实现水平切分、垂直切分、读写分离等功能，但PostgreSQL的主从复制需要我们通过其它方式实现。这里假设我们已经搭建好相关的环境，下面就开始我们的实践吧！ 准备环境 PostgreSQL(Version : 10.1)主从环境搭建 对应数据库建立（以下例子中使用的都是默认存在的pos">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/20180303173140.png">
@@ -89,7 +89,7 @@
                 <div id="header-description">
                     
                     <h4>
-                        先做好写代码这件事
+                        先做好写代码这事
                     </h4>
                     
                 </div>
@@ -97,11 +97,17 @@
             <nav class="header-nav">
                 <div class="social">
                     
-                        <a title="Home" target="_blank" href="//mariojd.cn">
-                            <i class="fa fa-home fa-2x"></i></a>
-                    
-                        <a title="Github" target="_blank" href="//github.com/happyjared">
+                        <a title="github" target="_blank" href="//github.com/happyjared">
                             <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="微博" target="_blank" href="//weibo.com/u/5633332995">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="简书" target="_blank" href="//www.jianshu.com/u/000a530f461c">
+                            <i class="fa fa-book fa-2x"></i></a>
+                    
+                        <a title="qq" target="_blank" href="//wpa.qq.com/msgrd?v=3&uin=1394223902&site=qq&menu=yes">
+                            <i class="fa fa-qq fa-2x"></i></a>
                     
                 </div>
             </nav>
@@ -261,7 +267,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/03/04/Mycat（实践篇 - 基于PostgreSQL的水平切分、主从复制、读写分离）/&title=《Mycat（实践篇 - 基于PostgreSQL的水平切分、主从复制、读写分离）》 — Jared Qiu's Blog | 不只是技术&pic=http://p3ry9qsas.bkt.clouddn.com/201833/mycat架构图.png "mycat架构图"" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/03/04/Mycat（实践篇 - 基于PostgreSQL的水平切分、主从复制、读写分离）/&title=《Mycat（实践篇 - 基于PostgreSQL的水平切分、主从复制、读写分离）》 — happyJared - 博客&pic=http://p3ry9qsas.bkt.clouddn.com/201833/mycat架构图.png "mycat架构图"" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -271,7 +277,7 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/03/04/Mycat（实践篇 - 基于PostgreSQL的水平切分、主从复制、读写分离）/&title=《Mycat（实践篇 - 基于PostgreSQL的水平切分、主从复制、读写分离）》 — Jared Qiu's Blog | 不只是技术&source=Coding爱好者，有代码小洁癖，主攻Java，也喜欢Python和JavaScript，为人乐观、积极、向上、勤奋、和善、易相处，讲卫生，爱学习，爱码字..." data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/03/04/Mycat（实践篇 - 基于PostgreSQL的水平切分、主从复制、读写分离）/&title=《Mycat（实践篇 - 基于PostgreSQL的水平切分、主从复制、读写分离）》 — happyJared - 博客&source=Java developer, like Python and javascript，为人乐观、积极、向上、勤奋、和善、好相处，讲卫生，爱学习，爱码字，爱..." data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
@@ -281,7 +287,7 @@
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Mycat（实践篇 - 基于PostgreSQL的水平切分、主从复制、读写分离）》 — Jared Qiu's Blog | 不只是技术&url=http://yoursite.com/2018/03/04/Mycat（实践篇 - 基于PostgreSQL的水平切分、主从复制、读写分离）/&via=http://yoursite.com" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Mycat（实践篇 - 基于PostgreSQL的水平切分、主从复制、读写分离）》 — happyJared - 博客&url=http://yoursite.com/2018/03/04/Mycat（实践篇 - 基于PostgreSQL的水平切分、主从复制、读写分离）/&via=http://yoursite.com" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -314,11 +320,11 @@
       
     <a href="/tags/实践篇/" class="color4">实践篇</a>
       
-    <a href="/tags/postgresql/" class="color1">postgresql</a>
-      
     <a href="/tags/主从复制/" class="color5">主从复制</a>
       
     <a href="/tags/读写分离/" class="color5">读写分离</a>
+      
+    <a href="/tags/postgresql/" class="color1">postgresql</a>
       
   </li>
 

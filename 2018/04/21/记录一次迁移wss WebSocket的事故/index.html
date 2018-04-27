@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>记录一次迁移wss WebSocket的事故 | Jared Qiu&#39;s Blog | 不只是技术</title>
+  <title>记录一次迁移wss WebSocket的事故 | happyJared - 博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-    <meta name="keywords" content="Jared Qiu's Blog | 不只是技术的...个人博客，编码爱好者，有代码小洁癖。" />
+    <meta name="keywords" content="happyJared - 博客。编码爱好者，代码小洁癖。" />
   
   <meta name="description" content="&amp;emsp;&amp;emsp;今天是2018年04月21日。 &amp;emsp;&amp;emsp;过去的这一个多月里，我的工（开）作（发）任务转战回了游戏。短短的一个月里，催着输出两款h5游戏，再加上对接、联调，想想真是够辛（ku）苦（bi）的。本人负责后端，也就是服务端这块的游戏主流程输出。去年下半年，在前任大佬的带领下，做过一两款棋牌类的手游，虽然目前的运营状况不太乐观。不过好在，过去学的那点皮毛也还没丢光，所">
 <meta name="keywords" content="websocket,wss,nginx">
 <meta property="og:type" content="article">
 <meta property="og:title" content="记录一次迁移wss WebSocket的事故">
 <meta property="og:url" content="http://yoursite.com/2018/04/21/记录一次迁移wss WebSocket的事故/index.html">
-<meta property="og:site_name" content="Jared Qiu&#39;s Blog | 不只是技术">
+<meta property="og:site_name" content="happyJared - 博客">
 <meta property="og:description" content="&amp;emsp;&amp;emsp;今天是2018年04月21日。 &amp;emsp;&amp;emsp;过去的这一个多月里，我的工（开）作（发）任务转战回了游戏。短短的一个月里，催着输出两款h5游戏，再加上对接、联调，想想真是够辛（ku）苦（bi）的。本人负责后端，也就是服务端这块的游戏主流程输出。去年下半年，在前任大佬的带领下，做过一两款棋牌类的手游，虽然目前的运营状况不太乐观。不过好在，过去学的那点皮毛也还没丢光，所">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/xsj/2018422/bg2017051502.png">
@@ -94,7 +94,7 @@
                 <div id="header-description">
                     
                     <h4>
-                        先做好写代码这件事
+                        先做好写代码这事
                     </h4>
                     
                 </div>
@@ -102,11 +102,17 @@
             <nav class="header-nav">
                 <div class="social">
                     
-                        <a title="Home" target="_blank" href="//mariojd.cn">
-                            <i class="fa fa-home fa-2x"></i></a>
-                    
-                        <a title="Github" target="_blank" href="//github.com/happyjared">
+                        <a title="github" target="_blank" href="//github.com/happyjared">
                             <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="微博" target="_blank" href="//weibo.com/u/5633332995">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="简书" target="_blank" href="//www.jianshu.com/u/000a530f461c">
+                            <i class="fa fa-book fa-2x"></i></a>
+                    
+                        <a title="qq" target="_blank" href="//wpa.qq.com/msgrd?v=3&uin=1394223902&site=qq&menu=yes">
+                            <i class="fa fa-qq fa-2x"></i></a>
                     
                 </div>
             </nav>
@@ -269,7 +275,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/04/21/记录一次迁移wss WebSocket的事故/&title=《记录一次迁移wss WebSocket的事故》 — Jared Qiu's Blog | 不只是技术&pic=http://p3ry9qsas.bkt.clouddn.com/xsj/2018422/bg2017051501.png "HTML5 - WebSocket"" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/04/21/记录一次迁移wss WebSocket的事故/&title=《记录一次迁移wss WebSocket的事故》 — happyJared - 博客&pic=http://p3ry9qsas.bkt.clouddn.com/xsj/2018422/bg2017051501.png "HTML5 - WebSocket"" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -279,7 +285,7 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/04/21/记录一次迁移wss WebSocket的事故/&title=《记录一次迁移wss WebSocket的事故》 — Jared Qiu's Blog | 不只是技术&source=Coding爱好者，有代码小洁癖，主攻Java，也喜欢Python和JavaScript，为人乐观、积极、向上、勤奋、和善、易相处，讲卫生，爱学习，爱码字..." data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/04/21/记录一次迁移wss WebSocket的事故/&title=《记录一次迁移wss WebSocket的事故》 — happyJared - 博客&source=Java developer, like Python and javascript，为人乐观、积极、向上、勤奋、和善、好相处，讲卫生，爱学习，爱码字，爱..." data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
@@ -289,7 +295,7 @@
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《记录一次迁移wss WebSocket的事故》 — Jared Qiu's Blog | 不只是技术&url=http://yoursite.com/2018/04/21/记录一次迁移wss WebSocket的事故/&via=http://yoursite.com" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《记录一次迁移wss WebSocket的事故》 — happyJared - 博客&url=http://yoursite.com/2018/04/21/记录一次迁移wss WebSocket的事故/&via=http://yoursite.com" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>

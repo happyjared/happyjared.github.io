@@ -124,7 +124,7 @@ body,
 }
 body {
   font-family: "Helvetica Neue", Helvetica, STHeiTi, Arial, sans-serif;
-  background: #f8fcfc;
+  background: #fcf7f7;
   font-size: 14px;
   -webkit-text-size-adjust: 100%;
   position: relative;
@@ -180,7 +180,7 @@ body {
   -webkit-transition: 0.2s ease-out;
   transition: 0.2s ease-out;
   z-index: 1;
-  background: #f8fcfc;
+  background: #fcf7f7;
 }
 .mobile-nav-on #wrap {
   left: 280px;
@@ -462,7 +462,7 @@ body {
 #header-menu .header-menu-container #header-menu-nav a i {
 /** 2018-05-03, update color: white to black */
   color: #000;
-  font-size: 18px;
+  font-size: 16px;
 }
 #header-menu .header-menu-container #header-menu-nav a span {
 /** 2018-05-03, update color: white to black , update font-size: 15px to 16px */
@@ -471,6 +471,8 @@ body {
   letter-spacing: 1px;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
+/** 2018-05-03, add margin-left*/
+  margin-left: 2px;
 }
 #header-menu .header-menu-container #header-menu-nav a span:hover {
   letter-spacing: 2px;
@@ -1355,7 +1357,7 @@ body {
   line-height: 36px;
 }
 .article-share-links {
-  background: #f8fcfc;
+  background: #fcf7f7;
 }
 .article-share-links:before,
 .article-share-links:after {
@@ -2248,7 +2250,8 @@ pre .javascript .function {
 .sidebar {
   z-index: 999;
   position: fixed;
-  bottom: 300px;
+/** 2018-05-03, update bottom: 300px to 100px */
+  bottom: 100px;
   right: calc(50% - 525px);
 }
 .sidebar div {
@@ -2398,7 +2401,8 @@ pre .javascript .function {
   height: 33px;
   position: absolute;
   right: 48px;
-  top: 31px;
+/** 2018-05-03, update top: 31px to 35px */
+  top: 35px;
   text-align: center;
   line-height: 33px;
 }

@@ -8,18 +8,18 @@
   
     <meta name="keywords" content="happyJared - 博客。编码爱好者，代码小洁癖。" />
   
-  <meta name="description" content="1、Dockerfile FROM 。FROM指令必须指定且需要在Dockerfile其他指令的前面，指定的基础image可以是官方远程仓库中的，也可以位于本地仓库。后续的指令都依赖于该指令指定的image。当在同一个Dockerfile中建立多个镜像时，可以使用多个FROM指令。 123FROM &amp;lt;image&amp;gt;FROM &amp;lt;image&amp;gt;:&amp;lt;tag&amp;gt;FROM &amp;l">
+  <meta name="description" content="1、Dockerfile FROM 。FROM指令必须指定且需要在Dockerfile其他指令的前面，指定的基础image可以是官方远程仓库中的，也可以位于本地仓库。后续的指令都依赖于该指令指定的image。当在同一个Dockerfile中建立多个镜像时，可以使用多个FROM指令。 FROM &amp;lt;image&amp;gt;FROM &amp;lt;image&amp;gt;:&amp;lt;tag&amp;gt;FROM &amp;lt;i">
 <meta name="keywords" content="docker,容器">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Docker（二）">
 <meta property="og:url" content="https://blog.mariojd.cn/2018/02/10/Docker（二）/index.html">
 <meta property="og:site_name" content="happyJared - 博客">
-<meta property="og:description" content="1、Dockerfile FROM 。FROM指令必须指定且需要在Dockerfile其他指令的前面，指定的基础image可以是官方远程仓库中的，也可以位于本地仓库。后续的指令都依赖于该指令指定的image。当在同一个Dockerfile中建立多个镜像时，可以使用多个FROM指令。 123FROM &amp;lt;image&amp;gt;FROM &amp;lt;image&amp;gt;:&amp;lt;tag&amp;gt;FROM &amp;l">
+<meta property="og:description" content="1、Dockerfile FROM 。FROM指令必须指定且需要在Dockerfile其他指令的前面，指定的基础image可以是官方远程仓库中的，也可以位于本地仓库。后续的指令都依赖于该指令指定的image。当在同一个Dockerfile中建立多个镜像时，可以使用多个FROM指令。 FROM &amp;lt;image&amp;gt;FROM &amp;lt;image&amp;gt;:&amp;lt;tag&amp;gt;FROM &amp;lt;i">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2018-03-17T03:27:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker（二）">
-<meta name="twitter:description" content="1、Dockerfile FROM 。FROM指令必须指定且需要在Dockerfile其他指令的前面，指定的基础image可以是官方远程仓库中的，也可以位于本地仓库。后续的指令都依赖于该指令指定的image。当在同一个Dockerfile中建立多个镜像时，可以使用多个FROM指令。 123FROM &amp;lt;image&amp;gt;FROM &amp;lt;image&amp;gt;:&amp;lt;tag&amp;gt;FROM &amp;l">
+<meta name="twitter:description" content="1、Dockerfile FROM 。FROM指令必须指定且需要在Dockerfile其他指令的前面，指定的基础image可以是官方远程仓库中的，也可以位于本地仓库。后续的指令都依赖于该指令指定的image。当在同一个Dockerfile中建立多个镜像时，可以使用多个FROM指令。 FROM &amp;lt;image&amp;gt;FROM &amp;lt;image&amp;gt;:&amp;lt;tag&amp;gt;FROM &amp;lt;i">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -149,39 +149,39 @@
             
             <h3 id="1、Dockerfile"><a href="#1、Dockerfile" class="headerlink" title="1、Dockerfile"></a>1、Dockerfile</h3><ul>
 <li><p>FROM 。FROM指令必须指定且需要在Dockerfile其他指令的前面，指定的基础image可以是官方远程仓库中的，也可以位于本地仓库。后续的指令都依赖于该指令指定的image。当在同一个Dockerfile中建立多个镜像时，可以使用多个FROM指令。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">FROM &lt;image&gt;</span><br><span class="line">FROM &lt;image&gt;:&lt;tag&gt;</span><br><span class="line">FROM &lt;image&gt;@&lt;digest&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">FROM &lt;image&gt;</span><br><span class="line">FROM &lt;image&gt;:&lt;tag&gt;</span><br><span class="line">FROM &lt;image&gt;@&lt;digest&gt;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>MAINTAINER。用于指定维护者的信息</p>
-<figure class="highlight plain"><figcaption><span><name> ```</name></span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* RUN。支持两种格式：</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><figcaption><span><name> ```</name></span></figcaption><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">* RUN。支持两种格式：</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>RUN <command> 或<br>RUN [“executable”, “param1”, “param2”]<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* CMD。主要目的是为执行容器提供默认值。每个Dockerfile只有一个CMD命令，如果指定了多个CMD命令，那么只有一条会被执行，如果启动容器的时候指定了运行的命令，则会覆盖掉CMD指定的命令。</span><br></pre></td></tr></table></figure></p>
-<p>CMD [“executable”,”param1”,”param2”] (推荐使用)<br>CMD [“param1”,”param2”] (为ENTRYPOINT指令提供预设参数)<br>CMD command param1 param2 (在shell中执行)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* LABEL。为镜像添加元数据</span><br><span class="line">```LABEL &lt;key&gt;=&lt;value&gt; &lt;key&gt;=&lt;value&gt; &lt;key&gt;=&lt;value&gt; ...</span><br></pre></td></tr></table></figure></p>
+<p>RUN <command> 或<br>RUN [“executable”, “param1”, “param2”]<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">* CMD。主要目的是为执行容器提供默认值。每个Dockerfile只有一个CMD命令，如果指定了多个CMD命令，那么只有一条会被执行，如果启动容器的时候指定了运行的命令，则会覆盖掉CMD指定的命令。</span><br></pre></td></tr></table></figure></p>
+<p>CMD [“executable”,”param1”,”param2”] (推荐使用)<br>CMD [“param1”,”param2”] (为ENTRYPOINT指令提供预设参数)<br>CMD command param1 param2 (在shell中执行)<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">* LABEL。为镜像添加元数据</span><br><span class="line">```LABEL &lt;key&gt;=&lt;value&gt; &lt;key&gt;=&lt;value&gt; &lt;key&gt;=&lt;value&gt; ...</span><br></pre></td></tr></table></figure></p>
 <ul>
-<li>EXPOSE。为Docker容器设置对外的端口号。在启动时，可以使用-p选项或者-P选项。<figure class="highlight plain"><figcaption><span><port> [<port>...]```</port></port></span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* ENV。指定环境变量，会被后续RUN指令使用，并在容器启动后，可以通过docker inspect查看这个环境变量，也可以通过docker run --env &lt;key&gt;=&lt;value&gt; 来修改环境变量。</span><br></pre></td></tr></table></figure>
+<li>EXPOSE。为Docker容器设置对外的端口号。在启动时，可以使用-p选项或者-P选项。<figure class="highlight plain"><figcaption><span><port> [<port>...]```</port></port></span></figcaption><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">* ENV。指定环境变量，会被后续RUN指令使用，并在容器启动后，可以通过docker inspect查看这个环境变量，也可以通过docker run --env &lt;key&gt;=&lt;value&gt; 来修改环境变量。</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>ENV <key> <value><br>ENV <key>=<value> …<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* ADD。从src目录复制文件到容器的dest。其中src可以是Dockerfile所在目录的相对路径，也可以是一个URL，还可以是一个压缩包。</span><br><span class="line"></span><br><span class="line">* COPY。复制本地端的src到容器的dest。和ADD指令类似，COPY不支持URL和压缩包。</span><br><span class="line"></span><br><span class="line">* ENTRYPOINT。指定Docker容器启动时执行的命令，可以多次设置，但是只有最后一个有效。</span><br><span class="line"></span><br><span class="line">* VOLUME。使容器中的一个目录具有持久化存储数据的功能，该目录可以被容器本身使用，也可以共享给其他容器。当容器中的应用有持久化数据的需求时可以在Dockerfile中使用该指令。</span><br><span class="line">``` VOLUME [&quot;/data&quot;]</span><br></pre></td></tr></table></figure></value></key></value></key></p>
+<p>ENV <key> <value><br>ENV <key>=<value> …<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">* ADD。从src目录复制文件到容器的dest。其中src可以是Dockerfile所在目录的相对路径，也可以是一个URL，还可以是一个压缩包。</span><br><span class="line"></span><br><span class="line">* COPY。复制本地端的src到容器的dest。和ADD指令类似，COPY不支持URL和压缩包。</span><br><span class="line"></span><br><span class="line">* ENTRYPOINT。指定Docker容器启动时执行的命令，可以多次设置，但是只有最后一个有效。</span><br><span class="line"></span><br><span class="line">* VOLUME。使容器中的一个目录具有持久化存储数据的功能，该目录可以被容器本身使用，也可以共享给其他容器。当容器中的应用有持久化数据的需求时可以在Dockerfile中使用该指令。</span><br><span class="line">``` VOLUME [&quot;/data&quot;]</span><br></pre></td></tr></table></figure></value></key></value></key></p>
 <ul>
 <li><p>USER。设置启动容器的用户，默认是root用户。</p>
-<figure class="highlight plain"><figcaption><span>用户名 ```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* WORKDIR。切换目录指令，类似于cd命令，对RUN、CMD、ENTRYPOINT生效。</span><br><span class="line">``` WORKDIR /path/to/workdir</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><figcaption><span>用户名 ```</span></figcaption><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">* WORKDIR。切换目录指令，类似于cd命令，对RUN、CMD、ENTRYPOINT生效。</span><br><span class="line">``` WORKDIR /path/to/workdir</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>ARG。定义一个变量。</p>
-<figure class="highlight plain"><figcaption><span><name>[</name></span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* ONBUILD。指定当建立的镜像作为其他镜像的基础时，所执行的命令。</span><br><span class="line">``` ONBUILD [INSTRUCTION]</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><figcaption><span><name>[</name></span></figcaption><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">* ONBUILD。指定当建立的镜像作为其他镜像的基础时，所执行的命令。</span><br><span class="line">``` ONBUILD [INSTRUCTION]</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h3 id="2、使用Dockerfile构建Docker镜像"><a href="#2、使用Dockerfile构建Docker镜像" class="headerlink" title="2、使用Dockerfile构建Docker镜像"></a>2、使用Dockerfile构建Docker镜像</h3><ol>
 <li><p>在项目jar包所在目录创建文件，命名为Dockerfile</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">from java:8  # 基于哪个镜像</span><br><span class="line">volume /tmp  # 将本地文件夹挂载到当前容器</span><br><span class="line"># 添加文件到容器</span><br><span class="line">add xxx.jar app.jar</span><br><span class="line">run bash -c &apos;touch /app.jar&apos;</span><br><span class="line">expose 12345  # 开放12345端口</span><br><span class="line">entrypoint [&quot;java&quot;,&quot;-Djava.security.egd=file:/dev/./urandom&quot;,&quot;-jar&quot;,&quot;/app.jar&quot;] # 配置容器启动后执行的命令</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">from java:8  # 基于哪个镜像</span><br><span class="line">volume /tmp  # 将本地文件夹挂载到当前容器</span><br><span class="line"># 添加文件到容器</span><br><span class="line">add xxx.jar app.jar</span><br><span class="line">run bash -c &apos;touch /app.jar&apos;</span><br><span class="line">expose 12345  # 开放12345端口</span><br><span class="line">entrypoint [&quot;java&quot;,&quot;-Djava.security.egd=file:/dev/./urandom&quot;,&quot;-jar&quot;,&quot;/app.jar&quot;] # 配置容器启动后执行的命令</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>构建docker镜像，执行</p>
 </li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build -t hello/test1 .        # 格式：docker build -t 标签名称 Dockerfile的相对位置（.表示当前位置）</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker build -t hello/test1 .        # 格式：docker build -t 标签名称 Dockerfile的相对位置（.表示当前位置）</span><br></pre></td></tr></table></figure>
 <ol>
 <li>启动镜像，查看</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 8080:12345 hello/test1</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker run -d -p 8080:12345 hello/test1</span><br></pre></td></tr></table></figure>
 <h3 id="3、使用Maven插件构建Docker镜像"><a href="#3、使用Maven插件构建Docker镜像" class="headerlink" title="3、使用Maven插件构建Docker镜像"></a>3、使用Maven插件构建Docker镜像</h3><p> //TODO</p>
 <h3 id="4、关于Docker-Compose（工具）"><a href="#4、关于Docker-Compose（工具）" class="headerlink" title="4、关于Docker Compose（工具）"></a>4、关于Docker Compose（工具）</h3><p>&emsp;&emsp;编写Dockerfile 可以让用户管理一个单独的容器，那么如果要管理多个容器呢，例如：我们需要管理一个Web应用的同时还要加上其后端的数据库服务容器呢？而Docker Compose就是这样的一个工具。<br>&emsp;&emsp;官网对Compose的定义是：<strong>Compose 是一个用于定义和运行多容器的Docker应用的工具。使用Compose，你可以在一个配置文件（yaml格式）中配置你的应用的服务，然后使用一个命令，即可创建并启动配置中引用的所有服务。</strong></p>
 <ol>
@@ -189,64 +189,64 @@
 </ol>
 <ul>
 <li><p>下载docker-compose ，并放到/usr/local/bin/ </p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -L https://github.com/docker/compose/releases/download/1.8.0/docker-compose-`uname -s`-`uname -m` &gt; /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">curl -L https://github.com/docker/compose/releases/download/1.8.0/docker-compose-`uname -s`-`uname -m` &gt; /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>为Docker Compose脚本添加执行权限</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +x /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">chmod +x /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>测试命令，如果有版本信息输出则说明Compose已经成功安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose --version</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker-compose --version</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <ol>
 <li>docker-compose.yml常用命令（官方文档：<a href="https://docs.docker.com/compose/compose-file/" target="_blank" rel="noopener">https://docs.docker.com/compose/compose-file/</a> ）</li>
 </ol>
 <ul>
-<li>image  指定镜像名称或者镜像id，如果该镜像在本地不存在，Compose会尝试pull下来。示例：<figure class="highlight plain"><figcaption><span>java```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* build  指定Dockerfile文件的路径。可以是一个路径，示例：</span><br><span class="line">```build: ./dir</span><br></pre></td></tr></table></figure>
+<li>image  指定镜像名称或者镜像id，如果该镜像在本地不存在，Compose会尝试pull下来。示例：<figure class="highlight plain"><figcaption><span>java```</span></figcaption><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">* build  指定Dockerfile文件的路径。可以是一个路径，示例：</span><br><span class="line">```build: ./dir</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>也可以是一个对象，用以指定Dockerfile和参数，示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">build:</span><br><span class="line">  context: ./dir</span><br><span class="line">  dockerfile: Dockerfile-alternate</span><br><span class="line">  args:</span><br><span class="line">    buildno: 1</span><br></pre></td></tr></table></figure></p>
+<p>也可以是一个对象，用以指定Dockerfile和参数，示例：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">build:</span><br><span class="line">  context: ./dir</span><br><span class="line">  dockerfile: Dockerfile-alternate</span><br><span class="line">  args:</span><br><span class="line">    buildno: 1</span><br></pre></td></tr></table></figure></p>
 <ul>
 <li><p>command  覆盖容器启动后默认执行的命令。示例：</p>
-<figure class="highlight plain"><figcaption><span>bundle exec thin -p 3000```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">也可以是一个list，类似于Dockerfile总的CMD指令，格式如下：</span><br><span class="line">```command: [bundle, exec, thin, -p, 3000]</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><figcaption><span>bundle exec thin -p 3000```</span></figcaption><table><tr><td class="code"><pre><span class="line">也可以是一个list，类似于Dockerfile总的CMD指令，格式如下：</span><br><span class="line">```command: [bundle, exec, thin, -p, 3000]</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>links  链接到其他服务中的容器。可以指定服务名称和链接的别名使用SERVICE:ALIAS 的形式，或者只指定服务名称，示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">web:</span><br><span class="line">  links:</span><br><span class="line">   - db</span><br><span class="line">   - db:database</span><br><span class="line">   - redis</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">web:</span><br><span class="line">  links:</span><br><span class="line">   - db</span><br><span class="line">   - db:database</span><br><span class="line">   - redis</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>external_links  表示链接到docker-compose.yml外部的容器，甚至并非Compose管理的容器，特别是对于那些提供共享容器或共同服务。格式跟links类似，示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">external_links:</span><br><span class="line"> - redis_1</span><br><span class="line"> - project_db_1:mysql</span><br><span class="line"> - project_db_1:postgresql</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">external_links:</span><br><span class="line"> - redis_1</span><br><span class="line"> - project_db_1:mysql</span><br><span class="line"> - project_db_1:postgresql</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>ports  暴露端口信息。使用宿主端口:容器端口的格式，或者仅仅指定容器的端口（此时宿主机将会随机指定端口），类似于docker run -p ，示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ports:</span><br><span class="line"> - &quot;3000&quot;</span><br><span class="line"> - &quot;3000-3005&quot;</span><br><span class="line"> - &quot;8000:8000&quot;</span><br><span class="line"> - &quot;9090-9091:8080-8081&quot;</span><br><span class="line"> - &quot;49100:22&quot;</span><br><span class="line"> - &quot;127.0.0.1:8001:8001&quot;</span><br><span class="line"> - &quot;127.0.0.1:5000-5010:5000-5010&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ports:</span><br><span class="line"> - &quot;3000&quot;</span><br><span class="line"> - &quot;3000-3005&quot;</span><br><span class="line"> - &quot;8000:8000&quot;</span><br><span class="line"> - &quot;9090-9091:8080-8081&quot;</span><br><span class="line"> - &quot;49100:22&quot;</span><br><span class="line"> - &quot;127.0.0.1:8001:8001&quot;</span><br><span class="line"> - &quot;127.0.0.1:5000-5010:5000-5010&quot;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>expose  暴露端口，只将端口暴露给连接的服务，而不暴露给宿主机，示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">expose:</span><br><span class="line"> - &quot;3000&quot;</span><br><span class="line"> - &quot;8000&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">expose:</span><br><span class="line"> - &quot;3000&quot;</span><br><span class="line"> - &quot;8000&quot;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>volumes  卷挂载路径设置。可以设置宿主机路径 （HOST:CONTAINER） 或加上访问模式 （HOST:CONTAINER:ro）。示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">volumes:</span><br><span class="line">  # Just specify a path and let the Engine create a volume</span><br><span class="line">  - /var/lib/mysql</span><br><span class="line"></span><br><span class="line">  # Specify an absolute path mapping</span><br><span class="line">  - /opt/data:/var/lib/mysql</span><br><span class="line"></span><br><span class="line">  # Path on the host, relative to the Compose file</span><br><span class="line">  - ./cache:/tmp/cache</span><br><span class="line"></span><br><span class="line">  # User-relative path</span><br><span class="line">  - ~/configs:/etc/configs/:ro</span><br><span class="line"></span><br><span class="line">  # Named volume</span><br><span class="line">  - datavolume:/var/lib/mysql</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">volumes:</span><br><span class="line">  # Just specify a path and let the Engine create a volume</span><br><span class="line">  - /var/lib/mysql</span><br><span class="line"></span><br><span class="line">  # Specify an absolute path mapping</span><br><span class="line">  - /opt/data:/var/lib/mysql</span><br><span class="line"></span><br><span class="line">  # Path on the host, relative to the Compose file</span><br><span class="line">  - ./cache:/tmp/cache</span><br><span class="line"></span><br><span class="line">  # User-relative path</span><br><span class="line">  - ~/configs:/etc/configs/:ro</span><br><span class="line"></span><br><span class="line">  # Named volume</span><br><span class="line">  - datavolume:/var/lib/mysql</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>volumes_from  从另一个服务或者容器挂载卷。可以指定只读或者可读写，如果访问模式没有指定，则默认是可读写。示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">volumes_from:</span><br><span class="line"> - service_name</span><br><span class="line"> - service_name:ro</span><br><span class="line"> - container:container_name</span><br><span class="line"> - container:container_name:rw</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">volumes_from:</span><br><span class="line"> - service_name</span><br><span class="line"> - service_name:ro</span><br><span class="line"> - container:container_name</span><br><span class="line"> - container:container_name:rw</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>environment  设置环境变量。可以使用数组或者字典两种方式。只有一个key的环境变量可以在运行Compose的机器上找到对应的值，这有助于加密的或者特殊主机的值。示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">environment:</span><br><span class="line">  RACK_ENV: development</span><br><span class="line">  SHOW: &apos;true&apos;</span><br><span class="line">  SESSION_SECRET:</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">environment:</span><br><span class="line">  RACK_ENV: development</span><br><span class="line">  SHOW: &apos;true&apos;</span><br><span class="line">  SESSION_SECRET:</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">environment:</span><br><span class="line">  - RACK_ENV=development</span><br><span class="line">  - SHOW=true</span><br><span class="line">  - SESSION_SECRET</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">environment:</span><br><span class="line">  - RACK_ENV=development</span><br><span class="line">  - SHOW=true</span><br><span class="line">  - SESSION_SECRET</span><br></pre></td></tr></table></figure>
 <ul>
 <li><p>env_file<br>从文件中获取环境变量，可以为单独的文件路径或列表。如果通过 docker-compose -f FILE 指定了模板文件，则 env_file 中路径会基于模板文件路径。如果有变量名称与 environment 指令冲突，则以envirment 为准。示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">env_file: .env</span><br><span class="line">env_file:</span><br><span class="line">  - ./common.env</span><br><span class="line">  - ./apps/web.env</span><br><span class="line">  - /opt/secrets.env</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">env_file: .env</span><br><span class="line">env_file:</span><br><span class="line">  - ./common.env</span><br><span class="line">  - ./apps/web.env</span><br><span class="line">  - /opt/secrets.env</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>extends  继承另一个服务，基于已有的服务进行扩展。</p>
 </li>
 <li><p>net  设置网络模式。示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">net: &quot;bridge&quot;</span><br><span class="line">net: &quot;host&quot;</span><br><span class="line">net: &quot;none&quot;</span><br><span class="line">net: &quot;container:[service name or container name/id]&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">net: &quot;bridge&quot;</span><br><span class="line">net: &quot;host&quot;</span><br><span class="line">net: &quot;none&quot;</span><br><span class="line">net: &quot;container:[service name or container name/id]&quot;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>dns  配置dns服务器。可以是一个值，也可以是一个列表。示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dns: 8.8.8.8</span><br><span class="line">dns:</span><br><span class="line">  - 8.8.8.8</span><br><span class="line">  - 9.9.9.9</span><br><span class="line">dns_search</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">dns: 8.8.8.8</span><br><span class="line">dns:</span><br><span class="line">  - 8.8.8.8</span><br><span class="line">  - 9.9.9.9</span><br><span class="line">dns_search</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>配置DNS的搜索域，可以是一个值，也可以是一个列表，示例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dns_search: example.com</span><br><span class="line">dns_search:</span><br><span class="line">  - dc1.example.com</span><br><span class="line">  - dc2.example.com</span><br></pre></td></tr></table></figure></p>
+<p>配置DNS的搜索域，可以是一个值，也可以是一个列表，示例：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">dns_search: example.com</span><br><span class="line">dns_search:</span><br><span class="line">  - dc1.example.com</span><br><span class="line">  - dc2.example.com</span><br></pre></td></tr></table></figure></p>
 <ol>
 <li>docker-compose常用命令（官方文档：<a href="https://docs.docker.com/compose/overview/" target="_blank" rel="noopener">https://docs.docker.com/compose/overview/</a> ）</li>
 </ol>
@@ -384,19 +384,19 @@
 
 <nav id="article-nav">
   
-    <a href="/2018/02/10/BIO、伪异步IO、NIO和AIO的学习/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/02/10/IDEA快捷键拆解系列（一）/" id="article-nav-newer" class="article-nav-link-wrap">
 
       <span class="article-nav-title">
         <i class="fa fa-hand-o-left" aria-hidden="true"></i>
         
-          BIO、伪异步IO、NIO和AIO学习
+          IDEA快捷键拆解系列（一）
         
       </span>
     </a>
   
   
-    <a href="/2018/02/09/Docker（一）/" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">Docker（一）</span>
+    <a href="/2018/02/10/BIO、伪异步IO、NIO和AIO的学习/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">BIO、伪异步IO、NIO和AIO学习</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   

@@ -8,18 +8,18 @@
   
     <meta name="keywords" content="happyJared - 博客。编码爱好者，代码小洁癖。" />
   
-  <meta name="description" content="运行PostgreSQL主库1docker run --name pgmaster -p 5432:5432 -e POSTGRES_PASSWORD=pgmaster -v $(pwd)/pgmaster:/var/lib/postgresql/data -d postgres 从库1docker run --name pgslave -p 5433:5432 -e POSTGRES_PASSW">
+  <meta name="description" content="运行PostgreSQL主库docker run --name pgmaster -p 5432:5432 -e POSTGRES_PASSWORD=pgmaster -v $(pwd)/pgmaster:/var/lib/postgresql/data -d postgres 从库docker run --name pgslave -p 5433:5432 -e POSTGRES_PASSWOR">
 <meta name="keywords" content="Docker,主从搭建,PostgreSQL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Docker + PostgreSQL（10.1）主从环境搭建">
 <meta property="og:url" content="https://blog.mariojd.cn/2018/03/08/Docker + PostgreSQL（10.1）主从环境搭建/index.html">
 <meta property="og:site_name" content="happyJared - 博客">
-<meta property="og:description" content="运行PostgreSQL主库1docker run --name pgmaster -p 5432:5432 -e POSTGRES_PASSWORD=pgmaster -v $(pwd)/pgmaster:/var/lib/postgresql/data -d postgres 从库1docker run --name pgslave -p 5433:5432 -e POSTGRES_PASSW">
+<meta property="og:description" content="运行PostgreSQL主库docker run --name pgmaster -p 5432:5432 -e POSTGRES_PASSWORD=pgmaster -v $(pwd)/pgmaster:/var/lib/postgresql/data -d postgres 从库docker run --name pgslave -p 5433:5432 -e POSTGRES_PASSWOR">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2018-03-17T03:27:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker + PostgreSQL（10.1）主从环境搭建">
-<meta name="twitter:description" content="运行PostgreSQL主库1docker run --name pgmaster -p 5432:5432 -e POSTGRES_PASSWORD=pgmaster -v $(pwd)/pgmaster:/var/lib/postgresql/data -d postgres 从库1docker run --name pgslave -p 5433:5432 -e POSTGRES_PASSW">
+<meta name="twitter:description" content="运行PostgreSQL主库docker run --name pgmaster -p 5432:5432 -e POSTGRES_PASSWORD=pgmaster -v $(pwd)/pgmaster:/var/lib/postgresql/data -d postgres 从库docker run --name pgslave -p 5433:5432 -e POSTGRES_PASSWOR">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -149,33 +149,33 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <h3 id="运行PostgreSQL"><a href="#运行PostgreSQL" class="headerlink" title="运行PostgreSQL"></a>运行PostgreSQL</h3><h4 id="主库"><a href="#主库" class="headerlink" title="主库"></a>主库</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name pgmaster -p 5432:5432 -e POSTGRES_PASSWORD=pgmaster -v $(pwd)/pgmaster:/var/lib/postgresql/data -d postgres</span><br></pre></td></tr></table></figure>
-<h4 id="从库"><a href="#从库" class="headerlink" title="从库"></a>从库</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name pgslave -p 5433:5432 -e POSTGRES_PASSWORD=pgslave -v $(pwd)/pgslave:/var/lib/postgresql/data -d postgres</span><br></pre></td></tr></table></figure>
+            <h3 id="运行PostgreSQL"><a href="#运行PostgreSQL" class="headerlink" title="运行PostgreSQL"></a>运行PostgreSQL</h3><h4 id="主库"><a href="#主库" class="headerlink" title="主库"></a>主库</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run --name pgmaster -p 5432:5432 -e POSTGRES_PASSWORD=pgmaster -v $(pwd)/pgmaster:/var/lib/postgresql/data -d postgres</span><br></pre></td></tr></table></figure>
+<h4 id="从库"><a href="#从库" class="headerlink" title="从库"></a>从库</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run --name pgslave -p 5433:5432 -e POSTGRES_PASSWORD=pgslave -v $(pwd)/pgslave:/var/lib/postgresql/data -d postgres</span><br></pre></td></tr></table></figure>
 <p>以下操作需进入主、从库对应的挂载目录执行</p>
-<h3 id="配置master（主库）"><a href="#配置master（主库）" class="headerlink" title="配置master（主库）"></a>配置master（主库）</h3><h4 id="编辑pg-hba-conf，在最下面添加如下："><a href="#编辑pg-hba-conf，在最下面添加如下：" class="headerlink" title="编辑pg_hba.conf，在最下面添加如下："></a>编辑pg_hba.conf，在最下面添加如下：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">host    replication     &lt;replication_username&gt;      &lt;slave_ip&gt;/32          md5</span><br></pre></td></tr></table></figure>
-<h4 id="编辑postgresql-conf（亲测，非必须），更改如下："><a href="#编辑postgresql-conf（亲测，非必须），更改如下：" class="headerlink" title="编辑postgresql.conf（亲测，非必须），更改如下："></a>编辑postgresql.conf（亲测，非必须），更改如下：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">synchronous_standby_names = &apos;*&apos;</span><br></pre></td></tr></table></figure>
-<h4 id="进入容器，登录PostgreSQL，创建复制用户并验证"><a href="#进入容器，登录PostgreSQL，创建复制用户并验证" class="headerlink" title="进入容器，登录PostgreSQL，创建复制用户并验证"></a>进入容器，登录PostgreSQL，创建复制用户并验证</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 进入容器</span><br><span class="line">		docker exec -it pgmaster bash</span><br><span class="line"># 连接PostgreSQL</span><br><span class="line">		psql -U postgres</span><br><span class="line"># 创建用户</span><br><span class="line">		set synchronous_commit =off;</span><br><span class="line">		create role &lt;replication_username&gt; login replication encrypted password &apos;&lt;replication_username_password&gt;&apos;;  </span><br><span class="line"># 验证用户</span><br><span class="line">		\du</span><br></pre></td></tr></table></figure>
-<h3 id="配置Slave（从库）"><a href="#配置Slave（从库）" class="headerlink" title="配置Slave（从库）"></a>配置Slave（从库）</h3><h4 id="编辑pg-hba-conf，在最下面添加如下：-1"><a href="#编辑pg-hba-conf，在最下面添加如下：-1" class="headerlink" title="编辑pg_hba.conf，在最下面添加如下："></a>编辑pg_hba.conf，在最下面添加如下：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">host    replication     &lt;replication_username&gt;      &lt;master_ip&gt;/32        	 md5</span><br></pre></td></tr></table></figure>
-<h4 id="编辑postgresql-conf（亲测，非必须），更改如下：-1"><a href="#编辑postgresql-conf（亲测，非必须），更改如下：-1" class="headerlink" title="编辑postgresql.conf（亲测，非必须），更改如下："></a>编辑postgresql.conf（亲测，非必须），更改如下：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hot_standby_feedback = on</span><br></pre></td></tr></table></figure>
-<h4 id="建立recovery-conf，添加如下内容："><a href="#建立recovery-conf，添加如下内容：" class="headerlink" title="建立recovery.conf，添加如下内容："></a>建立recovery.conf，添加如下内容：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">standby_mode = &apos;on&apos;</span><br><span class="line">primary_conninfo = &apos;host=&lt;master_ip&gt; port=&lt;master_port&gt; user=&lt;replication_username&gt; password=&lt;replication_username_password&gt;&apos;</span><br></pre></td></tr></table></figure>
+<h3 id="配置master（主库）"><a href="#配置master（主库）" class="headerlink" title="配置master（主库）"></a>配置master（主库）</h3><h4 id="编辑pg-hba-conf，在最下面添加如下："><a href="#编辑pg-hba-conf，在最下面添加如下：" class="headerlink" title="编辑pg_hba.conf，在最下面添加如下："></a>编辑pg_hba.conf，在最下面添加如下：</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">host    replication     &lt;replication_username&gt;      &lt;slave_ip&gt;/32          md5</span><br></pre></td></tr></table></figure>
+<h4 id="编辑postgresql-conf（亲测，非必须），更改如下："><a href="#编辑postgresql-conf（亲测，非必须），更改如下：" class="headerlink" title="编辑postgresql.conf（亲测，非必须），更改如下："></a>编辑postgresql.conf（亲测，非必须），更改如下：</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">synchronous_standby_names = &apos;*&apos;</span><br></pre></td></tr></table></figure>
+<h4 id="进入容器，登录PostgreSQL，创建复制用户并验证"><a href="#进入容器，登录PostgreSQL，创建复制用户并验证" class="headerlink" title="进入容器，登录PostgreSQL，创建复制用户并验证"></a>进入容器，登录PostgreSQL，创建复制用户并验证</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 进入容器</span><br><span class="line">		docker exec -it pgmaster bash</span><br><span class="line"># 连接PostgreSQL</span><br><span class="line">		psql -U postgres</span><br><span class="line"># 创建用户</span><br><span class="line">		set synchronous_commit =off;</span><br><span class="line">		create role &lt;replication_username&gt; login replication encrypted password &apos;&lt;replication_username_password&gt;&apos;;  </span><br><span class="line"># 验证用户</span><br><span class="line">		\du</span><br></pre></td></tr></table></figure>
+<h3 id="配置Slave（从库）"><a href="#配置Slave（从库）" class="headerlink" title="配置Slave（从库）"></a>配置Slave（从库）</h3><h4 id="编辑pg-hba-conf，在最下面添加如下：-1"><a href="#编辑pg-hba-conf，在最下面添加如下：-1" class="headerlink" title="编辑pg_hba.conf，在最下面添加如下："></a>编辑pg_hba.conf，在最下面添加如下：</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">host    replication     &lt;replication_username&gt;      &lt;master_ip&gt;/32        	 md5</span><br></pre></td></tr></table></figure>
+<h4 id="编辑postgresql-conf（亲测，非必须），更改如下：-1"><a href="#编辑postgresql-conf（亲测，非必须），更改如下：-1" class="headerlink" title="编辑postgresql.conf（亲测，非必须），更改如下："></a>编辑postgresql.conf（亲测，非必须），更改如下：</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hot_standby_feedback = on</span><br></pre></td></tr></table></figure>
+<h4 id="建立recovery-conf，添加如下内容："><a href="#建立recovery-conf，添加如下内容：" class="headerlink" title="建立recovery.conf，添加如下内容："></a>建立recovery.conf，添加如下内容：</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">standby_mode = &apos;on&apos;</span><br><span class="line">primary_conninfo = &apos;host=&lt;master_ip&gt; port=&lt;master_port&gt; user=&lt;replication_username&gt; password=&lt;replication_username_password&gt;&apos;</span><br></pre></td></tr></table></figure>
 <h3 id="同步主从库并测试"><a href="#同步主从库并测试" class="headerlink" title="同步主从库并测试"></a>同步主从库并测试</h3><ol>
 <li><p>停止PostgreSQL</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker stop pgmaster &amp;&amp; docker stop pgslave</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker stop pgmaster &amp;&amp; docker stop pgslave</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>同步文件</p>
 <ul>
 <li><p>方法1：rsync</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rsync -cva --inplace --exclude=*pg_xlog* $(pwd)/pgmaster/ &lt;slave_ip&gt;:$(pwd)/pgslave/</span><br></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rsync -cva --inplace --exclude=*pg_xlog* $(pwd)/pgmaster/ &lt;slave_ip&gt;:$(pwd)/pgslave/</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>方法2：pg_basebackup</p>
 </li>
 </ul>
 </li>
 <li><p>先后启动主库、从库服务</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker start pgmaster &amp;&amp; docker start pgslave</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker start pgmaster &amp;&amp; docker start pgslave</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>连接测试</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it pgmaster bash</span><br><span class="line">psql -U postgres -x -c &quot;select * from pg_stat_replication;&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker exec -it pgmaster bash</span><br><span class="line">psql -U postgres -x -c &quot;select * from pg_stat_replication;&quot;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 

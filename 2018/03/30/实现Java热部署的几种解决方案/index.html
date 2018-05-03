@@ -8,13 +8,13 @@
   
     <meta name="keywords" content="happyJared - 博客。编码爱好者，代码小洁癖。" />
   
-  <meta name="description" content="百度百科：热部署，就是应用正在运行的时候就可以升级软件，而不需要重新启动应用。  spring-loaded 依赖  12345&amp;lt;dependency&amp;gt;	&amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt;	&amp;lt;artifactId&amp;gt;springloaded&amp;lt;/artifactId&amp;gt;	&amp;lt;version&amp;gt;">
+  <meta name="description" content="百度百科：热部署，就是应用正在运行的时候就可以升级软件，而不需要重新启动应用。  spring-loaded 依赖  &amp;lt;dependency&amp;gt;	&amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt;	&amp;lt;artifactId&amp;gt;springloaded&amp;lt;/artifactId&amp;gt;	&amp;lt;version&amp;gt;1.2.5">
 <meta name="keywords" content="Java,热部署">
 <meta property="og:type" content="article">
 <meta property="og:title" content="实现Java热部署的几种解决方案">
 <meta property="og:url" content="https://blog.mariojd.cn/2018/03/30/实现Java热部署的几种解决方案/index.html">
 <meta property="og:site_name" content="happyJared - 博客">
-<meta property="og:description" content="百度百科：热部署，就是应用正在运行的时候就可以升级软件，而不需要重新启动应用。  spring-loaded 依赖  12345&amp;lt;dependency&amp;gt;	&amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt;	&amp;lt;artifactId&amp;gt;springloaded&amp;lt;/artifactId&amp;gt;	&amp;lt;version&amp;gt;">
+<meta property="og:description" content="百度百科：热部署，就是应用正在运行的时候就可以升级软件，而不需要重新启动应用。  spring-loaded 依赖  &amp;lt;dependency&amp;gt;	&amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt;	&amp;lt;artifactId&amp;gt;springloaded&amp;lt;/artifactId&amp;gt;	&amp;lt;version&amp;gt;1.2.5">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/xsj/2018325/clip-20170823200910.png">
 <meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/xsj/2018325/clip-20170823202749.png">
@@ -27,7 +27,7 @@
 <meta property="og:updated_time" content="2018-03-29T12:44:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="实现Java热部署的几种解决方案">
-<meta name="twitter:description" content="百度百科：热部署，就是应用正在运行的时候就可以升级软件，而不需要重新启动应用。  spring-loaded 依赖  12345&amp;lt;dependency&amp;gt;	&amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt;	&amp;lt;artifactId&amp;gt;springloaded&amp;lt;/artifactId&amp;gt;	&amp;lt;version&amp;gt;">
+<meta name="twitter:description" content="百度百科：热部署，就是应用正在运行的时候就可以升级软件，而不需要重新启动应用。  spring-loaded 依赖  &amp;lt;dependency&amp;gt;	&amp;lt;groupId&amp;gt;org.springframework&amp;lt;/groupId&amp;gt;	&amp;lt;artifactId&amp;gt;springloaded&amp;lt;/artifactId&amp;gt;	&amp;lt;version&amp;gt;1.2.5">
 <meta name="twitter:image" content="http://p3ry9qsas.bkt.clouddn.com/xsj/2018325/clip-20170823200910.png">
   
   
@@ -162,14 +162,14 @@
 <p>百度百科：热部署，就是应用正在运行的时候就可以升级软件，而不需要重新启动应用。</p>
 </blockquote>
 <h3 id="spring-loaded"><a href="#spring-loaded" class="headerlink" title="spring-loaded"></a><a href="https://github.com/spring-projects/spring-loaded" target="_blank" rel="noopener">spring-loaded</a></h3><ul>
-<li>依赖  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">	&lt;groupId&gt;org.springframework&lt;/groupId&gt;</span><br><span class="line">	&lt;artifactId&gt;springloaded&lt;/artifactId&gt;</span><br><span class="line">	&lt;version&gt;1.2.5.RELEASE&lt;/version&gt;</span><br><span class="line">  &lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<li>依赖  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">	&lt;groupId&gt;org.springframework&lt;/groupId&gt;</span><br><span class="line">	&lt;artifactId&gt;springloaded&lt;/artifactId&gt;</span><br><span class="line">	&lt;version&gt;1.2.5.RELEASE&lt;/version&gt;</span><br><span class="line">  &lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <blockquote>
 <p>ps：据说此方法还需要手动编译（<code>Ctrl + Shift + F9</code>），请亲测！</p>
 </blockquote>
 <h3 id="spring-boot-devtools"><a href="#spring-boot-devtools" class="headerlink" title="spring-boot-devtools"></a><a href="https://spring.io/blog/2015/06/17/devtools-in-spring-boot-1-3" target="_blank" rel="noopener">spring-boot-devtools</a></h3><ul>
-<li>依赖  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  &lt;dependency&gt;</span><br><span class="line">          &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">          &lt;artifactId&gt;spring-boot-devtools&lt;/artifactId&gt;</span><br><span class="line">          &lt;optional&gt;true&lt;/optional&gt;&lt;!-- 表示依赖不会传递，之后依赖该module的项目如需继续使用，则需要再次引入 --&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<li>依赖  <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">  &lt;dependency&gt;</span><br><span class="line">          &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">          &lt;artifactId&gt;spring-boot-devtools&lt;/artifactId&gt;</span><br><span class="line">          &lt;optional&gt;true&lt;/optional&gt;&lt;!-- 表示依赖不会传递，之后依赖该module的项目如需继续使用，则需要再次引入 --&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h3 id="JRebel"><a href="#JRebel" class="headerlink" title="JRebel"></a><a href="https://my.jrebel.com/" target="_blank" rel="noopener">JRebel</a></h3><ul>
@@ -349,19 +349,19 @@
 
 <nav id="article-nav">
   
-    <a href="/2018/04/01/在完成了10000步21天钉钉运动大神赛之后/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/03/30/Fiddler实现微信授权开发调试/" id="article-nav-newer" class="article-nav-link-wrap">
 
       <span class="article-nav-title">
         <i class="fa fa-hand-o-left" aria-hidden="true"></i>
         
-          在完成了10000步21天钉钉运动大神赛之后...
+          Fiddler实现微信授权开发调试
         
       </span>
     </a>
   
   
-    <a href="/2018/03/30/Fiddler实现微信授权开发调试/" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">Fiddler实现微信授权开发调试</span>
+    <a href="/2018/03/28/IDEA快捷键拆解系列（后记）/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">IDEA快捷键拆解系列（后记）</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   

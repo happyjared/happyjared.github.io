@@ -193,7 +193,7 @@
 <li><p>安装：解压即可</p>
 </li>
 <li><p>配置：Mycat是基于Java开发的，确保安装好了Java环境，可命令行输入：java -version 进行测试。Linux下还需配置Mycat的解压目录：vim  /etc/profile，配置完成后使用：source /etc/profile：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=xxx</span><br><span class="line">export MYCAT_HOME=xxx</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">export JAVA_HOME=xxx</span><br><span class="line">export MYCAT_HOME=xxx</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>运行（Linux）：</p>
 <ul>
@@ -210,7 +210,7 @@
 <li><p>运行（Windows）：双击bin/tartup_nowrap.bat，如果出现闪退，可在cmd命令行运行，并查看出错原因</p>
 </li>
 <li><p>内存配置：启动前，一般需要修改JVM配置参数，打开conf/wrapper.conf文件，可根据本机配置情况修改为512M或其它值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># Java Additional Parameters</span><br><span class="line">#wrapper.java.additional.1=</span><br><span class="line">wrapper.java.additional.1=-DMYCAT_HOME=.</span><br><span class="line">wrapper.java.additional.2=-server</span><br><span class="line">wrapper.java.additional.3=-XX:MaxPermSize=64M</span><br><span class="line">wrapper.java.additional.4=-XX:+AggressiveOpts</span><br><span class="line">wrapper.java.additional.5=-XX:MaxDirectMemorySize=2G</span><br><span class="line">wrapper.java.additional.6=-Dcom.sun.management.jmxremote</span><br><span class="line">wrapper.java.additional.7=-Dcom.sun.management.jmxremote.port=1984</span><br><span class="line">wrapper.java.additional.8=-Dcom.sun.management.jmxremote.authenticate=false</span><br><span class="line">wrapper.java.additional.9=-Dcom.sun.management.jmxremote.ssl=false</span><br><span class="line">wrapper.java.additional.10=-Xmx4G</span><br><span class="line">wrapper.java.additional.11=-Xms1G</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Java Additional Parameters</span><br><span class="line">#wrapper.java.additional.1=</span><br><span class="line">wrapper.java.additional.1=-DMYCAT_HOME=.</span><br><span class="line">wrapper.java.additional.2=-server</span><br><span class="line">wrapper.java.additional.3=-XX:MaxPermSize=64M</span><br><span class="line">wrapper.java.additional.4=-XX:+AggressiveOpts</span><br><span class="line">wrapper.java.additional.5=-XX:MaxDirectMemorySize=2G</span><br><span class="line">wrapper.java.additional.6=-Dcom.sun.management.jmxremote</span><br><span class="line">wrapper.java.additional.7=-Dcom.sun.management.jmxremote.port=1984</span><br><span class="line">wrapper.java.additional.8=-Dcom.sun.management.jmxremote.authenticate=false</span><br><span class="line">wrapper.java.additional.9=-Dcom.sun.management.jmxremote.ssl=false</span><br><span class="line">wrapper.java.additional.10=-Xmx4G</span><br><span class="line">wrapper.java.additional.11=-Xms1G</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>连接测试：</p>
 <ul>

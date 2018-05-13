@@ -8,24 +8,25 @@
   
     <meta name="keywords" content="happyJared - 博客。编码爱好者，代码小洁癖。" />
   
-  <meta name="description" content="前言&amp;emsp;&amp;emsp;前阵子闲逛的时候，留意到了Lombok这个Java第三方库，后来亲自试用了一下，还真有一种相见恨晚的感觉，对于博主这样的懒人来说，这简直是太实用了。这不趁周末，赶紧把好东西写出来分享一下。 Lombok&amp;emsp;&amp;emsp;引述官网介绍：  Project Lombok is a java library that automatically plugs into y">
+  <meta name="description" content="前言&amp;emsp;&amp;emsp;前阵子闲逛的时候，留意到了Lombok这个Java第三方库，后来亲自试用了一下，还真有一种相见恨晚的感觉，对于博主这样的懒人来说，这简直是太实用了。这不趁周末，赶紧把好东西写出来分享一下。 Lombok引述官网介绍：  &amp;emsp;&amp;emsp;Project Lombok is a java library that automatically plugs into y">
 <meta name="keywords" content="Java,Lombok,Java类库">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java类库：Lombok">
 <meta property="og:url" content="https://blog.mariojd.cn/2017/10/22/Java类库：Lombok/index.html">
 <meta property="og:site_name" content="happyJared - 博客">
-<meta property="og:description" content="前言&amp;emsp;&amp;emsp;前阵子闲逛的时候，留意到了Lombok这个Java第三方库，后来亲自试用了一下，还真有一种相见恨晚的感觉，对于博主这样的懒人来说，这简直是太实用了。这不趁周末，赶紧把好东西写出来分享一下。 Lombok&amp;emsp;&amp;emsp;引述官网介绍：  Project Lombok is a java library that automatically plugs into y">
+<meta property="og:description" content="前言&amp;emsp;&amp;emsp;前阵子闲逛的时候，留意到了Lombok这个Java第三方库，后来亲自试用了一下，还真有一种相见恨晚的感觉，对于博主这样的懒人来说，这简直是太实用了。这不趁周末，赶紧把好东西写出来分享一下。 Lombok引述官网介绍：  &amp;emsp;&amp;emsp;Project Lombok is a java library that automatically plugs into y">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/201835/clip-20171022150359.png">
 <meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/201835/clip-20171022150500.png">
 <meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/201835/clip-20171022144213.png">
 <meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/201835/clip-2017102214421333.png">
 <meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/2018413/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180413111542.png">
+<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/xsj/2018513/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20180513195635.jpg">
 <meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/2018413/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180413110550.png">
-<meta property="og:updated_time" content="2018-04-13T03:18:56.000Z">
+<meta property="og:updated_time" content="2018-05-13T13:35:49.650Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java类库：Lombok">
-<meta name="twitter:description" content="前言&amp;emsp;&amp;emsp;前阵子闲逛的时候，留意到了Lombok这个Java第三方库，后来亲自试用了一下，还真有一种相见恨晚的感觉，对于博主这样的懒人来说，这简直是太实用了。这不趁周末，赶紧把好东西写出来分享一下。 Lombok&amp;emsp;&amp;emsp;引述官网介绍：  Project Lombok is a java library that automatically plugs into y">
+<meta name="twitter:description" content="前言&amp;emsp;&amp;emsp;前阵子闲逛的时候，留意到了Lombok这个Java第三方库，后来亲自试用了一下，还真有一种相见恨晚的感觉，对于博主这样的懒人来说，这简直是太实用了。这不趁周末，赶紧把好东西写出来分享一下。 Lombok引述官网介绍：  &amp;emsp;&amp;emsp;Project Lombok is a java library that automatically plugs into y">
 <meta name="twitter:image" content="http://p3ry9qsas.bkt.clouddn.com/201835/clip-20171022150359.png">
   
   
@@ -157,9 +158,9 @@
       
             
             <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>&emsp;&emsp;前阵子闲逛的时候，留意到了Lombok这个Java第三方库，后来亲自试用了一下，还真有一种相见恨晚的感觉，对于博主这样的懒人来说，这简直是太实用了。这不趁周末，赶紧把好东西写出来分享一下。</p>
-<h3 id="Lombok"><a href="#Lombok" class="headerlink" title="Lombok"></a>Lombok</h3><p>&emsp;&emsp;引述官网介绍：</p>
+<h3 id="Lombok"><a href="#Lombok" class="headerlink" title="Lombok"></a>Lombok</h3><p>引述官网介绍：</p>
 <blockquote>
-<p>Project Lombok is a java library that automatically plugs into your editor and build tools, spicing up your java.Never write another getter or equals method again. Early access to future java features such as val, and much more.<strong>（Lombok是一个java库，它可以自动插入您的编辑器和构建工具，为您的java提供帮助。再也不要写其他的getter或equals方法了。尽早访问诸如val之类的未来java特性）</strong></p>
+<p>&emsp;&emsp;Project Lombok is a java library that automatically plugs into your editor and build tools, spicing up your java.Never write another getter or equals method again. Early access to future java features such as val, and much more.<br>&emsp;&emsp;Lombok是一个java库，它可以自动插入您的编辑器和构建工具，为您的java提供帮助。再也不要写其他的getter或equals方法了。尽早访问诸如val之类的未来java特性。</p>
 </blockquote>
 <p>&emsp;&emsp;Tip：单人项目开发中使用极佳，或多人协作开发中强制要求使用相同环境。因为需要配置的原因，但目前编辑器和编译器还没有那么智能和友善o(╥﹏╥)o…</p>
 <h3 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h3><ul>
@@ -186,14 +187,25 @@
 <p><img src="http://p3ry9qsas.bkt.clouddn.com/201835/clip-2017102214421333.png" alt="开启支持" title="开启支持"></p>
 <p>&emsp;&emsp;PS：IDEA中的Spring Initializr已集成Lombok，新建Spring Boot项目的时候勾选Lombok选择即可</p>
 <p><img src="http://p3ry9qsas.bkt.clouddn.com/2018413/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180413111542.png" alt="Spring Initializr -&gt; Lombok" title="Spring Initializr -&gt; Lombok"></p>
-<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><ul>
-<li><figure class="highlight plain"><figcaption><span>```（常用）</span></figcaption><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">&amp;emsp;&amp;emsp;在类上使用此注解，相当于为当前类的非final字段添加了getter()、setter()、toString()、equals()以及hashCode()方法，同时这也是一个多功能组合注解，组合了下面的@ToString，@EqualsAndHashCode，@Getter，@Setter和@RequiredArgsConstructor这五个注解</span><br><span class="line"></span><br><span class="line">![@Data][6]</span><br><span class="line"></span><br><span class="line">*  ``` @Builder ```（常用）</span><br><span class="line"></span><br><span class="line">&amp;emsp;&amp;emsp;此注解需用在类上。Lombok底层通过构造者模式来转换当前类，在项目实际使用的时候，我们可以以参数链的形式组装该对象，或者是以全参构造器的形式来new一个当前对象。当组合使用@Data注解的时候（一般来说是没必要的），Lombok也不会再为当前对象生成getter()、setter()方法。使用链式构造一个对象会显得更加优雅，所以这个注解也是非常实用的</span><br><span class="line"></span><br><span class="line">![@Builder][7]</span><br><span class="line"></span><br><span class="line">*  ```  @Builder.Default ```（常用）</span><br><span class="line"></span><br><span class="line">&amp;emsp;&amp;emsp;此注解用在字段上。当前类使用了@Builder进行构造且某些字段含有默认值的情况下，需要为这些字段添加此注解，不加此注解默认值在构造的时候是不生效的，需要进行手动设值。</span><br><span class="line"></span><br><span class="line">![@Builder.Default][8]</span><br><span class="line"></span><br><span class="line">*  ``` @Slf4j ```（常用）</span><br><span class="line"></span><br><span class="line">``` java</span><br><span class="line">	private final Logger logger = LoggerFactory.getLogger(getClass());</span><br></pre></td></tr></table></figure>
+<h3 id="说明图"><a href="#说明图" class="headerlink" title="说明图"></a>说明图</h3><p>&emsp;&emsp;下面先来看下Lombok中几个主要常用注解介绍说明图：</p>
+<p><img src="http://p3ry9qsas.bkt.clouddn.com/xsj/2018513/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20180513195635.jpg" alt="Lombok常用注解说明图" title="Lombok中常用注解说明图"></p>
+<h3 id="具体说明"><a href="#具体说明" class="headerlink" title="具体说明"></a>具体说明</h3><ul>
+<li><figure class="highlight plain"><figcaption><span>```（常用）</span></figcaption><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">&amp;emsp;&amp;emsp;在类上使用此注解，相当于为当前类的非final字段添加了getter()、setter()、toString()、equals()以及hashCode()方法，同时这也是一个多功能组合注解，组合了下面的@ToString，@EqualsAndHashCode，@Getter，@Setter和@RequiredArgsConstructor这五个注解</span><br><span class="line"></span><br><span class="line">![@Data][7]</span><br><span class="line"></span><br><span class="line">*  ``` @Builder ```（常用）</span><br><span class="line"></span><br><span class="line">&amp;emsp;&amp;emsp;此注解需用在类上。Lombok底层通过构造者模式来转换当前类，在项目实际使用的时候，我们可以以参数链的形式组装该对象，或者是以全参构造器的形式来new一个当前对象。当组合使用@Data注解的时候（一般来说是没必要的），Lombok也不会再为当前对象生成getter()、setter()方法。使用链式构造一个对象会显得更加优雅，所以这个注解也是非常实用的</span><br><span class="line"></span><br><span class="line">![@Builder][8]</span><br><span class="line"></span><br><span class="line">*  ```  @Builder.Default ```（常用）</span><br><span class="line"></span><br><span class="line">&amp;emsp;&amp;emsp;此注解用在字段上。当前类使用了@Builder进行构造且某些字段含有默认值的情况下，需要为这些字段添加此注解，不加此注解默认值在构造的时候是不生效的，需要进行手动设值</span><br><span class="line"></span><br><span class="line">![@Builder.Default][9]</span><br><span class="line"></span><br><span class="line">*  ``` @Slf4j ```（常用）</span><br><span class="line"></span><br><span class="line">``` java</span><br><span class="line">	private final Logger logger = LoggerFactory.getLogger(getClass());</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>&emsp;&emsp;上面这段代码很熟悉吧。为当前类添加@Slf4j后，我们就可以舍弃这段代码了，是不是简洁多了。</p>
+<p>&emsp;&emsp;上面这段代码很熟悉吧。为当前类添加@Slf4j后，我们就可以舍弃这段代码了，是不是简洁多了</p>
 <p><img src="http://p3ry9qsas.bkt.clouddn.com/2018413/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180413110550.png" alt="@Slf4j" title="@Slf4j"></p>
 <ul>
-<li><code>@NoArgsConstructor, @RequiredArgsConstructor、@AllArgsConstructor</code> （较常用）</li>
+<li><figure class="highlight plain"><figcaption><span>var ```（常用）</span></figcaption><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">&amp;emsp;&amp;emsp;val将局部变量申明为final类型，而var则用于修饰变量但不是final类型</span><br><span class="line"></span><br><span class="line">``` java</span><br><span class="line">	val noLombok = new HashSet&lt;String&gt;();</span><br><span class="line">	var noLombok2=new ArrayList&lt;Integer&gt;();</span><br><span class="line">	</span><br><span class="line">	////=&gt; 以上这段代码相当于：</span><br><span class="line">	final Set&lt;String&gt; useLombok = new HashSet&lt;&gt;();</span><br><span class="line">	List&lt;Integer&gt; useLombok2=new ArrayList&lt;&gt;();</span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight plain"><figcaption><span>```（常用）</span></figcaption><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">&amp;emsp;&amp;emsp;该注解能够为方法，或构造函数的参数提供非空检查</span><br><span class="line"></span><br><span class="line">``` java</span><br><span class="line">	public void notNull(@NonNull String arg) &#123;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	//=&gt; 以上这段代码相当于：</span><br><span class="line">	public static void notNull(String arg) &#123;</span><br><span class="line">        if (arg != null) &#123;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            throw new NullPointerException(&quot;arg&quot;);</span><br><span class="line">    	&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight plain"><figcaption><span>```（较常用）</span></figcaption><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">&amp;emsp;&amp;emsp;常用于资源释放</span><br><span class="line"></span><br><span class="line">``` java</span><br><span class="line"> public void CleanUp() &#123;</span><br><span class="line">        try &#123;</span><br><span class="line">            @Cleanup Jedis jedis = redisService.getJedis();</span><br><span class="line">        &#125; catch (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        //=&gt; 以上这段代码相当于：</span><br><span class="line">        Jedis jedis = null;</span><br><span class="line">        try &#123;</span><br><span class="line">            jedis = redisService.getJedis();</span><br><span class="line">        &#125; catch (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; finally &#123;</span><br><span class="line">            if (jedis != null) &#123;</span><br><span class="line">                try &#123;</span><br><span class="line">                    jedis.close();</span><br><span class="line">                &#125; catch (Exception e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight plain"><figcaption><span>```（较常用）</span></figcaption><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">&amp;emsp;&amp;emsp;类似于 Synchronized 关键字，但是可以隐藏同步锁</span><br><span class="line"></span><br><span class="line">``` java</span><br><span class="line">public class SynchronizedExample &#123;</span><br><span class="line"> </span><br><span class="line">	private final Object readLock = new Object ();</span><br><span class="line"> </span><br><span class="line">	@Synchronized</span><br><span class="line"> 	public static void test1() &#123;</span><br><span class="line">		System.out.println(&quot;test1&quot;);</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">	@Synchronized(&quot;readLock&quot;)</span><br><span class="line">	public void test2() &#123;</span><br><span class="line"> 		System.out.println(&quot;test2&quot;);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> //=&gt; 以上这段代码相当于：</span><br><span class="line">public class SynchronizedExample &#123;</span><br><span class="line"> </span><br><span class="line"> 	private static final Object $LOCK = new Object[0];</span><br><span class="line">	private final Object readLock = new Object ();</span><br><span class="line"> </span><br><span class="line">	@Synchronized</span><br><span class="line"> 	public static void test1() &#123;</span><br><span class="line">		synchronized($LOCK) &#123;</span><br><span class="line">			System.out.println(&quot;test1&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">	@Synchronized(&quot;readLock&quot;)</span><br><span class="line">	public void test2() &#123;</span><br><span class="line">		synchronized(readLock) &#123;</span><br><span class="line"> 			System.out.println(&quot;test2&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>@NoArgsConstructor, @RequiredArgsConstructor、@AllArgsConstructor</code> （较常用）</p>
+</li>
 </ul>
 <p>&emsp;&emsp;分别对应可生成无参构造器，指定参数的构造器和包含全部字段的构造器。第1个和第3个注解还是比较挺实用的，如果要生成部分参数的构造器，博主是比较建议手动生成，感觉注解还不太好用了。（注意：当类中有final字段没有被初始化时，编译器就会报错，此时可用@NoArgsConstructor(force = true)，然后就会为没有初始化的final字段设置默认值 0 / false / null。而对于具有约束的字段（如@NonNull字段），则不会生成检查或分配，因此要注意正确初始化final修饰的字段，否则这些约束都是无效的</p>
 <ul>
@@ -201,17 +213,17 @@
 </ul>
 <p>&emsp;&emsp;这几个注解都很好理解，见其名知其意，只是要注意注解的使用位置。对于@Getter和@Setter，默认生成的方法是public的，如果要修改方法的修饰符，可以设置AccessLevel的值，如：@Getter(access = AccessLevel.PROTECTED)</p>
 <ul>
-<li><code>@NonNull，@Cleanup，@Value，@SneakyThrows，@Synchronized...</code>（不常用）</li>
+<li><code>@Value，@SneakyThrows ...</code>（目测不常用）</li>
 </ul>
-<p>&emsp;&emsp;这些注解的具体用法还是参考Lombok官网吧</p>
+<p>&emsp;&emsp;一些注解的具体用法还是参考Lombok官网吧</p>
 <h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>&emsp;&emsp;具体到实现原理方面，在下面的参考链接中也有相关的介绍，感兴趣的还请自行研究。结合最近的使用情况，觉得最舒服的就是临时加字段的情况下，也不需要我们再补上getter()、setter()和toString()。一般来说，我们只需要在POJO上用<code>@Data</code> 一个注解就基本满足了，还有<code>@NoArgsConstructor，@AllArgsConstructor</code>这两个注解有时候也经常用得上。</p>
 <h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><blockquote>
-<p><a href="https://projectlombok.org" target="_blank" rel="noopener">lombok官网</a><br><a href="http://www.jianshu.com/p/365ea41b3573" target="_blank" rel="noopener">lombok - 简书</a><br><a href="https://my.oschina.net/darkness/blog/510808/" target="_blank" rel="noopener">lombok的使用和原理</a></p>
+<p><a href="https://projectlombok.org" target="_blank" rel="noopener">lombok官网</a><br><a href="http://www.jianshu.com/p/365ea41b3573" target="_blank" rel="noopener">lombok - 简书</a><br><a href="https://my.oschina.net/darkness/blog/510808/" target="_blank" rel="noopener">lombok的使用和原理</a><br><a href="https://mp.weixin.qq.com/s/ZT8rznEJKDzEE4PIH4TrjA" target="_blank" rel="noopener">Java开发神器Lombok的使用与原理</a></p>
 </blockquote>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年04月13日 11:18</p>
+        <p>最后更新： 2018年05月13日 21:35</p>
         <p>原始链接： <a class="post-url" href="/2017/10/22/Java类库：Lombok/" title="Java类库：Lombok">https://blog.mariojd.cn/2017/10/22/Java类库：Lombok/</a></p>
         <footer>
             <a href="https://blog.mariojd.cn">
@@ -333,7 +345,7 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#前言"><span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Lombok"><span class="post-toc-text">Lombok</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#效果"><span class="post-toc-text">效果</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#搭建"><span class="post-toc-text">搭建</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#说明"><span class="post-toc-text">说明</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#小结"><span class="post-toc-text">小结</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参考链接"><span class="post-toc-text">参考链接</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#前言"><span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Lombok"><span class="post-toc-text">Lombok</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#效果"><span class="post-toc-text">效果</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#搭建"><span class="post-toc-text">搭建</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#说明图"><span class="post-toc-text">说明图</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#具体说明"><span class="post-toc-text">具体说明</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#小结"><span class="post-toc-text">小结</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参考链接"><span class="post-toc-text">参考链接</span></a></li></ol>
         </nav>
     </aside>
     

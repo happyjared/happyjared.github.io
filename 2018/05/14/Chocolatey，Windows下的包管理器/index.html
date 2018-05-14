@@ -8,20 +8,20 @@
   
     <meta name="keywords" content="happyJared - 博客。编码爱好者，代码小洁癖。" />
   
-  <meta name="description" content="&amp;emsp;&amp;emsp;Chocolatey（中文译：巧克力味）是Windows平台下的一款包管理工具，类似于Linux平台的apt-get和yum。第一次接触到Chocolatey的起因是因为在Git官网下载Git的时候，发现这玩意下载的速度超级慢，而且根本没办法一次性顺利下载下来。废话不多说，下面我们来看看怎么安装和使用Chocolatey。 安装Chocolatey&amp;emsp;&amp;emsp;C">
+  <meta name="description" content="关于Chocolatey&amp;emsp;&amp;emsp;Chocolatey（中文译：巧克力味）是Windows平台下的一款包管理工具，类似于Linux平台的apt-get和yum。第一次接触到Chocolatey的起因是因为在Git官网下载Git的时候，发现这玩意下载的速度超级慢，而且根本没办法一次性顺利下载下来。废话不多说，下面我们来看看怎么安装和使用Chocolatey。 安装Chocolatey&amp;">
 <meta name="keywords" content="Chocolatey,Windows,开源">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Chocolatey，Windows下的包管理器">
 <meta property="og:url" content="https://blog.mariojd.cn/2018/05/14/Chocolatey，Windows下的包管理器/index.html">
 <meta property="og:site_name" content="happyJared - 博客">
-<meta property="og:description" content="&amp;emsp;&amp;emsp;Chocolatey（中文译：巧克力味）是Windows平台下的一款包管理工具，类似于Linux平台的apt-get和yum。第一次接触到Chocolatey的起因是因为在Git官网下载Git的时候，发现这玩意下载的速度超级慢，而且根本没办法一次性顺利下载下来。废话不多说，下面我们来看看怎么安装和使用Chocolatey。 安装Chocolatey&amp;emsp;&amp;emsp;C">
+<meta property="og:description" content="关于Chocolatey&amp;emsp;&amp;emsp;Chocolatey（中文译：巧克力味）是Windows平台下的一款包管理工具，类似于Linux平台的apt-get和yum。第一次接触到Chocolatey的起因是因为在Git官网下载Git的时候，发现这玩意下载的速度超级慢，而且根本没办法一次性顺利下载下来。废话不多说，下面我们来看看怎么安装和使用Chocolatey。 安装Chocolatey&amp;">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/xsj/2018514/QQ%E6%88%AA%E5%9B%BE20180514100225.jpg">
 <meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/xsj/2018514/20170707173746538.png">
-<meta property="og:updated_time" content="2018-05-14T02:57:53.598Z">
+<meta property="og:updated_time" content="2018-05-14T03:00:50.441Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chocolatey，Windows下的包管理器">
-<meta name="twitter:description" content="&amp;emsp;&amp;emsp;Chocolatey（中文译：巧克力味）是Windows平台下的一款包管理工具，类似于Linux平台的apt-get和yum。第一次接触到Chocolatey的起因是因为在Git官网下载Git的时候，发现这玩意下载的速度超级慢，而且根本没办法一次性顺利下载下来。废话不多说，下面我们来看看怎么安装和使用Chocolatey。 安装Chocolatey&amp;emsp;&amp;emsp;C">
+<meta name="twitter:description" content="关于Chocolatey&amp;emsp;&amp;emsp;Chocolatey（中文译：巧克力味）是Windows平台下的一款包管理工具，类似于Linux平台的apt-get和yum。第一次接触到Chocolatey的起因是因为在Git官网下载Git的时候，发现这玩意下载的速度超级慢，而且根本没办法一次性顺利下载下来。废话不多说，下面我们来看看怎么安装和使用Chocolatey。 安装Chocolatey&amp;">
 <meta name="twitter:image" content="http://p3ry9qsas.bkt.clouddn.com/xsj/2018514/QQ%E6%88%AA%E5%9B%BE20180514100225.jpg">
   
   
@@ -150,7 +150,7 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <p>&emsp;&emsp;<code>Chocolatey</code>（中文译：巧克力味）是Windows平台下的一款包管理工具，类似于Linux平台的<code>apt-get</code>和<code>yum</code>。第一次接触到<code>Chocolatey</code>的起因是因为在Git官网下载Git的时候，发现这玩意下载的速度超级慢，而且根本没办法一次性顺利下载下来。废话不多说，下面我们来看看怎么安装和使用<code>Chocolatey</code>。</p>
+            <h3 id="关于Chocolatey"><a href="#关于Chocolatey" class="headerlink" title="关于Chocolatey"></a>关于Chocolatey</h3><p>&emsp;&emsp;<code>Chocolatey</code>（中文译：巧克力味）是Windows平台下的一款包管理工具，类似于Linux平台的<code>apt-get</code>和<code>yum</code>。第一次接触到<code>Chocolatey</code>的起因是因为在Git官网下载Git的时候，发现这玩意下载的速度超级慢，而且根本没办法一次性顺利下载下来。废话不多说，下面我们来看看怎么安装和使用<code>Chocolatey</code>。</p>
 <h3 id="安装Chocolatey"><a href="#安装Chocolatey" class="headerlink" title="安装Chocolatey"></a>安装Chocolatey</h3><p>&emsp;&emsp;<code>Chocolatey</code>目前不支持类似于<code>.msi</code>这种类型文件的安装包安装，官网提供的是另外两种命令行的方式，一种是CMD，另外一种是PowerShell。<code>Chocolatey</code>的安装可以参考官网的<a href="https://chocolatey.org/install" target="_blank" rel="noopener">chocolatey安装</a>，但前提是要满足以下几点安装环境要求。</p>
 <ul>
 <li>Windows 7+ / Windows Server 2003+</li>
@@ -158,7 +158,7 @@
 <li>.NET Framework 4+ (the installation will attempt to install .NET 4.0 if you do not have it installed)</li>
 </ul>
 <blockquote>
-<p>&emsp;&emsp;关于PowerShell：PowerShell是cmd的超集。这么理解，cmd能做的事情，PowerShell都能做；cms做不了的事情，PowerShell也都能做。关于PowerShell，点击<a href="https://baike.baidu.com/item/Windows%20Power%20Shell/693789?fr=aladdin&amp;fromid=1061700&amp;fromtitle=PowerShell" target="_blank" rel="noopener">Windows Power Shell</a>可以了解更多</p>
+<p>&emsp;&emsp;PowerShell是cmd的超集。这么理解，cmd能做的事情，PowerShell都能做；cms做不了的事情，PowerShell也都能做。关于PowerShell，点击<a href="https://baike.baidu.com/item/Windows%20Power%20Shell/693789?fr=aladdin&amp;fromid=1061700&amp;fromtitle=PowerShell" target="_blank" rel="noopener">Windows Power Shell</a>可以了解更多</p>
 </blockquote>
 <p>&emsp;&emsp;提示：<code>Chocolatey</code>的两种安装办法都需要超级管理员权限，不然安装的时候会报错，提示权限不够（默认<code>Chocolatey</code>的安装路径是在C盘下，权限不够会导致某些安装文件无法写入）</p>
 <h4 id="CMD安装"><a href="#CMD安装" class="headerlink" title="CMD安装"></a>CMD安装</h4><p>&emsp;&emsp;<code>cmd</code>一般安装在<code>C:\Windows\System32</code>下，找到后选择鼠标右键，以管理员身份运行。使用<code>cmd</code>安装<code>Chocolatey</code>的命令如下：</p>
@@ -190,7 +190,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年05月14日 10:57</p>
+        <p>最后更新： 2018年05月14日 11:00</p>
         <p>原始链接： <a class="post-url" href="/2018/05/14/Chocolatey，Windows下的包管理器/" title="Chocolatey，Windows下的包管理器">https://blog.mariojd.cn/2018/05/14/Chocolatey，Windows下的包管理器/</a></p>
         <footer>
             <a href="https://blog.mariojd.cn">
@@ -312,7 +312,7 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装Chocolatey"><span class="post-toc-text">安装Chocolatey</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#CMD安装"><span class="post-toc-text">CMD安装</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#PowerShell安装"><span class="post-toc-text">PowerShell安装</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#测试Chocolatey"><span class="post-toc-text">测试Chocolatey</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用Chocolatey"><span class="post-toc-text">使用Chocolatey</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#写在最后"><span class="post-toc-text">写在最后</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参考链接"><span class="post-toc-text">参考链接</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#关于Chocolatey"><span class="post-toc-text">关于Chocolatey</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装Chocolatey"><span class="post-toc-text">安装Chocolatey</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#CMD安装"><span class="post-toc-text">CMD安装</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#PowerShell安装"><span class="post-toc-text">PowerShell安装</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#测试Chocolatey"><span class="post-toc-text">测试Chocolatey</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用Chocolatey"><span class="post-toc-text">使用Chocolatey</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#写在最后"><span class="post-toc-text">写在最后</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参考链接"><span class="post-toc-text">参考链接</span></a></li></ol>
         </nav>
     </aside>
     

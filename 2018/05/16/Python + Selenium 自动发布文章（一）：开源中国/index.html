@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Python + Selenium 自动发布文章（一）：开源中国 | happyJared - 博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="happyJared - 博客。编码爱好者，代码小洁癖。" />
+  
+  <meta name="description" content="写在开始&amp;emsp;&amp;emsp;还是说说出这个系列的起因吧。之前写完或是修改了Markdown文章，我还分别需要在多个平台进行发布或是更新维护这些内容，这些平台目前包括我的博客、简书、开源中国和CSDN，其实早就想过用比较自动化的形式来解决，无奈有技术、时间、精力等各方面原因的限制。废话不多说吧，直奔今天的主题，本文主要介绍如何用Python和Selenium写（发）开源中国的博客。 准备说明 一">
+<meta name="keywords" content="python,selenium,oschina">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python + Selenium 自动发布文章（一）：开源中国">
+<meta property="og:url" content="https://blog.mariojd.cn/2018/05/16/Python + Selenium 自动发布文章（一）：开源中国/index.html">
+<meta property="og:site_name" content="happyJared - 博客">
+<meta property="og:description" content="写在开始&amp;emsp;&amp;emsp;还是说说出这个系列的起因吧。之前写完或是修改了Markdown文章，我还分别需要在多个平台进行发布或是更新维护这些内容，这些平台目前包括我的博客、简书、开源中国和CSDN，其实早就想过用比较自动化的形式来解决，无奈有技术、时间、精力等各方面原因的限制。废话不多说吧，直奔今天的主题，本文主要介绍如何用Python和Selenium写（发）开源中国的博客。 准备说明 一">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/xsj/2018517/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180517203307.png">
+<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/auto-post-oschia.gif">
+<meta property="og:updated_time" content="2018-05-19T01:27:08.785Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python + Selenium 自动发布文章（一）：开源中国">
+<meta name="twitter:description" content="写在开始&amp;emsp;&amp;emsp;还是说说出这个系列的起因吧。之前写完或是修改了Markdown文章，我还分别需要在多个平台进行发布或是更新维护这些内容，这些平台目前包括我的博客、简书、开源中国和CSDN，其实早就想过用比较自动化的形式来解决，无奈有技术、时间、精力等各方面原因的限制。废话不多说吧，直奔今天的主题，本文主要介绍如何用Python和Selenium写（发）开源中国的博客。 准备说明 一">
+<meta name="twitter:image" content="http://p3ry9qsas.bkt.clouddn.com/xsj/2018517/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180517203307.png">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?7d6076888c62ff336f5b580c57fd4141";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+  
+
+</head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <!--<div id="banner"></div>-->
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title"></span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-h-square"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-window-restore"></i>
+                        <span>归档</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <!--<div id="header-title">-->
+                    <!---->
+                <!--</div>-->
+                <div id="header-description">
+                    
+                    <h4>
+                        先做好写代码这事
+                    </h4>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="github" target="_blank" href="//github.com/happyjared">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="微博" target="_blank" href="//weibo.com/u/5633332995">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="简书" target="_blank" href="//www.jianshu.com/u/000a530f461c">
+                            <i class="fa fa-book fa-2x"></i></a>
+                    
+                        <a title="qq" target="_blank" href="//wpa.qq.com/msgrd?v=3&uin=1394223902&site=qq&menu=yes">
+                            <i class="fa fa-qq fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-Python + Selenium 自动发布文章（一）：开源中国" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      Python + Selenium 自动发布文章（一）：开源中国
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/Python/">Python</a>
+                  
+                      <a href="/categories/Selenium/">Selenium</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-05-16
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h3 id="写在开始"><a href="#写在开始" class="headerlink" title="写在开始"></a>写在开始</h3><p>&emsp;&emsp;还是说说出这个系列的起因吧。之前写完或是修改了<code>Markdown</code>文章，我还分别需要在多个平台进行发布或是更新维护这些内容，这些平台目前包括我的<a href="https://blog.mariojd.cn/">博客</a>、<a href="https://www.jianshu.com/u/000a530f461c" target="_blank" rel="noopener">简书</a>、<a href="https://my.oschina.net/happyjared" target="_blank" rel="noopener">开源中国</a>和<a href="https://blog.csdn.net/qq_28804275" target="_blank" rel="noopener">CSDN</a>，其实早就想过用比较自动化的形式来解决，无奈有技术、时间、精力等各方面原因的限制。废话不多说吧，直奔今天的主题，本文主要介绍如何用<code>Python</code>和<code>Selenium</code>写（发）开源中国的博客。</p>
+<h3 id="准备说明"><a href="#准备说明" class="headerlink" title="准备说明"></a>准备说明</h3><ul>
+<li>一定的Python基础知识</li>
+<li>一定的Selenium相关知识</li>
+<li>开发环境说明：Python v3.6.4，Selenium v3.8.1</li>
+</ul>
+<p>PS：Selenium操纵浏览器是依赖于浏览器驱动程序的，下面贴出的是谷歌和火狐浏览器驱动程序的下载地址。</p>
+<table>
+<thead>
+<tr>
+<th>Chrome ( chromedriver )</th>
+<th>Firefox ( geckodriver )</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://chromedriver.storage.googleapis.com/index.html" target="_blank" rel="noopener">官方下载</a></td>
+<td><a href="https://github.com/mozilla/geckodriver/releases" target="_blank" rel="noopener">官方下载</a></td>
+</tr>
+<tr>
+<td><a href="https://npm.taobao.org/mirrors/chromedriver/" target="_blank" rel="noopener">淘宝镜像</a></td>
+<td><a href="https://npm.taobao.org/mirrors/geckodriver/" target="_blank" rel="noopener">淘宝镜像</a></td>
+</tr>
+<tr>
+<td><a href="http://p3ry9qsas.bkt.clouddn.com/chromedriver.exe" target="_blank" rel="noopener">备用下载</a></td>
+<td><a href="http://p3ry9qsas.bkt.clouddn.com/geckodriver.exe" target="_blank" rel="noopener">备用下载</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h3><p>&emsp;&emsp;下面是示例代码中用到的<code>auto.md</code>文件内容，自动发布文章也还是需要遵循一定的规则，所以以下有几点是必须说明的：<br>&emsp;&emsp;1. <code>[//]: # ()</code>是Markdown注释的一种写法，注释内容写在小括号内；<br>&emsp;&emsp;2. <code>auto.md</code>中间注释部分的内容，用于匹配获得这几个平台的分类和标签等信息；<br>&emsp;&emsp;3. <code>××××)</code>仅用于划分匹配获取正文部分内容。</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 自动发布测试文章</span><br><span class="line">date: 2018-05-16</span><br><span class="line">categories:</span><br><span class="line"><span class="code">    - 测试</span></span><br><span class="line">author: Jared Qiu</span><br><span class="line">tags:</span><br><span class="line"><span class="code">    - 标签</span></span><br><span class="line">cover_picture: https://images.unsplash.com/photo-1520095972714-909e91b038e5?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=1110ecf3ce9e4184d4676c54dec0032d&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60</span><br><span class="line">top: 1</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">[<span class="symbol">//</span>]: <span class="link"># (</span></span><br><span class="line"><span class="code">	- self_category: 开源</span></span><br><span class="line"><span class="code">	- self_tags: 博客，docker</span></span><br><span class="line"><span class="code">	- osChina_sys_category: 其他类型</span></span><br><span class="line"><span class="code">	- csdn_article_category: 原创</span></span><br><span class="line"><span class="code">	- csdn_blog_category: 编程语言</span></span><br><span class="line">××××)</span><br><span class="line"></span><br><span class="line"><span class="section">### 自动发布</span></span><br><span class="line"></span><br><span class="line">&amp;emsp;&amp;emsp;自动发布文章。。</span><br><span class="line"></span><br><span class="line"><span class="section">### 参考地址</span></span><br><span class="line"></span><br><span class="line"><span class="quote">&gt; [happyJared - 博客](https://blog.mariojd.cn/)</span></span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;下面的截图是开源中国撰写博客的界面（记得设置默认编辑器为Markdown）。</p>
+<p><img src="http://p3ry9qsas.bkt.clouddn.com/xsj/2018517/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180517203307.png" alt="write-blog-oschia" title="write-blog-oschia"></p>
+<p>&emsp;&emsp;从上图可以看到，在开源中国写一篇博客，需要依次录入标题、摘要（可选）、内容、标签（可选）和选择分类（自定义的）、系统分类等信息。<br>&emsp;&emsp;结合<code>auto.md</code>的内容进行分析，相信用过<code>hexo</code>的朋友都比较清楚，标题一般定义在<code>title</code>处；摘要因为是可选的，所以这里先忽略不处理；正文内容我们通过匹配<code>××××)</code>就可以获取。剩下标签，自定义分类和系统分类，按规则需要提前定义在注释里，分别对应<code>self_tags</code>,<code>self_category</code>和<code>osChina_sys_category</code>。</p>
+<h3 id="代码说明"><a href="#代码说明" class="headerlink" title="代码说明"></a>代码说明</h3><p>&emsp;&emsp;main.py：程序入口类，主要负责正则匹配解析<code>Markdown</code>和调用<code>post</code>发布文章</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> oschina</span><br><span class="line"><span class="keyword">import</span> linecache</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Main</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="comment"># init</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, file)</span>:</span></span><br><span class="line">        self.title = <span class="string">''</span></span><br><span class="line">        self.content = <span class="string">''</span></span><br><span class="line">        self.category = <span class="string">''</span></span><br><span class="line">        self.tags = <span class="string">''</span></span><br><span class="line">        <span class="comment"># OsChina的系统分类, 设个默认值</span></span><br><span class="line">        self.osChina_sys_category = <span class="string">'编程语言'</span></span><br><span class="line">        <span class="comment"># CSDN的文章分类, 设个默认值</span></span><br><span class="line">        self.csdn_article_category = <span class="string">'原创'</span></span><br><span class="line">        <span class="comment"># CSDN的博客分类, 设个默认值</span></span><br><span class="line">        self.csdn_blog_category = <span class="string">'后端'</span></span><br><span class="line">        self.read_file(file)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 读取MD中的title, content, self_category, self_tags, osChina_sys_category, csdn_article_category, csdn_blog_category</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">read_file</span><span class="params">(self, markdown_file)</span>:</span></span><br><span class="line">        self.title = linecache.getline(markdown_file, <span class="number">2</span>).split(<span class="string">'title: '</span>)[<span class="number">1</span>].strip(<span class="string">'\n'</span>)</span><br><span class="line">        <span class="keyword">with</span> open(markdown_file, <span class="string">'r'</span>, encoding=<span class="string">'UTF-8'</span>) <span class="keyword">as</span> f:</span><br><span class="line">            self.content = f.read().split(<span class="string">'********)\n'</span>)[<span class="number">1</span>]</span><br><span class="line">            <span class="comment"># 重置文件指针偏移量</span></span><br><span class="line">            f.seek(<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">for</span> line <span class="keyword">in</span> f.readlines():</span><br><span class="line">                <span class="keyword">if</span> re.search(<span class="string">'self_category: '</span>, line) <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span>:</span><br><span class="line">                    self.category = line.split(<span class="string">'self_category: '</span>)[<span class="number">1</span>].strip(<span class="string">'\n'</span>)</span><br><span class="line">                <span class="keyword">elif</span> re.search(<span class="string">'self_tags: '</span>, line) <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span>:</span><br><span class="line">                    self.tags = line.split(<span class="string">'self_tags: '</span>)[<span class="number">1</span>].strip(<span class="string">'\n'</span>)</span><br><span class="line">                <span class="keyword">elif</span> re.search(<span class="string">'osChina_sys_category: '</span>, line) <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span>:</span><br><span class="line">                    self.osChina_sys_category = line.split(<span class="string">'osChina_sys_category: '</span>)[<span class="number">1</span>].strip(<span class="string">'\n'</span>)</span><br><span class="line">                <span class="keyword">elif</span> re.search(<span class="string">'csdn_article_category: '</span>, line) <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span>:</span><br><span class="line">                    self.csdn_article_category = line.split(<span class="string">'csdn_article_category: '</span>)[<span class="number">1</span>].strip(<span class="string">'\n'</span>)</span><br><span class="line">                <span class="keyword">elif</span> re.search(<span class="string">'csdn_blog_category: '</span>, line) <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span>:</span><br><span class="line">                    self.csdn_blog_category = line.split(<span class="string">'csdn_blog_category: '</span>)[<span class="number">1</span>].strip(<span class="string">'\n'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    md_file = <span class="string">'auto.md'</span></span><br><span class="line">    print(<span class="string">"Markdown File is "</span>, md_file)</span><br><span class="line"></span><br><span class="line">    timeout = <span class="number">10</span></span><br><span class="line">    main = Main(md_file)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 开源中国</span></span><br><span class="line">    osChina = oschina.OsChina()</span><br><span class="line">    osChina.post(main, timeout)</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;authorize.py：目前仅实现了用qq进行授权登录的方法</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium.webdriver.support.wait <span class="keyword">import</span> WebDriverWait</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># QQ授权登录, 使用前提是QQ客户端在线</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">qq</span><span class="params">(driver, timeout)</span>:</span></span><br><span class="line">    <span class="comment"># 切换到最新打开的窗口</span></span><br><span class="line">    window_handles = driver.window_handles</span><br><span class="line">    driver.switch_to.window(window_handles[<span class="number">-1</span>])</span><br><span class="line"></span><br><span class="line">    print(<span class="string">'qq authorize title is '</span>, driver.title)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 切换iframe</span></span><br><span class="line">    iframe = WebDriverWait(driver, timeout).until(<span class="keyword">lambda</span> d: d.find_element_by_id(<span class="string">'ptlogin_iframe'</span>))</span><br><span class="line">    driver.switch_to.frame(iframe)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 点击头像进行授权登录</span></span><br><span class="line">    login = WebDriverWait(driver, timeout).until(<span class="keyword">lambda</span> d: d.find_element_by_xpath(<span class="string">'//*[@id="qlogin_list"]/a[1]'</span>))</span><br><span class="line">    login.click()</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;oschina.py：这个是开源中国自动写（发）博客的核心类</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> authorize</span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.support.wait <span class="keyword">import</span> WebDriverWait</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.common.action_chains <span class="keyword">import</span> ActionChains</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 开源中国</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">OsChina</span><span class="params">(object)</span>:</span></span><br><span class="line"><span class="meta">    @staticmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">post</span><span class="params">(main, timeout)</span>:</span></span><br><span class="line">        <span class="comment"># 1.账号密码</span></span><br><span class="line">        account = <span class="string">'xxx'</span></span><br><span class="line">        password = <span class="string">'xxx'</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 2.跳转登陆</span></span><br><span class="line">        login = <span class="string">'https://www.oschina.net/home/login'</span></span><br><span class="line">        driver = webdriver.Chrome()</span><br><span class="line">        driver.get(login)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 3.窗口最大化</span></span><br><span class="line">        driver.maximize_window()</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 4.使用QQ授权登录</span></span><br><span class="line">        driver.find_element_by_xpath(<span class="string">'/html/body/section/div/div[2]/div[2]/div/div[2]/a[4]'</span>).click()</span><br><span class="line">        authorize.qq(driver, timeout)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 4.使用账号密码登陆</span></span><br><span class="line">        <span class="comment"># driver.find_element_by_id('userMail').send_keys(account)</span></span><br><span class="line">        <span class="comment"># driver.find_element_by_id('userPassword').send_keys(password)</span></span><br><span class="line">        <span class="comment"># driver.find_element_by_xpath('//*[@id="account_login"]/form/div/div[5]/button').click()</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 5.移到"我的空间", 点击"我的博客"</span></span><br><span class="line">        my_space = WebDriverWait(driver, timeout).until(<span class="keyword">lambda</span> d: d.find_element_by_xpath(<span class="string">'//*[@id="MySpace"]'</span>))</span><br><span class="line">        ActionChains(driver).move_to_element(my_space).perform()</span><br><span class="line">        driver.find_element_by_xpath(<span class="string">'/html/body/header/div/div[2]/div/div[2]/div/ul/li[4]/a'</span>).click()</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 6.点击"写博客"</span></span><br><span class="line">        write_blog = WebDriverWait(driver, timeout).until(</span><br><span class="line">            <span class="keyword">lambda</span> d: d.find_element_by_xpath(<span class="string">'/html/body/div/div/div/div/div[1]/div[1]/div[4]/a'</span>))</span><br><span class="line">        write_blog.click()</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 7.选择自定义分类, 系统分类</span></span><br><span class="line">        classify = WebDriverWait(driver, timeout).until(<span class="keyword">lambda</span> d: d.find_elements_by_class_name(<span class="string">'select-opt'</span>))</span><br><span class="line">        <span class="keyword">for</span> c <span class="keyword">in</span> classify:</span><br><span class="line">            html = c.get_attribute(<span class="string">'innerHTML'</span>)</span><br><span class="line">            <span class="keyword">if</span> main.category <span class="keyword">in</span> html:</span><br><span class="line">                <span class="keyword">if</span> <span class="string">'span'</span> <span class="keyword">in</span> html:</span><br><span class="line">                    <span class="comment"># 自定义分类</span></span><br><span class="line">                    data_value = c.get_attribute(<span class="string">'data-value'</span>)</span><br><span class="line">                    js = <span class="string">'document.getElementById("self_sort").value='</span> + data_value</span><br><span class="line">                    driver.execute_script(js)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">if</span> main.osChina_sys_category == html:</span><br><span class="line">                    <span class="comment"># 系统分类</span></span><br><span class="line">                    data_value = c.get_attribute(<span class="string">'data-value'</span>)</span><br><span class="line">                    js = <span class="string">'document.getElementById("sys_sort").value='</span> + data_value</span><br><span class="line">                    driver.execute_script(js)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 8.填写标题, 内容和标签</span></span><br><span class="line">        title = driver.find_element_by_xpath(<span class="string">'//*[@id="title"]'</span>)</span><br><span class="line">        title.clear()</span><br><span class="line">        title.send_keys(main.title)</span><br><span class="line">        content = driver.find_element_by_id(<span class="string">'mdeditor'</span>)</span><br><span class="line">        content.clear()</span><br><span class="line">        content.send_keys(main.content)</span><br><span class="line">        tags = driver.find_element_by_xpath(<span class="string">'//*[@id="blog-form"]/div[2]/div/div[3]/div[1]/div[2]/div[2]/input'</span>)</span><br><span class="line">        tags.clear()</span><br><span class="line">        tags.send_keys(main.tags)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 9.保存草稿</span></span><br><span class="line">        driver.find_element_by_xpath(<span class="string">'//*[@id="blog-form"]/div[3]/div/button[1]'</span>).click()</span><br><span class="line">        <span class="comment"># 9.发布文章</span></span><br><span class="line">        <span class="comment"># driver.find_element_by_xpath('//*[@id="blog-form"]/div[3]/div/button[2]').click()</span></span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;从代码注释可以看到，目前支持账号密码和QQ授权两种方式登录，支持保存草稿或发布文章操作。</p>
+<h3 id="运行效果"><a href="#运行效果" class="headerlink" title="运行效果"></a>运行效果</h3><p>&emsp;&emsp;多说无益，来看看运行效果图吧，测试一下保存草稿。</p>
+<p><img src="http://p3ry9qsas.bkt.clouddn.com/auto-post-oschia.gif" alt="auto-post-oschia" title="auto-post-oschia"></p>
+<h3 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h3><p>&emsp;&emsp;总之，在开源中国自动写文章的思路大概就这样，不过这也绝对不是唯一的办法，大家完全可以根据代码自己做调整，而且网页的结构可能会发生改变，这里也不敢保证程序可以一直正常运行下去。好了，下一篇介绍如何在简书自动写（发）文章。</p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年05月19日 09:27</p>
+        <p>原始链接： <a class="post-url" href="/2018/05/16/Python + Selenium 自动发布文章（一）：开源中国/" title="Python + Selenium 自动发布文章（一）：开源中国">https://blog.mariojd.cn/2018/05/16/Python + Selenium 自动发布文章（一）：开源中国/</a></p>
+        <footer>
+            <a href="https://blog.mariojd.cn">
+                <img src="/images/logo.png" alt="Jared Qiu">
+                Jared Qiu
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赞赏支持
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.mariojd.cn/2018/05/16/Python + Selenium 自动发布文章（一）：开源中国/&title=《Python + Selenium 自动发布文章（一）：开源中国》 — happyJared - 博客&pic=http://p3ry9qsas.bkt.clouddn.com/xsj/2018516/oschina-logo.jpg "oschina-logo"" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mariojd.cn/2018/05/16/Python + Selenium 自动发布文章（一）：开源中国/&title=《Python + Selenium 自动发布文章（一）：开源中国》 — happyJared - 博客&source=Java developer, like Python and javascript，为人乐观、积极、向上、勤奋、和善、好相处，讲卫生，爱学习，爱码字，爱..." data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.mariojd.cn/2018/05/16/Python + Selenium 自动发布文章（一）：开源中国/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python + Selenium 自动发布文章（一）：开源中国》 — happyJared - 博客&url=https://blog.mariojd.cn/2018/05/16/Python + Selenium 自动发布文章（一）：开源中国/&via=https://blog.mariojd.cn" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://blog.mariojd.cn/2018/05/16/Python + Selenium 自动发布文章（一）：开源中国/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://blog.mariojd.cn/2018/05/16/Python + Selenium 自动发布文章（一）：开源中国/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/python/" class="color2">python</a>
+      
+    <a href="/tags/selenium/" class="color4">selenium</a>
+      
+    <a href="/tags/oschina/" class="color3">oschina</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#写在开始"><span class="post-toc-text">写在开始</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#准备说明"><span class="post-toc-text">准备说明</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用说明"><span class="post-toc-text">使用说明</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#代码说明"><span class="post-toc-text">代码说明</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#运行效果"><span class="post-toc-text">运行效果</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#写在最后"><span class="post-toc-text">写在最后</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2018/05/16/auto-post/auto/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          自动发布测试文章
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2018/05/14/Hexo，使用bat脚本部署文章/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Hexo，使用bat脚本部署文章</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        <div id="SOHUCS" sid="Python + Selenium 自动发布文章（一）：开源中国" ></div>
+<script type="text/javascript">
+    (function(){
+        var appid = 'cytsi4W0L';
+        var conf = 'prod_302a63175740fd2ee2587f9345477b4c';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2018 Jared Qiu<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "https://blog.mariojd.cn",
+      animate: false,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/Chocolatey/">Chocolatey</a><a class="category-link" href="/categories/IDEA/">IDEA</a><a class="category-link" href="/categories/IO/">IO</a><a class="category-link" href="/categories/IO/Java/">Java</a><a class="category-link" href="/categories/Java/">Java</a><a class="category-link" href="/categories/Java/Lombok/">Lombok</a><a class="category-link" href="/categories/Java/热部署/">热部署</a><a class="category-link" href="/categories/Jmeter/">Jmeter</a><a class="category-link" href="/categories/MySQL/">MySQL</a><a class="category-link" href="/categories/MySQL/Docker/">Docker</a><a class="category-link" href="/categories/PostgreSQL/">PostgreSQL</a><a class="category-link" href="/categories/PostgreSQL/Docker/">Docker</a><a class="category-link" href="/categories/Python/">Python</a><a class="category-link" href="/categories/Python/Selenium/">Selenium</a><a class="category-link" href="/categories/Python/Selenium/Windows-Batch/">Windows Batch</a><a class="category-link" href="/categories/Spring/">Spring</a><a class="category-link" href="/categories/docker/">docker</a><a class="category-link" href="/categories/hexo/">hexo</a><a class="category-link" href="/categories/websocket/">websocket</a><a class="category-link" href="/categories/学习资源/">学习资源</a><a class="category-link" href="/categories/开源/">开源</a><a class="category-link" href="/categories/开源项目/">开源项目</a><a class="category-link" href="/categories/抓包工具/">抓包工具</a><a class="category-link" href="/categories/数据库中间件/">数据库中间件</a><a class="category-link" href="/categories/数据库中间件/Mycat/">Mycat</a><a class="category-link" href="/categories/测试/">测试</a><a class="category-link" href="/categories/编辑器/">编辑器</a><a class="category-link" href="/categories/编辑器/个人感悟/">个人感悟</a><a class="category-link" href="/categories/编辑器/快捷键/">快捷键</a><a class="category-link" href="/categories/随笔/">随笔</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/AcpectJ/" style="font-size: 10px;">AcpectJ</a> <a href="/tags/Aop/" style="font-size: 10px;">Aop</a> <a href="/tags/Chocolatey/" style="font-size: 10px;">Chocolatey</a> <a href="/tags/Docker/" style="font-size: 11.67px;">Docker</a> <a href="/tags/Eclipse/" style="font-size: 11.67px;">Eclipse</a> <a href="/tags/Fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/tags/GitHub-Pages/" style="font-size: 11.67px;">GitHub Pages</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDEA/" style="font-size: 20px;">IDEA</a> <a href="/tags/IO/" style="font-size: 10px;">IO</a> <a href="/tags/Java/" style="font-size: 16.67px;">Java</a> <a href="/tags/Java类库/" style="font-size: 10px;">Java类库</a> <a href="/tags/JetBrains/" style="font-size: 18.33px;">JetBrains</a> <a href="/tags/Jmeter/" style="font-size: 13.33px;">Jmeter</a> <a href="/tags/Lombok/" style="font-size: 10px;">Lombok</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Mycat/" style="font-size: 15px;">Mycat</a> <a href="/tags/PostgreSQL/" style="font-size: 10px;">PostgreSQL</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/RestTemplate/" style="font-size: 10px;">RestTemplate</a> <a href="/tags/Spring/" style="font-size: 11.67px;">Spring</a> <a href="/tags/Spring-Boot/" style="font-size: 11.67px;">Spring Boot</a> <a href="/tags/Study/" style="font-size: 10px;">Study</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/bat/" style="font-size: 10px;">bat</a> <a href="/tags/bat脚本/" style="font-size: 10px;">bat脚本</a> <a href="/tags/csdn/" style="font-size: 10px;">csdn</a> <a href="/tags/docker/" style="font-size: 13.33px;">docker</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/hexo-themes/" style="font-size: 10px;">hexo themes</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/http-s/" style="font-size: 10px;">http(s)</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/oschina/" style="font-size: 10px;">oschina</a> <a href="/tags/postgresql/" style="font-size: 10px;">postgresql</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/selenium/" style="font-size: 15px;">selenium</a> <a href="/tags/websocket/" style="font-size: 10px;">websocket</a> <a href="/tags/ws-s/" style="font-size: 10px;">ws(s)</a> <a href="/tags/wss/" style="font-size: 10px;">wss</a> <a href="/tags/《Spring-in-action》/" style="font-size: 10px;">《Spring in action》</a> <a href="/tags/个人博客/" style="font-size: 11.67px;">个人博客</a> <a href="/tags/个人感悟/" style="font-size: 11.67px;">个人感悟</a> <a href="/tags/主从复制/" style="font-size: 11.67px;">主从复制</a> <a href="/tags/主从搭建/" style="font-size: 11.67px;">主从搭建</a> <a href="/tags/代理调试/" style="font-size: 10px;">代理调试</a> <a href="/tags/入门/" style="font-size: 10px;">入门</a> <a href="/tags/入门篇/" style="font-size: 10px;">入门篇</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/压测工具/" style="font-size: 13.33px;">压测工具</a> <a href="/tags/学习资源/" style="font-size: 11.67px;">学习资源</a> <a href="/tags/实践篇/" style="font-size: 11.67px;">实践篇</a> <a href="/tags/容器/" style="font-size: 11.67px;">容器</a> <a href="/tags/开源/" style="font-size: 10px;">开源</a> <a href="/tags/开源博客/" style="font-size: 11.67px;">开源博客</a> <a href="/tags/开源项目/" style="font-size: 11.67px;">开源项目</a> <a href="/tags/微信授权/" style="font-size: 10px;">微信授权</a> <a href="/tags/数据库中间件/" style="font-size: 15px;">数据库中间件</a> <a href="/tags/标签/" style="font-size: 10px;">标签</a> <a href="/tags/热部署/" style="font-size: 10px;">热部署</a> <a href="/tags/简书/" style="font-size: 10px;">简书</a> <a href="/tags/编辑器/" style="font-size: 20px;">编辑器</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a> <a href="/tags/读写分离/" style="font-size: 11.67px;">读写分离</a> <a href="/tags/跑步/" style="font-size: 10px;">跑步</a> <a href="/tags/配置篇/" style="font-size: 10px;">配置篇</a> <a href="/tags/钉钉运动/" style="font-size: 10px;">钉钉运动</a> <a href="/tags/阿里技术/" style="font-size: 10px;">阿里技术</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-h-square"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-window-restore"></i><span>归档</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/AcpectJ/" style="font-size: 10px;">AcpectJ</a> <a href="/tags/Aop/" style="font-size: 10px;">Aop</a> <a href="/tags/Chocolatey/" style="font-size: 10px;">Chocolatey</a> <a href="/tags/Docker/" style="font-size: 11.67px;">Docker</a> <a href="/tags/Eclipse/" style="font-size: 11.67px;">Eclipse</a> <a href="/tags/Fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/tags/GitHub-Pages/" style="font-size: 11.67px;">GitHub Pages</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDEA/" style="font-size: 20px;">IDEA</a> <a href="/tags/IO/" style="font-size: 10px;">IO</a> <a href="/tags/Java/" style="font-size: 16.67px;">Java</a> <a href="/tags/Java类库/" style="font-size: 10px;">Java类库</a> <a href="/tags/JetBrains/" style="font-size: 18.33px;">JetBrains</a> <a href="/tags/Jmeter/" style="font-size: 13.33px;">Jmeter</a> <a href="/tags/Lombok/" style="font-size: 10px;">Lombok</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Mycat/" style="font-size: 15px;">Mycat</a> <a href="/tags/PostgreSQL/" style="font-size: 10px;">PostgreSQL</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/RestTemplate/" style="font-size: 10px;">RestTemplate</a> <a href="/tags/Spring/" style="font-size: 11.67px;">Spring</a> <a href="/tags/Spring-Boot/" style="font-size: 11.67px;">Spring Boot</a> <a href="/tags/Study/" style="font-size: 10px;">Study</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/bat/" style="font-size: 10px;">bat</a> <a href="/tags/bat脚本/" style="font-size: 10px;">bat脚本</a> <a href="/tags/csdn/" style="font-size: 10px;">csdn</a> <a href="/tags/docker/" style="font-size: 13.33px;">docker</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/hexo-themes/" style="font-size: 10px;">hexo themes</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/http-s/" style="font-size: 10px;">http(s)</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/nginx/" style="font-size: 10px;">nginx</a> <a href="/tags/oschina/" style="font-size: 10px;">oschina</a> <a href="/tags/postgresql/" style="font-size: 10px;">postgresql</a> <a href="/tags/python/" style="font-size: 15px;">python</a> <a href="/tags/selenium/" style="font-size: 15px;">selenium</a> <a href="/tags/websocket/" style="font-size: 10px;">websocket</a> <a href="/tags/ws-s/" style="font-size: 10px;">ws(s)</a> <a href="/tags/wss/" style="font-size: 10px;">wss</a> <a href="/tags/《Spring-in-action》/" style="font-size: 10px;">《Spring in action》</a> <a href="/tags/个人博客/" style="font-size: 11.67px;">个人博客</a> <a href="/tags/个人感悟/" style="font-size: 11.67px;">个人感悟</a> <a href="/tags/主从复制/" style="font-size: 11.67px;">主从复制</a> <a href="/tags/主从搭建/" style="font-size: 11.67px;">主从搭建</a> <a href="/tags/代理调试/" style="font-size: 10px;">代理调试</a> <a href="/tags/入门/" style="font-size: 10px;">入门</a> <a href="/tags/入门篇/" style="font-size: 10px;">入门篇</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/压测工具/" style="font-size: 13.33px;">压测工具</a> <a href="/tags/学习资源/" style="font-size: 11.67px;">学习资源</a> <a href="/tags/实践篇/" style="font-size: 11.67px;">实践篇</a> <a href="/tags/容器/" style="font-size: 11.67px;">容器</a> <a href="/tags/开源/" style="font-size: 10px;">开源</a> <a href="/tags/开源博客/" style="font-size: 11.67px;">开源博客</a> <a href="/tags/开源项目/" style="font-size: 11.67px;">开源项目</a> <a href="/tags/微信授权/" style="font-size: 10px;">微信授权</a> <a href="/tags/数据库中间件/" style="font-size: 15px;">数据库中间件</a> <a href="/tags/标签/" style="font-size: 10px;">标签</a> <a href="/tags/热部署/" style="font-size: 10px;">热部署</a> <a href="/tags/简书/" style="font-size: 10px;">简书</a> <a href="/tags/编辑器/" style="font-size: 20px;">编辑器</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a> <a href="/tags/读写分离/" style="font-size: 11.67px;">读写分离</a> <a href="/tags/跑步/" style="font-size: 10px;">跑步</a> <a href="/tags/配置篇/" style="font-size: 10px;">配置篇</a> <a href="/tags/钉钉运动/" style="font-size: 10px;">钉钉运动</a> <a href="/tags/阿里技术/" style="font-size: 10px;">阿里技术</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>

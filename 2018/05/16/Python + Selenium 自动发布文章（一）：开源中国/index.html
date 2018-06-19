@@ -18,7 +18,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/xsj/2018517/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180517203307.png">
 <meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/auto-post-oschia.gif">
-<meta property="og:updated_time" content="2018-05-21T08:41:56.822Z">
+<meta property="og:updated_time" content="2018-05-21T08:41:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python + Selenium 自动发布文章（一）：开源中国">
 <meta name="twitter:description" content="写在开始&amp;emsp;&amp;emsp;还是说说出这个系列的起因吧。之前写完或是修改了Markdown文章，我还分别需要在多个平台进行发布或是更新维护这些内容，这些平台目前包括我的博客、简书、开源中国和CSDN，其实早就想过用比较自动化的形式来解决，无奈有技术、时间、精力等各方面原因的限制。废话不多说吧，直奔今天的主题，本文主要介绍如何用Python和Selenium写（发）开源中国的博客。 准备说明">
@@ -392,6 +392,14 @@
 </footer>
     <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+(function(){
+    var bp = document.createElement('script');
+    bp.src = '//push.zhanzhang.baidu.com/push.js';
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
 <script>
   var mihoConfig = {
       root: "https://blog.mariojd.cn",

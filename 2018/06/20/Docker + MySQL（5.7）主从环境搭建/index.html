@@ -3,21 +3,23 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: hexo | happyJared - 博客</title>
+  <title>Docker + MySQL(5.7)主从环境搭建 | happyJared - 博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="happyJared - 博客。编码爱好者，代码小洁癖。" />
   
-  <meta name="description" content="Java developer, like Python and javascript，为人乐观、积极、向上、勤奋、和善、好相处，讲卫生，爱学习，爱码字，爱技术，爱生活">
-<meta property="og:type" content="website">
-<meta property="og:title" content="happyJared - 博客">
-<meta property="og:url" content="https://blog.mariojd.cn/tags/hexo/index.html">
+  <meta name="description" content="配置my.cnf my.cnf是MySQL核心配置文件。首先，在任意挂载目录下新建*.cnf文件(这里的*代表可以是任意的文件名)。如果mysql是下载安装的，请找到my.cnf并参考添加如下配置 [mysqld]log-bin=mysql-bin   //启用二进制日志server-id=xxx      //xxx代表服务器唯一ID，默认是1  实战示例    新建master.cnf，挂载">
+<meta name="keywords" content="mysql,docker,主从搭建">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker + MySQL(5.7)主从环境搭建">
+<meta property="og:url" content="https://blog.mariojd.cn/2018/06/20/Docker + MySQL（5.7）主从环境搭建/index.html">
 <meta property="og:site_name" content="happyJared - 博客">
-<meta property="og:description" content="Java developer, like Python and javascript，为人乐观、积极、向上、勤奋、和善、好相处，讲卫生，爱学习，爱码字，爱技术，爱生活">
+<meta property="og:description" content="配置my.cnf my.cnf是MySQL核心配置文件。首先，在任意挂载目录下新建*.cnf文件(这里的*代表可以是任意的文件名)。如果mysql是下载安装的，请找到my.cnf并参考添加如下配置 [mysqld]log-bin=mysql-bin   //启用二进制日志server-id=xxx      //xxx代表服务器唯一ID，默认是1  实战示例    新建master.cnf，挂载">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-06-26T02:24:18.865Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="happyJared - 博客">
-<meta name="twitter:description" content="Java developer, like Python and javascript，为人乐观、积极、向上、勤奋、和善、好相处，讲卫生，爱学习，爱码字，爱技术，爱生活">
+<meta name="twitter:title" content="Docker + MySQL(5.7)主从环境搭建">
+<meta name="twitter:description" content="配置my.cnf my.cnf是MySQL核心配置文件。首先，在任意挂载目录下新建*.cnf文件(这里的*代表可以是任意的文件名)。如果mysql是下载安装的，请找到my.cnf并参考添加如下配置 [mysqld]log-bin=mysql-bin   //启用二进制日志server-id=xxx      //xxx代表服务器唯一ID，默认是1  实战示例    新建master.cnf，挂载">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -109,129 +111,230 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap">
-  
-  
+        <section id="main" class="body-wrap"><article id="post-Docker + MySQL（5.7）主从环境搭建" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/05/14/Hexo，使用bat脚本部署文章/" class="archive-article-date">
-  <time datetime="2018-05-13T16:00:00.000Z" itemprop="datePublished">05-14</time>
-</a>
-      
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/14/Hexo，使用bat脚本部署文章/"  target="_blank"  >Hexo，使用bat脚本部署文章</a>
+    <h1 class="post-title" itemprop="name">
+      Docker + MySQL(5.7)主从环境搭建
     </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/开源/">开源</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-06-20
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
   
 
-    </header>
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
       
-        <div class="archive-post-footer">
+            
+            <!--
+    self_category: 开源
+    self_tags: docker，mysql，主从搭建
+    osChina_sys_category: 系统运维
+    csdn_article_category: 原创
+    csdn_blog_category: 系统运维 
+-->
+<h3 id="配置my-cnf"><a href="#配置my-cnf" class="headerlink" title="配置my.cnf"></a>配置my.cnf</h3><ul>
+<li><p><code>my.cnf</code>是MySQL核心配置文件。首先，在任意挂载目录下新建<code>*.cnf</code>文件(这里的*代表可以是任意的文件名)。如果mysql是下载安装的，请找到<code>my.cnf</code>并参考添加如下配置</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">log-bin=mysql-bin   //启用二进制日志</span><br><span class="line">server-id=xxx      //xxx代表服务器唯一ID，默认是1</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>实战示例</p>
+</li>
+</ul>
+<ol>
+<li><p>新建master.cnf，挂载位置：<code>/root/mysql/conf/master/</code>，配置如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">log-bin=mysql-bin</span><br><span class="line">server-id=100</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>新建slave.cnf，挂载位置：<code>/root/mysql/conf/slave/</code>，添加如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">log-bin=mysql-bin</span><br><span class="line">server-id=200</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="运行Mysql"><a href="#运行Mysql" class="headerlink" title="运行Mysql"></a>运行Mysql</h3><ul>
+<li><p>主库(master)</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run --name mysql-master -v /root/mysql/conf/master:/etc/mysql/conf.d -e MYSQL_ROOT_PASSWORD=root -p 10000:3306 -d mysql --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>从库(slave)</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">docker run --name mysql-slave -v /root/mysql/conf/slave:/etc/mysql/conf.d -e MYSQL_ROOT_PASSWORD=root -p 20000:3306 -d mysql --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>&emsp;&emsp;注意，本次演示的mysql版本是5.7.21，不同版本之间可能存在差别，用docker可以pull指定Version的mysql image，参考命令：<figure class="highlight docker"><figcaption><span>pull mysql:5.7.21```</span></figcaption><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">### 新建账号</span></span><br><span class="line"></span><br><span class="line"><span class="number">1</span>. 在 master 上创建复制账号</span><br></pre></td></tr></table></figure></p>
+<p>GRANT REPLICATION SLAVE ON <em>.</em> TO ‘rep’@’120.77.250.15’ IDENTIFIED BY ‘reppassword’;<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">- 说明：`rep`表示复制账号(也就是用户名)，紧跟着是主库当前所在服务器ip，`IDENTIFIED BY`后面代表rep用户的认证密码</span><br><span class="line"></span><br><span class="line">2. 执行```show master status;```，记录`File`和`Position`信息 </span><br><span class="line"></span><br><span class="line">### 配置连接</span><br><span class="line"></span><br><span class="line">- 配置 slave 连接 master, 在从库上执行</span><br></pre></td></tr></table></figure></p>
+<p>CHANGE MASTER TO MASTER_HOST=’120.77.250.15’,MASTER_PORT=10000,MASTER_USER=’rep’,MASTER_PASSWORD=’reppassword’,MASTER_LOG_FILE=’mysql-bin.000003’,MASTER_LOG_POS=449;<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">### 开启同步</span><br><span class="line"></span><br><span class="line">- 开启同步，在 slave 启动线程: ```start slave;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>查看 slave 复制状态: <figure class="highlight plain"><figcaption><span>slave status\G;```</span></figcaption><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">### 从库只读</span><br><span class="line"></span><br><span class="line">- 设置从库只读，```set global read_only=1;```。1是只读，0是读写，但对拥有super权限的账号是不生效的，所以在授权账号的时候应尽量避免添加super权限</span><br><span class="line"></span><br><span class="line">- 查看读写情况: ```show global variables like &quot;%read_only%&quot;;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年06月26日 10:24</p>
+        <p>原始链接： <a class="post-url" href="/2018/06/20/Docker + MySQL（5.7）主从环境搭建/" title="Docker + MySQL(5.7)主从环境搭建">https://blog.mariojd.cn/2018/06/20/Docker + MySQL（5.7）主从环境搭建/</a></p>
+        <footer>
+            <a href="https://blog.mariojd.cn">
+                <img src="/images/logo.png" alt="Jared Qiu">
+                Jared Qiu
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赞赏支持
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.mariojd.cn/2018/06/20/Docker + MySQL（5.7）主从环境搭建/&title=《Docker + MySQL(5.7)主从环境搭建》 — happyJared - 博客&pic=https://image.mariojd.cn/201837/u=1782028824,1536037822&fm=27&gp=0.jpg "MySQL with Docker"" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mariojd.cn/2018/06/20/Docker + MySQL（5.7）主从环境搭建/&title=《Docker + MySQL(5.7)主从环境搭建》 — happyJared - 博客&source=Java developer, like Python and javascript，为人乐观、积极、向上、勤奋、和善、好相处，讲卫生，爱学习，爱码字，爱..." data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.mariojd.cn/2018/06/20/Docker + MySQL（5.7）主从环境搭建/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Docker + MySQL(5.7)主从环境搭建》 — happyJared - 博客&url=https://blog.mariojd.cn/2018/06/20/Docker + MySQL（5.7）主从环境搭建/&via=https://blog.mariojd.cn" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://blog.mariojd.cn/2018/06/20/Docker + MySQL（5.7）主从环境搭建/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://blog.mariojd.cn/2018/06/20/Docker + MySQL（5.7）主从环境搭建/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
             
   <li class="article-footer-tags">
     <i class="fa fa-tags"></i>
       
-    <a href="/tags/hexo/" class="color5">hexo</a>
+    <a href="/tags/mysql/" class="color1">mysql</a>
       
-    <a href="/tags/bat脚本/" class="color1">bat脚本</a>
+    <a href="/tags/docker/" class="color2">docker</a>
       
-    <a href="/tags/开源博客/" class="color5">开源博客</a>
-      
-  </li>
-
-        </div>
-      
-  </div>
-</article>
-
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/05/04/Hexo，自定义博客主题/" class="archive-article-date">
-  <time datetime="2018-05-03T16:00:00.000Z" itemprop="datePublished">05-04</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/04/Hexo，自定义博客主题/"  target="_blank"  >Hexo，自定义博客主题</a>
-    </h1>
-  
-
-    </header>
-      
-        <div class="archive-post-footer">
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/hexo/" class="color5">hexo</a>
-      
-    <a href="/tags/开源博客/" class="color5">开源博客</a>
-      
-    <a href="/tags/hexothemes/" class="color2">hexo themes</a>
+    <a href="/tags/主从搭建/" class="color5">主从搭建</a>
       
   </li>
 
-        </div>
-      
+        </ul>
+        
+    </footer>
   </div>
 </article>
 
-  
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置my-cnf"><span class="post-toc-text">配置my.cnf</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#运行Mysql"><span class="post-toc-text">运行Mysql</span></a></li></ol>
+        </nav>
+    </aside>
     
+
+<nav id="article-nav">
+  
+  
+    <a href="/2018/06/19/Java开发人员常用的服务配置(Nginx、Tomcat、JVM、Mysql、Redis)/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Java开发人员常用的服务配置(Nginx、Tomcat、JVM、Mysql、Redis)</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/05/03/Hexo，自定义域名http升级https/" class="archive-article-date">
-  <time datetime="2018-05-02T16:00:00.000Z" itemprop="datePublished">05-03</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/03/Hexo，自定义域名http升级https/"  target="_blank"  >Hexo，自定义域名http升级https</a>
-    </h1>
-  
-
-    </header>
-      
-        <div class="archive-post-footer">
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/hexo/" class="color5">hexo</a>
-      
-    <a href="/tags/http/" class="color5">http</a>
-      
-    <a href="/tags/https/" class="color1">https</a>
-      
-  </li>
-
-        </div>
-      
-  </div>
-</article>
-
-  
-  
-    </div></section>
-  
-
+        <div id="SOHUCS" sid="Docker + MySQL（5.7）主从环境搭建" ></div>
+<script type="text/javascript">
+    (function(){
+        var appid = 'cytsi4W0L';
+        var conf = 'prod_302a63175740fd2ee2587f9345477b4c';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+    
 </section>
         
       </div>

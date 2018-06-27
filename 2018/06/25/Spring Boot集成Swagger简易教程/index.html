@@ -16,14 +16,14 @@
 <meta property="og:site_name" content="happyJared - 博客">
 <meta property="og:description" content="Swagger &amp;emsp;&amp;emsp;Swagger号称是史上最流行的、最好用的API接口文档构建工具，它支持多种语言包括Java在内，本文仅关注如何使用Spring Boot来集成Swagger，更多关于Swagger的介绍可以查看以下几个链接。  Swagger - 官网Swagger - Github  SpringFox&amp;emsp;&amp;emsp;SpringFox最初叫Swagger-S">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018626/WeChat截圖_20180626141034.png">
-<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018626/WeChat截圖_20180626145832.png">
-<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018626/WeChat截圖_20180626154956.png">
-<meta property="og:updated_time" content="2018-06-26T08:03:31.605Z">
+<meta property="og:image" content="https://image.mariojd.cn/smallstory/2018626/WeChat截圖_20180626141034.png">
+<meta property="og:image" content="https://image.mariojd.cn/smallstory/2018626/WeChat截圖_20180626145832.png">
+<meta property="og:image" content="https://image.mariojd.cn/smallstory/2018626/WeChat截圖_20180626154956.png">
+<meta property="og:updated_time" content="2018-06-27T01:56:46.299Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring Boot集成Swagger简易教程">
 <meta name="twitter:description" content="Swagger &amp;emsp;&amp;emsp;Swagger号称是史上最流行的、最好用的API接口文档构建工具，它支持多种语言包括Java在内，本文仅关注如何使用Spring Boot来集成Swagger，更多关于Swagger的介绍可以查看以下几个链接。  Swagger - 官网Swagger - Github  SpringFox&amp;emsp;&amp;emsp;SpringFox最初叫Swagger-S">
-<meta name="twitter:image" content="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018626/WeChat截圖_20180626141034.png">
+<meta name="twitter:image" content="https://image.mariojd.cn/smallstory/2018626/WeChat截圖_20180626141034.png">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -162,7 +162,7 @@
     csdn_article_category: 原创
     csdn_blog_category: 后端
 -->
-<h3 id="Swagger"><a href="#Swagger" class="headerlink" title="Swagger"></a>Swagger</h3><p><img src="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018626/WeChat截圖_20180626141034.png" alt="swagger"></p>
+<h3 id="Swagger"><a href="#Swagger" class="headerlink" title="Swagger"></a>Swagger</h3><p><img src="https://image.mariojd.cn/smallstory/2018626/WeChat截圖_20180626141034.png" alt="swagger"></p>
 <p>&emsp;&emsp;Swagger号称是史上最流行的、最好用的API接口文档构建工具，它支持多种语言包括Java在内，本文仅关注如何使用Spring Boot来集成Swagger，更多关于Swagger的介绍可以查看以下几个链接。</p>
 <blockquote>
 <p><a href="https://swagger.io" target="_blank" rel="noopener">Swagger - 官网</a><br><a href="https://github.com/swagger-api" target="_blank" rel="noopener">Swagger - Github</a></p>
@@ -177,7 +177,7 @@
 <h4 id="3-配置Swagger"><a href="#3-配置Swagger" class="headerlink" title="3. 配置Swagger"></a>3. 配置Swagger</h4><p>&emsp;&emsp;</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SwaggerConfig</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Docket <span class="title">docket</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Docket(DocumentationType.SWAGGER_2)</span><br><span class="line">                .apiInfo(apiInfo())</span><br><span class="line">                .select()</span><br><span class="line">				<span class="comment">// 这里是全局扫描有@Api注解得类，还可以扫描任意位置，指定包以及针对方法上的指定注解</span></span><br><span class="line">                .apis(RequestHandlerSelectors.withClassAnnotation(Api.class)) </span><br><span class="line">                .paths(PathSelectors.any())</span><br><span class="line">                .build();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> ApiInfo <span class="title">apiInfo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ApiInfoBuilder()</span><br><span class="line">                .title(<span class="string">"Title"</span>)</span><br><span class="line">                .description(<span class="string">"Description"</span>)</span><br><span class="line">                .termsOfServiceUrl(<span class="string">""</span>)</span><br><span class="line">				.contact(<span class="keyword">new</span> Contact(<span class="string">""</span>, <span class="string">""</span>, <span class="string">""</span>))</span><br><span class="line">                .license(<span class="string">""</span>)</span><br><span class="line">                .licenseUrl(<span class="string">""</span>)</span><br><span class="line">                .version(<span class="string">" xxx "</span>)</span><br><span class="line">                .build();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="4-运行效果"><a href="#4-运行效果" class="headerlink" title="4. 运行效果"></a>4. 运行效果</h4><p>&emsp;&emsp;启动Spring Boot后，可以点击查看(更改为你的本地地址) <a href="http://localhost:8080/swagger-ui.html#/" target="_blank" rel="noopener">http://localhost:8080/swagger-ui.html#/</a> ，效果如下：</p>
-<p><img src="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018626/WeChat截圖_20180626145832.png" alt="swagger-ui"></p>
+<p><img src="https://image.mariojd.cn/smallstory/2018626/WeChat截圖_20180626145832.png" alt="swagger-ui"></p>
 <h4 id="5-常用注解"><a href="#5-常用注解" class="headerlink" title="5. 常用注解"></a>5. 常用注解</h4><p>&emsp;&emsp;Swagger的所有注解定义在<code>io.swagger.annotations</code>包下，下面列一些经常用到的，未列举出来的可以另行查阅说明：</p>
 <table>
 <thead>
@@ -210,12 +210,12 @@
 </tbody>
 </table>
 <h4 id="6-使用Swagger"><a href="#6-使用Swagger" class="headerlink" title="6. 使用Swagger"></a>6. 使用Swagger</h4><p>&emsp;&emsp;完全以上几小步配置后，再次打开swagger-ui界面就可以进行测试了，相较于传统的Postman或Curl方式测试接口，使用swagger简直就是傻瓜式操作，不需要额外说明文档(写得好本身就是文档)而且更不容易出错，只需要录入数据然后点击<code>Execute</code>，如果再配合自动化框架，可以说基本就不需要人为操作了。</p>
-<p><img src="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018626/WeChat截圖_20180626154956.png" alt="swagger-test"></p>
+<p><img src="https://image.mariojd.cn/smallstory/2018626/WeChat截圖_20180626154956.png" alt="swagger-test"></p>
 <h3 id="End"><a href="#End" class="headerlink" title="End"></a>End</h3><p>&emsp;&emsp;Swagger是个优秀的工具，现在国内已经有很多的中小型互联网公司都在使用它，相较于传统的要先出Word接口文档再测试的方式，显然这样也更符合现在的快速迭代开发行情。当然了，提醒下大家在正式环境要记得关闭Swagger，一来出于安全考虑二来也可以节省运存。之前看到过一篇深入Swagger原理的文章，最后分享出来给大家：<a href="https://www.jianshu.com/p/a6810cd9c3c0" target="_blank" rel="noopener">API管理工具Swagger介绍及Springfox原理分析</a>。</p>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年06月26日 16:03</p>
+        <p>最后更新： 2018年06月27日 09:56</p>
         <p>原始链接： <a class="post-url" href="/2018/06/25/Spring Boot集成Swagger简易教程/" title="Spring Boot集成Swagger简易教程">https://blog.mariojd.cn/2018/06/25/Spring Boot集成Swagger简易教程/</a></p>
         <footer>
             <a href="https://blog.mariojd.cn">
@@ -273,7 +273,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.mariojd.cn/2018/06/25/Spring Boot集成Swagger简易教程/&title=《Spring Boot集成Swagger简易教程》 — happyJared - 博客&pic=http://p3ry9qsas.bkt.clouddn.com/smallstory/2018626/v2-1e01eb3a579c917c3005eab9c04c07fd_1200x500.jpg" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.mariojd.cn/2018/06/25/Spring Boot集成Swagger简易教程/&title=《Spring Boot集成Swagger简易教程》 — happyJared - 博客&pic=https://image.mariojd.cn/smallstory/2018626/v2-1e01eb3a579c917c3005eab9c04c07fd_1200x500.jpg" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>

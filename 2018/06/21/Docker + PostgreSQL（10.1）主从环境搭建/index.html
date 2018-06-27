@@ -16,12 +16,12 @@
 <meta property="og:site_name" content="happyJared - 博客">
 <meta property="og:description" content="环境说明 Docker Ubuntu/CentOS PostgreSQL v10.1  1. 运行PostgreSQL1.1 主库docker run --name pgsmaster -p 5500:5432 -e POSTGRES_PASSWORD=pgsmaster -v $(pwd)/pgsmaster:/var/lib/postgresql/data -d postgres 1.2 从">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018627/WeChat截圖_20180627105655.png">
-<meta property="og:updated_time" content="2018-06-27T03:12:57.557Z">
+<meta property="og:image" content="https://image.mariojd.cn/smallstory/2018627/WeChat截圖_20180627105655.png">
+<meta property="og:updated_time" content="2018-06-27T03:15:27.047Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker + PostgreSQL（10.1）主从环境搭建">
 <meta name="twitter:description" content="环境说明 Docker Ubuntu/CentOS PostgreSQL v10.1  1. 运行PostgreSQL1.1 主库docker run --name pgsmaster -p 5500:5432 -e POSTGRES_PASSWORD=pgsmaster -v $(pwd)/pgsmaster:/var/lib/postgresql/data -d postgres 1.2 从">
-<meta name="twitter:image" content="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018627/WeChat截圖_20180627105655.png">
+<meta name="twitter:image" content="https://image.mariojd.cn/smallstory/2018627/WeChat截圖_20180627105655.png">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -181,11 +181,11 @@
 </ul>
 <h4 id="4-3-先后启动主库、从库服务"><a href="#4-3-先后启动主库、从库服务" class="headerlink" title="4.3 先后启动主库、从库服务"></a>4.3 先后启动主库、从库服务</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker start pgsmaster </span><br><span class="line">docker start pgsslave</span><br></pre></td></tr></table></figure>
 <h4 id="4-4-连接测试"><a href="#4-4-连接测试" class="headerlink" title="4.4 连接测试"></a>4.4 连接测试</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// 进入主库容器</span><br><span class="line">docker exec -it pgsmaster bash</span><br><span class="line">// 查看复制状态</span><br><span class="line">psql -U postgres -x -c &quot;select * from pg_stat_replication;&quot;</span><br></pre></td></tr></table></figure>
-<p><img src="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018627/WeChat截圖_20180627105655.png" alt="查看复制状态"></p>
+<p><img src="https://image.mariojd.cn/smallstory/2018627/WeChat截圖_20180627105655.png" alt="查看复制状态"></p>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年06月27日 11:12</p>
+        <p>最后更新： 2018年06月27日 11:15</p>
         <p>原始链接： <a class="post-url" href="/2018/06/21/Docker + PostgreSQL（10.1）主从环境搭建/" title="Docker + PostgreSQL（10.1）主从环境搭建">https://blog.mariojd.cn/2018/06/21/Docker + PostgreSQL（10.1）主从环境搭建/</a></p>
         <footer>
             <a href="https://blog.mariojd.cn">
@@ -243,7 +243,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.mariojd.cn/2018/06/21/Docker + PostgreSQL（10.1）主从环境搭建/&title=《Docker + PostgreSQL（10.1）主从环境搭建》 — happyJared - 博客&pic=http://p3ry9qsas.bkt.clouddn.com/201837/u=1782028824,1536037822&fm=27&gp=0.jpg "PostgreSQL with Docker"" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.mariojd.cn/2018/06/21/Docker + PostgreSQL（10.1）主从环境搭建/&title=《Docker + PostgreSQL（10.1）主从环境搭建》 — happyJared - 博客&pic=https://image.mariojd.cn/201837/u=1782028824,1536037822&fm=27&gp=0.jpg "PostgreSQL with Docker"" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>

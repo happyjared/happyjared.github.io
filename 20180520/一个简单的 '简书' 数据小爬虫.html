@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>一个简单的 &#39;简书&#39; 数据小爬虫 | happyJared - 博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="happyJared - 博客。编码爱好者，代码小洁癖。" />
+  
+  <meta name="description" content="写在前面&amp;emsp;&amp;emsp;说来也巧，之前有一次无意间留意到简书好像没有做文章总阅读量的统计（准确的说法应该叫展示），刚好最近有时间，趁这个机会就用Python写了这么个功能，既是学习也是练手。 展示效果&amp;emsp;&amp;emsp;再继续往下之前，先贴两张图看看最终的效果。第一张图片展示的是个人简书爬取后的数据，第二张可是大名鼎鼎简叔的简书数据。   &amp;emsp;&amp;emsp;两图一对比，果然这数">
+<meta name="keywords" content="python,spider">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一个简单的 &#39;简书&#39; 数据小爬虫">
+<meta property="og:url" content="https://blog.mariojd.cn/20180520/一个简单的 '简书' 数据小爬虫.html">
+<meta property="og:site_name" content="happyJared - 博客">
+<meta property="og:description" content="写在前面&amp;emsp;&amp;emsp;说来也巧，之前有一次无意间留意到简书好像没有做文章总阅读量的统计（准确的说法应该叫展示），刚好最近有时间，趁这个机会就用Python写了这么个功能，既是学习也是练手。 展示效果&amp;emsp;&amp;emsp;再继续往下之前，先贴两张图看看最终的效果。第一张图片展示的是个人简书爬取后的数据，第二张可是大名鼎鼎简叔的简书数据。   &amp;emsp;&amp;emsp;两图一对比，果然这数">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://image.mariojd.cn/xsj/2018522/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180522191055.png">
+<meta property="og:image" content="https://image.mariojd.cn/xsj/2018522/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180522191129.png">
+<meta property="og:updated_time" content="2018-06-26T02:24:19.010Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="一个简单的 &#39;简书&#39; 数据小爬虫">
+<meta name="twitter:description" content="写在前面&amp;emsp;&amp;emsp;说来也巧，之前有一次无意间留意到简书好像没有做文章总阅读量的统计（准确的说法应该叫展示），刚好最近有时间，趁这个机会就用Python写了这么个功能，既是学习也是练手。 展示效果&amp;emsp;&amp;emsp;再继续往下之前，先贴两张图看看最终的效果。第一张图片展示的是个人简书爬取后的数据，第二张可是大名鼎鼎简叔的简书数据。   &amp;emsp;&amp;emsp;两图一对比，果然这数">
+<meta name="twitter:image" content="https://image.mariojd.cn/xsj/2018522/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180522191055.png">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?7d6076888c62ff336f5b580c57fd4141";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+  
+
+</head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <!--<div id="banner"></div>-->
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title"></span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-h-square"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-window-restore"></i>
+                        <span>归档</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <!--<div id="header-title">-->
+                    <!---->
+                <!--</div>-->
+                <div id="header-description">
+                    
+                    <h4>
+                        先做好写代码这事
+                    </h4>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="github" target="_blank" href="//github.com/happyjared">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="微博" target="_blank" href="//weibo.com/u/5633332995">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="简书" target="_blank" href="//www.jianshu.com/u/000a530f461c">
+                            <i class="fa fa-book fa-2x"></i></a>
+                    
+                        <a title="qq" target="_blank" href="//wpa.qq.com/msgrd?v=3&uin=1394223902&site=qq&menu=yes">
+                            <i class="fa fa-qq fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-一个简单的 &#39;简书&#39; 数据小爬虫" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      一个简单的 &#39;简书&#39; 数据小爬虫
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/Python/">Python</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-05-20
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <!--
+    self_category: Python
+    self_tags: python，spider
+    osChina_sys_category: 编程语言
+    csdn_article_category: 原创
+    csdn_blog_category: 编程语言
+-->
+<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>&emsp;&emsp;说来也巧，之前有一次无意间留意到<code>简书</code>好像没有做文章总阅读量的统计（准确的说法应该叫展示），刚好最近有时间，趁这个机会就用Python写了这么个功能，既是学习也是练手。</p>
+<h3 id="展示效果"><a href="#展示效果" class="headerlink" title="展示效果"></a>展示效果</h3><p>&emsp;&emsp;再继续往下之前，先贴两张图看看最终的效果。第一张图片展示的是<a href="https://www.jianshu.com/u/000a530f461c" target="_blank" rel="noopener">个人简书</a>爬取后的<a href="http://120.77.250.15:8002/000a530f461c" target="_blank" rel="noopener">数据</a>，第二张可是大名鼎鼎<a href="https://www.jianshu.com/u/y3Dbcz" target="_blank" rel="noopener">简叔</a>的<a href="http://120.77.250.15:8002/y3Dbcz" target="_blank" rel="noopener">简书数据</a>。</p>
+<p><img src="https://image.mariojd.cn/xsj/2018522/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180522191055.png" alt="个人简书数据" title="个人简书数据"></p>
+<p><img src="https://image.mariojd.cn/xsj/2018522/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180522191129.png" alt="&#39;简叔&#39;简书数据" title="&#39;简叔&#39;简书数据"></p>
+<p>&emsp;&emsp;两图一对比，果然这数量和质量都不是一个等级的，不过后生会继续努力的。写了两个多月的博客了，没想到也有一千多的阅读量了，这是算喜还是算忧呢？哈哈，总之感觉还是蛮欣慰的。</p>
+<h3 id="环境说明"><a href="#环境说明" class="headerlink" title="环境说明"></a>环境说明</h3><ul>
+<li>python v3.6.4</li>
+<li>webpy v0.40-dev1</li>
+<li>要求有一定的Python基础</li>
+</ul>
+<h3 id="开发搭建"><a href="#开发搭建" class="headerlink" title="开发搭建"></a>开发搭建</h3><p>&emsp;&emsp;项目中用到的第三方module主要包括<code>Requests</code>、<code>BeautifulSoup</code>和<code>Numpy</code>，因为另外两个安装都比较顺利，所以这里只记录一下安装<code>BeautifulSoup</code>和遇到的问题。</p>
+<h4 id="pip安装"><a href="#pip安装" class="headerlink" title="pip安装"></a>pip安装</h4><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">pip install beautifulsoup4 <span class="comment"># 安装Beautifulsoup</span></span><br><span class="line">pip install beautifulsoup4 upgrade <span class="comment"># 升级Beautifulsoup</span></span><br><span class="line">pip uninstall beautifulsoup4 <span class="comment"># 卸载Beautifulsoup</span></span><br></pre></td></tr></table></figure>
+<h4 id="直接下载"><a href="#直接下载" class="headerlink" title="直接下载"></a>直接下载</h4><p>&emsp;&emsp;地址：<a href="https://www.crummy.com/software/BeautifulSoup/bs4/download/" target="_blank" rel="noopener">https://www.crummy.com/software/BeautifulSoup/bs4/download/</a> 。下载好后把解压文件夹下的<code>bs4</code>文件夹直接拷贝到python安装目录的<code>Lib</code>下即可。（如果此方法无效，请尝试重新进入解压文件夹下，使用命令<code>python setup.py build</code>和<code>python setup.py install</code>，然后再拷贝复制<code>bs4</code>文件夹）</p>
+<h4 id="问题还原"><a href="#问题还原" class="headerlink" title="问题还原"></a>问题还原</h4><p> &emsp;&emsp;本以为安装好Beautifulsoup后就可以了，没想到在实际运行的时候出现了下面这个问题，如果你在使用的过程中也出现了同样的问题，可以参考如下解决过程。</p>
+<blockquote>
+<p>&emsp;&emsp; You are trying to run the Python 2 version of Beautiful Soup under Python 3. This will not work.’&lt;&gt;’You need to convert the code, either by installing it (<code>python setup.py install</code>) or by running 2to3 (<code>2to3 -w bs4</code>).</p>
+</blockquote>
+<p>&emsp;&emsp;说明： bs4需要通过python自带的工具2to3.py转化为python3下的文件，这个工具在python安装目录的<code>Tools\scripts</code>中（PS：其他库出现这种情况应该也可以这样解决）。具体命令：<code>python D:\python36\Tools\scripts\2to3.py -w bs4</code>，如果该命令出现执行错误的情况，可以尝试进入python安装目录下的<code>Lib\bs4</code>中再执行。</p>
+<h3 id="其它问题"><a href="#其它问题" class="headerlink" title="其它问题"></a>其它问题</h3><p>&emsp;&emsp;1.使用webpy过程中，当渲染的模板 ( 大多是html ) 中带有中文的时候，出现了如下错误：</p>
+<blockquote>
+<p> &emsp;&emsp;File “D:\python36\lib\site-packages\web\template.py”, line 1052, in _load_template return Template(open(path).read(), filename=path, **self._keywords)<br>&emsp;&emsp;UnicodeDecodeError: ‘gbk’ codec can’t decode byte 0x80 in position 298: illegal multibyte sequence</p>
+</blockquote>
+<p>&emsp;&emsp;解决办法：直接点进去这个<code>template.py</code>，然后修改代码<code>return Template(open(path).read(), filename=path, **self._keywords)</code>为<code>return Template(open(path, encoding=&#39;utf-8&#39;).read(), filename=path, **self._keywords)</code>，也就是添加<code>encoding=&#39;utf-8&#39;</code>，详细可以查看这个<a href="https://github.com/webpy/webpy/pull/400" target="_blank" rel="noopener">GitHub PR</a>。</p>
+<p>&emsp;&emsp;2.页面请求后显示<code>IndentationError</code>，错误信息如下：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"D:\python36\lib\site-packages\web\application.py"</span>, line <span class="number">257</span>, <span class="keyword">in</span> process</span><br><span class="line">    <span class="keyword">return</span> self.handle()</span><br><span class="line">  File <span class="string">"D:\python36\lib\site-packages\web\application.py"</span>, line <span class="number">248</span>, <span class="keyword">in</span> handle</span><br><span class="line">    <span class="keyword">return</span> self._delegate(fn, self.fvars, args)</span><br><span class="line">  File <span class="string">"D:\python36\lib\site-packages\web\application.py"</span>, line <span class="number">488</span>, <span class="keyword">in</span> _delegate</span><br><span class="line">    <span class="keyword">return</span> handle_class(cls)</span><br><span class="line">  File <span class="string">"D:\python36\lib\site-packages\web\application.py"</span>, line <span class="number">466</span>, <span class="keyword">in</span> handle_class</span><br><span class="line">    <span class="keyword">return</span> tocall(*args)</span><br><span class="line">  File <span class="string">"D:/PyCharmProjects/jianshu\webCount.py"</span>, line <span class="number">16</span>, <span class="keyword">in</span> GET</span><br><span class="line">    <span class="keyword">return</span> render.data(read_count)</span><br><span class="line">  File <span class="string">"D:\python36\lib\site-packages\web\template.py"</span>, line <span class="number">1070</span>, <span class="keyword">in</span> __getattr__</span><br><span class="line">    t = self._template(name)</span><br><span class="line">  File <span class="string">"D:\python36\lib\site-packages\web\template.py"</span>, line <span class="number">1067</span>, <span class="keyword">in</span> _template</span><br><span class="line">    <span class="keyword">return</span> self._load_template(name)</span><br><span class="line">  File <span class="string">"D:\python36\lib\site-packages\web\template.py"</span>, line <span class="number">1052</span>, <span class="keyword">in</span> _load_template</span><br><span class="line">    <span class="keyword">return</span> Template(open(path, encoding=<span class="string">'utf-8'</span>).read(), filename=path, **self._keywords)</span><br><span class="line">  File <span class="string">"D:\python36\lib\site-packages\web\template.py"</span>, line <span class="number">903</span>, <span class="keyword">in</span> __init__</span><br><span class="line">    code = self.compile_template(text, filename)</span><br><span class="line">  File <span class="string">"D:\python36\lib\site-packages\web\template.py"</span>, line <span class="number">970</span>, <span class="keyword">in</span> compile_template</span><br><span class="line">    compiled_code = compile(code, filename, <span class="string">'exec'</span>)</span><br><span class="line">  File <span class="string">"templates\data.html"</span>, line <span class="number">32</span></span><br><span class="line">    extend_([<span class="string">'&lt;header class="text-white text-center" style="padding-top: 5rem;"&gt;\n'</span>])</span><br><span class="line">          ^</span><br><span class="line">IndentationError: expected an indented block</span><br><span class="line"></span><br><span class="line">Template traceback:</span><br><span class="line">    File <span class="string">'templates\\data.html'</span>, line <span class="number">32</span></span><br><span class="line">        <span class="keyword">None</span></span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;说明：模板渲染中，如果使用了webpy内置的python语法函数，那就有一定的格式要求，这种错误信息就是提示要注意缩进，语法定义和html之间保持缩进即可，参考如下：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">$if read_count.exit:</span><br><span class="line">	# 这两行之间的缩进是必需的</span><br><span class="line">    <span class="tag">&lt;<span class="name">header</span> <span class="attr">class</span>=<span class="string">"text-white text-center"</span> <span class="attr">style</span>=<span class="string">"padding-top: 5rem;"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">header</span>&gt;</span></span><br><span class="line">$else:</span><br><span class="line">    <span class="tag">&lt;<span class="name">b</span>&gt;</span>uid: $read_count.uid is not exit !<span class="tag">&lt;/<span class="name">b</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;3.页面请求后显示<code>SyntaxError</code>，错误信息如下：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"D:\python36\lib\site-packages\web\application.py"</span>, line <span class="number">257</span>, <span class="keyword">in</span> process</span><br><span class="line">    <span class="keyword">return</span> self.handle()</span><br><span class="line">  File <span class="string">"D:\python36\lib\site-packages\web\application.py"</span>, line <span class="number">248</span>, <span class="keyword">in</span> handle</span><br><span class="line">    <span class="keyword">return</span> self._delegate(fn, self.fvars, args)</span><br><span class="line">  File <span class="string">"D:\python36\lib\site-packages\web\application.py"</span>, line <span class="number">488</span>, <span class="keyword">in</span> _delegate</span><br><span class="line">    <span class="keyword">return</span> handle_class(cls)</span><br><span class="line">  File <span class="string">"D:\python36\lib\site-packages\web\application.py"</span>, line <span class="number">466</span>, <span class="keyword">in</span> handle_class</span><br><span class="line">    <span class="keyword">return</span> tocall(*args)</span><br><span class="line">  File <span class="string">"D:/PyCharmProjects/jianshu\webCount.py"</span>, line <span class="number">16</span>, <span class="keyword">in</span> GET</span><br><span class="line">    <span class="keyword">return</span> render.data(read_count)</span><br><span class="line">  File <span class="string">"D:\python36\lib\site-packages\web\template.py"</span>, line <span class="number">1070</span>, <span class="keyword">in</span> __getattr__</span><br><span class="line">    t = self._template(name)</span><br><span class="line">  File <span class="string">"D:\python36\lib\site-packages\web\template.py"</span>, line <span class="number">1067</span>, <span class="keyword">in</span> _template</span><br><span class="line">    <span class="keyword">return</span> self._load_template(name)</span><br><span class="line">  File <span class="string">"D:\python36\lib\site-packages\web\template.py"</span>, line <span class="number">1052</span>, <span class="keyword">in</span> _load_template</span><br><span class="line">    <span class="keyword">return</span> Template(open(path, encoding=<span class="string">'utf-8'</span>).read(), filename=path, **self._keywords)</span><br><span class="line">  File <span class="string">"D:\python36\lib\site-packages\web\template.py"</span>, line <span class="number">903</span>, <span class="keyword">in</span> __init__</span><br><span class="line">    code = self.compile_template(text, filename)</span><br><span class="line">  File <span class="string">"D:\python36\lib\site-packages\web\template.py"</span>, line <span class="number">970</span>, <span class="keyword">in</span> compile_template</span><br><span class="line">    compiled_code = compile(code, filename, <span class="string">'exec'</span>)</span><br><span class="line">  File <span class="string">"templates\data.html"</span>, line <span class="number">31</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">with</span> <span class="params">(read_count)</span></span></span><br><span class="line"><span class="function">           ^</span></span><br><span class="line"><span class="function"><span class="title">SyntaxError</span>:</span> invalid syntax</span><br><span class="line"></span><br><span class="line">Template traceback:</span><br><span class="line">    File <span class="string">'templates\\data.html'</span>, line <span class="number">31</span></span><br><span class="line">        <span class="keyword">None</span></span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;说明：碰到这种错误提示，需要检查是否将渲染参数（对象）的定义放到了模板的最顶部，参考如下：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">$def with (read_count)</span><br><span class="line"># 上面这段定义要在最顶部</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"zh-CN"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"># 省略这部分信息</span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"># 省略这部分信息</span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="程序代码"><a href="#程序代码" class="headerlink" title="程序代码"></a>程序代码</h3><p>&emsp;&emsp;一些必要的说明在编码的时候我就写在注释里了，大家还是直接看代码吧。</p>
+<ul>
+<li>readCount.py：核心功能是抓取简书用户的数据</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> numpy</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> multiprocessing</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 简书用户的文章阅读总量统计</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ReadCount</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="comment"># 数据初始化</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, uid)</span>:</span></span><br><span class="line">        self.headers = &#123;</span><br><span class="line">            <span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) '</span></span><br><span class="line">                          <span class="string">'Chrome/66.0.3359.139 Safari/537.36'</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment"># uid</span></span><br><span class="line">        self.uid = uid</span><br><span class="line">        <span class="comment"># 昵称</span></span><br><span class="line">        self.nickname = <span class="string">''</span></span><br><span class="line">        <span class="comment"># 头像</span></span><br><span class="line">        self.avatar = <span class="string">''</span></span><br><span class="line">        <span class="comment"># 总发表文章数</span></span><br><span class="line">        self.articles = <span class="number">0</span></span><br><span class="line">        <span class="comment"># 文章总阅读数</span></span><br><span class="line">        self.total_reading = <span class="number">0</span></span><br><span class="line">        <span class="comment"># 关注人数</span></span><br><span class="line">        self.watch = <span class="number">0</span></span><br><span class="line">        <span class="comment"># 粉丝人数</span></span><br><span class="line">        self.fans = <span class="number">0</span></span><br><span class="line">        <span class="comment"># 写作字数</span></span><br><span class="line">        self.words = <span class="number">0</span></span><br><span class="line">        <span class="comment"># 收货喜欢数</span></span><br><span class="line">        self.likes = <span class="number">0</span></span><br><span class="line">        <span class="comment"># 查询总耗时</span></span><br><span class="line">        self.time = <span class="number">0</span></span><br><span class="line">        <span class="comment"># 用户是否存在的标志</span></span><br><span class="line">        self.exit = <span class="keyword">True</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 判断用户是否存在。存在则抓取并统计数据，否则修改exit标志</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">count</span><span class="params">(self)</span>:</span></span><br><span class="line">        start = time.time()</span><br><span class="line">        url = <span class="string">'https://www.jianshu.com/u/'</span> + self.uid</span><br><span class="line">        <span class="comment"># print(url)</span></span><br><span class="line">        resp = requests.get(url, headers=self.headers)</span><br><span class="line">        <span class="keyword">if</span> resp.status_code == <span class="number">200</span>:</span><br><span class="line">            bs = BeautifulSoup(resp.content, <span class="string">'html.parser'</span>, from_encoding=<span class="string">'UTF-8'</span>)</span><br><span class="line"></span><br><span class="line">            <span class="comment"># 头像</span></span><br><span class="line">            avatar = bs.find(class_=<span class="string">'avatar'</span>)</span><br><span class="line">            self.avatar = <span class="string">'https:'</span> + avatar.img[<span class="string">'src'</span>]</span><br><span class="line"></span><br><span class="line">            <span class="comment"># 昵称</span></span><br><span class="line">            nickname = bs.find(class_=<span class="string">'name'</span>)</span><br><span class="line">            self.nickname = nickname.text</span><br><span class="line"></span><br><span class="line">            meta_block = bs.find_all(class_=<span class="string">'meta-block'</span>)</span><br><span class="line">            <span class="comment"># 关注数</span></span><br><span class="line">            self.watch = int(meta_block[<span class="number">0</span>].a.p.text)</span><br><span class="line">            <span class="comment"># 粉丝数</span></span><br><span class="line">            self.fans = int(meta_block[<span class="number">1</span>].a.p.text)</span><br><span class="line">            <span class="comment"># 总发表文章数</span></span><br><span class="line">            self.articles = int(meta_block[<span class="number">2</span>].a.p.text)</span><br><span class="line">            <span class="comment"># 写作字数</span></span><br><span class="line">            self.words = int(meta_block[<span class="number">3</span>].p.text)</span><br><span class="line">            <span class="comment"># 收获喜欢数</span></span><br><span class="line">            self.likes = int(meta_block[<span class="number">4</span>].p.text)</span><br><span class="line">            <span class="keyword">if</span> self.articles != <span class="number">0</span>:</span><br><span class="line">                <span class="comment"># print(self.articles)</span></span><br><span class="line">                meta = bs.find_all(class_=<span class="string">'meta'</span>)</span><br><span class="line">                <span class="comment"># 每页展示文章数</span></span><br><span class="line">                page_articles = len(meta)</span><br><span class="line">                <span class="comment"># print(page_articles)</span></span><br><span class="line">                <span class="comment"># 文章展示总页数</span></span><br><span class="line">                pages = int(math.ceil(self.articles / page_articles)) + <span class="number">1</span></span><br><span class="line">                <span class="comment"># 用多线程统计</span></span><br><span class="line">                cpu_count = multiprocessing.cpu_count()</span><br><span class="line">                <span class="comment"># print(cpu_count)</span></span><br><span class="line">                pool = multiprocessing.Pool(cpu_count)</span><br><span class="line">                <span class="comment"># 从第一页开始</span></span><br><span class="line">                page = range(<span class="number">1</span>, pages)</span><br><span class="line">                <span class="comment"># 包含每页阅读量的列表</span></span><br><span class="line">                page_reading_list = pool.map(self.page_count, page)</span><br><span class="line">                <span class="comment"># print(page_reading_list)</span></span><br><span class="line">                self.total_reading = numpy.sum(page_reading_list)</span><br><span class="line">                <span class="comment"># print('用户：%s 总发表文章数为：%d , 文章总阅读量为: %s' % (input_uid, self.articles, self.total_reading))</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            self.exit = <span class="keyword">False</span></span><br><span class="line">            <span class="comment"># print('用户：%s 不存在' % input_uid)</span></span><br><span class="line">        end = time.time()</span><br><span class="line">        self.time = int(end - start)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 每页的阅读量统计</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">page_count</span><span class="params">(self, page)</span>:</span></span><br><span class="line">        url = <span class="string">'https://www.jianshu.com/u/'</span> + self.uid + <span class="string">'?page='</span> + str(page)</span><br><span class="line">        <span class="comment"># print(url)</span></span><br><span class="line">        resp = requests.get(url, headers=self.headers)</span><br><span class="line">        bs = BeautifulSoup(resp.content, <span class="string">'html.parser'</span>, from_encoding=<span class="string">'UTF-8'</span>)</span><br><span class="line">        divs = bs.find_all(class_=<span class="string">'meta'</span>)</span><br><span class="line">        page_reading = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> div <span class="keyword">in</span> divs:</span><br><span class="line">            page_reading += int(div.a.text)</span><br><span class="line">        <span class="keyword">return</span> page_reading</span><br></pre></td></tr></table></figure>
+<ul>
+<li>webCount.py：web支持和入口类，包括调用<code>readCount</code>并进行数据渲染</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> web</span><br><span class="line"><span class="keyword">import</span> readCount</span><br><span class="line"></span><br><span class="line"><span class="comment"># 第一个是映射规则，第二个是具体匹配的类</span></span><br><span class="line">urls = (<span class="string">'/(.*)'</span>, <span class="string">'Hello'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 指定模板所在的位置</span></span><br><span class="line">render = web.template.render(<span class="string">'templates/'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Hello</span>:</span></span><br><span class="line"><span class="meta">    @staticmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">GET</span><span class="params">(uid)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> uid:</span><br><span class="line">            uid = <span class="string">'000a530f461c'</span></span><br><span class="line">        read_count = readCount.ReadCount(uid)</span><br><span class="line">        read_count.count()</span><br><span class="line">        <span class="comment"># data是渲染模板的名称</span></span><br><span class="line">        <span class="keyword">return</span> render.data(read_count)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    app = web.application(urls, globals())</span><br><span class="line">    app.run()</span><br></pre></td></tr></table></figure>
+<ul>
+<li>data.html：处理数据和渲染展示</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">$def with (read_count)</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"zh-CN"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span></span></span><br><span class="line"><span class="tag">          <span class="attr">content</span>=<span class="string">"width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"ie=edge"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>简书数据统计<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- Bootstrap --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- Custom styles for this template --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"https://blackrockdigital.github.io/startbootstrap-freelancer/css/freelancer.min.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">        .self-text &#123;</span></span><br><span class="line"><span class="undefined">            color: rgba(255, 254, 21, 0.96);</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        .self-text2 &#123;</span></span><br><span class="line"><span class="undefined">            color: rgba(255, 58, 2, 0.96);</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">        .self-a &#123;</span></span><br><span class="line"><span class="undefined">            color: rgba(255, 58, 2, 0.96);</span></span><br><span class="line"><span class="undefined">            font-size: 2.5rem;</span></span><br><span class="line"><span class="undefined">            text-underline: none;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 --&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--[if lt IE 9]&gt;</span></span><br><span class="line"><span class="comment">    &lt;script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="comment">    &lt;script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="comment">    &lt;![endif]--&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">class</span>=<span class="string">"bg-primary"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">header</span> <span class="attr">class</span>=<span class="string">"text-white text-center"</span> <span class="attr">style</span>=<span class="string">"padding-top: 5rem;"</span>&gt;</span></span><br><span class="line">$if read_count.exit:</span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">"img-fluid mb-5 d-block mx-auto img-circle"</span> <span class="attr">src</span>=<span class="string">"$read_count.avatar"</span> <span class="attr">alt</span>=<span class="string">"avatar"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h2</span> <span class="attr">class</span>=<span class="string">"mb-0"</span>&gt;</span>$read_count.nickname<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">hr</span> <span class="attr">class</span>=<span class="string">"star-light"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h4</span> <span class="attr">class</span>=<span class="string">"font-weight-light mb-0"</span>&gt;</span></span><br><span class="line">            关注 : <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"self-text"</span>&gt;</span>$read_count.watch<span class="tag">&lt;/<span class="name">span</span>&gt;</span> 人 -</span><br><span class="line">            粉丝 : <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"self-text"</span>&gt;</span>$read_count.fans<span class="tag">&lt;/<span class="name">span</span>&gt;</span> 人 -</span><br><span class="line">            文章 : <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"self-text"</span>&gt;</span>$read_count.articles<span class="tag">&lt;/<span class="name">span</span>&gt;</span> 篇 <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">            写作 : <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"self-text"</span>&gt;</span>$read_count.words<span class="tag">&lt;/<span class="name">span</span>&gt;</span> 字 -</span><br><span class="line">            收获喜欢 : <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"self-text"</span>&gt;</span>$read_count.likes<span class="tag">&lt;/<span class="name">span</span>&gt;</span> 次 -</span><br><span class="line">            总阅读量 : <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"self-text2"</span>&gt;</span>$read_count.total_reading<span class="tag">&lt;/<span class="name">span</span>&gt;</span> 次 -</span><br><span class="line">            查询总耗时 ：<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"self-text2"</span>&gt;</span>$read_count.time<span class="tag">&lt;/<span class="name">span</span>&gt;</span> 秒</span><br><span class="line">        <span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">$else:</span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span> <span class="attr">class</span>=<span class="string">"self-text2"</span>&gt;</span>404<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">hr</span> <span class="attr">class</span>=<span class="string">"star-light"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h4</span>&gt;</span>用户不存在 , 您可以尝试下搜下面这些人<span class="tag">&lt;/<span class="name">h4</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h4</span> <span class="attr">class</span>=<span class="string">"font-weight-light mb-0"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"self-a"</span> <span class="attr">href</span>=<span class="string">"/000a530f461c"</span>&gt;</span>a. happyJared<span class="tag">&lt;/<span class="name">a</span>&gt;</span> -</span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"self-a"</span> <span class="attr">href</span>=<span class="string">"/y3Dbcz"</span>&gt;</span>b. 简叔<span class="tag">&lt;/<span class="name">a</span>&gt;</span> -</span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"self-a"</span> <span class="attr">href</span>=<span class="string">"/d9edcb44e2f2"</span>&gt;</span>c. 简黛玉<span class="tag">&lt;/<span class="name">a</span>&gt;</span> -</span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"self-a"</span> <span class="attr">href</span>=<span class="string">"/1441f4ae075d"</span>&gt;</span>d. 彭小六<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">header</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="启动测试"><a href="#启动测试" class="headerlink" title="启动测试"></a>启动测试</h3><p>&emsp;&emsp;webpy启动的命令是：<code>python webCount.py {port}</code>。其中，端口不是必须的，默认是运行在8080。以上程序已经跑在个人的服务器上，<a href="http://120.77.250.15:8002/" target="_blank" rel="noopener">测试地址</a>是：<a href="http://120.77.250.15:8002/{uid}" target="_blank" rel="noopener">http://120.77.250.15:8002/{uid}</a> ，这里<code>uid</code>是用户的唯一标志（非必填有默认值），你也可以通过在个人主页的地址栏中获取自己的。</p>
+<h3 id="结尾总结"><a href="#结尾总结" class="headerlink" title="结尾总结"></a>结尾总结</h3><p>&emsp;&emsp;不得不感慨，Python能做的领域确实很广，关键是代码量又少。像写个自动化脚本，It can；写个小爬虫，It can；写个web应用，It can；…这也是为什么一直想把Python当做我的第二门编程语言。这次写这个简书小爬虫也是一波三折，来来回回也折腾了差不多一天时间，还是基础不够扎实，代码不够熟练。写完代码后也有仔细想过，觉得有机会有时间的话还可以做得更细一点，就像大数据分析一样，同样也是一个个用户数据慢慢堆起来的，所以目前来看还可以考虑扩展以下几点：</p>
+<ul>
+<li>获得用户加入简书的时间（假设以第一篇文章发表时间为参考）</li>
+<li>通过用户发表的总文章数，获取用户平均每年、每月发表多少文章数</li>
+<li>最高阅读量、打赏数、喜欢数、留言量的文章</li>
+<li>统计用户获得的总打赏笔数</li>
+<li>当前用户发表文章最活跃的时间段</li>
+<li>至今为止加入简书多少天</li>
+<li>最后一次发表文章的时间</li>
+<li>评论总数</li>
+<li>……</li>
+</ul>
+<p>&emsp;&emsp;如果真完成了以上的扩展，像我的话肯定会趁机再扩展学习下Python的图表库，像<code>matplotlib</code>；或者使用<code>ECharts</code>、<code>HighCharts</code>、<code>D3</code>这样的前端报表库，相信这样会让这些数据显得更加的生动。大概也就这么多吧，本人目前也已经辞职近一个月了（时间过得真TM快，转眼就毕业了），刚好最近也在着手准备找下一份工作，按计划会先写一个招聘平台（主要是拉钩和Boss）的关键字筛选小爬虫，也算是帮助筛选一部分的求职公司，我瞄准的关键字是：“健身房”，就是不知道真的有没有这么幸运，感兴趣的敬请期待。</p>
+<blockquote>
+<p>注：以上所有程序代码已经发布到我的<a href="https://github.com/happyjared/jianshu-count" target="_blank" rel="noopener">GitHub仓库</a></p>
+</blockquote>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年06月26日 10:24</p>
+        <p>原始链接： <a class="post-url" href="/20180520/一个简单的 '简书' 数据小爬虫.html" title="一个简单的 &#39;简书&#39; 数据小爬虫">https://blog.mariojd.cn/20180520/一个简单的 &#39;简书&#39; 数据小爬虫.html</a></p>
+        <footer>
+            <a href="https://blog.mariojd.cn">
+                <img src="/images/logo.png" alt="Jared Qiu">
+                Jared Qiu
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赞赏支持
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.mariojd.cn/20180520/一个简单的 '简书' 数据小爬虫.html&title=《一个简单的 '简书' 数据小爬虫》 — happyJared - 博客&pic=https://image.mariojd.cn/xsj/2018522/spidernetworks.jpg "spidernetworks"" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mariojd.cn/20180520/一个简单的 '简书' 数据小爬虫.html&title=《一个简单的 '简书' 数据小爬虫》 — happyJared - 博客&source=Java developer, like Python and javascript，为人乐观、积极、向上、勤奋、和善、好相处，讲卫生，爱学习，爱码字，爱..." data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.mariojd.cn/20180520/一个简单的 '简书' 数据小爬虫.html" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《一个简单的 '简书' 数据小爬虫》 — happyJared - 博客&url=https://blog.mariojd.cn/20180520/一个简单的 '简书' 数据小爬虫.html&via=https://blog.mariojd.cn" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://blog.mariojd.cn/20180520/一个简单的 '简书' 数据小爬虫.html" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://blog.mariojd.cn/20180520/一个简单的 '简书' 数据小爬虫.html" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/python/" class="color2">python</a>
+      
+    <a href="/tags/spider/" class="color2">spider</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#写在前面"><span class="post-toc-text">写在前面</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#展示效果"><span class="post-toc-text">展示效果</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#环境说明"><span class="post-toc-text">环境说明</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#开发搭建"><span class="post-toc-text">开发搭建</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#pip安装"><span class="post-toc-text">pip安装</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#直接下载"><span class="post-toc-text">直接下载</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#问题还原"><span class="post-toc-text">问题还原</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#其它问题"><span class="post-toc-text">其它问题</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#程序代码"><span class="post-toc-text">程序代码</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#启动测试"><span class="post-toc-text">启动测试</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#结尾总结"><span class="post-toc-text">结尾总结</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/20180614/Intellij IDEA 神器那些让人爱不释手的小技巧（转载）.html" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          Intellij IDEA 神器那些让人爱不释手的小技巧（转载）
+        
+      </span>
+    </a>
+  
+  
+    <a href="/20180519/Python + Selenium 自动发布文章（四）：加入 bat 脚本.html" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Python + Selenium 自动发布文章（四）：加入 bat 脚本</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        <div id="SOHUCS" sid="一个简单的 &#39;简书&#39; 数据小爬虫" ></div>
+<script type="text/javascript">
+    (function(){
+        var appid = 'cytsi4W0L';
+        var conf = 'prod_302a63175740fd2ee2587f9345477b4c';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+    <span style='margin-left:5px'>
+    	粤ICP备17033077号-1
+    </span>
+</p>
+
+ 
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+        &copy; 2018 Jared Qiu 
+		Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a><br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "https://blog.mariojd.cn",
+      animate: false,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/Chocolatey/">Chocolatey</a><a class="category-link" href="/categories/Docker/">Docker</a><a class="category-link" href="/categories/Docker/MySQL/">MySQL</a><a class="category-link" href="/categories/Docker/PostgreSQL/">PostgreSQL</a><a class="category-link" href="/categories/IDEA/">IDEA</a><a class="category-link" href="/categories/Java/">Java</a><a class="category-link" href="/categories/Java/Lombok/">Lombok</a><a class="category-link" href="/categories/Java/Spring-Boot/">Spring Boot</a><a class="category-link" href="/categories/Java/Spring-Boot/Swagger/">Swagger</a><a class="category-link" href="/categories/Java/热部署/">热部署</a><a class="category-link" href="/categories/Jmeter/">Jmeter</a><a class="category-link" href="/categories/Python/">Python</a><a class="category-link" href="/categories/Python/Selenium/">Selenium</a><a class="category-link" href="/categories/Python/Selenium/Windows-Batch/">Windows Batch</a><a class="category-link" href="/categories/Spring/">Spring</a><a class="category-link" href="/categories/hexo/">hexo</a><a class="category-link" href="/categories/websocket/">websocket</a><a class="category-link" href="/categories/学习资源/">学习资源</a><a class="category-link" href="/categories/开源/">开源</a><a class="category-link" href="/categories/开源/YApi/">YApi</a><a class="category-link" href="/categories/开源/YApi/Swagger/">Swagger</a><a class="category-link" href="/categories/开源项目/">开源项目</a><a class="category-link" href="/categories/抓包工具/">抓包工具</a><a class="category-link" href="/categories/数据库中间件/">数据库中间件</a><a class="category-link" href="/categories/数据库中间件/Mycat/">Mycat</a><a class="category-link" href="/categories/编辑器/">编辑器</a><a class="category-link" href="/categories/编辑器/个人感悟/">个人感悟</a><a class="category-link" href="/categories/编辑器/快捷键/">快捷键</a><a class="category-link" href="/categories/随笔/">随笔</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/AcpectJ/" style="font-size: 10px;">AcpectJ</a> <a href="/tags/Aop/" style="font-size: 10px;">Aop</a> <a href="/tags/Chocolatey/" style="font-size: 10px;">Chocolatey</a> <a href="/tags/Eclipse/" style="font-size: 11.43px;">Eclipse</a> <a href="/tags/Fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/tags/GitHub-Pages/" style="font-size: 11.43px;">GitHub Pages</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDEA/" style="font-size: 20px;">IDEA</a> <a href="/tags/Java/" style="font-size: 17.14px;">Java</a> <a href="/tags/Java类库/" style="font-size: 10px;">Java类库</a> <a href="/tags/JetBrains/" style="font-size: 18.57px;">JetBrains</a> <a href="/tags/Jmeter/" style="font-size: 12.86px;">Jmeter</a> <a href="/tags/Lombok/" style="font-size: 10px;">Lombok</a> <a href="/tags/Mycat/" style="font-size: 14.29px;">Mycat</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/RestTemplate/" style="font-size: 10px;">RestTemplate</a> <a href="/tags/Spring/" style="font-size: 11.43px;">Spring</a> <a href="/tags/Spring-Boot/" style="font-size: 11.43px;">Spring Boot</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/bat/" style="font-size: 10px;">bat</a> <a href="/tags/bat脚本/" style="font-size: 10px;">bat脚本</a> <a href="/tags/chrome-plugin/" style="font-size: 10px;">chrome plugin</a> <a href="/tags/csdn/" style="font-size: 10px;">csdn</a> <a href="/tags/docker/" style="font-size: 12.86px;">docker</a> <a href="/tags/hexo/" style="font-size: 12.86px;">hexo</a> <a href="/tags/hexo-themes/" style="font-size: 10px;">hexo themes</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/http-s/" style="font-size: 10px;">http(s)</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/jvm/" style="font-size: 10px;">jvm</a> <a href="/tags/mysql/" style="font-size: 12.86px;">mysql</a> <a href="/tags/nginx/" style="font-size: 11.43px;">nginx</a> <a href="/tags/oschina/" style="font-size: 10px;">oschina</a> <a href="/tags/postgresql/" style="font-size: 11.43px;">postgresql</a> <a href="/tags/python/" style="font-size: 15.71px;">python</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/selenium/" style="font-size: 14.29px;">selenium</a> <a href="/tags/spider/" style="font-size: 10px;">spider</a> <a href="/tags/spring-boot/" style="font-size: 10px;">spring boot</a> <a href="/tags/swagger/" style="font-size: 11.43px;">swagger</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/vimium/" style="font-size: 10px;">vimium</a> <a href="/tags/websocket/" style="font-size: 10px;">websocket</a> <a href="/tags/ws-s/" style="font-size: 10px;">ws(s)</a> <a href="/tags/wss/" style="font-size: 10px;">wss</a> <a href="/tags/yapi/" style="font-size: 10px;">yapi</a> <a href="/tags/《Spring-in-action》/" style="font-size: 10px;">《Spring in action》</a> <a href="/tags/个人博客/" style="font-size: 11.43px;">个人博客</a> <a href="/tags/个人感悟/" style="font-size: 11.43px;">个人感悟</a> <a href="/tags/主从复制/" style="font-size: 11.43px;">主从复制</a> <a href="/tags/主从搭建/" style="font-size: 11.43px;">主从搭建</a> <a href="/tags/代理调试/" style="font-size: 10px;">代理调试</a> <a href="/tags/入门篇/" style="font-size: 10px;">入门篇</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/压测工具/" style="font-size: 12.86px;">压测工具</a> <a href="/tags/学习资源/" style="font-size: 11.43px;">学习资源</a> <a href="/tags/实践篇/" style="font-size: 11.43px;">实践篇</a> <a href="/tags/开源/" style="font-size: 10px;">开源</a> <a href="/tags/开源博客/" style="font-size: 11.43px;">开源博客</a> <a href="/tags/开源项目/" style="font-size: 11.43px;">开源项目</a> <a href="/tags/微信授权/" style="font-size: 10px;">微信授权</a> <a href="/tags/数据库中间件/" style="font-size: 14.29px;">数据库中间件</a> <a href="/tags/热部署/" style="font-size: 10px;">热部署</a> <a href="/tags/简书/" style="font-size: 10px;">简书</a> <a href="/tags/编辑器/" style="font-size: 20px;">编辑器</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a> <a href="/tags/读写分离/" style="font-size: 11.43px;">读写分离</a> <a href="/tags/跑步/" style="font-size: 10px;">跑步</a> <a href="/tags/配置篇/" style="font-size: 10px;">配置篇</a> <a href="/tags/钉钉运动/" style="font-size: 10px;">钉钉运动</a> <a href="/tags/阿里技术/" style="font-size: 10px;">阿里技术</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-h-square"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-window-restore"></i><span>归档</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/AcpectJ/" style="font-size: 10px;">AcpectJ</a> <a href="/tags/Aop/" style="font-size: 10px;">Aop</a> <a href="/tags/Chocolatey/" style="font-size: 10px;">Chocolatey</a> <a href="/tags/Eclipse/" style="font-size: 11.43px;">Eclipse</a> <a href="/tags/Fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/tags/GitHub-Pages/" style="font-size: 11.43px;">GitHub Pages</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDEA/" style="font-size: 20px;">IDEA</a> <a href="/tags/Java/" style="font-size: 17.14px;">Java</a> <a href="/tags/Java类库/" style="font-size: 10px;">Java类库</a> <a href="/tags/JetBrains/" style="font-size: 18.57px;">JetBrains</a> <a href="/tags/Jmeter/" style="font-size: 12.86px;">Jmeter</a> <a href="/tags/Lombok/" style="font-size: 10px;">Lombok</a> <a href="/tags/Mycat/" style="font-size: 14.29px;">Mycat</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/RestTemplate/" style="font-size: 10px;">RestTemplate</a> <a href="/tags/Spring/" style="font-size: 11.43px;">Spring</a> <a href="/tags/Spring-Boot/" style="font-size: 11.43px;">Spring Boot</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/bat/" style="font-size: 10px;">bat</a> <a href="/tags/bat脚本/" style="font-size: 10px;">bat脚本</a> <a href="/tags/chrome-plugin/" style="font-size: 10px;">chrome plugin</a> <a href="/tags/csdn/" style="font-size: 10px;">csdn</a> <a href="/tags/docker/" style="font-size: 12.86px;">docker</a> <a href="/tags/hexo/" style="font-size: 12.86px;">hexo</a> <a href="/tags/hexo-themes/" style="font-size: 10px;">hexo themes</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/http-s/" style="font-size: 10px;">http(s)</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/jvm/" style="font-size: 10px;">jvm</a> <a href="/tags/mysql/" style="font-size: 12.86px;">mysql</a> <a href="/tags/nginx/" style="font-size: 11.43px;">nginx</a> <a href="/tags/oschina/" style="font-size: 10px;">oschina</a> <a href="/tags/postgresql/" style="font-size: 11.43px;">postgresql</a> <a href="/tags/python/" style="font-size: 15.71px;">python</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/selenium/" style="font-size: 14.29px;">selenium</a> <a href="/tags/spider/" style="font-size: 10px;">spider</a> <a href="/tags/spring-boot/" style="font-size: 10px;">spring boot</a> <a href="/tags/swagger/" style="font-size: 11.43px;">swagger</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/vimium/" style="font-size: 10px;">vimium</a> <a href="/tags/websocket/" style="font-size: 10px;">websocket</a> <a href="/tags/ws-s/" style="font-size: 10px;">ws(s)</a> <a href="/tags/wss/" style="font-size: 10px;">wss</a> <a href="/tags/yapi/" style="font-size: 10px;">yapi</a> <a href="/tags/《Spring-in-action》/" style="font-size: 10px;">《Spring in action》</a> <a href="/tags/个人博客/" style="font-size: 11.43px;">个人博客</a> <a href="/tags/个人感悟/" style="font-size: 11.43px;">个人感悟</a> <a href="/tags/主从复制/" style="font-size: 11.43px;">主从复制</a> <a href="/tags/主从搭建/" style="font-size: 11.43px;">主从搭建</a> <a href="/tags/代理调试/" style="font-size: 10px;">代理调试</a> <a href="/tags/入门篇/" style="font-size: 10px;">入门篇</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/压测工具/" style="font-size: 12.86px;">压测工具</a> <a href="/tags/学习资源/" style="font-size: 11.43px;">学习资源</a> <a href="/tags/实践篇/" style="font-size: 11.43px;">实践篇</a> <a href="/tags/开源/" style="font-size: 10px;">开源</a> <a href="/tags/开源博客/" style="font-size: 11.43px;">开源博客</a> <a href="/tags/开源项目/" style="font-size: 11.43px;">开源项目</a> <a href="/tags/微信授权/" style="font-size: 10px;">微信授权</a> <a href="/tags/数据库中间件/" style="font-size: 14.29px;">数据库中间件</a> <a href="/tags/热部署/" style="font-size: 10px;">热部署</a> <a href="/tags/简书/" style="font-size: 10px;">简书</a> <a href="/tags/编辑器/" style="font-size: 20px;">编辑器</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a> <a href="/tags/读写分离/" style="font-size: 11.43px;">读写分离</a> <a href="/tags/跑步/" style="font-size: 10px;">跑步</a> <a href="/tags/配置篇/" style="font-size: 10px;">配置篇</a> <a href="/tags/钉钉运动/" style="font-size: 10px;">钉钉运动</a> <a href="/tags/阿里技术/" style="font-size: 10px;">阿里技术</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>

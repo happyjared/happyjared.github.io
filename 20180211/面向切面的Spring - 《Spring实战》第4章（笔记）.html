@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>面向切面的Spring - 《Spring实战》第4章（笔记） | happyJared - 博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="happyJared - 博客。编码爱好者，代码小洁癖。" />
+  
+  <meta name="description" content="写在前面&amp;emsp;&amp;emsp;本文是博主在看完面向切面的Spring（《Spring实战》第4章）后的一些实践笔记。&amp;emsp;&amp;emsp;为什么要用AOP呢？作者在书中也明确提到了，使用AOP，可以让代码逻辑更多的去关注自己本身的业务，而不用混杂和关注一些其它的东西。包括：安全，缓存，事务，日志等等。 名词概念 通知（Advice）  &amp;emsp;&amp;emsp;定义了切面做什么和什么时候去做。">
+<meta name="keywords" content="Spring,《Spring in action》,AcpectJ,Aop,读书笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面向切面的Spring - 《Spring实战》第4章（笔记）">
+<meta property="og:url" content="https://blog.mariojd.cn/20180211/面向切面的Spring - 《Spring实战》第4章（笔记）.html">
+<meta property="og:site_name" content="happyJared - 博客">
+<meta property="og:description" content="写在前面&amp;emsp;&amp;emsp;本文是博主在看完面向切面的Spring（《Spring实战》第4章）后的一些实践笔记。&amp;emsp;&amp;emsp;为什么要用AOP呢？作者在书中也明确提到了，使用AOP，可以让代码逻辑更多的去关注自己本身的业务，而不用混杂和关注一些其它的东西。包括：安全，缓存，事务，日志等等。 名词概念 通知（Advice）  &amp;emsp;&amp;emsp;定义了切面做什么和什么时候去做。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://image.mariojd.cn/201837/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180307102122.png">
+<meta property="og:image" content="https://image.mariojd.cn/201837/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180307102142.png">
+<meta property="og:image" content="https://image.mariojd.cn/201836/20180306aop.png">
+<meta property="og:image" content="https://image.mariojd.cn/201837/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180307105708.png">
+<meta property="og:image" content="https://image.mariojd.cn/201837/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180307105755.png">
+<meta property="og:updated_time" content="2018-06-26T02:24:19.040Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="面向切面的Spring - 《Spring实战》第4章（笔记）">
+<meta name="twitter:description" content="写在前面&amp;emsp;&amp;emsp;本文是博主在看完面向切面的Spring（《Spring实战》第4章）后的一些实践笔记。&amp;emsp;&amp;emsp;为什么要用AOP呢？作者在书中也明确提到了，使用AOP，可以让代码逻辑更多的去关注自己本身的业务，而不用混杂和关注一些其它的东西。包括：安全，缓存，事务，日志等等。 名词概念 通知（Advice）  &amp;emsp;&amp;emsp;定义了切面做什么和什么时候去做。">
+<meta name="twitter:image" content="https://image.mariojd.cn/201837/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180307102122.png">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?7d6076888c62ff336f5b580c57fd4141";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+  
+
+</head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <!--<div id="banner"></div>-->
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title"></span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-h-square"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-window-restore"></i>
+                        <span>归档</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <!--<div id="header-title">-->
+                    <!---->
+                <!--</div>-->
+                <div id="header-description">
+                    
+                    <h4>
+                        先做好写代码这事
+                    </h4>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="github" target="_blank" href="//github.com/happyjared">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="微博" target="_blank" href="//weibo.com/u/5633332995">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="简书" target="_blank" href="//www.jianshu.com/u/000a530f461c">
+                            <i class="fa fa-book fa-2x"></i></a>
+                    
+                        <a title="qq" target="_blank" href="//wpa.qq.com/msgrd?v=3&uin=1394223902&site=qq&menu=yes">
+                            <i class="fa fa-qq fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-面向切面的Spring - 《Spring实战》第4章（笔记）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      面向切面的Spring - 《Spring实战》第4章（笔记）
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/Spring/">Spring</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-02-11
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <!--
+    self_category: 读书
+    self_tags: AcpectJ，Aop，读书笔记
+    osChina_sys_category: 编程语言
+    csdn_article_category: 原创
+    csdn_blog_category: 编程语言
+-->
+<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>&emsp;&emsp;本文是博主在看完面向切面的Spring（《Spring实战》第4章）后的一些实践笔记。<br>&emsp;&emsp;为什么要用AOP呢？作者在书中也明确提到了，使用AOP，可以让代码逻辑更多的去关注自己本身的业务，而不用混杂和关注一些其它的东西。包括：安全，缓存，事务，日志等等。</p>
+<h3 id="名词概念"><a href="#名词概念" class="headerlink" title="名词概念"></a>名词概念</h3><ul>
+<li>通知（Advice）</li>
+</ul>
+<p>&emsp;&emsp;定义了切面做什么和什么时候去做。简单点来说，就是AOP执行时会调用的方法，通知除了定义切面要完成的工作(What)，还会定位什么时候(When)去履行这项工作，是在方法调用前，还是调用之后，还是前后都是，还是抛出异常时</p>
+<blockquote>
+<p>在切面定义中，一共有以下五种通知类型</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Before</td>
+<td>某方法调用之前发出通知</td>
+</tr>
+<tr>
+<td>After</td>
+<td>某方法完成之后发出通知，<strong>不考虑方法运行的结果</strong></td>
+</tr>
+<tr>
+<td>AfterReturning</td>
+<td>将通知放置在被通知的方法<strong>成功执行</strong>之后</td>
+</tr>
+<tr>
+<td>AfterThrowing</td>
+<td>将通知放置在被通知的方法<strong>抛出异常</strong>之后</td>
+</tr>
+<tr>
+<td>Around</td>
+<td>通知包裹在被通知的方法的周围，在方法调用之前和之后发出（环绕通知 = 前置 + 目标方法执行 + 后置通知）</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>切点，也叫切入点（Pointcut） </li>
+</ul>
+<p>&emsp;&emsp;上面说的连接点的基础上，来定义切入点，你的一个类里，有15个方法，那就有十几个连接点了对吧，但是你并不想在所有方法附件都使用通知（使用叫织入，下面再说），你只是想让其中几个，在调用这几个方法之前、之后或者抛出异常时干点什么，那么就用切入点来定义这几个方法，让切点来筛选连接点，选中那几个你想要的方法</p>
+<ul>
+<li>连接点，也叫参加点（JoinPoint）</li>
+</ul>
+<p>&emsp;&emsp;连接点是切面在应用程序执行过程中插入的地方，可能是方法调用（前、后）的时候，也可能是异常抛出的时候。连接点如果可以说是切点的全集，那么切点就是连接点的子集</p>
+<ul>
+<li>切面（Aspect） </li>
+</ul>
+<p>&emsp;&emsp;切面其实就是通知和切点的结合。通知说明了干什么和什么时候干（通过方法上使用@Before、@After等就能知道），则切点说明了在哪干（指定到底是哪个方法），这就组成了一个完整的切面定义</p>
+<h3 id="Spring对AOP的支持"><a href="#Spring对AOP的支持" class="headerlink" title="Spring对AOP的支持"></a>Spring对AOP的支持</h3><ul>
+<li>Spring建议在Java中编写AOP，虽然用XML也可以实现</li>
+<li>Spring通过使用代理类，在运行阶段将切面编织进bean中</li>
+<li>Spring只支持方法级别的连接点，不像AspectJ还可以通过构造器或属性注入</li>
+</ul>
+<h3 id="切点表达式"><a href="#切点表达式" class="headerlink" title="切点表达式"></a>切点表达式</h3><p>&emsp;&emsp;切点表达式算是一些比较概念性的知识，下面截了两个图供大家参考参考</p>
+<p><img src="https://image.mariojd.cn/201837/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180307102122.png" alt="切点表达式1" title="切点表达式1"></p>
+<p><img src="https://image.mariojd.cn/201837/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180307102142.png" alt="切点表达式2" title="切点表达式2"></p>
+<p>&emsp;&emsp;看得头晕了吧，不过好在只有execution()是用来执行匹配的，剩下的都是为了限制或定制连接点要匹配的位置<br>&emsp;&emsp;以下是execution()定义的格式（其中，带?号的为可选，否则必须给出） :</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">execution(modifiers-pattern? ret-type-pattern declaring-type-pattern? name-pattern(param-pattern)</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;还是举个真实栗子模仿一下吧</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">execution(* com.example.aspectj.UserDao.updateName(..))</span><br></pre></td></tr></table></figure>
+<ul>
+<li>execution：用于定义什么方法执行时会被触发，这里是指com.example.aspectj包下的UserDao接口中的updateName方法执行时触发</li>
+<li>*   ：忽略方法返回值类型</li>
+<li>(..) ：匹配任意参数</li>
+</ul>
+<h3 id="实战测试（SpringBoot-JPA）"><a href="#实战测试（SpringBoot-JPA）" class="headerlink" title="实战测试（SpringBoot + JPA）"></a>实战测试（SpringBoot + JPA）</h3><ol>
+<li>Create Entity</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Table</span>(name = <span class="string">"tb_user"</span>)</span><br><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Id</span></span><br><span class="line">    <span class="meta">@GeneratedValue</span></span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>Create Dao</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserDao</span> <span class="keyword">extends</span> <span class="title">JpaRepository</span>&lt;<span class="title">User</span>, <span class="title">Integer</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Modifying</span></span><br><span class="line">    <span class="meta">@Transactional</span></span><br><span class="line">    <span class="meta">@Query</span>(<span class="string">"update User u set u.name = ?1 where u.id = ?2"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">updateName</span><span class="params">(String name, <span class="keyword">int</span> id)</span></span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>Create Service</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Resource</span></span><br><span class="line">    <span class="keyword">private</span> UserDao userDao;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Transactional</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">save</span><span class="params">(User user)</span> </span>&#123;</span><br><span class="line">        userDao.save(user);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">(String name, <span class="keyword">int</span> id)</span> </span>&#123;</span><br><span class="line">        userDao.updateName(name, id);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="第一种风格的切面"><a href="#第一种风格的切面" class="headerlink" title="第一种风格的切面"></a>第一种风格的切面</h3><ol>
+<li><p>Create Aspect（使用了@Before、@After、@AfterReturning和@AfterThrowing这四个注解）</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Aspect</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserAspectjOne</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Resource</span></span><br><span class="line">    <span class="keyword">private</span> UserService userService;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Before</span>(<span class="string">"execution(* com.example.aspectj.UserDao.updateName(..))"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">before</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"1.------------before()"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@After</span>(<span class="string">"execution(* com.example.aspectj.UserDao.updateName(..))"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">after</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"1.------------after()"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@AfterReturning</span>(<span class="string">"execution(* com.example.aspectj.UserDao.updateName(..))"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterReturning</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"1.------------afterReturning()"</span>);</span><br><span class="line">        User user = <span class="keyword">new</span> User();</span><br><span class="line">        user.setName(<span class="string">"afterReturning1"</span>);</span><br><span class="line">        userService.save(user);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@AfterThrowing</span>(<span class="string">"execution(* com.example.aspectj.UserDao.updateName(..))"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterThrowing</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"1.------------afterThrowing()"</span>);</span><br><span class="line">        User user = <span class="keyword">new</span> User();</span><br><span class="line">        user.setName(<span class="string">"afterThrowing1"</span>);</span><br><span class="line">        userService.save(user);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Create Configuration</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="comment">// @EnableAspectJAutoProxy //实测可以不添加该注解，因为SpringBoot中已经默认开启了AOP功能</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AspectjConfiguration</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> UserAspectjOne <span class="title">userAspectjOne</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> UserAspectjOne();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><img src="https://image.mariojd.cn/201836/20180306aop.png" alt="SpringBoot已经默认开启了aop" title="SpringBoot已经默认开启了aop"></p>
+<ol>
+<li>Test updateName() with UserAspectjOne<ul>
+<li>6.1 先往数据库里添加一条数据<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testAdd</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       User user = <span class="keyword">new</span> User();</span><br><span class="line">       user.setName(<span class="string">"jared"</span>);</span><br><span class="line">       userDao.save(user);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<pre><code>![添加User][4]
+
+
+- 6.2 测试正常执行updateName()
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testUpdateName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       userService.update(<span class="string">"jared qiu"</span>, <span class="number">1</span>);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+
+- 6.3.1 打印结果 
+
+![输出结果][5]
+
+- 6.3.2 数据库结果
+
+![数据库结果][6]
+
+- 6.4 测试非正常执行updateName()，只需要把UserDao类中updateName()上的@Modifying或者@Transactional注解去掉即可
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testUpdateName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       userService.update(<span class="string">"error jared qiu"</span>, <span class="number">1</span>);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+
+- 6.5.1 打印结果 
+
+![输出结果][7]
+
+- 6.5.2 数据库结果
+
+![数据库结果][8]
+</code></pre><h3 id="第二种风格的切面"><a href="#第二种风格的切面" class="headerlink" title="第二种风格的切面"></a>第二种风格的切面</h3><ol>
+<li><p>Create Aspect（依旧使用了@Before、@After、@AfterReturning和@AfterThrowing这四个注解，但新增了@Pointcut注解，把切面的定义抽离了出来进行统一）</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Aspect</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserAspectjTwo</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Resource</span></span><br><span class="line">    <span class="keyword">private</span> UserService userService;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Pointcut</span>(<span class="string">"execution(* com.example.aspectj.UserDao.updateName(..))"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">pointcut</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Before</span>(<span class="string">"pointcut()"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">before</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"2.------------before()"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@After</span>(<span class="string">"pointcut()"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">after</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"2.------------after()"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@AfterReturning</span>(<span class="string">"pointcut()"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterReturning</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"2.------------afterReturning()"</span>);</span><br><span class="line">        User user = <span class="keyword">new</span> User();</span><br><span class="line">        user.setName(<span class="string">"afterReturning2"</span>);</span><br><span class="line">        userService.save(user);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@AfterThrowing</span>(<span class="string">"pointcut()"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterThrowing</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"2.------------afterThrowing()"</span>);</span><br><span class="line">        User user = <span class="keyword">new</span> User();</span><br><span class="line">        user.setName(<span class="string">"afterThrowing2"</span>);</span><br><span class="line">        userService.save(user);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Create Configuration</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AspectjConfiguration</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> UserAspectjTwo <span class="title">userAspectjTwo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> UserAspectjTwo();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Test updateName() with UserAspectjTwo</p>
+<ul>
+<li>6.1 先往数据库里添加一条数据<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testAdd</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       User user = <span class="keyword">new</span> User();</span><br><span class="line">       user.setName(<span class="string">"jared"</span>);</span><br><span class="line">       userDao.save(user);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<pre><code>![添加User][9]
+
+
+- 6.2 测试正常执行updateName()
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testUpdateName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       userService.update(<span class="string">"jared qiu"</span>, <span class="number">1</span>);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+
+- 6.3.1 打印结果 
+
+![输出结果][10]
+
+- 6.3.2 数据库结果
+
+![数据库结果][11]
+
+- 6.4 测试非正常执行updateName()，只需要把UserDao类中updateName()上的@Modifying或者@Transactional注解去掉即可
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testUpdateName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       userService.update(<span class="string">"error jared qiu"</span>, <span class="number">1</span>);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+
+- 6.5.1 打印结果 
+
+![输出结果][12]
+
+- 6.5.2 数据库结果
+
+![数据库结果][13]
+</code></pre><h3 id="第三种风格的切面"><a href="#第三种风格的切面" class="headerlink" title="第三种风格的切面"></a>第三种风格的切面</h3><ol>
+<li><p>Create Aspect（使用了@Around这个环绕注解）</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Aspect</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserAspectjThree</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Resource</span></span><br><span class="line">    <span class="keyword">private</span> UserService userService;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 方法的返回值类型须与切面所在方法的返回值类型保持一致</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Around</span>(<span class="string">"execution(* com.example.aspectj.UserDao.updateName(..))"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">around</span><span class="params">(ProceedingJoinPoint joinPoint)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">"3.------------before()"</span>);</span><br><span class="line">			System.out.println(<span class="string">"3.------------after()"</span>);</span><br><span class="line">            joinPoint.proceed();<span class="comment">//用于启动目标方法执行（必须）</span></span><br><span class="line">            System.out.println(<span class="string">"3.------------afterReturning()"</span>);</span><br><span class="line">            User user = <span class="keyword">new</span> User();</span><br><span class="line">            user.setName(<span class="string">"afterReturning3"</span>);</span><br><span class="line">            userService.save(user);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Throwable e) &#123;</span><br><span class="line">            System.out.println(<span class="string">"3.------------afterThrowing()"</span>);</span><br><span class="line">            User user = <span class="keyword">new</span> User();</span><br><span class="line">            user.setName(<span class="string">"afterThrowing3"</span>);</span><br><span class="line">            userService.save(user);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Create Configuration</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AspectjConfiguration</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> UserAspectjThree <span class="title">userAspectjThree</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> UserAspectjThree();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Test updateName() with UserAspectjThree</p>
+<ul>
+<li>6.1 先往数据库里添加一条数据<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testAdd</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       User user = <span class="keyword">new</span> User();</span><br><span class="line">       user.setName(<span class="string">"jared"</span>);</span><br><span class="line">       userDao.save(user);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<pre><code>![添加User][14]
+
+- 6.2 测试正常执行updateName()
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testUpdateName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       userService.update(<span class="string">"jared qiu"</span>, <span class="number">1</span>);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+
+- 6.3.1 打印结果 
+
+![输出结果][15]
+
+- 6.3.2 数据库结果
+
+![数据库结果][16]
+
+- 6.4 测试非正常执行updateName()，只需要把UserDao类中updateName()上的@Modifying或者@Transactional注解去掉即可
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testUpdateName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       userService.update(<span class="string">"error jared qiu"</span>, <span class="number">1</span>);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+
+- 6.5.1 打印结果 
+
+![输出结果][17]
+
+- 6.5.2 数据库结果
+
+![数据库结果][18]
+</code></pre><h3 id="第四种风格的切面"><a href="#第四种风格的切面" class="headerlink" title="第四种风格的切面"></a>第四种风格的切面</h3><ol>
+<li><p>Create Aspect（依旧使用了@Around这个环绕注解，但加入了@Pointcut注解和传递了参数）</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Aspect</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserAspectjFour</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Resource</span></span><br><span class="line">    <span class="keyword">private</span> UserService userService;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Pointcut</span>(<span class="string">"execution(* com.example.aspectj.UserDao.updateName(String,*)) &amp;&amp; args(name,*)"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">pointcut</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Around</span>(value = <span class="string">"pointcut(name)"</span>, argNames = <span class="string">"joinPoint,name"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">around</span><span class="params">(ProceedingJoinPoint joinPoint, String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">"4.------------before()"</span>);</span><br><span class="line">            System.out.println(<span class="string">"4.------------after()"</span>);</span><br><span class="line">            Object proceed = joinPoint.proceed();</span><br><span class="line">            System.out.println(proceed);</span><br><span class="line">            System.out.println(<span class="string">"4.------------afterReturning()"</span>);</span><br><span class="line">            User user = <span class="keyword">new</span> User();</span><br><span class="line">            user.setName(<span class="string">"afterReturning4"</span> + name);</span><br><span class="line">            userService.save(user);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Throwable e) &#123;</span><br><span class="line">            System.out.println(<span class="string">"4.------------afterThrowing()"</span>);</span><br><span class="line">            User user = <span class="keyword">new</span> User();</span><br><span class="line">            user.setName(<span class="string">"afterThrowing4"</span> + name);</span><br><span class="line">            userService.save(user);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Create Configuration</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AspectjConfiguration</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> UserAspectjFour <span class="title">userAspectjFour</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> UserAspectjFour();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Test updateName() with UserAspectjFour</p>
+<ul>
+<li>6.1 先往数据库里添加一条数据<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testAdd</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       User user = <span class="keyword">new</span> User();</span><br><span class="line">       user.setName(<span class="string">"jared"</span>);</span><br><span class="line">       userDao.save(user);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<pre><code>![添加User][19]
+
+- 6.2 测试正常执行updateName()
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testUpdateName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       userService.update(<span class="string">"jared qiu"</span>, <span class="number">1</span>);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+
+- 6.3.1 打印结果 
+
+![输出结果][20]
+
+- 6.3.2 数据库结果
+
+![数据库结果][21]
+
+- 6.4 测试非正常执行updateName()，只需要把UserDao类中updateName()上的@Modifying或者@Transactional注解去掉即可
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testUpdateName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       userService.update(<span class="string">"error jared qiu"</span>, <span class="number">1</span>);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+
+- 6.5.1 打印结果 
+
+![输出结果][22]
+
+- 6.5.2 数据库结果
+
+![数据库结果][23]
+</code></pre><h3 id="扩展-EnableAspectJAutoProxy"><a href="#扩展-EnableAspectJAutoProxy" class="headerlink" title="扩展@EnableAspectJAutoProxy"></a>扩展@EnableAspectJAutoProxy</h3><ul>
+<li>表示开启AOP代理自动配置，如果配@EnableAspectJAutoProxy表示使用cglib进行代理对象的生成；设置@EnableAspectJAutoProxy(exposeProxy=true)表示通过aop框架暴露该代理对象，使得aopContext能够直接访问</li>
+<li>从@EnableAspectJAutoProxy的定义可以看出，它引入AspectJAutoProxyRegister.class对象，该对象是基于注解@EnableAspectJAutoProxy注册了一个AnnotationAwareAspectJAutoProxyCreator，通过调用AopConfigUtils.registerAspectJAnnotationAutoProxyCreatorIfNecessary(registry)，注册了一个aop代理对象生成器</li>
+</ul>
+<p><img src="https://image.mariojd.cn/201837/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180307105708.png" alt="@EnableAspectJAutoProxy" title="@EnableAspectJAutoProxy"></p>
+<p><img src="https://image.mariojd.cn/201837/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180307105755.png" alt="AspectJAutoProxyRegistrar" title="AspectJAutoProxyRegistrar"></p>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><blockquote>
+<p><a href="http://www.eclipse.org/aspectj/" target="_blank" rel="noopener">AspectJ</a><br><a href="https://www.jianshu.com/p/63c7f788b1d6" target="_blank" rel="noopener">Spring AOP系列</a><br><a href="http://chiyx.iteye.com/blog/1568600" target="_blank" rel="noopener">Spring AOP中JoinPoint的表达式定义描述</a></p>
+</blockquote>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年06月26日 10:24</p>
+        <p>原始链接： <a class="post-url" href="/20180211/面向切面的Spring - 《Spring实战》第4章（笔记）.html" title="面向切面的Spring - 《Spring实战》第4章（笔记）">https://blog.mariojd.cn/20180211/面向切面的Spring - 《Spring实战》第4章（笔记）.html</a></p>
+        <footer>
+            <a href="https://blog.mariojd.cn">
+                <img src="/images/logo.png" alt="Jared Qiu">
+                Jared Qiu
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赞赏支持
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.mariojd.cn/20180211/面向切面的Spring - 《Spring实战》第4章（笔记）.html&title=《面向切面的Spring - 《Spring实战》第4章（笔记）》 — happyJared - 博客&pic=https://image.mariojd.cn/2018226/u=1661417806,849915562&fm=27&gp=0.jpg" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mariojd.cn/20180211/面向切面的Spring - 《Spring实战》第4章（笔记）.html&title=《面向切面的Spring - 《Spring实战》第4章（笔记）》 — happyJared - 博客&source=Java developer, like Python and javascript，为人乐观、积极、向上、勤奋、和善、好相处，讲卫生，爱学习，爱码字，爱..." data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.mariojd.cn/20180211/面向切面的Spring - 《Spring实战》第4章（笔记）.html" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《面向切面的Spring - 《Spring实战》第4章（笔记）》 — happyJared - 博客&url=https://blog.mariojd.cn/20180211/面向切面的Spring - 《Spring实战》第4章（笔记）.html&via=https://blog.mariojd.cn" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://blog.mariojd.cn/20180211/面向切面的Spring - 《Spring实战》第4章（笔记）.html" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://blog.mariojd.cn/20180211/面向切面的Spring - 《Spring实战》第4章（笔记）.html" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/Spring/" class="color2">Spring</a>
+      
+    <a href="/tags/《Springinaction》/" class="color4">《Spring in action》</a>
+      
+    <a href="/tags/AcpectJ/" class="color3">AcpectJ</a>
+      
+    <a href="/tags/Aop/" class="color4">Aop</a>
+      
+    <a href="/tags/读书笔记/" class="color5">读书笔记</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#写在前面"><span class="post-toc-text">写在前面</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#名词概念"><span class="post-toc-text">名词概念</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Spring对AOP的支持"><span class="post-toc-text">Spring对AOP的支持</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#切点表达式"><span class="post-toc-text">切点表达式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#实战测试（SpringBoot-JPA）"><span class="post-toc-text">实战测试（SpringBoot + JPA）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#第一种风格的切面"><span class="post-toc-text">第一种风格的切面</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#第二种风格的切面"><span class="post-toc-text">第二种风格的切面</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#第三种风格的切面"><span class="post-toc-text">第三种风格的切面</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#第四种风格的切面"><span class="post-toc-text">第四种风格的切面</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#扩展-EnableAspectJAutoProxy"><span class="post-toc-text">扩展@EnableAspectJAutoProxy</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参考链接"><span class="post-toc-text">参考链接</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/20180301/Mycat（入门篇）.html" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          Mycat（入门篇）
+        
+      </span>
+    </a>
+  
+  
+    <a href="/20180210/IDEA快捷键拆解系列（一）.html" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">IDEA快捷键拆解系列（一）</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        <div id="SOHUCS" sid="面向切面的Spring - 《Spring实战》第4章（笔记）" ></div>
+<script type="text/javascript">
+    (function(){
+        var appid = 'cytsi4W0L';
+        var conf = 'prod_302a63175740fd2ee2587f9345477b4c';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+    <span style='margin-left:5px'>
+    	粤ICP备17033077号-1
+    </span>
+</p>
+
+ 
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+        &copy; 2018 Jared Qiu 
+		Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a><br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "https://blog.mariojd.cn",
+      animate: false,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/Chocolatey/">Chocolatey</a><a class="category-link" href="/categories/Docker/">Docker</a><a class="category-link" href="/categories/Docker/MySQL/">MySQL</a><a class="category-link" href="/categories/Docker/PostgreSQL/">PostgreSQL</a><a class="category-link" href="/categories/IDEA/">IDEA</a><a class="category-link" href="/categories/Java/">Java</a><a class="category-link" href="/categories/Java/Lombok/">Lombok</a><a class="category-link" href="/categories/Java/Spring-Boot/">Spring Boot</a><a class="category-link" href="/categories/Java/Spring-Boot/Swagger/">Swagger</a><a class="category-link" href="/categories/Java/热部署/">热部署</a><a class="category-link" href="/categories/Jmeter/">Jmeter</a><a class="category-link" href="/categories/Python/">Python</a><a class="category-link" href="/categories/Python/Selenium/">Selenium</a><a class="category-link" href="/categories/Python/Selenium/Windows-Batch/">Windows Batch</a><a class="category-link" href="/categories/Spring/">Spring</a><a class="category-link" href="/categories/hexo/">hexo</a><a class="category-link" href="/categories/websocket/">websocket</a><a class="category-link" href="/categories/学习资源/">学习资源</a><a class="category-link" href="/categories/开源/">开源</a><a class="category-link" href="/categories/开源/YApi/">YApi</a><a class="category-link" href="/categories/开源/YApi/Swagger/">Swagger</a><a class="category-link" href="/categories/开源项目/">开源项目</a><a class="category-link" href="/categories/抓包工具/">抓包工具</a><a class="category-link" href="/categories/数据库中间件/">数据库中间件</a><a class="category-link" href="/categories/数据库中间件/Mycat/">Mycat</a><a class="category-link" href="/categories/编辑器/">编辑器</a><a class="category-link" href="/categories/编辑器/个人感悟/">个人感悟</a><a class="category-link" href="/categories/编辑器/快捷键/">快捷键</a><a class="category-link" href="/categories/随笔/">随笔</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/AcpectJ/" style="font-size: 10px;">AcpectJ</a> <a href="/tags/Aop/" style="font-size: 10px;">Aop</a> <a href="/tags/Chocolatey/" style="font-size: 10px;">Chocolatey</a> <a href="/tags/Eclipse/" style="font-size: 11.43px;">Eclipse</a> <a href="/tags/Fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/tags/GitHub-Pages/" style="font-size: 11.43px;">GitHub Pages</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDEA/" style="font-size: 20px;">IDEA</a> <a href="/tags/Java/" style="font-size: 17.14px;">Java</a> <a href="/tags/Java类库/" style="font-size: 10px;">Java类库</a> <a href="/tags/JetBrains/" style="font-size: 18.57px;">JetBrains</a> <a href="/tags/Jmeter/" style="font-size: 12.86px;">Jmeter</a> <a href="/tags/Lombok/" style="font-size: 10px;">Lombok</a> <a href="/tags/Mycat/" style="font-size: 14.29px;">Mycat</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/RestTemplate/" style="font-size: 10px;">RestTemplate</a> <a href="/tags/Spring/" style="font-size: 11.43px;">Spring</a> <a href="/tags/Spring-Boot/" style="font-size: 11.43px;">Spring Boot</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/bat/" style="font-size: 10px;">bat</a> <a href="/tags/bat脚本/" style="font-size: 10px;">bat脚本</a> <a href="/tags/chrome-plugin/" style="font-size: 10px;">chrome plugin</a> <a href="/tags/csdn/" style="font-size: 10px;">csdn</a> <a href="/tags/docker/" style="font-size: 12.86px;">docker</a> <a href="/tags/hexo/" style="font-size: 12.86px;">hexo</a> <a href="/tags/hexo-themes/" style="font-size: 10px;">hexo themes</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/http-s/" style="font-size: 10px;">http(s)</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/jvm/" style="font-size: 10px;">jvm</a> <a href="/tags/mysql/" style="font-size: 12.86px;">mysql</a> <a href="/tags/nginx/" style="font-size: 11.43px;">nginx</a> <a href="/tags/oschina/" style="font-size: 10px;">oschina</a> <a href="/tags/postgresql/" style="font-size: 11.43px;">postgresql</a> <a href="/tags/python/" style="font-size: 15.71px;">python</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/selenium/" style="font-size: 14.29px;">selenium</a> <a href="/tags/spider/" style="font-size: 10px;">spider</a> <a href="/tags/spring-boot/" style="font-size: 10px;">spring boot</a> <a href="/tags/swagger/" style="font-size: 11.43px;">swagger</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/vimium/" style="font-size: 10px;">vimium</a> <a href="/tags/websocket/" style="font-size: 10px;">websocket</a> <a href="/tags/ws-s/" style="font-size: 10px;">ws(s)</a> <a href="/tags/wss/" style="font-size: 10px;">wss</a> <a href="/tags/yapi/" style="font-size: 10px;">yapi</a> <a href="/tags/《Spring-in-action》/" style="font-size: 10px;">《Spring in action》</a> <a href="/tags/个人博客/" style="font-size: 11.43px;">个人博客</a> <a href="/tags/个人感悟/" style="font-size: 11.43px;">个人感悟</a> <a href="/tags/主从复制/" style="font-size: 11.43px;">主从复制</a> <a href="/tags/主从搭建/" style="font-size: 11.43px;">主从搭建</a> <a href="/tags/代理调试/" style="font-size: 10px;">代理调试</a> <a href="/tags/入门篇/" style="font-size: 10px;">入门篇</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/压测工具/" style="font-size: 12.86px;">压测工具</a> <a href="/tags/学习资源/" style="font-size: 11.43px;">学习资源</a> <a href="/tags/实践篇/" style="font-size: 11.43px;">实践篇</a> <a href="/tags/开源/" style="font-size: 10px;">开源</a> <a href="/tags/开源博客/" style="font-size: 11.43px;">开源博客</a> <a href="/tags/开源项目/" style="font-size: 11.43px;">开源项目</a> <a href="/tags/微信授权/" style="font-size: 10px;">微信授权</a> <a href="/tags/数据库中间件/" style="font-size: 14.29px;">数据库中间件</a> <a href="/tags/热部署/" style="font-size: 10px;">热部署</a> <a href="/tags/简书/" style="font-size: 10px;">简书</a> <a href="/tags/编辑器/" style="font-size: 20px;">编辑器</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a> <a href="/tags/读写分离/" style="font-size: 11.43px;">读写分离</a> <a href="/tags/跑步/" style="font-size: 10px;">跑步</a> <a href="/tags/配置篇/" style="font-size: 10px;">配置篇</a> <a href="/tags/钉钉运动/" style="font-size: 10px;">钉钉运动</a> <a href="/tags/阿里技术/" style="font-size: 10px;">阿里技术</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-h-square"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-window-restore"></i><span>归档</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/AcpectJ/" style="font-size: 10px;">AcpectJ</a> <a href="/tags/Aop/" style="font-size: 10px;">Aop</a> <a href="/tags/Chocolatey/" style="font-size: 10px;">Chocolatey</a> <a href="/tags/Eclipse/" style="font-size: 11.43px;">Eclipse</a> <a href="/tags/Fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/tags/GitHub-Pages/" style="font-size: 11.43px;">GitHub Pages</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDEA/" style="font-size: 20px;">IDEA</a> <a href="/tags/Java/" style="font-size: 17.14px;">Java</a> <a href="/tags/Java类库/" style="font-size: 10px;">Java类库</a> <a href="/tags/JetBrains/" style="font-size: 18.57px;">JetBrains</a> <a href="/tags/Jmeter/" style="font-size: 12.86px;">Jmeter</a> <a href="/tags/Lombok/" style="font-size: 10px;">Lombok</a> <a href="/tags/Mycat/" style="font-size: 14.29px;">Mycat</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/RestTemplate/" style="font-size: 10px;">RestTemplate</a> <a href="/tags/Spring/" style="font-size: 11.43px;">Spring</a> <a href="/tags/Spring-Boot/" style="font-size: 11.43px;">Spring Boot</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/bat/" style="font-size: 10px;">bat</a> <a href="/tags/bat脚本/" style="font-size: 10px;">bat脚本</a> <a href="/tags/chrome-plugin/" style="font-size: 10px;">chrome plugin</a> <a href="/tags/csdn/" style="font-size: 10px;">csdn</a> <a href="/tags/docker/" style="font-size: 12.86px;">docker</a> <a href="/tags/hexo/" style="font-size: 12.86px;">hexo</a> <a href="/tags/hexo-themes/" style="font-size: 10px;">hexo themes</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/http-s/" style="font-size: 10px;">http(s)</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/jvm/" style="font-size: 10px;">jvm</a> <a href="/tags/mysql/" style="font-size: 12.86px;">mysql</a> <a href="/tags/nginx/" style="font-size: 11.43px;">nginx</a> <a href="/tags/oschina/" style="font-size: 10px;">oschina</a> <a href="/tags/postgresql/" style="font-size: 11.43px;">postgresql</a> <a href="/tags/python/" style="font-size: 15.71px;">python</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/selenium/" style="font-size: 14.29px;">selenium</a> <a href="/tags/spider/" style="font-size: 10px;">spider</a> <a href="/tags/spring-boot/" style="font-size: 10px;">spring boot</a> <a href="/tags/swagger/" style="font-size: 11.43px;">swagger</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/vimium/" style="font-size: 10px;">vimium</a> <a href="/tags/websocket/" style="font-size: 10px;">websocket</a> <a href="/tags/ws-s/" style="font-size: 10px;">ws(s)</a> <a href="/tags/wss/" style="font-size: 10px;">wss</a> <a href="/tags/yapi/" style="font-size: 10px;">yapi</a> <a href="/tags/《Spring-in-action》/" style="font-size: 10px;">《Spring in action》</a> <a href="/tags/个人博客/" style="font-size: 11.43px;">个人博客</a> <a href="/tags/个人感悟/" style="font-size: 11.43px;">个人感悟</a> <a href="/tags/主从复制/" style="font-size: 11.43px;">主从复制</a> <a href="/tags/主从搭建/" style="font-size: 11.43px;">主从搭建</a> <a href="/tags/代理调试/" style="font-size: 10px;">代理调试</a> <a href="/tags/入门篇/" style="font-size: 10px;">入门篇</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/压测工具/" style="font-size: 12.86px;">压测工具</a> <a href="/tags/学习资源/" style="font-size: 11.43px;">学习资源</a> <a href="/tags/实践篇/" style="font-size: 11.43px;">实践篇</a> <a href="/tags/开源/" style="font-size: 10px;">开源</a> <a href="/tags/开源博客/" style="font-size: 11.43px;">开源博客</a> <a href="/tags/开源项目/" style="font-size: 11.43px;">开源项目</a> <a href="/tags/微信授权/" style="font-size: 10px;">微信授权</a> <a href="/tags/数据库中间件/" style="font-size: 14.29px;">数据库中间件</a> <a href="/tags/热部署/" style="font-size: 10px;">热部署</a> <a href="/tags/简书/" style="font-size: 10px;">简书</a> <a href="/tags/编辑器/" style="font-size: 20px;">编辑器</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a> <a href="/tags/读写分离/" style="font-size: 11.43px;">读写分离</a> <a href="/tags/跑步/" style="font-size: 10px;">跑步</a> <a href="/tags/配置篇/" style="font-size: 10px;">配置篇</a> <a href="/tags/钉钉运动/" style="font-size: 10px;">钉钉运动</a> <a href="/tags/阿里技术/" style="font-size: 10px;">阿里技术</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>

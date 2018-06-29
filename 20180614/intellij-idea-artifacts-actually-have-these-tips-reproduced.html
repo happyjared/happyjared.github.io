@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Intellij IDEA 神器居然还有这些小技巧（转载） | happyJared - 博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="happyJared - 博客。编码爱好者，代码小洁癖。" />
+  
+  <meta name="description" content="作者：Sam哥哥聊技术原文链接：https://blog.csdn.net/linsongbin1/article/details/80211919  概述 Intellij IDEA真是越用越觉得它强大，它总是在我们写代码的时候，不时给我们来个小惊喜。出于对Intellij IDEA的喜爱，我决定写一个与其相关的专栏或者系列，把一些好用的Intellij IDEA技巧分享给大家。本文是这个系">
+<meta name="keywords" content="IDEA,编辑器,Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Intellij IDEA 神器居然还有这些小技巧（转载）">
+<meta property="og:url" content="https://blog.mariojd.cn/20180614/intellij-idea-artifacts-actually-have-these-tips-reproduced.html">
+<meta property="og:site_name" content="happyJared - 博客">
+<meta property="og:description" content="作者：Sam哥哥聊技术原文链接：https://blog.csdn.net/linsongbin1/article/details/80211919  概述 Intellij IDEA真是越用越觉得它强大，它总是在我们写代码的时候，不时给我们来个小惊喜。出于对Intellij IDEA的喜爱，我决定写一个与其相关的专栏或者系列，把一些好用的Intellij IDEA技巧分享给大家。本文是这个系">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://image.mariojd.cn/smallstory/2018627/20180506101049248.png">
+<meta property="og:image" content="https://image.mariojd.cn/smallstory/2018627/20180506102510207.png">
+<meta property="og:image" content="https://image.mariojd.cn/smallstory/2018627/20180506103121907.png">
+<meta property="og:image" content="https://image.mariojd.cn/smallstory/2018627/20180506103545731.png">
+<meta property="og:image" content="https://image.mariojd.cn/smallstory/2018627/20180506104023832.png">
+<meta property="og:image" content="https://image.mariojd.cn/smallstory/2018627/20180506104257350.png">
+<meta property="og:image" content="https://image.mariojd.cn/smallstory/2018627/2018050610490590.png">
+<meta property="og:image" content="https://image.mariojd.cn/smallstory/2018627/20180506105438146.png">
+<meta property="og:image" content="https://image.mariojd.cn/smallstory/2018627/20180506111208407.png">
+<meta property="og:image" content="https://image.mariojd.cn/smallstory/2018627/20180506111615984.png">
+<meta property="og:image" content="https://image.mariojd.cn/smallstory/2018627/20180506111913289.png">
+<meta property="og:image" content="https://image.mariojd.cn/smallstory/2018627/20180506112253301.png">
+<meta property="og:image" content="https://image.mariojd.cn/smallstory/2018627/20180506112922875.png">
+<meta property="og:image" content="https://image.mariojd.cn/smallstory/2018627/20180506113149744.png">
+<meta property="og:image" content="https://image.mariojd.cn/smallstory/2018627/20180506114420813.png">
+<meta property="og:image" content="https://image.mariojd.cn/smallstory/2018627/20180506114545585.png">
+<meta property="og:image" content="https://image.mariojd.cn/smallstory/2018627/20180506114751563.png">
+<meta property="og:image" content="https://image.mariojd.cn/smallstory/2018627/20180506115258400.png">
+<meta property="og:image" content="https://image.mariojd.cn/smallstory/2018627/20180506121917448.png">
+<meta property="og:image" content="https://image.mariojd.cn/smallstory/2018627/20180506122137443.png">
+<meta property="og:image" content="https://image.mariojd.cn/smallstory/2018627/20180506130226135.png">
+<meta property="og:image" content="https://image.mariojd.cn/smallstory/2018627/20180506130444300.png">
+<meta property="og:image" content="https://image.mariojd.cn/smallstory/2018627/20180506130624611.png">
+<meta property="og:image" content="https://image.mariojd.cn/smallstory/2018627/20180506131057131.png">
+<meta property="og:image" content="https://image.mariojd.cn/smallstory/2018627/20180506131239122.png">
+<meta property="og:updated_time" content="2018-06-29T05:50:20.608Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Intellij IDEA 神器居然还有这些小技巧（转载）">
+<meta name="twitter:description" content="作者：Sam哥哥聊技术原文链接：https://blog.csdn.net/linsongbin1/article/details/80211919  概述 Intellij IDEA真是越用越觉得它强大，它总是在我们写代码的时候，不时给我们来个小惊喜。出于对Intellij IDEA的喜爱，我决定写一个与其相关的专栏或者系列，把一些好用的Intellij IDEA技巧分享给大家。本文是这个系">
+<meta name="twitter:image" content="https://image.mariojd.cn/smallstory/2018627/20180506101049248.png">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?7d6076888c62ff336f5b580c57fd4141";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+  
+
+</head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <!--<div id="banner"></div>-->
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title"></span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-h-square"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-window-restore"></i>
+                        <span>归档</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <!--<div id="header-title">-->
+                    <!---->
+                <!--</div>-->
+                <div id="header-description">
+                    
+                    <h4>
+                        先做好写代码这事
+                    </h4>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="github" target="_blank" href="//github.com/happyjared">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="微博" target="_blank" href="//weibo.com/u/5633332995">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="简书" target="_blank" href="//www.jianshu.com/u/000a530f461c">
+                            <i class="fa fa-book fa-2x"></i></a>
+                    
+                        <a title="qq" target="_blank" href="//wpa.qq.com/msgrd?v=3&uin=1394223902&site=qq&menu=yes">
+                            <i class="fa fa-qq fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-Intellij IDEA 神器居然还有这些小技巧（转载）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      Intellij IDEA 神器居然还有这些小技巧（转载）
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/IDEA/">IDEA</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-06-14
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <!--
+    self_category: IDEA
+    self_tags: IDEA，编辑器，Java
+    osChina_sys_category: 其他类型
+    csdn_article_category: 转载
+    csdn_blog_category: 后端
+-->
+<blockquote>
+<p>作者：Sam哥哥聊技术<br>原文链接：<a href="https://blog.csdn.net/linsongbin1/article/details/80211919" target="_blank" rel="noopener">https://blog.csdn.net/linsongbin1/article/details/80211919</a></p>
+</blockquote>
+<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><hr>
+<p><code>Intellij IDEA</code>真是越用越觉得它强大，它总是在我们写代码的时候，不时给我们来个小惊喜。出于对<code>Intellij IDEA</code>的喜爱，我决定写一个与其相关的专栏或者系列，把一些好用的<code>Intellij IDEA</code>技巧分享给大家。本文是这个系列的第一篇，主要介绍一些你可能不知道的但是又实用的小技巧。</p>
+<hr>
+<h1 id="我最爱的【演出模式】"><a href="#我最爱的【演出模式】" class="headerlink" title="我最爱的【演出模式】"></a>我最爱的【演出模式】</h1><hr>
+<p>我们可以使用【Presentation Mode】，将<code>IDEA</code>弄到最大，可以让你只关注一个类里面的代码，进行毫无干扰的<code>coding</code>。</p>
+<p>可以使用<code>Alt+V</code>快捷键，弹出<code>View</code>视图，然后选择<code>Enter Presentation Mode</code>。效果如下：</p>
+<p><img src="https://image.mariojd.cn/smallstory/2018627/20180506101049248.png" alt="演出模式"></p>
+<p>这个模式的好处就是，可以让你更加专注，因为你只能看到特定某个类的代码。可能读者会问，进入这个模式后，我想看其他类的代码怎么办？这个时候，就要考验你快捷键的熟练程度了。你可以使用<code>CTRL+E</code>弹出最近使用的文件。又或者使用<code>CTRL+N</code>和<code>CTRL+SHIFT+N</code>定位文件。</p>
+<p>如何退出这个模式呢？很简单，使用<code>ALT+V</code>弹出view视图，然后选择<code>Exit Presentation Mode</code> 即可。但是我强烈建议你不要这么做，因为你是可以在<code>Enter Presentation Mode</code>模式下在<code>IDEA</code>里面做任何事情的。当然前提是，你对<code>IDEA</code>足够熟练。</p>
+<hr>
+<h1 id="神奇的Inject-language"><a href="#神奇的Inject-language" class="headerlink" title="神奇的Inject language"></a>神奇的Inject language</h1><hr>
+<p>如果你使用<code>IDEA</code>在编写<code>JSON</code>字符串的时候，然后要一个一个<code>\</code>去转义双引号的话，就实在太不应该了，又烦又容易出错。在<code>IDEA</code>可以使用<code>Inject language</code>帮我们自动转义双引号。</p>
+<p><img src="https://image.mariojd.cn/smallstory/2018627/20180506102510207.png" alt="神奇的Inject language"></p>
+<p>先将焦点定位到双引号里面，使用<code>alt+enter</code>快捷键弹出<code>inject language</code>视图，并选中<code>Inject language or reference</code>。</p>
+<p><img src="https://image.mariojd.cn/smallstory/2018627/20180506103121907.png" alt="神奇的Inject language"></p>
+<p>选择后,切记，要直接按下<code>enter</code>回车键，才能弹出<code>inject language</code>列表。在列表中选择 <code>json</code>组件。</p>
+<p><img src="https://image.mariojd.cn/smallstory/2018627/20180506103545731.png" alt="神奇的Inject language"></p>
+<p>选择完后。鼠标焦点自动会定位在双引号里面，这个时候你再次使用<code>alt+enter</code>就可以看到</p>
+<p><img src="https://image.mariojd.cn/smallstory/2018627/20180506104023832.png" alt="神奇的Inject language"></p>
+<p>选中<code>Edit JSON Fragment</code>并回车，就可以看到编辑<code>JSON</code>文件的视图了。</p>
+<p><img src="https://image.mariojd.cn/smallstory/2018627/20180506104257350.png" alt="神奇的Inject language"></p>
+<p>可以看到<code>IDEA</code>确实帮我们自动转义双引号了。如果要退出编辑<code>JSON</code>信息的视图，只需要使用<code>ctrl+F4</code>快捷键即可。</p>
+<p><code>Inject language</code>可以支持的语言和操作多到你难以想象，读者可以自行研究。</p>
+<hr>
+<h1 id="使用快捷键移动分割线"><a href="#使用快捷键移动分割线" class="headerlink" title="使用快捷键移动分割线"></a>使用快捷键移动分割线</h1><hr>
+<p>假设有下面的场景，某个类的名字在<code>project</code>视图里被挡住了某一部分。</p>
+<p><img src="https://image.mariojd.cn/smallstory/2018627/2018050610490590.png" alt="使用快捷键移动分割线"></p>
+<p>你想完整的看到类的名字，该怎么做。一般都是使用鼠标来移动分割线，但是这样子效率太低了。可以使用<code>alt+1</code>把鼠标焦点定位到<code>project</code>视图里，然后直接使用<code>ctrl+shift+左右箭头</code>来移动分割线。</p>
+<hr>
+<h1 id="ctrl-shift-enter不只是用来行尾加分号的"><a href="#ctrl-shift-enter不只是用来行尾加分号的" class="headerlink" title="ctrl+shift+enter不只是用来行尾加分号的"></a>ctrl+shift+enter不只是用来行尾加分号的</h1><hr>
+<p><code>ctrl+shift+enter</code>其实是表示<code>为您收尾</code>的意思，不只是用来给代码加分号的。比如说：</p>
+<p><img src="https://image.mariojd.cn/smallstory/2018627/20180506105438146.png" alt="ctrl+shift+enter不只是用来行尾加分号的"></p>
+<p>这段代码，我们还需要为if语句加上大括号才能编译通过，这个时候你直接输入<code>ctrl+shift+enter</code>，<code>IDEA</code>会自动帮你收尾，加上大括号的。</p>
+<hr>
+<h1 id="不要动不动就使用IDEA的重构功能"><a href="#不要动不动就使用IDEA的重构功能" class="headerlink" title="不要动不动就使用IDEA的重构功能"></a>不要动不动就使用IDEA的重构功能</h1><hr>
+<p><code>IDEA</code>的重构功能非常强大，但是也有时候，在单个类里面，如果只是想批量修改某个文本，大可不必使用到重构的功能。比如说：</p>
+<p><img src="https://image.mariojd.cn/smallstory/2018627/20180506111208407.png" alt="不要动不动就使用IDEA的重构功能"></p>
+<p>上面的代码中，有5个地方用到了rabbitTemplate文本，如何批量修改呢？</p>
+<p>首先是使用<code>ctrl+w</code>选中<code>rabbitTemplate</code>这个文本,然后依次使用5次<code>alt+j</code>快捷键，逐个选中，这样五个文本就都被选中并且高亮起来了，这个时候就可以直接批量修改了。</p>
+<p><img src="https://image.mariojd.cn/smallstory/2018627/20180506111615984.png" alt="不要动不动就使用IDEA的重构功能"></p>
+<hr>
+<h1 id="去掉导航栏"><a href="#去掉导航栏" class="headerlink" title="去掉导航栏"></a>去掉导航栏</h1><hr>
+<p>去掉导航栏，因为平时用的不多。</p>
+<p><img src="https://image.mariojd.cn/smallstory/2018627/20180506111913289.png" alt="去掉导航栏"></p>
+<p>可以把红色的导航栏去掉，让<code>IDEA</code>显得更加干净整洁一些。使用<code>alt+v</code>，然后去掉<code>Navigation bar</code>即可。去掉这个导航栏后，如果你偶尔还是要用的，直接用<code>alt+home</code>就可以临时把导航栏显示出来。</p>
+<p><img src="https://image.mariojd.cn/smallstory/2018627/20180506112253301.png" alt="去掉导航栏"></p>
+<p>如果想让这个临时的导航栏消失的话，直接使用<code>esc</code>快捷键即可。</p>
+<hr>
+<h1 id="把鼠标定位到project视图里"><a href="#把鼠标定位到project视图里" class="headerlink" title="把鼠标定位到project视图里"></a>把鼠标定位到project视图里</h1><hr>
+<p>当工程里的包和类非常多的时候，有时候我们想知道当前类在project视图里是处在哪个位置。</p>
+<p><img src="https://image.mariojd.cn/smallstory/2018627/20180506112922875.png" alt="把鼠标定位到project视图里"></p>
+<p>上面图中的<code>DemoIDEA</code>里，你如何知道它是在<code>spring-cloud-config</code>工程里的哪个位置呢？</p>
+<p>可以先使用<code>alt+F1</code>，弹出<code>Select in</code>视图，然后选择<code>Project View</code>中的<code>Project</code>，回车，就可以立刻定位到类的位置了。</p>
+<p><img src="https://image.mariojd.cn/smallstory/2018627/20180506113149744.png" alt="把鼠标定位到project视图里"></p>
+<p>那如何从<code>project</code>跳回代码里呢？可以直接使用<code>esc</code>退出<code>project</code>视图，或者直接使用<code>F4</code>,跳到代码里。</p>
+<hr>
+<h1 id="强大的symbol"><a href="#强大的symbol" class="headerlink" title="强大的symbol"></a>强大的symbol</h1><hr>
+<p>如果你依稀记得某个方法名字几个字母，想在<code>IDEA</code>里面找出来，可以怎么做呢？直接使用<code>ctrl+shift+alt+n</code>，使用<code>symbol</code>来查找即可。比如说：</p>
+<p><img src="https://image.mariojd.cn/smallstory/2018627/20180506114420813.png" alt="强大的symbol"></p>
+<p>你想找到checkUser方法。直接输入<code>user</code>即可。</p>
+<p><img src="https://image.mariojd.cn/smallstory/2018627/20180506114545585.png" alt="强大的symbol"></p>
+<p>如果你记得某个业务类里面有某个方法，那也可以使用首字母找到类,然后加个<code>.</code>，再输入方法名字也是可以的。</p>
+<p><img src="https://image.mariojd.cn/smallstory/2018627/20180506114751563.png" alt="强大的symbol"></p>
+<hr>
+<h1 id="如何找目录"><a href="#如何找目录" class="headerlink" title="如何找目录"></a>如何找目录</h1><hr>
+<p>使用<code>ctrl+shift+n</code>后，使用<code>/</code>，然后输入目录名字即可.</p>
+<p><img src="https://image.mariojd.cn/smallstory/2018627/20180506115258400.png" alt="如何找目录"></p>
+<hr>
+<h1 id="自动生成not-null判断语句"><a href="#自动生成not-null判断语句" class="headerlink" title="自动生成not null判断语句"></a>自动生成not null判断语句</h1><hr>
+<p>自动生成not null这种if判断，在<code>IDEA</code>里有很多种办法，其中一种办法你可能没想到。</p>
+<p><img src="https://image.mariojd.cn/smallstory/2018627/20180506121917448.png" alt="自动生成not null判断语句"></p>
+<p>当我们使用rabbitTemplate. 后，直接输入<code>notnull</code>并回车，<code>IDEA</code>就好自动生成if判断了。</p>
+<p><img src="https://image.mariojd.cn/smallstory/2018627/20180506122137443.png" alt="自动生成not null判断语句"></p>
+<hr>
+<h1 id="按照模板找内容"><a href="#按照模板找内容" class="headerlink" title="按照模板找内容"></a>按照模板找内容</h1><hr>
+<p>这个也是我非常喜欢的一个功能，可以根据模板来找到与模板匹配的代码块。比如说：</p>
+<blockquote>
+<p>想在整个工程里面找到所有的try catch语句,但是catch语句里面没有做异常处理的。</p>
+</blockquote>
+<p>catch语句里没有处理异常，是极其危险的。我们可以<code>IDEA</code>里面方便找到所有这样的代码。</p>
+<p><img src="https://image.mariojd.cn/smallstory/2018627/20180506130226135.png" alt="按照模板找内容"></p>
+<p>首先使用<code>ctrl+shift+A</code>快捷键弹出action框，然后输入<code>Search Struct</code></p>
+<p><img src="https://image.mariojd.cn/smallstory/2018627/20180506130444300.png" alt="按照模板找内容"></p>
+<p>选择<code>Search Structurally</code>后，回车，跳转到模板视图。</p>
+<p><img src="https://image.mariojd.cn/smallstory/2018627/20180506130624611.png" alt="按照模板找内容"></p>
+<p>点击<code>Existing Templates</code>按钮，选择<code>try</code>模板。为了能找出catch里面没有处理异常的代码块，我们需要配置一下<code>CatchStatement</code>的<code>Maximum count</code>的值，将其设置为1。</p>
+<p>点击<code>Edit Variables</code>按钮，在界面修改<code>Maximum count</code>的值。</p>
+<p><img src="https://image.mariojd.cn/smallstory/2018627/20180506131057131.png" alt="按照模板找内容"></p>
+<p>最后点击<code>find</code>按钮，就可以找出catch里面没有处理异常的代码了。</p>
+<p><img src="https://image.mariojd.cn/smallstory/2018627/20180506131239122.png" alt="按照模板找内容"></p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年06月29日 13:50</p>
+        <p>原始链接： <a class="post-url" href="/20180614/intellij-idea-artifacts-actually-have-these-tips-reproduced.html" title="Intellij IDEA 神器居然还有这些小技巧（转载）">https://blog.mariojd.cn/20180614/intellij-idea-artifacts-actually-have-these-tips-reproduced.html</a></p>
+        <footer>
+            <a href="https://blog.mariojd.cn">
+                <img src="/images/logo.png" alt="Jared Qiu">
+                Jared Qiu
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赞赏支持
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.mariojd.cn/20180614/intellij-idea-artifacts-actually-have-these-tips-reproduced.html&title=《Intellij IDEA 神器居然还有这些小技巧（转载）》 — happyJared - 博客&pic=https://image.mariojd.cn/smallstory/2018614/u=3751731334,3374076466&fm=27&gp=0.jpg" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mariojd.cn/20180614/intellij-idea-artifacts-actually-have-these-tips-reproduced.html&title=《Intellij IDEA 神器居然还有这些小技巧（转载）》 — happyJared - 博客&source=Java developer, like Python and javascript，为人乐观、积极、向上、勤奋、和善、好相处，讲卫生，爱学习，爱码字，爱..." data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.mariojd.cn/20180614/intellij-idea-artifacts-actually-have-these-tips-reproduced.html" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Intellij IDEA 神器居然还有这些小技巧（转载）》 — happyJared - 博客&url=https://blog.mariojd.cn/20180614/intellij-idea-artifacts-actually-have-these-tips-reproduced.html&via=https://blog.mariojd.cn" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://blog.mariojd.cn/20180614/intellij-idea-artifacts-actually-have-these-tips-reproduced.html" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://blog.mariojd.cn/20180614/intellij-idea-artifacts-actually-have-these-tips-reproduced.html" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/IDEA/" class="color5">IDEA</a>
+      
+    <a href="/tags/编辑器/" class="color4">编辑器</a>
+      
+    <a href="/tags/Java/" class="color5">Java</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#概述"><span class="post-toc-text">概述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#我最爱的【演出模式】"><span class="post-toc-text">我最爱的【演出模式】</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#神奇的Inject-language"><span class="post-toc-text">神奇的Inject language</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#使用快捷键移动分割线"><span class="post-toc-text">使用快捷键移动分割线</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#ctrl-shift-enter不只是用来行尾加分号的"><span class="post-toc-text">ctrl+shift+enter不只是用来行尾加分号的</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#不要动不动就使用IDEA的重构功能"><span class="post-toc-text">不要动不动就使用IDEA的重构功能</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#去掉导航栏"><span class="post-toc-text">去掉导航栏</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#把鼠标定位到project视图里"><span class="post-toc-text">把鼠标定位到project视图里</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#强大的symbol"><span class="post-toc-text">强大的symbol</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#如何找目录"><span class="post-toc-text">如何找目录</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#自动生成not-null判断语句"><span class="post-toc-text">自动生成not null判断语句</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#按照模板找内容"><span class="post-toc-text">按照模板找内容</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/20180619/commonly-used-service-configuration-for-java-developers-nginx-tomcat-jvm-mysql-redis.html" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          Java开发人员常用的服务配置(Nginx、Tomcat、JVM、Mysql、Redis)
+        
+      </span>
+    </a>
+  
+  
+    <a href="/20180614/intellij-idea-artifacts-that-people-love-the-tips-reproduced.html" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Intellij IDEA 神器那些让人爱不释手的小技巧（转载）</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        <div id="SOHUCS" sid="Intellij IDEA 神器居然还有这些小技巧（转载）" ></div>
+<script type="text/javascript">
+    (function(){
+        var appid = 'cytsi4W0L';
+        var conf = 'prod_302a63175740fd2ee2587f9345477b4c';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+    <span style='margin-left:5px'>
+    	粤ICP备17033077号-1
+    </span>
+</p>
+
+ 
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+        &copy; 2018 Jared Qiu 
+		    Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a><br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "https://blog.mariojd.cn",
+      animate: false,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/Chocolatey/">Chocolatey</a><a class="category-link" href="/categories/Docker/">Docker</a><a class="category-link" href="/categories/Docker/MySQL/">MySQL</a><a class="category-link" href="/categories/Docker/PostgreSQL/">PostgreSQL</a><a class="category-link" href="/categories/IDEA/">IDEA</a><a class="category-link" href="/categories/Java/">Java</a><a class="category-link" href="/categories/Java/Lombok/">Lombok</a><a class="category-link" href="/categories/Java/Spring-Boot/">Spring Boot</a><a class="category-link" href="/categories/Java/Spring-Boot/Swagger/">Swagger</a><a class="category-link" href="/categories/Java/热部署/">热部署</a><a class="category-link" href="/categories/Jmeter/">Jmeter</a><a class="category-link" href="/categories/Python/">Python</a><a class="category-link" href="/categories/Python/Selenium/">Selenium</a><a class="category-link" href="/categories/Python/Selenium/Windows-Batch/">Windows Batch</a><a class="category-link" href="/categories/Spring/">Spring</a><a class="category-link" href="/categories/hexo/">hexo</a><a class="category-link" href="/categories/websocket/">websocket</a><a class="category-link" href="/categories/学习资源/">学习资源</a><a class="category-link" href="/categories/开源/">开源</a><a class="category-link" href="/categories/开源/YApi/">YApi</a><a class="category-link" href="/categories/开源/YApi/Swagger/">Swagger</a><a class="category-link" href="/categories/开源项目/">开源项目</a><a class="category-link" href="/categories/抓包工具/">抓包工具</a><a class="category-link" href="/categories/数据库中间件/">数据库中间件</a><a class="category-link" href="/categories/数据库中间件/Mycat/">Mycat</a><a class="category-link" href="/categories/编辑器/">编辑器</a><a class="category-link" href="/categories/编辑器/个人感悟/">个人感悟</a><a class="category-link" href="/categories/编辑器/快捷键/">快捷键</a><a class="category-link" href="/categories/随笔/">随笔</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/AcpectJ/" style="font-size: 10px;">AcpectJ</a> <a href="/tags/Aop/" style="font-size: 10px;">Aop</a> <a href="/tags/Chocolatey/" style="font-size: 10px;">Chocolatey</a> <a href="/tags/Eclipse/" style="font-size: 11.43px;">Eclipse</a> <a href="/tags/Fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/tags/GitHub-Pages/" style="font-size: 11.43px;">GitHub Pages</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDEA/" style="font-size: 20px;">IDEA</a> <a href="/tags/Java/" style="font-size: 17.14px;">Java</a> <a href="/tags/Java类库/" style="font-size: 10px;">Java类库</a> <a href="/tags/JetBrains/" style="font-size: 18.57px;">JetBrains</a> <a href="/tags/Jmeter/" style="font-size: 12.86px;">Jmeter</a> <a href="/tags/Lombok/" style="font-size: 10px;">Lombok</a> <a href="/tags/Mycat/" style="font-size: 14.29px;">Mycat</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/RestTemplate/" style="font-size: 10px;">RestTemplate</a> <a href="/tags/Spring/" style="font-size: 11.43px;">Spring</a> <a href="/tags/Spring-Boot/" style="font-size: 11.43px;">Spring Boot</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/bat/" style="font-size: 10px;">bat</a> <a href="/tags/bat脚本/" style="font-size: 10px;">bat脚本</a> <a href="/tags/chrome-plugin/" style="font-size: 10px;">chrome plugin</a> <a href="/tags/coding-net/" style="font-size: 10px;">coding.net</a> <a href="/tags/csdn/" style="font-size: 10px;">csdn</a> <a href="/tags/docker/" style="font-size: 12.86px;">docker</a> <a href="/tags/hexo/" style="font-size: 14.29px;">hexo</a> <a href="/tags/hexo-themes/" style="font-size: 10px;">hexo themes</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/http-s/" style="font-size: 10px;">http(s)</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/jvm/" style="font-size: 10px;">jvm</a> <a href="/tags/mysql/" style="font-size: 12.86px;">mysql</a> <a href="/tags/nginx/" style="font-size: 11.43px;">nginx</a> <a href="/tags/oschina/" style="font-size: 10px;">oschina</a> <a href="/tags/postgresql/" style="font-size: 11.43px;">postgresql</a> <a href="/tags/python/" style="font-size: 15.71px;">python</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/selenium/" style="font-size: 14.29px;">selenium</a> <a href="/tags/spider/" style="font-size: 10px;">spider</a> <a href="/tags/spring-boot/" style="font-size: 10px;">spring boot</a> <a href="/tags/swagger/" style="font-size: 11.43px;">swagger</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/vimium/" style="font-size: 10px;">vimium</a> <a href="/tags/websocket/" style="font-size: 10px;">websocket</a> <a href="/tags/ws-s/" style="font-size: 10px;">ws(s)</a> <a href="/tags/wss/" style="font-size: 10px;">wss</a> <a href="/tags/yapi/" style="font-size: 10px;">yapi</a> <a href="/tags/《Spring-in-action》/" style="font-size: 10px;">《Spring in action》</a> <a href="/tags/个人博客/" style="font-size: 11.43px;">个人博客</a> <a href="/tags/个人感悟/" style="font-size: 11.43px;">个人感悟</a> <a href="/tags/主从复制/" style="font-size: 11.43px;">主从复制</a> <a href="/tags/主从搭建/" style="font-size: 11.43px;">主从搭建</a> <a href="/tags/代理调试/" style="font-size: 10px;">代理调试</a> <a href="/tags/入门篇/" style="font-size: 10px;">入门篇</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/压测工具/" style="font-size: 12.86px;">压测工具</a> <a href="/tags/学习资源/" style="font-size: 11.43px;">学习资源</a> <a href="/tags/实践篇/" style="font-size: 11.43px;">实践篇</a> <a href="/tags/开源/" style="font-size: 10px;">开源</a> <a href="/tags/开源博客/" style="font-size: 11.43px;">开源博客</a> <a href="/tags/开源项目/" style="font-size: 11.43px;">开源项目</a> <a href="/tags/微信授权/" style="font-size: 10px;">微信授权</a> <a href="/tags/数据库中间件/" style="font-size: 14.29px;">数据库中间件</a> <a href="/tags/热部署/" style="font-size: 10px;">热部署</a> <a href="/tags/简书/" style="font-size: 10px;">简书</a> <a href="/tags/编辑器/" style="font-size: 20px;">编辑器</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a> <a href="/tags/读写分离/" style="font-size: 11.43px;">读写分离</a> <a href="/tags/跑步/" style="font-size: 10px;">跑步</a> <a href="/tags/配置篇/" style="font-size: 10px;">配置篇</a> <a href="/tags/钉钉运动/" style="font-size: 10px;">钉钉运动</a> <a href="/tags/阿里技术/" style="font-size: 10px;">阿里技术</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-h-square"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-window-restore"></i><span>归档</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/AcpectJ/" style="font-size: 10px;">AcpectJ</a> <a href="/tags/Aop/" style="font-size: 10px;">Aop</a> <a href="/tags/Chocolatey/" style="font-size: 10px;">Chocolatey</a> <a href="/tags/Eclipse/" style="font-size: 11.43px;">Eclipse</a> <a href="/tags/Fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/tags/GitHub-Pages/" style="font-size: 11.43px;">GitHub Pages</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDEA/" style="font-size: 20px;">IDEA</a> <a href="/tags/Java/" style="font-size: 17.14px;">Java</a> <a href="/tags/Java类库/" style="font-size: 10px;">Java类库</a> <a href="/tags/JetBrains/" style="font-size: 18.57px;">JetBrains</a> <a href="/tags/Jmeter/" style="font-size: 12.86px;">Jmeter</a> <a href="/tags/Lombok/" style="font-size: 10px;">Lombok</a> <a href="/tags/Mycat/" style="font-size: 14.29px;">Mycat</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/RestTemplate/" style="font-size: 10px;">RestTemplate</a> <a href="/tags/Spring/" style="font-size: 11.43px;">Spring</a> <a href="/tags/Spring-Boot/" style="font-size: 11.43px;">Spring Boot</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/bat/" style="font-size: 10px;">bat</a> <a href="/tags/bat脚本/" style="font-size: 10px;">bat脚本</a> <a href="/tags/chrome-plugin/" style="font-size: 10px;">chrome plugin</a> <a href="/tags/coding-net/" style="font-size: 10px;">coding.net</a> <a href="/tags/csdn/" style="font-size: 10px;">csdn</a> <a href="/tags/docker/" style="font-size: 12.86px;">docker</a> <a href="/tags/hexo/" style="font-size: 14.29px;">hexo</a> <a href="/tags/hexo-themes/" style="font-size: 10px;">hexo themes</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/http-s/" style="font-size: 10px;">http(s)</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/jvm/" style="font-size: 10px;">jvm</a> <a href="/tags/mysql/" style="font-size: 12.86px;">mysql</a> <a href="/tags/nginx/" style="font-size: 11.43px;">nginx</a> <a href="/tags/oschina/" style="font-size: 10px;">oschina</a> <a href="/tags/postgresql/" style="font-size: 11.43px;">postgresql</a> <a href="/tags/python/" style="font-size: 15.71px;">python</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/selenium/" style="font-size: 14.29px;">selenium</a> <a href="/tags/spider/" style="font-size: 10px;">spider</a> <a href="/tags/spring-boot/" style="font-size: 10px;">spring boot</a> <a href="/tags/swagger/" style="font-size: 11.43px;">swagger</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/vimium/" style="font-size: 10px;">vimium</a> <a href="/tags/websocket/" style="font-size: 10px;">websocket</a> <a href="/tags/ws-s/" style="font-size: 10px;">ws(s)</a> <a href="/tags/wss/" style="font-size: 10px;">wss</a> <a href="/tags/yapi/" style="font-size: 10px;">yapi</a> <a href="/tags/《Spring-in-action》/" style="font-size: 10px;">《Spring in action》</a> <a href="/tags/个人博客/" style="font-size: 11.43px;">个人博客</a> <a href="/tags/个人感悟/" style="font-size: 11.43px;">个人感悟</a> <a href="/tags/主从复制/" style="font-size: 11.43px;">主从复制</a> <a href="/tags/主从搭建/" style="font-size: 11.43px;">主从搭建</a> <a href="/tags/代理调试/" style="font-size: 10px;">代理调试</a> <a href="/tags/入门篇/" style="font-size: 10px;">入门篇</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/压测工具/" style="font-size: 12.86px;">压测工具</a> <a href="/tags/学习资源/" style="font-size: 11.43px;">学习资源</a> <a href="/tags/实践篇/" style="font-size: 11.43px;">实践篇</a> <a href="/tags/开源/" style="font-size: 10px;">开源</a> <a href="/tags/开源博客/" style="font-size: 11.43px;">开源博客</a> <a href="/tags/开源项目/" style="font-size: 11.43px;">开源项目</a> <a href="/tags/微信授权/" style="font-size: 10px;">微信授权</a> <a href="/tags/数据库中间件/" style="font-size: 14.29px;">数据库中间件</a> <a href="/tags/热部署/" style="font-size: 10px;">热部署</a> <a href="/tags/简书/" style="font-size: 10px;">简书</a> <a href="/tags/编辑器/" style="font-size: 20px;">编辑器</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a> <a href="/tags/读写分离/" style="font-size: 11.43px;">读写分离</a> <a href="/tags/跑步/" style="font-size: 10px;">跑步</a> <a href="/tags/配置篇/" style="font-size: 10px;">配置篇</a> <a href="/tags/钉钉运动/" style="font-size: 10px;">钉钉运动</a> <a href="/tags/阿里技术/" style="font-size: 10px;">阿里技术</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>

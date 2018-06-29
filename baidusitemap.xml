@@ -1552,18 +1552,18 @@
 
     
   <url>
-    <loc>https://blog.mariojd.cn/20180516/.html</loc>
+    <loc>https://blog.mariojd.cn/20180517/.html</loc>
     <lastmod>2018-06-26T02:24:18.990Z</lastmod>
     <data>
         <display>
-        <title>Python + Selenium 自动发布文章（一）：开源中国</title>
-        <pubTime>2018-05-15T16:00:00.000Z</pubTime>
+        <title>Python + Selenium 自动发布文章（二）：简书</title>
+        <pubTime>2018-05-16T16:00:00.000Z</pubTime>
         
         <tag>python</tag>
          
         <tag>selenium</tag>
          
-        <tag>oschina</tag>
+        <tag>简书</tag>
          
          
            
@@ -1579,18 +1579,18 @@
 
     
   <url>
-    <loc>https://blog.mariojd.cn/20180517/.html</loc>
+    <loc>https://blog.mariojd.cn/20180516/.html</loc>
     <lastmod>2018-06-26T02:24:18.990Z</lastmod>
     <data>
         <display>
-        <title>Python + Selenium 自动发布文章（二）：简书</title>
-        <pubTime>2018-05-16T16:00:00.000Z</pubTime>
+        <title>Python + Selenium 自动发布文章（一）：开源中国</title>
+        <pubTime>2018-05-15T16:00:00.000Z</pubTime>
         
         <tag>python</tag>
          
         <tag>selenium</tag>
          
-        <tag>简书</tag>
+        <tag>oschina</tag>
          
          
            

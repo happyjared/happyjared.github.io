@@ -4,8 +4,106 @@
 
     
   <url>
-    <loc>https://blog.mariojd.cn/20180625/spring-boot-integrated-swagger-easy-tutorial.html</loc>
-    <lastmod>2018-06-29T08:15:19.098Z</lastmod>
+    <loc>https://blog.mariojd.cn/20180614/is-and-in-python-string-resident-mechanism.html</loc>
+    <lastmod>2018-07-02T00:57:27.233Z</lastmod>
+    <data>
+        <display>
+        <title>Python中的is和==以及字符串驻留机制</title>
+        <pubTime>2018-06-13T16:00:00.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+        <tag>字符串机制</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="https://blog.mariojd.cn/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180628/solve-the-problem-that-baidu-spider-cannot-crawl-hexo-blog.html</loc>
+    <lastmod>2018-06-29T08:23:00.255Z</lastmod>
+    <data>
+        <display>
+        <title>解决百度蜘蛛无法爬取Hexo博客的问题</title>
+        <pubTime>2018-06-27T16:00:00.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+        <tag>coding.net</tag>
+         
+         
+           
+             
+              <breadCrumb title="开源" url="https://blog.mariojd.cn/categories/%E5%BC%80%E6%BA%90/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180311/idea-shortcut-key-disassembly-series-four-view-articles.html</loc>
+    <lastmod>2018-06-29T08:16:18.838Z</lastmod>
+    <data>
+        <display>
+        <title>IDEA快捷键拆解系列（四）：View篇</title>
+        <pubTime>2018-03-10T16:00:00.000Z</pubTime>
+        
+        <tag>IDEA</tag>
+         
+        <tag>编辑器</tag>
+         
+        <tag>JetBrains</tag>
+         
+         
+           
+             
+              <breadCrumb title="编辑器" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/"/>
+          
+             
+              <breadCrumb title="快捷键" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180325/idea-shortcut-key-disassembly-series-eighteen-live-templates.html</loc>
+    <lastmod>2018-06-29T08:16:18.816Z</lastmod>
+    <data>
+        <display>
+        <title>IDEA快捷键拆解系列（十八）：Live Templates篇</title>
+        <pubTime>2018-03-24T16:00:00.000Z</pubTime>
+        
+        <tag>IDEA</tag>
+         
+        <tag>编辑器</tag>
+         
+        <tag>JetBrains</tag>
+         
+         
+           
+             
+              <breadCrumb title="编辑器" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/"/>
+          
+             
+              <breadCrumb title="快捷键" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180625/spring-boot-integrated-swagger-simple-tutorial.html</loc>
+    <lastmod>2018-06-29T08:16:18.712Z</lastmod>
     <data>
         <display>
         <title>Spring Boot集成Swagger简易教程</title>
@@ -32,62 +130,8 @@
 
     
   <url>
-    <loc>https://blog.mariojd.cn/20180325/idea-shortcut-key-disassembly-series-eighteen-live-templates.html</loc>
-    <lastmod>2018-06-29T08:15:09.728Z</lastmod>
-    <data>
-        <display>
-        <title>IDEA快捷键拆解系列（十八）：Live Templates篇</title>
-        <pubTime>2018-03-24T16:00:00.000Z</pubTime>
-        
-        <tag>IDEA</tag>
-         
-        <tag>编辑器</tag>
-         
-        <tag>JetBrains</tag>
-         
-         
-           
-             
-              <breadCrumb title="编辑器" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/"/>
-          
-             
-              <breadCrumb title="快捷键" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/20180311/idea-shortcuts-dismantling-series-4-view-articles.html</loc>
-    <lastmod>2018-06-29T08:15:09.711Z</lastmod>
-    <data>
-        <display>
-        <title>IDEA快捷键拆解系列（四）：View篇</title>
-        <pubTime>2018-03-10T16:00:00.000Z</pubTime>
-        
-        <tag>IDEA</tag>
-         
-        <tag>编辑器</tag>
-         
-        <tag>JetBrains</tag>
-         
-         
-           
-             
-              <breadCrumb title="编辑器" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/"/>
-          
-             
-              <breadCrumb title="快捷键" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/20180313/idea-shortcut-key-disassembly-series-6-code-articles.html</loc>
-    <lastmod>2018-06-29T08:15:09.388Z</lastmod>
+    <loc>https://blog.mariojd.cn/20180313/idea-shortcut-key-disassembly-series-six-code-articles.html</loc>
+    <lastmod>2018-06-29T08:16:18.703Z</lastmod>
     <data>
         <display>
         <title>IDEA快捷键拆解系列（六）：Code篇</title>
@@ -128,28 +172,6 @@
            
              
               <breadCrumb title="hexo" url="https://blog.mariojd.cn/categories/hexo/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/20180628/solve-the-problem-that-baidu-spider-cannot-crawl-hexo-blog.html</loc>
-    <lastmod>2018-06-29T08:13:24.861Z</lastmod>
-    <data>
-        <display>
-        <title>解决百度蜘蛛无法爬取Hexo博客的问题</title>
-        <pubTime>2018-06-27T16:00:00.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-        <tag>coding.net</tag>
-         
-         
-           
-             
-              <breadCrumb title="开源" url="https://blog.mariojd.cn/categories/%E5%BC%80%E6%BA%90/"/>
           
         </display>
     </data>
@@ -231,7 +253,7 @@
 
     
   <url>
-    <loc>https://blog.mariojd.cn/20180322/idea-shortcut-key-disassembly-series-fifteenth-experience-articles.html</loc>
+    <loc>https://blog.mariojd.cn/20180322/idea-shortcut-key-disassembly-series-fifteen-experience-articles.html</loc>
     <lastmod>2018-06-29T05:50:20.708Z</lastmod>
     <data>
         <display>
@@ -306,7 +328,7 @@
 
     
   <url>
-    <loc>https://blog.mariojd.cn/20180328/idea-shortcuts-dismantling-series-postscript.html</loc>
+    <loc>https://blog.mariojd.cn/20180328/idea-shortcut-key-disassembly-series-postscript.html</loc>
     <lastmod>2018-06-29T05:50:20.537Z</lastmod>
     <data>
         <display>
@@ -368,7 +390,7 @@
 
     
   <url>
-    <loc>https://blog.mariojd.cn/20180502/spring-boot-solutions-for-several-startup-problems.html</loc>
+    <loc>https://blog.mariojd.cn/20180502/spring-boot-several-startup-problem-solutions.html</loc>
     <lastmod>2018-06-29T05:50:20.531Z</lastmod>
     <data>
         <display>
@@ -803,7 +825,7 @@
 
     
   <url>
-    <loc>https://blog.mariojd.cn/20180324/idea-shortcut-key-disassembly-series-17-debug.html</loc>
+    <loc>https://blog.mariojd.cn/20180324/idea-shortcut-key-disassembly-series-seventeen-debug-articles.html</loc>
     <lastmod>2018-06-29T05:50:20.359Z</lastmod>
     <data>
         <display>
@@ -928,7 +950,7 @@
 
     
   <url>
-    <loc>https://blog.mariojd.cn/20171022/java-library-lombok.html</loc>
+    <loc>https://blog.mariojd.cn/20171022/java-class-library-lombok.html</loc>
     <lastmod>2018-06-29T05:50:20.218Z</lastmod>
     <data>
         <display>
@@ -977,7 +999,7 @@
 
     
   <url>
-    <loc>https://blog.mariojd.cn/20180626/yapi-efficient-easytouse-powerful-visual-interface-management-platform.html</loc>
+    <loc>https://blog.mariojd.cn/20180626/yapi-an-efficient-easytouse-powerful-visual-interface-management-platform.html</loc>
     <lastmod>2018-06-29T05:50:20.144Z</lastmod>
     <data>
         <display>
@@ -1337,7 +1359,7 @@
 
     
   <url>
-    <loc>https://blog.mariojd.cn/20180312/idea-shortcuts-dismantling-series-five-navigate-articles.html</loc>
+    <loc>https://blog.mariojd.cn/20180312/idea-shortcut-key-disassembly-series-5-navigate-articles.html</loc>
     <lastmod>2018-06-29T05:50:20.006Z</lastmod>
     <data>
         <display>
@@ -1398,13 +1420,13 @@
         <title>Hexo整合GitHub Pages</title>
         <pubTime>2018-02-07T16:00:00.000Z</pubTime>
         
-        <tag>Hexo</tag>
-         
         <tag>GitHub Pages</tag>
          
         <tag>个人博客</tag>
          
         <tag>开源项目</tag>
+         
+        <tag>Hexo</tag>
          
          
            
@@ -1547,6 +1569,33 @@
 
     
   <url>
+    <loc>https://blog.mariojd.cn/20180517/.html</loc>
+    <lastmod>2018-06-26T02:24:18.990Z</lastmod>
+    <data>
+        <display>
+        <title>Python + Selenium 自动发布文章（二）：简书</title>
+        <pubTime>2018-05-16T16:00:00.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+        <tag>selenium</tag>
+         
+        <tag>简书</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="https://blog.mariojd.cn/categories/Python/"/>
+          
+             
+              <breadCrumb title="Selenium" url="https://blog.mariojd.cn/categories/Python/Selenium/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://blog.mariojd.cn/20180516/.html</loc>
     <lastmod>2018-06-26T02:24:18.990Z</lastmod>
     <data>
@@ -1586,33 +1635,6 @@
         <tag>selenium</tag>
          
         <tag>csdn</tag>
-         
-         
-           
-             
-              <breadCrumb title="Python" url="https://blog.mariojd.cn/categories/Python/"/>
-          
-             
-              <breadCrumb title="Selenium" url="https://blog.mariojd.cn/categories/Python/Selenium/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/20180517/.html</loc>
-    <lastmod>2018-06-26T02:24:18.990Z</lastmod>
-    <data>
-        <display>
-        <title>Python + Selenium 自动发布文章（二）：简书</title>
-        <pubTime>2018-05-16T16:00:00.000Z</pubTime>
-        
-        <tag>python</tag>
-         
-        <tag>selenium</tag>
-         
-        <tag>简书</tag>
          
          
            

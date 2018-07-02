@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>https://blog.mariojd.cn/20180614/is-and-in-python-string-resident-mechanism.html</loc>
+    <lastmod>2018-07-02T02:25:38.818Z</lastmod>
+    <data>
+        <display>
+        <title>Python中的is和==以及字符串驻留机制</title>
+        <pubTime>2018-06-13T16:00:00.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+        <tag>字符串机制</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="https://blog.mariojd.cn/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://blog.mariojd.cn/20171022/java-class-library-lombok.html</loc>
     <lastmod>2018-07-02T00:57:50.753Z</lastmod>
     <data>
@@ -212,28 +234,6 @@
           
              
               <breadCrumb title="个人感悟" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/%E4%B8%AA%E4%BA%BA%E6%84%9F%E6%82%9F/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/20180614/is-and-in-python-string-resident-mechanism.html</loc>
-    <lastmod>2018-07-02T00:57:50.208Z</lastmod>
-    <data>
-        <display>
-        <title>Python中的is和==以及字符串驻留机制</title>
-        <pubTime>2018-06-13T16:00:00.000Z</pubTime>
-        
-        <tag>python</tag>
-         
-        <tag>字符串机制</tag>
-         
-         
-           
-             
-              <breadCrumb title="Python" url="https://blog.mariojd.cn/categories/Python/"/>
           
         </display>
     </data>

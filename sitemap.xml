@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.mariojd.cn/20180614/is-and-in-python-string-resident-mechanism.html</loc>
+    
+    <lastmod>2018-07-02T02:25:38.818Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.mariojd.cn/20171022/java-class-library-lombok.html</loc>
     
     <lastmod>2018-07-02T00:57:50.753Z</lastmod>
@@ -54,13 +61,6 @@
     <loc>https://blog.mariojd.cn/20180328/idea-shortcut-key-disassembly-series-postscript.html</loc>
     
     <lastmod>2018-07-02T00:57:50.212Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.mariojd.cn/20180614/is-and-in-python-string-resident-mechanism.html</loc>
-    
-    <lastmod>2018-07-02T00:57:50.208Z</lastmod>
     
   </url>
   

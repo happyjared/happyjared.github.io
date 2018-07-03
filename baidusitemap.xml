@@ -4,26 +4,26 @@
 
     
   <url>
-    <loc>https://blog.mariojd.cn/20180301/mycat-(introductory-article).html</loc>
-    <lastmod>2018-07-03T05:38:31.269Z</lastmod>
+    <loc>https://blog.mariojd.cn/20180702/docker-+-redis-(4.0.10)-master-and-slave-environment-construction.html</loc>
+    <lastmod>2018-07-03T07:17:01.757Z</lastmod>
     <data>
         <display>
-        <title>Mycat（入门篇）</title>
-        <pubTime>2018-02-28T16:00:00.000Z</pubTime>
+        <title>Docker + Redis (4.0.10) 主从环境搭建</title>
+        <pubTime>2018-07-01T16:00:00.000Z</pubTime>
         
-        <tag>Mycat</tag>
+        <tag>docker</tag>
          
-        <tag>数据库中间件</tag>
+        <tag>主从搭建</tag>
          
-        <tag>入门篇</tag>
+        <tag>redis</tag>
          
          
            
              
-              <breadCrumb title="数据库中间件" url="https://blog.mariojd.cn/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E9%97%B4%E4%BB%B6/"/>
+              <breadCrumb title="Docker" url="https://blog.mariojd.cn/categories/Docker/"/>
           
              
-              <breadCrumb title="Mycat" url="https://blog.mariojd.cn/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E9%97%B4%E4%BB%B6/Mycat/"/>
+              <breadCrumb title="Redis" url="https://blog.mariojd.cn/categories/Docker/Redis/"/>
           
         </display>
     </data>
@@ -31,21 +31,21 @@
 
     
   <url>
-    <loc>https://blog.mariojd.cn/20180628/solve-the-problem-that-baidu-spiders-are-unable-to-crawl-hexo-blogs.html</loc>
-    <lastmod>2018-07-03T05:38:31.156Z</lastmod>
+    <loc>https://blog.mariojd.cn/20180418/ali-technology-essence-dry-goods-finishing-(continuously-updated...).html</loc>
+    <lastmod>2018-07-03T07:16:42.229Z</lastmod>
     <data>
         <display>
-        <title>解决百度蜘蛛无法爬取Hexo博客的问题</title>
-        <pubTime>2018-06-27T16:00:00.000Z</pubTime>
+        <title>阿里技术精华干货整理（持续更新...）</title>
+        <pubTime>2018-04-17T16:00:00.000Z</pubTime>
         
-        <tag>hexo</tag>
+        <tag>学习资源</tag>
          
-        <tag>coding.net</tag>
+        <tag>阿里技术</tag>
          
          
            
              
-              <breadCrumb title="开源" url="https://blog.mariojd.cn/categories/%E5%BC%80%E6%BA%90/"/>
+              <breadCrumb title="学习资源" url="https://blog.mariojd.cn/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"/>
           
         </display>
     </data>
@@ -53,26 +53,23 @@
 
     
   <url>
-    <loc>https://blog.mariojd.cn/20180325/idea-shortcut-disassembly-series-(eighteen):-live-templates.html</loc>
-    <lastmod>2018-07-03T05:38:31.145Z</lastmod>
+    <loc>https://blog.mariojd.cn/20180514/package-manager-under-chocolatey,-windows.html</loc>
+    <lastmod>2018-07-03T06:04:07.296Z</lastmod>
     <data>
         <display>
-        <title>IDEA快捷键拆解系列（十八）：Live Templates篇</title>
-        <pubTime>2018-03-24T16:00:00.000Z</pubTime>
+        <title>Chocolatey，Windows下的包管理器</title>
+        <pubTime>2018-05-13T16:00:00.000Z</pubTime>
         
-        <tag>IDEA</tag>
+        <tag>Chocolatey</tag>
          
-        <tag>编辑器</tag>
+        <tag>Windows</tag>
          
-        <tag>JetBrains</tag>
+        <tag>开源</tag>
          
          
            
              
-              <breadCrumb title="编辑器" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/"/>
-          
-             
-              <breadCrumb title="快捷键" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+              <breadCrumb title="Chocolatey" url="https://blog.mariojd.cn/categories/Chocolatey/"/>
           
         </display>
     </data>
@@ -80,110 +77,21 @@
 
     
   <url>
-    <loc>https://blog.mariojd.cn/20180403/programmer-artifact,-intellij-idea-2018.1-officially-released-(reprinted).html</loc>
-    <lastmod>2018-07-03T05:38:31.041Z</lastmod>
+    <loc>https://blog.mariojd.cn/20180401/after-10000-steps-and-21-days-of-nail-race,-the-great-god-race..html</loc>
+    <lastmod>2018-07-03T06:04:07.061Z</lastmod>
     <data>
         <display>
-        <title>程序员神器，IntelliJ IDEA 2018.1 正式发布（转载）</title>
-        <pubTime>2018-04-02T16:00:00.000Z</pubTime>
+        <title>在完成了10000步21天钉钉运动大神赛之后...</title>
+        <pubTime>2018-03-31T16:00:00.000Z</pubTime>
         
-        <tag>IDEA</tag>
+        <tag>跑步</tag>
          
-        <tag>编辑器</tag>
-         
-        <tag>Java</tag>
+        <tag>钉钉运动</tag>
          
          
            
              
-              <breadCrumb title="IDEA" url="https://blog.mariojd.cn/categories/IDEA/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/20180324/idea-shortcut-key-disassembly-series-(seventeen):-debug.html</loc>
-    <lastmod>2018-07-03T05:38:30.964Z</lastmod>
-    <data>
-        <display>
-        <title>IDEA快捷键拆解系列（十七）：Debug篇</title>
-        <pubTime>2018-03-23T16:00:00.000Z</pubTime>
-        
-        <tag>IDEA</tag>
-         
-        <tag>编辑器</tag>
-         
-        <tag>JetBrains</tag>
-         
-         
-           
-             
-              <breadCrumb title="编辑器" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/"/>
-          
-             
-              <breadCrumb title="快捷键" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/20180313/idea-shortcut-key-disassembly-series-(six):-code.html</loc>
-    <lastmod>2018-07-03T05:38:30.956Z</lastmod>
-    <data>
-        <display>
-        <title>IDEA快捷键拆解系列（六）：Code篇</title>
-        <pubTime>2018-03-12T16:00:00.000Z</pubTime>
-        
-        <tag>IDEA</tag>
-         
-        <tag>编辑器</tag>
-         
-        <tag>JetBrains</tag>
-         
-         
-           
-             
-              <breadCrumb title="编辑器" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/"/>
-          
-             
-              <breadCrumb title="快捷键" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/20180303/mycat-(practice-section---mysql-based-horizontal-segmentation,-master-slave-replication,-separation-of-read-and-write).html</loc>
-    <lastmod>2018-07-03T05:38:30.850Z</lastmod>
-    <data>
-        <display>
-        <title>Mycat（实践篇 - 基于Mysql的水平切分、主从复制、读写分离）</title>
-        <pubTime>2018-03-02T16:00:00.000Z</pubTime>
-        
-        <tag>mysql</tag>
-         
-        <tag>Mycat</tag>
-         
-        <tag>数据库中间件</tag>
-         
-        <tag>实践篇</tag>
-         
-        <tag>主从复制</tag>
-         
-        <tag>读写分离</tag>
-         
-         
-           
-             
-              <breadCrumb title="数据库中间件" url="https://blog.mariojd.cn/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E9%97%B4%E4%BB%B6/"/>
-          
-             
-              <breadCrumb title="Mycat" url="https://blog.mariojd.cn/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E9%97%B4%E4%BB%B6/Mycat/"/>
+              <breadCrumb title="随笔" url="https://blog.mariojd.cn/categories/%E9%9A%8F%E7%AC%94/"/>
           
         </display>
     </data>
@@ -192,7 +100,7 @@
     
   <url>
     <loc>https://blog.mariojd.cn/20180626/yapi---efficient,-easy-to-use,-powerful-visual-interface-management-platform.html</loc>
-    <lastmod>2018-07-03T05:38:30.847Z</lastmod>
+    <lastmod>2018-07-03T06:04:07.017Z</lastmod>
     <data>
         <display>
         <title>YApi - 高效、易用、功能强大的可视化接口管理平台</title>
@@ -219,16 +127,125 @@
 
     
   <url>
-    <loc>https://blog.mariojd.cn/20180520/a-simple-'jane-book'-little-crawler.html</loc>
-    <lastmod>2018-07-03T05:38:30.843Z</lastmod>
+    <loc>https://blog.mariojd.cn/20180317/idea-shortcut-key-disassembly-series-(ten):-run.html</loc>
+    <lastmod>2018-07-03T06:04:07.003Z</lastmod>
     <data>
         <display>
-        <title>一个简单的 '简书' 数据小爬虫</title>
-        <pubTime>2018-05-19T16:00:00.000Z</pubTime>
+        <title>IDEA快捷键拆解系列（十）：Run篇</title>
+        <pubTime>2018-03-16T16:00:00.000Z</pubTime>
+        
+        <tag>IDEA</tag>
+         
+        <tag>编辑器</tag>
+         
+        <tag>JetBrains</tag>
+         
+         
+           
+             
+              <breadCrumb title="编辑器" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/"/>
+          
+             
+              <breadCrumb title="快捷键" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180325/idea-shortcut-disassembly-series-(eighteen):-live-templates.html</loc>
+    <lastmod>2018-07-03T06:04:06.968Z</lastmod>
+    <data>
+        <display>
+        <title>IDEA快捷键拆解系列（十八）：Live Templates篇</title>
+        <pubTime>2018-03-24T16:00:00.000Z</pubTime>
+        
+        <tag>IDEA</tag>
+         
+        <tag>编辑器</tag>
+         
+        <tag>JetBrains</tag>
+         
+         
+           
+             
+              <breadCrumb title="编辑器" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/"/>
+          
+             
+              <breadCrumb title="快捷键" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180312/idea-shortcut-key-disassembly-series-(five):-navigate.html</loc>
+    <lastmod>2018-07-03T06:04:06.902Z</lastmod>
+    <data>
+        <display>
+        <title>IDEA快捷键拆解系列（五）：Navigate篇</title>
+        <pubTime>2018-03-11T16:00:00.000Z</pubTime>
+        
+        <tag>IDEA</tag>
+         
+        <tag>编辑器</tag>
+         
+        <tag>JetBrains</tag>
+         
+         
+           
+             
+              <breadCrumb title="编辑器" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/"/>
+          
+             
+              <breadCrumb title="快捷键" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180619/service-configuration-commonly-used-by-java-developers-(nginx,-tomcat,-jvm,-mysql,-redis).html</loc>
+    <lastmod>2018-07-03T06:04:06.724Z</lastmod>
+    <data>
+        <display>
+        <title>Java开发人员常用的服务配置(Nginx、Tomcat、JVM、Mysql、Redis)</title>
+        <pubTime>2018-06-18T16:00:00.000Z</pubTime>
+        
+        <tag>mysql</tag>
+         
+        <tag>redis</tag>
+         
+        <tag>nginx</tag>
+         
+        <tag>tomcat</tag>
+         
+        <tag>jvm</tag>
+         
+         
+           
+             
+              <breadCrumb title="Java" url="https://blog.mariojd.cn/categories/Java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180614/is-and-=-=-and-string-resident-mechanism-in-python.html</loc>
+    <lastmod>2018-07-03T06:04:06.632Z</lastmod>
+    <data>
+        <display>
+        <title>Python中的is和==以及字符串驻留机制</title>
+        <pubTime>2018-06-13T16:00:00.000Z</pubTime>
         
         <tag>python</tag>
          
-        <tag>spider</tag>
+        <tag>字符串机制</tag>
          
          
            
@@ -241,12 +258,12 @@
 
     
   <url>
-    <loc>https://blog.mariojd.cn/20180328/idea-shortcut-key-disassembly-series-(postscript).html</loc>
-    <lastmod>2018-07-03T05:38:30.802Z</lastmod>
+    <loc>https://blog.mariojd.cn/20180209/idea-shortcut-key-disassembly-series-(preface).html</loc>
+    <lastmod>2018-07-03T06:04:06.578Z</lastmod>
     <data>
         <display>
-        <title>IDEA快捷键拆解系列（后记）</title>
-        <pubTime>2018-03-27T16:00:00.000Z</pubTime>
+        <title>IDEA快捷键拆解系列（前言）</title>
+        <pubTime>2018-02-08T16:00:00.000Z</pubTime>
         
         <tag>IDEA</tag>
          
@@ -270,8 +287,90 @@
 
     
   <url>
+    <loc>https://blog.mariojd.cn/20180211/facet-oriented-spring---spring-fourth-chapters-(notes).html</loc>
+    <lastmod>2018-07-03T06:04:06.468Z</lastmod>
+    <data>
+        <display>
+        <title>面向切面的Spring - 《Spring实战》第4章（笔记）</title>
+        <pubTime>2018-02-10T16:00:00.000Z</pubTime>
+        
+        <tag>Spring</tag>
+         
+        <tag>《Spring in action》</tag>
+         
+        <tag>AcpectJ</tag>
+         
+        <tag>Aop</tag>
+         
+        <tag>读书笔记</tag>
+         
+         
+           
+             
+              <breadCrumb title="Spring" url="https://blog.mariojd.cn/categories/Spring/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20171022/java-class-library:-lombok.html</loc>
+    <lastmod>2018-07-03T06:04:06.407Z</lastmod>
+    <data>
+        <display>
+        <title>Java类库：Lombok</title>
+        <pubTime>2017-10-21T16:00:00.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>Lombok</tag>
+         
+        <tag>Java类库</tag>
+         
+         
+           
+             
+              <breadCrumb title="Java" url="https://blog.mariojd.cn/categories/Java/"/>
+          
+             
+              <breadCrumb title="Lombok" url="https://blog.mariojd.cn/categories/Java/Lombok/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180319/idea-shortcut-key-disassembly-series-(twelve):-vcs.html</loc>
+    <lastmod>2018-07-03T06:04:06.390Z</lastmod>
+    <data>
+        <display>
+        <title>IDEA快捷键拆解系列（十二）：VCS篇</title>
+        <pubTime>2018-03-18T16:00:00.000Z</pubTime>
+        
+        <tag>IDEA</tag>
+         
+        <tag>编辑器</tag>
+         
+        <tag>JetBrains</tag>
+         
+         
+           
+             
+              <breadCrumb title="编辑器" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/"/>
+          
+             
+              <breadCrumb title="快捷键" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://blog.mariojd.cn/20180502/several-ways-of-initializing-resources-in-spring-boot.html</loc>
-    <lastmod>2018-07-03T05:38:30.799Z</lastmod>
+    <lastmod>2018-07-03T06:04:06.339Z</lastmod>
     <data>
         <display>
         <title>Spring Boot中初始化资源的几种方式</title>
@@ -292,329 +391,8 @@
 
     
   <url>
-    <loc>https://blog.mariojd.cn/20180208/hexo-integration-of-github-pages.html</loc>
-    <lastmod>2018-07-03T05:38:30.796Z</lastmod>
-    <data>
-        <display>
-        <title>Hexo整合GitHub Pages</title>
-        <pubTime>2018-02-07T16:00:00.000Z</pubTime>
-        
-        <tag>GitHub Pages</tag>
-         
-        <tag>个人博客</tag>
-         
-        <tag>开源项目</tag>
-         
-        <tag>Hexo</tag>
-         
-         
-           
-             
-              <breadCrumb title="开源项目" url="https://blog.mariojd.cn/categories/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/20180322/idea-shortcut-key-disassembly-series-(fifteen):-experience.html</loc>
-    <lastmod>2018-07-03T05:38:30.793Z</lastmod>
-    <data>
-        <display>
-        <title>IDEA快捷键拆解系列（十五）：经验篇</title>
-        <pubTime>2018-03-21T16:00:00.000Z</pubTime>
-        
-        <tag>IDEA</tag>
-         
-        <tag>编辑器</tag>
-         
-        <tag>JetBrains</tag>
-         
-         
-           
-             
-              <breadCrumb title="编辑器" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/"/>
-          
-             
-              <breadCrumb title="快捷键" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/20180311/idea-shortcut-key-disassembly-series-(four):-view.html</loc>
-    <lastmod>2018-07-03T05:38:30.790Z</lastmod>
-    <data>
-        <display>
-        <title>IDEA快捷键拆解系列（四）：View篇</title>
-        <pubTime>2018-03-10T16:00:00.000Z</pubTime>
-        
-        <tag>IDEA</tag>
-         
-        <tag>编辑器</tag>
-         
-        <tag>JetBrains</tag>
-         
-         
-           
-             
-              <breadCrumb title="编辑器" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/"/>
-          
-             
-              <breadCrumb title="快捷键" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/20180401/after-10000-steps-and-21-days-of-nail-race,-the-great-god-race..html</loc>
-    <lastmod>2018-07-03T05:38:30.787Z</lastmod>
-    <data>
-        <display>
-        <title>在完成了10000步21天钉钉运动大神赛之后...</title>
-        <pubTime>2018-03-31T16:00:00.000Z</pubTime>
-        
-        <tag>跑步</tag>
-         
-        <tag>钉钉运动</tag>
-         
-         
-           
-             
-              <breadCrumb title="随笔" url="https://blog.mariojd.cn/categories/%E9%9A%8F%E7%AC%94/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/20180614/is-and-=-=-and-string-resident-mechanism-in-python.html</loc>
-    <lastmod>2018-07-03T05:38:30.774Z</lastmod>
-    <data>
-        <display>
-        <title>Python中的is和==以及字符串驻留机制</title>
-        <pubTime>2018-06-13T16:00:00.000Z</pubTime>
-        
-        <tag>python</tag>
-         
-        <tag>字符串机制</tag>
-         
-         
-           
-             
-              <breadCrumb title="Python" url="https://blog.mariojd.cn/categories/Python/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/20180302/mycat-(configuration-text).html</loc>
-    <lastmod>2018-07-03T05:38:30.591Z</lastmod>
-    <data>
-        <display>
-        <title>Mycat（配置篇）</title>
-        <pubTime>2018-03-01T16:00:00.000Z</pubTime>
-        
-        <tag>Mycat</tag>
-         
-        <tag>数据库中间件</tag>
-         
-        <tag>配置篇</tag>
-         
-         
-           
-             
-              <breadCrumb title="数据库中间件" url="https://blog.mariojd.cn/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E9%97%B4%E4%BB%B6/"/>
-          
-             
-              <breadCrumb title="Mycat" url="https://blog.mariojd.cn/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E9%97%B4%E4%BB%B6/Mycat/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/20180503/hexo,-custom-domain-name-http-upgrade-https.html</loc>
-    <lastmod>2018-07-03T05:38:30.588Z</lastmod>
-    <data>
-        <display>
-        <title>Hexo，自定义域名http升级https</title>
-        <pubTime>2018-05-02T16:00:00.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-        <tag>http</tag>
-         
-        <tag>https</tag>
-         
-         
-           
-             
-              <breadCrumb title="hexo" url="https://blog.mariojd.cn/categories/hexo/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/20180321/idea-shortcut-key-disassembly-series-(fourteen):-help.html</loc>
-    <lastmod>2018-07-03T05:38:30.586Z</lastmod>
-    <data>
-        <display>
-        <title>IDEA快捷键拆解系列（十四）：Help篇</title>
-        <pubTime>2018-03-20T16:00:00.000Z</pubTime>
-        
-        <tag>IDEA</tag>
-         
-        <tag>编辑器</tag>
-         
-        <tag>JetBrains</tag>
-         
-         
-           
-             
-              <breadCrumb title="编辑器" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/"/>
-          
-             
-              <breadCrumb title="快捷键" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/20180330/several-solutions-to-realize-java-hot-deployment.html</loc>
-    <lastmod>2018-07-03T05:38:30.583Z</lastmod>
-    <data>
-        <display>
-        <title>实现Java热部署的几种解决方案</title>
-        <pubTime>2018-03-29T16:00:00.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>热部署</tag>
-         
-         
-           
-             
-              <breadCrumb title="Java" url="https://blog.mariojd.cn/categories/Java/"/>
-          
-             
-              <breadCrumb title="热部署" url="https://blog.mariojd.cn/categories/Java/%E7%83%AD%E9%83%A8%E7%BD%B2/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/20180404/access-to-rest-services-using-spring-resttemplate.html</loc>
-    <lastmod>2018-07-03T05:38:30.579Z</lastmod>
-    <data>
-        <display>
-        <title>使用Spring RestTemplate访问Rest服务</title>
-        <pubTime>2018-04-03T16:00:00.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>RestTemplate</tag>
-         
-        <tag>Spring</tag>
-         
-         
-           
-             
-              <breadCrumb title="Java" url="https://blog.mariojd.cn/categories/Java/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/20180421/record-an-accident-of-a-migration-of-wss-websocket.html</loc>
-    <lastmod>2018-07-03T05:38:30.574Z</lastmod>
-    <data>
-        <display>
-        <title>记录一次迁移wss WebSocket的事故</title>
-        <pubTime>2018-04-20T16:00:00.000Z</pubTime>
-        
-        <tag>websocket</tag>
-         
-        <tag>wss</tag>
-         
-        <tag>nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="websocket" url="https://blog.mariojd.cn/categories/websocket/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/20180502/solutions-to-several-startup-problems-of-spring-boot.html</loc>
-    <lastmod>2018-07-03T05:38:30.571Z</lastmod>
-    <data>
-        <display>
-        <title>Spring Boot几种启动问题的解决方案</title>
-        <pubTime>2018-05-01T16:00:00.000Z</pubTime>
-        
-        <tag>Spring Boot</tag>
-         
-        <tag>Java</tag>
-         
-         
-           
-             
-              <breadCrumb title="Java" url="https://blog.mariojd.cn/categories/Java/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/20180424/jmeter-measurement-of-http-(s).html</loc>
-    <lastmod>2018-07-03T05:38:30.568Z</lastmod>
-    <data>
-        <display>
-        <title>Jmeter 压测 http(s)</title>
-        <pubTime>2018-04-23T16:00:00.000Z</pubTime>
-        
-        <tag>Jmeter</tag>
-         
-        <tag>http(s)</tag>
-         
-        <tag>压测工具</tag>
-         
-         
-           
-             
-              <breadCrumb title="Jmeter" url="https://blog.mariojd.cn/categories/Jmeter/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://blog.mariojd.cn/20180304/mycat-(practice-section---postgresql-based-horizontal-segmentation,-master-slave-replication,-separation-of-read-and-write).html</loc>
-    <lastmod>2018-07-03T05:38:30.564Z</lastmod>
+    <lastmod>2018-07-03T06:04:06.249Z</lastmod>
     <data>
         <display>
         <title>Mycat（实践篇 - 基于PostgreSQL的水平切分、主从复制、读写分离）</title>
@@ -646,676 +424,8 @@
 
     
   <url>
-    <loc>https://blog.mariojd.cn/20180614/intellij-idea-artifact,-those-little-tricks-that-people-love-to-put-up-with..html</loc>
-    <lastmod>2018-07-03T05:38:30.560Z</lastmod>
-    <data>
-        <display>
-        <title>Intellij IDEA 神器那些让人爱不释手的小技巧（转载）</title>
-        <pubTime>2018-06-13T16:00:00.000Z</pubTime>
-        
-        <tag>IDEA</tag>
-         
-        <tag>编辑器</tag>
-         
-        <tag>Java</tag>
-         
-         
-           
-             
-              <breadCrumb title="IDEA" url="https://blog.mariojd.cn/categories/IDEA/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/20171022/java-class-library:-lombok.html</loc>
-    <lastmod>2018-07-03T05:38:30.556Z</lastmod>
-    <data>
-        <display>
-        <title>Java类库：Lombok</title>
-        <pubTime>2017-10-21T16:00:00.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>Lombok</tag>
-         
-        <tag>Java类库</tag>
-         
-         
-           
-             
-              <breadCrumb title="Java" url="https://blog.mariojd.cn/categories/Java/"/>
-          
-             
-              <breadCrumb title="Lombok" url="https://blog.mariojd.cn/categories/Java/Lombok/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/20180319/idea-shortcut-key-disassembly-series-(twelve):-vcs.html</loc>
-    <lastmod>2018-07-03T05:38:30.553Z</lastmod>
-    <data>
-        <display>
-        <title>IDEA快捷键拆解系列（十二）：VCS篇</title>
-        <pubTime>2018-03-18T16:00:00.000Z</pubTime>
-        
-        <tag>IDEA</tag>
-         
-        <tag>编辑器</tag>
-         
-        <tag>JetBrains</tag>
-         
-         
-           
-             
-              <breadCrumb title="编辑器" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/"/>
-          
-             
-              <breadCrumb title="快捷键" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/20180211/facet-oriented-spring---spring-fourth-chapters-(notes).html</loc>
-    <lastmod>2018-07-03T05:38:30.457Z</lastmod>
-    <data>
-        <display>
-        <title>面向切面的Spring - 《Spring实战》第4章（笔记）</title>
-        <pubTime>2018-02-10T16:00:00.000Z</pubTime>
-        
-        <tag>Spring</tag>
-         
-        <tag>《Spring in action》</tag>
-         
-        <tag>AcpectJ</tag>
-         
-        <tag>Aop</tag>
-         
-        <tag>读书笔记</tag>
-         
-         
-           
-             
-              <breadCrumb title="Spring" url="https://blog.mariojd.cn/categories/Spring/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/20180326/idea-shortcut-key-disassembly-series-(nineteen):-postfix.html</loc>
-    <lastmod>2018-07-03T05:38:30.453Z</lastmod>
-    <data>
-        <display>
-        <title>IDEA快捷键拆解系列（十九）：Postfix篇</title>
-        <pubTime>2018-03-25T16:00:00.000Z</pubTime>
-        
-        <tag>IDEA</tag>
-         
-        <tag>编辑器</tag>
-         
-        <tag>JetBrains</tag>
-         
-         
-           
-             
-              <breadCrumb title="编辑器" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/"/>
-          
-             
-              <breadCrumb title="快捷键" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/20180305/python-learning-resource-consolidation-(continuous-update).html</loc>
-    <lastmod>2018-07-03T05:38:30.407Z</lastmod>
-    <data>
-        <display>
-        <title>Python学习资源整理（持续更新...）</title>
-        <pubTime>2018-03-04T16:00:00.000Z</pubTime>
-        
-        <tag>Python</tag>
-         
-        <tag>学习资源</tag>
-         
-         
-           
-             
-              <breadCrumb title="Python" url="https://blog.mariojd.cn/categories/Python/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/20180323/idea-shortcut-key-disassembly-series-(sixteen):-plug-in.html</loc>
-    <lastmod>2018-07-03T05:38:30.404Z</lastmod>
-    <data>
-        <display>
-        <title>IDEA快捷键拆解系列（十六）：插件篇</title>
-        <pubTime>2018-03-22T16:00:00.000Z</pubTime>
-        
-        <tag>IDEA</tag>
-         
-        <tag>编辑器</tag>
-         
-        <tag>JetBrains</tag>
-         
-         
-           
-             
-              <breadCrumb title="编辑器" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/"/>
-          
-             
-              <breadCrumb title="快捷键" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/20180327/solve-the-problem-that-idea-can't-prompt-to-import-java.util.date..html</loc>
-    <lastmod>2018-07-03T05:38:30.400Z</lastmod>
-    <data>
-        <display>
-        <title>解决IDEA无法提示导入java.util.Date的问题</title>
-        <pubTime>2018-03-26T16:00:00.000Z</pubTime>
-        
-        <tag>IDEA</tag>
-         
-        <tag>编辑器</tag>
-         
-        <tag>JetBrains</tag>
-         
-         
-           
-             
-              <breadCrumb title="编辑器" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/20180209/idea-shortcut-key-disassembly-series-(preface).html</loc>
-    <lastmod>2018-07-03T05:38:30.396Z</lastmod>
-    <data>
-        <display>
-        <title>IDEA快捷键拆解系列（前言）</title>
-        <pubTime>2018-02-08T16:00:00.000Z</pubTime>
-        
-        <tag>IDEA</tag>
-         
-        <tag>编辑器</tag>
-         
-        <tag>Eclipse</tag>
-         
-        <tag>个人感悟</tag>
-         
-         
-           
-             
-              <breadCrumb title="编辑器" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/"/>
-          
-             
-              <breadCrumb title="个人感悟" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/%E4%B8%AA%E4%BA%BA%E6%84%9F%E6%82%9F/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/20180317/idea-shortcut-key-disassembly-series-(ten):-run.html</loc>
-    <lastmod>2018-07-03T05:38:30.392Z</lastmod>
-    <data>
-        <display>
-        <title>IDEA快捷键拆解系列（十）：Run篇</title>
-        <pubTime>2018-03-16T16:00:00.000Z</pubTime>
-        
-        <tag>IDEA</tag>
-         
-        <tag>编辑器</tag>
-         
-        <tag>JetBrains</tag>
-         
-         
-           
-             
-              <breadCrumb title="编辑器" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/"/>
-          
-             
-              <breadCrumb title="快捷键" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/20180614/intellij-idea-artifacts-still-have-these-little-tricks..html</loc>
-    <lastmod>2018-07-03T05:38:30.389Z</lastmod>
-    <data>
-        <display>
-        <title>Intellij IDEA 神器居然还有这些小技巧（转载）</title>
-        <pubTime>2018-06-13T16:00:00.000Z</pubTime>
-        
-        <tag>IDEA</tag>
-         
-        <tag>编辑器</tag>
-         
-        <tag>Java</tag>
-         
-         
-           
-             
-              <breadCrumb title="IDEA" url="https://blog.mariojd.cn/categories/IDEA/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/20180627/vimium---the-artifact-that-allows-chrome-to-work-efficiently.html</loc>
-    <lastmod>2018-07-03T05:38:30.386Z</lastmod>
-    <data>
-        <display>
-        <title>Vimium - 让Chrome高效工作的神器</title>
-        <pubTime>2018-06-26T16:00:00.000Z</pubTime>
-        
-        <tag>vimium</tag>
-         
-        <tag>chrome plugin</tag>
-         
-         
-           
-             
-              <breadCrumb title="开源" url="https://blog.mariojd.cn/categories/%E5%BC%80%E6%BA%90/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/20180315/idea-shortcut-key-disassembly-series-(eight):-refactor.html</loc>
-    <lastmod>2018-07-03T05:38:30.383Z</lastmod>
-    <data>
-        <display>
-        <title>IDEA快捷键拆解系列（八）：Refactor篇</title>
-        <pubTime>2018-03-14T16:00:00.000Z</pubTime>
-        
-        <tag>IDEA</tag>
-         
-        <tag>编辑器</tag>
-         
-        <tag>JetBrains</tag>
-         
-         
-           
-             
-              <breadCrumb title="编辑器" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/"/>
-          
-             
-              <breadCrumb title="快捷键" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/20180425/jmeter-measurement-of-ws-(s).html</loc>
-    <lastmod>2018-07-03T05:38:30.369Z</lastmod>
-    <data>
-        <display>
-        <title>Jmeter 压测 ws(s)</title>
-        <pubTime>2018-04-24T16:00:00.000Z</pubTime>
-        
-        <tag>Jmeter</tag>
-         
-        <tag>压测工具</tag>
-         
-        <tag>ws(s)</tag>
-         
-         
-           
-             
-              <breadCrumb title="Jmeter" url="https://blog.mariojd.cn/categories/Jmeter/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/20180310/idea-shortcut-key-disassembly-series-(three):-edit.html</loc>
-    <lastmod>2018-07-03T05:38:30.366Z</lastmod>
-    <data>
-        <display>
-        <title>IDEA快捷键拆解系列（三）：Edit篇</title>
-        <pubTime>2018-03-09T16:00:00.000Z</pubTime>
-        
-        <tag>IDEA</tag>
-         
-        <tag>编辑器</tag>
-         
-        <tag>JetBrains</tag>
-         
-         
-           
-             
-              <breadCrumb title="编辑器" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/"/>
-          
-             
-              <breadCrumb title="快捷键" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/20180418/ali-technology-essence-dry-goods-finishing-(continuously-updated...).html</loc>
-    <lastmod>2018-07-03T05:38:30.264Z</lastmod>
-    <data>
-        <display>
-        <title>阿里技术精华干货整理（持续更新...）</title>
-        <pubTime>2018-04-17T16:00:00.000Z</pubTime>
-        
-        <tag>学习资源</tag>
-         
-        <tag>阿里技术</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习资源" url="https://blog.mariojd.cn/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/20180210/idea-shortcut-key-disassembly-series-(1).html</loc>
-    <lastmod>2018-07-03T05:38:30.261Z</lastmod>
-    <data>
-        <display>
-        <title>IDEA快捷键拆解系列（一）</title>
-        <pubTime>2018-02-09T16:00:00.000Z</pubTime>
-        
-        <tag>IDEA</tag>
-         
-        <tag>编辑器</tag>
-         
-        <tag>JetBrains</tag>
-         
-         
-           
-             
-              <breadCrumb title="编辑器" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/"/>
-          
-             
-              <breadCrumb title="快捷键" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/20180619/service-configuration-commonly-used-by-java-developers-(nginx,-tomcat,-jvm,-mysql,-redis).html</loc>
-    <lastmod>2018-07-03T05:38:30.257Z</lastmod>
-    <data>
-        <display>
-        <title>Java开发人员常用的服务配置(Nginx、Tomcat、JVM、Mysql、Redis)</title>
-        <pubTime>2018-06-18T16:00:00.000Z</pubTime>
-        
-        <tag>mysql</tag>
-         
-        <tag>redis</tag>
-         
-        <tag>nginx</tag>
-         
-        <tag>tomcat</tag>
-         
-        <tag>jvm</tag>
-         
-         
-           
-             
-              <breadCrumb title="Java" url="https://blog.mariojd.cn/categories/Java/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/20180312/idea-shortcut-key-disassembly-series-(five):-navigate.html</loc>
-    <lastmod>2018-07-03T05:38:30.115Z</lastmod>
-    <data>
-        <display>
-        <title>IDEA快捷键拆解系列（五）：Navigate篇</title>
-        <pubTime>2018-03-11T16:00:00.000Z</pubTime>
-        
-        <tag>IDEA</tag>
-         
-        <tag>编辑器</tag>
-         
-        <tag>JetBrains</tag>
-         
-         
-           
-             
-              <breadCrumb title="编辑器" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/"/>
-          
-             
-              <breadCrumb title="快捷键" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/20180504/hexo,-custom-blog-theme.html</loc>
-    <lastmod>2018-07-03T05:38:30.112Z</lastmod>
-    <data>
-        <display>
-        <title>Hexo，自定义博客主题</title>
-        <pubTime>2018-05-03T16:00:00.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-        <tag>开源博客</tag>
-         
-        <tag>hexo themes</tag>
-         
-         
-           
-             
-              <breadCrumb title="hexo" url="https://blog.mariojd.cn/categories/hexo/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/20180309/idea-shortcut-key-disassembly-series-(two):-file.html</loc>
-    <lastmod>2018-07-03T05:38:30.107Z</lastmod>
-    <data>
-        <display>
-        <title>IDEA快捷键拆解系列（二）：File篇</title>
-        <pubTime>2018-03-08T16:00:00.000Z</pubTime>
-        
-        <tag>IDEA</tag>
-         
-        <tag>编辑器</tag>
-         
-        <tag>JetBrains</tag>
-         
-         
-           
-             
-              <breadCrumb title="编辑器" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/"/>
-          
-             
-              <breadCrumb title="快捷键" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/20180314/idea-shortcut-key-disassembly-series-(seven):-analyze.html</loc>
-    <lastmod>2018-07-03T05:38:30.103Z</lastmod>
-    <data>
-        <display>
-        <title>IDEA快捷键拆解系列（七）：Analyze篇</title>
-        <pubTime>2018-03-13T16:00:00.000Z</pubTime>
-        
-        <tag>IDEA</tag>
-         
-        <tag>编辑器</tag>
-         
-        <tag>JetBrains</tag>
-         
-         
-           
-             
-              <breadCrumb title="编辑器" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/"/>
-          
-             
-              <breadCrumb title="快捷键" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/20180330/fiddler-implementation-of-wechat-authorized-development-and-debugging.html</loc>
-    <lastmod>2018-07-03T05:38:30.100Z</lastmod>
-    <data>
-        <display>
-        <title>Fiddler实现微信授权开发调试</title>
-        <pubTime>2018-03-29T16:00:00.000Z</pubTime>
-        
-        <tag>Fiddler</tag>
-         
-        <tag>微信授权</tag>
-         
-        <tag>代理调试</tag>
-         
-         
-           
-             
-              <breadCrumb title="抓包工具" url="https://blog.mariojd.cn/categories/%E6%8A%93%E5%8C%85%E5%B7%A5%E5%85%B7/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/20180316/idea-shortcut-key-disassembly-series-(nine):-build.html</loc>
-    <lastmod>2018-07-03T05:38:30.088Z</lastmod>
-    <data>
-        <display>
-        <title>IDEA快捷键拆解系列（九）：Build篇</title>
-        <pubTime>2018-03-15T16:00:00.000Z</pubTime>
-        
-        <tag>IDEA</tag>
-         
-        <tag>编辑器</tag>
-         
-        <tag>JetBrains</tag>
-         
-         
-           
-             
-              <breadCrumb title="编辑器" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/"/>
-          
-             
-              <breadCrumb title="快捷键" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/20180320/idea-shortcut-key-disassembly-series-(thirteen):-window.html</loc>
-    <lastmod>2018-07-03T05:38:30.085Z</lastmod>
-    <data>
-        <display>
-        <title>IDEA快捷键拆解系列（十三）：Window篇</title>
-        <pubTime>2018-03-19T16:00:00.000Z</pubTime>
-        
-        <tag>IDEA</tag>
-         
-        <tag>编辑器</tag>
-         
-        <tag>JetBrains</tag>
-         
-         
-           
-             
-              <breadCrumb title="编辑器" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/"/>
-          
-             
-              <breadCrumb title="快捷键" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/20180628/hexo,-add-the-title-translation-plug-in.html</loc>
-    <lastmod>2018-07-03T05:38:30.035Z</lastmod>
-    <data>
-        <display>
-        <title>Hexo，添加标题翻译插件</title>
-        <pubTime>2018-06-27T16:00:00.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-        <tag>hexo-translate-title</tag>
-         
-         
-           
-             
-              <breadCrumb title="hexo" url="https://blog.mariojd.cn/categories/hexo/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://blog.mariojd.cn/20180318/idea-shortcut-key-disassembly-series-(eleven):-tools.html</loc>
-    <lastmod>2018-07-03T05:38:30.031Z</lastmod>
+    <lastmod>2018-07-03T06:04:05.933Z</lastmod>
     <data>
         <display>
         <title>IDEA快捷键拆解系列（十一）：Tools篇</title>
@@ -1341,23 +451,71 @@
 
     
   <url>
-    <loc>https://blog.mariojd.cn/20180514/package-manager-under-chocolatey,-windows.html</loc>
-    <lastmod>2018-07-03T05:38:30.019Z</lastmod>
+    <loc>https://blog.mariojd.cn/20180424/jmeter-measurement-of-http-(s).html</loc>
+    <lastmod>2018-07-03T06:04:05.089Z</lastmod>
     <data>
         <display>
-        <title>Chocolatey，Windows下的包管理器</title>
-        <pubTime>2018-05-13T16:00:00.000Z</pubTime>
+        <title>Jmeter 压测 http(s)</title>
+        <pubTime>2018-04-23T16:00:00.000Z</pubTime>
         
-        <tag>Chocolatey</tag>
+        <tag>Jmeter</tag>
          
-        <tag>Windows</tag>
+        <tag>http(s)</tag>
          
-        <tag>开源</tag>
+        <tag>压测工具</tag>
          
          
            
              
-              <breadCrumb title="Chocolatey" url="https://blog.mariojd.cn/categories/Chocolatey/"/>
+              <breadCrumb title="Jmeter" url="https://blog.mariojd.cn/categories/Jmeter/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180421/record-an-accident-of-a-migration-of-wss-websocket.html</loc>
+    <lastmod>2018-07-03T06:04:04.815Z</lastmod>
+    <data>
+        <display>
+        <title>记录一次迁移wss WebSocket的事故</title>
+        <pubTime>2018-04-20T16:00:00.000Z</pubTime>
+        
+        <tag>websocket</tag>
+         
+        <tag>wss</tag>
+         
+        <tag>nginx</tag>
+         
+         
+           
+             
+              <breadCrumb title="websocket" url="https://blog.mariojd.cn/categories/websocket/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180504/hexo,-custom-blog-theme.html</loc>
+    <lastmod>2018-07-03T06:04:03.915Z</lastmod>
+    <data>
+        <display>
+        <title>Hexo，自定义博客主题</title>
+        <pubTime>2018-05-03T16:00:00.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+        <tag>开源博客</tag>
+         
+        <tag>hexo themes</tag>
+         
+         
+           
+             
+              <breadCrumb title="hexo" url="https://blog.mariojd.cn/categories/hexo/"/>
           
         </display>
     </data>
@@ -1366,7 +524,7 @@
     
   <url>
     <loc>https://blog.mariojd.cn/20180514/hexo,-deploying-the-article-using-the-bat-script.html</loc>
-    <lastmod>2018-07-03T05:38:30.016Z</lastmod>
+    <lastmod>2018-07-03T06:04:02.450Z</lastmod>
     <data>
         <display>
         <title>Hexo，使用bat脚本部署文章</title>
@@ -1382,6 +540,875 @@
            
              
               <breadCrumb title="hexo" url="https://blog.mariojd.cn/categories/hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180324/idea-shortcut-key-disassembly-series-(seventeen):-debug.html</loc>
+    <lastmod>2018-07-03T06:04:01.966Z</lastmod>
+    <data>
+        <display>
+        <title>IDEA快捷键拆解系列（十七）：Debug篇</title>
+        <pubTime>2018-03-23T16:00:00.000Z</pubTime>
+        
+        <tag>IDEA</tag>
+         
+        <tag>编辑器</tag>
+         
+        <tag>JetBrains</tag>
+         
+         
+           
+             
+              <breadCrumb title="编辑器" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/"/>
+          
+             
+              <breadCrumb title="快捷键" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180208/hexo-integration-of-github-pages.html</loc>
+    <lastmod>2018-07-03T06:04:01.297Z</lastmod>
+    <data>
+        <display>
+        <title>Hexo整合GitHub Pages</title>
+        <pubTime>2018-02-07T16:00:00.000Z</pubTime>
+        
+        <tag>GitHub Pages</tag>
+         
+        <tag>个人博客</tag>
+         
+        <tag>开源项目</tag>
+         
+        <tag>Hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="开源项目" url="https://blog.mariojd.cn/categories/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180321/idea-shortcut-key-disassembly-series-(fourteen):-help.html</loc>
+    <lastmod>2018-07-03T06:04:01.203Z</lastmod>
+    <data>
+        <display>
+        <title>IDEA快捷键拆解系列（十四）：Help篇</title>
+        <pubTime>2018-03-20T16:00:00.000Z</pubTime>
+        
+        <tag>IDEA</tag>
+         
+        <tag>编辑器</tag>
+         
+        <tag>JetBrains</tag>
+         
+         
+           
+             
+              <breadCrumb title="编辑器" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/"/>
+          
+             
+              <breadCrumb title="快捷键" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180320/idea-shortcut-key-disassembly-series-(thirteen):-window.html</loc>
+    <lastmod>2018-07-03T06:04:00.615Z</lastmod>
+    <data>
+        <display>
+        <title>IDEA快捷键拆解系列（十三）：Window篇</title>
+        <pubTime>2018-03-19T16:00:00.000Z</pubTime>
+        
+        <tag>IDEA</tag>
+         
+        <tag>编辑器</tag>
+         
+        <tag>JetBrains</tag>
+         
+         
+           
+             
+              <breadCrumb title="编辑器" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/"/>
+          
+             
+              <breadCrumb title="快捷键" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180309/idea-shortcut-key-disassembly-series-(two):-file.html</loc>
+    <lastmod>2018-07-03T06:04:00.548Z</lastmod>
+    <data>
+        <display>
+        <title>IDEA快捷键拆解系列（二）：File篇</title>
+        <pubTime>2018-03-08T16:00:00.000Z</pubTime>
+        
+        <tag>IDEA</tag>
+         
+        <tag>编辑器</tag>
+         
+        <tag>JetBrains</tag>
+         
+         
+           
+             
+              <breadCrumb title="编辑器" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/"/>
+          
+             
+              <breadCrumb title="快捷键" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180627/vimium---the-artifact-that-allows-chrome-to-work-efficiently.html</loc>
+    <lastmod>2018-07-03T06:04:00.438Z</lastmod>
+    <data>
+        <display>
+        <title>Vimium - 让Chrome高效工作的神器</title>
+        <pubTime>2018-06-26T16:00:00.000Z</pubTime>
+        
+        <tag>vimium</tag>
+         
+        <tag>chrome plugin</tag>
+         
+         
+           
+             
+              <breadCrumb title="开源" url="https://blog.mariojd.cn/categories/%E5%BC%80%E6%BA%90/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180628/solve-the-problem-that-baidu-spiders-are-unable-to-crawl-hexo-blogs.html</loc>
+    <lastmod>2018-07-03T06:04:00.434Z</lastmod>
+    <data>
+        <display>
+        <title>解决百度蜘蛛无法爬取Hexo博客的问题</title>
+        <pubTime>2018-06-27T16:00:00.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+        <tag>coding.net</tag>
+         
+         
+           
+             
+              <breadCrumb title="开源" url="https://blog.mariojd.cn/categories/%E5%BC%80%E6%BA%90/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180313/idea-shortcut-key-disassembly-series-(six):-code.html</loc>
+    <lastmod>2018-07-03T06:04:00.431Z</lastmod>
+    <data>
+        <display>
+        <title>IDEA快捷键拆解系列（六）：Code篇</title>
+        <pubTime>2018-03-12T16:00:00.000Z</pubTime>
+        
+        <tag>IDEA</tag>
+         
+        <tag>编辑器</tag>
+         
+        <tag>JetBrains</tag>
+         
+         
+           
+             
+              <breadCrumb title="编辑器" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/"/>
+          
+             
+              <breadCrumb title="快捷键" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180322/idea-shortcut-key-disassembly-series-(fifteen):-experience.html</loc>
+    <lastmod>2018-07-03T06:04:00.426Z</lastmod>
+    <data>
+        <display>
+        <title>IDEA快捷键拆解系列（十五）：经验篇</title>
+        <pubTime>2018-03-21T16:00:00.000Z</pubTime>
+        
+        <tag>IDEA</tag>
+         
+        <tag>编辑器</tag>
+         
+        <tag>JetBrains</tag>
+         
+         
+           
+             
+              <breadCrumb title="编辑器" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/"/>
+          
+             
+              <breadCrumb title="快捷键" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180305/python-learning-resource-consolidation-(continuous-update).html</loc>
+    <lastmod>2018-07-03T06:04:00.418Z</lastmod>
+    <data>
+        <display>
+        <title>Python学习资源整理（持续更新...）</title>
+        <pubTime>2018-03-04T16:00:00.000Z</pubTime>
+        
+        <tag>Python</tag>
+         
+        <tag>学习资源</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="https://blog.mariojd.cn/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180210/idea-shortcut-key-disassembly-series-(1).html</loc>
+    <lastmod>2018-07-03T06:04:00.414Z</lastmod>
+    <data>
+        <display>
+        <title>IDEA快捷键拆解系列（一）</title>
+        <pubTime>2018-02-09T16:00:00.000Z</pubTime>
+        
+        <tag>IDEA</tag>
+         
+        <tag>编辑器</tag>
+         
+        <tag>JetBrains</tag>
+         
+         
+           
+             
+              <breadCrumb title="编辑器" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/"/>
+          
+             
+              <breadCrumb title="快捷键" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180520/a-simple-'jane-book'-little-crawler.html</loc>
+    <lastmod>2018-07-03T06:04:00.365Z</lastmod>
+    <data>
+        <display>
+        <title>一个简单的 '简书' 数据小爬虫</title>
+        <pubTime>2018-05-19T16:00:00.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+        <tag>spider</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="https://blog.mariojd.cn/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180403/programmer-artifact,-intellij-idea-2018.1-officially-released-(reprinted).html</loc>
+    <lastmod>2018-07-03T06:04:00.318Z</lastmod>
+    <data>
+        <display>
+        <title>程序员神器，IntelliJ IDEA 2018.1 正式发布（转载）</title>
+        <pubTime>2018-04-02T16:00:00.000Z</pubTime>
+        
+        <tag>IDEA</tag>
+         
+        <tag>编辑器</tag>
+         
+        <tag>Java</tag>
+         
+         
+           
+             
+              <breadCrumb title="IDEA" url="https://blog.mariojd.cn/categories/IDEA/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180314/idea-shortcut-key-disassembly-series-(seven):-analyze.html</loc>
+    <lastmod>2018-07-03T06:04:00.157Z</lastmod>
+    <data>
+        <display>
+        <title>IDEA快捷键拆解系列（七）：Analyze篇</title>
+        <pubTime>2018-03-13T16:00:00.000Z</pubTime>
+        
+        <tag>IDEA</tag>
+         
+        <tag>编辑器</tag>
+         
+        <tag>JetBrains</tag>
+         
+         
+           
+             
+              <breadCrumb title="编辑器" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/"/>
+          
+             
+              <breadCrumb title="快捷键" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180326/idea-shortcut-key-disassembly-series-(nineteen):-postfix.html</loc>
+    <lastmod>2018-07-03T06:04:00.036Z</lastmod>
+    <data>
+        <display>
+        <title>IDEA快捷键拆解系列（十九）：Postfix篇</title>
+        <pubTime>2018-03-25T16:00:00.000Z</pubTime>
+        
+        <tag>IDEA</tag>
+         
+        <tag>编辑器</tag>
+         
+        <tag>JetBrains</tag>
+         
+         
+           
+             
+              <breadCrumb title="编辑器" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/"/>
+          
+             
+              <breadCrumb title="快捷键" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180328/idea-shortcut-key-disassembly-series-(postscript).html</loc>
+    <lastmod>2018-07-03T06:03:58.848Z</lastmod>
+    <data>
+        <display>
+        <title>IDEA快捷键拆解系列（后记）</title>
+        <pubTime>2018-03-27T16:00:00.000Z</pubTime>
+        
+        <tag>IDEA</tag>
+         
+        <tag>编辑器</tag>
+         
+        <tag>Eclipse</tag>
+         
+        <tag>个人感悟</tag>
+         
+         
+           
+             
+              <breadCrumb title="编辑器" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/"/>
+          
+             
+              <breadCrumb title="个人感悟" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/%E4%B8%AA%E4%BA%BA%E6%84%9F%E6%82%9F/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180503/hexo,-custom-domain-name-http-upgrade-https.html</loc>
+    <lastmod>2018-07-03T06:03:58.592Z</lastmod>
+    <data>
+        <display>
+        <title>Hexo，自定义域名http升级https</title>
+        <pubTime>2018-05-02T16:00:00.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+        <tag>http</tag>
+         
+        <tag>https</tag>
+         
+         
+           
+             
+              <breadCrumb title="hexo" url="https://blog.mariojd.cn/categories/hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180316/idea-shortcut-key-disassembly-series-(nine):-build.html</loc>
+    <lastmod>2018-07-03T06:03:58.585Z</lastmod>
+    <data>
+        <display>
+        <title>IDEA快捷键拆解系列（九）：Build篇</title>
+        <pubTime>2018-03-15T16:00:00.000Z</pubTime>
+        
+        <tag>IDEA</tag>
+         
+        <tag>编辑器</tag>
+         
+        <tag>JetBrains</tag>
+         
+         
+           
+             
+              <breadCrumb title="编辑器" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/"/>
+          
+             
+              <breadCrumb title="快捷键" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180425/jmeter-measurement-of-ws-(s).html</loc>
+    <lastmod>2018-07-03T06:03:58.353Z</lastmod>
+    <data>
+        <display>
+        <title>Jmeter 压测 ws(s)</title>
+        <pubTime>2018-04-24T16:00:00.000Z</pubTime>
+        
+        <tag>Jmeter</tag>
+         
+        <tag>压测工具</tag>
+         
+        <tag>ws(s)</tag>
+         
+         
+           
+             
+              <breadCrumb title="Jmeter" url="https://blog.mariojd.cn/categories/Jmeter/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180330/several-solutions-to-realize-java-hot-deployment.html</loc>
+    <lastmod>2018-07-03T06:03:58.350Z</lastmod>
+    <data>
+        <display>
+        <title>实现Java热部署的几种解决方案</title>
+        <pubTime>2018-03-29T16:00:00.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>热部署</tag>
+         
+         
+           
+             
+              <breadCrumb title="Java" url="https://blog.mariojd.cn/categories/Java/"/>
+          
+             
+              <breadCrumb title="热部署" url="https://blog.mariojd.cn/categories/Java/%E7%83%AD%E9%83%A8%E7%BD%B2/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180614/intellij-idea-artifacts-still-have-these-little-tricks..html</loc>
+    <lastmod>2018-07-03T06:03:58.345Z</lastmod>
+    <data>
+        <display>
+        <title>Intellij IDEA 神器居然还有这些小技巧（转载）</title>
+        <pubTime>2018-06-13T16:00:00.000Z</pubTime>
+        
+        <tag>IDEA</tag>
+         
+        <tag>编辑器</tag>
+         
+        <tag>Java</tag>
+         
+         
+           
+             
+              <breadCrumb title="IDEA" url="https://blog.mariojd.cn/categories/IDEA/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180303/mycat-(practice-section---mysql-based-horizontal-segmentation,-master-slave-replication,-separation-of-read-and-write).html</loc>
+    <lastmod>2018-07-03T06:03:58.271Z</lastmod>
+    <data>
+        <display>
+        <title>Mycat（实践篇 - 基于Mysql的水平切分、主从复制、读写分离）</title>
+        <pubTime>2018-03-02T16:00:00.000Z</pubTime>
+        
+        <tag>mysql</tag>
+         
+        <tag>Mycat</tag>
+         
+        <tag>数据库中间件</tag>
+         
+        <tag>实践篇</tag>
+         
+        <tag>主从复制</tag>
+         
+        <tag>读写分离</tag>
+         
+         
+           
+             
+              <breadCrumb title="数据库中间件" url="https://blog.mariojd.cn/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E9%97%B4%E4%BB%B6/"/>
+          
+             
+              <breadCrumb title="Mycat" url="https://blog.mariojd.cn/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E9%97%B4%E4%BB%B6/Mycat/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180327/solve-the-problem-that-idea-can't-prompt-to-import-java.util.date..html</loc>
+    <lastmod>2018-07-03T06:03:58.249Z</lastmod>
+    <data>
+        <display>
+        <title>解决IDEA无法提示导入java.util.Date的问题</title>
+        <pubTime>2018-03-26T16:00:00.000Z</pubTime>
+        
+        <tag>IDEA</tag>
+         
+        <tag>编辑器</tag>
+         
+        <tag>JetBrains</tag>
+         
+         
+           
+             
+              <breadCrumb title="编辑器" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180502/solutions-to-several-startup-problems-of-spring-boot.html</loc>
+    <lastmod>2018-07-03T06:03:57.971Z</lastmod>
+    <data>
+        <display>
+        <title>Spring Boot几种启动问题的解决方案</title>
+        <pubTime>2018-05-01T16:00:00.000Z</pubTime>
+        
+        <tag>Spring Boot</tag>
+         
+        <tag>Java</tag>
+         
+         
+           
+             
+              <breadCrumb title="Java" url="https://blog.mariojd.cn/categories/Java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180302/mycat-(configuration-text).html</loc>
+    <lastmod>2018-07-03T06:03:57.907Z</lastmod>
+    <data>
+        <display>
+        <title>Mycat（配置篇）</title>
+        <pubTime>2018-03-01T16:00:00.000Z</pubTime>
+        
+        <tag>Mycat</tag>
+         
+        <tag>数据库中间件</tag>
+         
+        <tag>配置篇</tag>
+         
+         
+           
+             
+              <breadCrumb title="数据库中间件" url="https://blog.mariojd.cn/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E9%97%B4%E4%BB%B6/"/>
+          
+             
+              <breadCrumb title="Mycat" url="https://blog.mariojd.cn/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E9%97%B4%E4%BB%B6/Mycat/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180323/idea-shortcut-key-disassembly-series-(sixteen):-plug-in.html</loc>
+    <lastmod>2018-07-03T06:03:57.904Z</lastmod>
+    <data>
+        <display>
+        <title>IDEA快捷键拆解系列（十六）：插件篇</title>
+        <pubTime>2018-03-22T16:00:00.000Z</pubTime>
+        
+        <tag>IDEA</tag>
+         
+        <tag>编辑器</tag>
+         
+        <tag>JetBrains</tag>
+         
+         
+           
+             
+              <breadCrumb title="编辑器" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/"/>
+          
+             
+              <breadCrumb title="快捷键" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180301/mycat-(introductory-article).html</loc>
+    <lastmod>2018-07-03T06:03:57.883Z</lastmod>
+    <data>
+        <display>
+        <title>Mycat（入门篇）</title>
+        <pubTime>2018-02-28T16:00:00.000Z</pubTime>
+        
+        <tag>Mycat</tag>
+         
+        <tag>数据库中间件</tag>
+         
+        <tag>入门篇</tag>
+         
+         
+           
+             
+              <breadCrumb title="数据库中间件" url="https://blog.mariojd.cn/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E9%97%B4%E4%BB%B6/"/>
+          
+             
+              <breadCrumb title="Mycat" url="https://blog.mariojd.cn/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E9%97%B4%E4%BB%B6/Mycat/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180311/idea-shortcut-key-disassembly-series-(four):-view.html</loc>
+    <lastmod>2018-07-03T06:03:57.818Z</lastmod>
+    <data>
+        <display>
+        <title>IDEA快捷键拆解系列（四）：View篇</title>
+        <pubTime>2018-03-10T16:00:00.000Z</pubTime>
+        
+        <tag>IDEA</tag>
+         
+        <tag>编辑器</tag>
+         
+        <tag>JetBrains</tag>
+         
+         
+           
+             
+              <breadCrumb title="编辑器" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/"/>
+          
+             
+              <breadCrumb title="快捷键" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180330/fiddler-implementation-of-wechat-authorized-development-and-debugging.html</loc>
+    <lastmod>2018-07-03T06:03:57.562Z</lastmod>
+    <data>
+        <display>
+        <title>Fiddler实现微信授权开发调试</title>
+        <pubTime>2018-03-29T16:00:00.000Z</pubTime>
+        
+        <tag>Fiddler</tag>
+         
+        <tag>微信授权</tag>
+         
+        <tag>代理调试</tag>
+         
+         
+           
+             
+              <breadCrumb title="抓包工具" url="https://blog.mariojd.cn/categories/%E6%8A%93%E5%8C%85%E5%B7%A5%E5%85%B7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180310/idea-shortcut-key-disassembly-series-(three):-edit.html</loc>
+    <lastmod>2018-07-03T06:03:57.472Z</lastmod>
+    <data>
+        <display>
+        <title>IDEA快捷键拆解系列（三）：Edit篇</title>
+        <pubTime>2018-03-09T16:00:00.000Z</pubTime>
+        
+        <tag>IDEA</tag>
+         
+        <tag>编辑器</tag>
+         
+        <tag>JetBrains</tag>
+         
+         
+           
+             
+              <breadCrumb title="编辑器" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/"/>
+          
+             
+              <breadCrumb title="快捷键" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180614/intellij-idea-artifact,-those-little-tricks-that-people-love-to-put-up-with..html</loc>
+    <lastmod>2018-07-03T06:03:57.390Z</lastmod>
+    <data>
+        <display>
+        <title>Intellij IDEA 神器那些让人爱不释手的小技巧（转载）</title>
+        <pubTime>2018-06-13T16:00:00.000Z</pubTime>
+        
+        <tag>IDEA</tag>
+         
+        <tag>编辑器</tag>
+         
+        <tag>Java</tag>
+         
+         
+           
+             
+              <breadCrumb title="IDEA" url="https://blog.mariojd.cn/categories/IDEA/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180628/hexo,-add-the-title-translation-plug-in.html</loc>
+    <lastmod>2018-07-03T06:03:57.133Z</lastmod>
+    <data>
+        <display>
+        <title>Hexo，添加标题翻译插件</title>
+        <pubTime>2018-06-27T16:00:00.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+        <tag>hexo-translate-title</tag>
+         
+         
+           
+             
+              <breadCrumb title="hexo" url="https://blog.mariojd.cn/categories/hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180404/access-to-rest-services-using-spring-resttemplate.html</loc>
+    <lastmod>2018-07-03T06:03:56.986Z</lastmod>
+    <data>
+        <display>
+        <title>使用Spring RestTemplate访问Rest服务</title>
+        <pubTime>2018-04-03T16:00:00.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>RestTemplate</tag>
+         
+        <tag>Spring</tag>
+         
+         
+           
+             
+              <breadCrumb title="Java" url="https://blog.mariojd.cn/categories/Java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180315/idea-shortcut-key-disassembly-series-(eight):-refactor.html</loc>
+    <lastmod>2018-07-03T06:03:56.685Z</lastmod>
+    <data>
+        <display>
+        <title>IDEA快捷键拆解系列（八）：Refactor篇</title>
+        <pubTime>2018-03-14T16:00:00.000Z</pubTime>
+        
+        <tag>IDEA</tag>
+         
+        <tag>编辑器</tag>
+         
+        <tag>JetBrains</tag>
+         
+         
+           
+             
+              <breadCrumb title="编辑器" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/"/>
+          
+             
+              <breadCrumb title="快捷键" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
           
         </display>
     </data>
@@ -1555,9 +1582,9 @@
         
         <tag>docker</tag>
          
-        <tag>主从搭建</tag>
-         
         <tag>mysql</tag>
+         
+        <tag>主从搭建</tag>
          
          
            
@@ -1582,9 +1609,9 @@
         
         <tag>docker</tag>
          
-        <tag>postgresql</tag>
-         
         <tag>主从搭建</tag>
+         
+        <tag>postgresql</tag>
          
          
            
@@ -1593,33 +1620,6 @@
           
              
               <breadCrumb title="PostgreSQL" url="https://blog.mariojd.cn/categories/Docker/PostgreSQL/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/20180702/docker-+-redis-(4.0.10)-master-and-slave-environment-construction.html</loc>
-    <lastmod>2018-07-03T05:37:01.264Z</lastmod>
-    <data>
-        <display>
-        <title>Docker + Redis (4.0.10) 主从环境搭建</title>
-        <pubTime>2018-07-01T16:00:00.000Z</pubTime>
-        
-        <tag>docker</tag>
-         
-        <tag>主从搭建</tag>
-         
-        <tag>redis</tag>
-         
-         
-           
-             
-              <breadCrumb title="Docker" url="https://blog.mariojd.cn/categories/Docker/"/>
-          
-             
-              <breadCrumb title="Redis" url="https://blog.mariojd.cn/categories/Docker/Redis/"/>
           
         </display>
     </data>

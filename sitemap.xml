@@ -2,9 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.mariojd.cn/20180418/ali-technology-essence-dry-goods-finishing-continuous-update.html</loc>
+    
+    <lastmod>2018-07-03T03:50:06.717Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.mariojd.cn/20180619/service-configuration-commonly-used-by-java-developers-nginx-tomcat-jvm-mysql-redis.html</loc>
+    
+    <lastmod>2018-07-03T03:50:06.648Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.mariojd.cn/20180702/.html</loc>
+    
+    <lastmod>2018-07-03T03:49:31.221Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.mariojd.cn/20180614/is-and-in-python-string-resident-mechanism.html</loc>
     
-    <lastmod>2018-07-02T02:25:38.818Z</lastmod>
+    <lastmod>2018-07-02T02:31:49.022Z</lastmod>
     
   </url>
   
@@ -198,13 +219,6 @@
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/20180619/commonly-used-service-configuration-for-java-developers-nginx-tomcat-jvm-mysql-redis.html</loc>
-    
-    <lastmod>2018-06-29T05:50:20.443Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.mariojd.cn/20180315/idea-shortcut-key-dismantling-series-eight-refactor-articles.html</loc>
     
     <lastmod>2018-06-29T05:50:20.388Z</lastmod>
@@ -271,13 +285,6 @@
     <loc>https://blog.mariojd.cn/20180305/python-learning-resources-organize-continuous-update.html</loc>
     
     <lastmod>2018-06-29T05:50:20.224Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.mariojd.cn/20180418/ali-technology-essence-dry-cleaning-continuous-update.html</loc>
-    
-    <lastmod>2018-06-29T05:50:20.221Z</lastmod>
     
   </url>
   
@@ -429,14 +436,14 @@
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/20180518/.html</loc>
+    <loc>https://blog.mariojd.cn/20180516/.html</loc>
     
     <lastmod>2018-06-26T02:24:18.990Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/20180516/.html</loc>
+    <loc>https://blog.mariojd.cn/20180518/.html</loc>
     
     <lastmod>2018-06-26T02:24:18.990Z</lastmod>
     

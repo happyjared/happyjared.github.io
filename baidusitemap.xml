@@ -4,8 +4,85 @@
 
     
   <url>
+    <loc>https://blog.mariojd.cn/20180418/ali-technology-essence-dry-goods-finishing-continuous-update.html</loc>
+    <lastmod>2018-07-03T03:50:06.717Z</lastmod>
+    <data>
+        <display>
+        <title>阿里技术精华干货整理（持续更新...）</title>
+        <pubTime>2018-04-17T16:00:00.000Z</pubTime>
+        
+        <tag>学习资源</tag>
+         
+        <tag>阿里技术</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习资源" url="https://blog.mariojd.cn/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180619/service-configuration-commonly-used-by-java-developers-nginx-tomcat-jvm-mysql-redis.html</loc>
+    <lastmod>2018-07-03T03:50:06.648Z</lastmod>
+    <data>
+        <display>
+        <title>Java开发人员常用的服务配置(Nginx、Tomcat、JVM、Mysql、Redis)</title>
+        <pubTime>2018-06-18T16:00:00.000Z</pubTime>
+        
+        <tag>mysql</tag>
+         
+        <tag>nginx</tag>
+         
+        <tag>tomcat</tag>
+         
+        <tag>jvm</tag>
+         
+        <tag>redis</tag>
+         
+         
+           
+             
+              <breadCrumb title="Java" url="https://blog.mariojd.cn/categories/Java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180702/.html</loc>
+    <lastmod>2018-07-03T03:49:31.221Z</lastmod>
+    <data>
+        <display>
+        <title>Docker + Redis (4.0.10) 主从环境搭建</title>
+        <pubTime>2018-07-01T16:00:00.000Z</pubTime>
+        
+        <tag>docker</tag>
+         
+        <tag>主从搭建</tag>
+         
+        <tag>redis</tag>
+         
+         
+           
+             
+              <breadCrumb title="Docker" url="https://blog.mariojd.cn/categories/Docker/"/>
+          
+             
+              <breadCrumb title="Redis" url="https://blog.mariojd.cn/categories/Docker/Redis/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://blog.mariojd.cn/20180614/is-and-in-python-string-resident-mechanism.html</loc>
-    <lastmod>2018-07-02T02:25:38.818Z</lastmod>
+    <lastmod>2018-07-02T02:31:49.022Z</lastmod>
     <data>
         <display>
         <title>Python中的is和==以及字符串驻留机制</title>
@@ -720,34 +797,6 @@
 
     
   <url>
-    <loc>https://blog.mariojd.cn/20180619/commonly-used-service-configuration-for-java-developers-nginx-tomcat-jvm-mysql-redis.html</loc>
-    <lastmod>2018-06-29T05:50:20.443Z</lastmod>
-    <data>
-        <display>
-        <title>Java开发人员常用的服务配置(Nginx、Tomcat、JVM、Mysql、Redis)</title>
-        <pubTime>2018-06-18T16:00:00.000Z</pubTime>
-        
-        <tag>mysql</tag>
-         
-        <tag>nginx</tag>
-         
-        <tag>tomcat</tag>
-         
-        <tag>jvm</tag>
-         
-        <tag>redis</tag>
-         
-         
-           
-             
-              <breadCrumb title="Java" url="https://blog.mariojd.cn/categories/Java/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://blog.mariojd.cn/20180315/idea-shortcut-key-dismantling-series-eight-refactor-articles.html</loc>
     <lastmod>2018-06-29T05:50:20.388Z</lastmod>
     <data>
@@ -1003,28 +1052,6 @@
            
              
               <breadCrumb title="Python" url="https://blog.mariojd.cn/categories/Python/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/20180418/ali-technology-essence-dry-cleaning-continuous-update.html</loc>
-    <lastmod>2018-06-29T05:50:20.221Z</lastmod>
-    <data>
-        <display>
-        <title>阿里技术精华干货整理（持续更新...）</title>
-        <pubTime>2018-04-17T16:00:00.000Z</pubTime>
-        
-        <tag>学习资源</tag>
-         
-        <tag>阿里技术</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习资源" url="https://blog.mariojd.cn/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"/>
           
         </display>
     </data>
@@ -1569,18 +1596,18 @@
 
     
   <url>
-    <loc>https://blog.mariojd.cn/20180518/.html</loc>
+    <loc>https://blog.mariojd.cn/20180516/.html</loc>
     <lastmod>2018-06-26T02:24:18.990Z</lastmod>
     <data>
         <display>
-        <title>Python + Selenium 自动发布文章（三）：CSDN</title>
-        <pubTime>2018-05-17T16:00:00.000Z</pubTime>
+        <title>Python + Selenium 自动发布文章（一）：开源中国</title>
+        <pubTime>2018-05-15T16:00:00.000Z</pubTime>
         
         <tag>python</tag>
          
         <tag>selenium</tag>
          
-        <tag>csdn</tag>
+        <tag>oschina</tag>
          
          
            
@@ -1596,18 +1623,18 @@
 
     
   <url>
-    <loc>https://blog.mariojd.cn/20180516/.html</loc>
+    <loc>https://blog.mariojd.cn/20180518/.html</loc>
     <lastmod>2018-06-26T02:24:18.990Z</lastmod>
     <data>
         <display>
-        <title>Python + Selenium 自动发布文章（一）：开源中国</title>
-        <pubTime>2018-05-15T16:00:00.000Z</pubTime>
+        <title>Python + Selenium 自动发布文章（三）：CSDN</title>
+        <pubTime>2018-05-17T16:00:00.000Z</pubTime>
         
         <tag>python</tag>
          
         <tag>selenium</tag>
          
-        <tag>oschina</tag>
+        <tag>csdn</tag>
          
          
            

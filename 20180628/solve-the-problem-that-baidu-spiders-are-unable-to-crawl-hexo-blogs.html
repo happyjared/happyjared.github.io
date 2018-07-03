@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>解决百度蜘蛛无法爬取Hexo博客的问题 | happyJared - 博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="happyJared - 博客。编码爱好者，代码小洁癖。" />
+  
+  <meta name="description" content="写在前面&amp;emsp;&amp;emsp;先上两张图对比下：   &amp;emsp;&amp;emsp;由于GitHub Pages是拒绝百度爬虫爬取的，包括用Hexo或Jekyll搭建的博客，因此你的站点再怎么SEO优化，这在国内也是收录和搜索不到的。本文介绍的方案同大多数一样，利用DNS将国内的线路请求到Coding Pages，然后国外的线路还是走GitHub Pages。 &amp;emsp;&amp;emsp;上面是在完成以">
+<meta name="keywords" content="hexo,coding.net">
+<meta property="og:type" content="article">
+<meta property="og:title" content="解决百度蜘蛛无法爬取Hexo博客的问题">
+<meta property="og:url" content="https://blog.mariojd.cn/20180628/solve-the-problem-that-baidu-spiders-are-unable-to-crawl-hexo-blogs.html">
+<meta property="og:site_name" content="happyJared - 博客">
+<meta property="og:description" content="写在前面&amp;emsp;&amp;emsp;先上两张图对比下：   &amp;emsp;&amp;emsp;由于GitHub Pages是拒绝百度爬虫爬取的，包括用Hexo或Jekyll搭建的博客，因此你的站点再怎么SEO优化，这在国内也是收录和搜索不到的。本文介绍的方案同大多数一样，利用DNS将国内的线路请求到Coding Pages，然后国外的线路还是走GitHub Pages。 &amp;emsp;&amp;emsp;上面是在完成以">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://image.mariojd.cn/smallstory/2018628/WeChat截圖_20180628113653.png">
+<meta property="og:image" content="https://image.mariojd.cn/smallstory/2018628/WeChat截圖_20180628113704.png">
+<meta property="og:image" content="https://image.mariojd.cn/smallstory/2018629/WeChat截圖_20180629095534.png">
+<meta property="og:image" content="https://image.mariojd.cn/smallstory/2018629/WeChat截圖_20180629100251.png">
+<meta property="og:image" content="https://image.mariojd.cn/smallstory/2018629/WeChat截圖_20180629101645.png">
+<meta property="og:image" content="https://image.mariojd.cn/smallstory/2018629/WeChat截圖_20180629101855.png">
+<meta property="og:image" content="https://image.mariojd.cn/smallstory/2018629/WeChat截圖_20180629103319.png">
+<meta property="og:image" content="https://image.mariojd.cn/smallstory/2018629/WeChat截圖_20180629103912.png">
+<meta property="og:image" content="https://image.mariojd.cn/smallstory/2018629/WeChat截圖_20180629104610.png">
+<meta property="og:image" content="https://image.mariojd.cn/smallstory/2018629/WeChat截圖_20180629090710.png">
+<meta property="og:image" content="https://image.mariojd.cn/smallstory/2018629/WeChat截圖_20180629110321.png">
+<meta property="og:image" content="https://image.mariojd.cn/smallstory/2018629/WeChat截圖_20180629112117.png">
+<meta property="og:updated_time" content="2018-07-03T05:38:31.156Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="解决百度蜘蛛无法爬取Hexo博客的问题">
+<meta name="twitter:description" content="写在前面&amp;emsp;&amp;emsp;先上两张图对比下：   &amp;emsp;&amp;emsp;由于GitHub Pages是拒绝百度爬虫爬取的，包括用Hexo或Jekyll搭建的博客，因此你的站点再怎么SEO优化，这在国内也是收录和搜索不到的。本文介绍的方案同大多数一样，利用DNS将国内的线路请求到Coding Pages，然后国外的线路还是走GitHub Pages。 &amp;emsp;&amp;emsp;上面是在完成以">
+<meta name="twitter:image" content="https://image.mariojd.cn/smallstory/2018628/WeChat截圖_20180628113653.png">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?7d6076888c62ff336f5b580c57fd4141";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+  
+
+</head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <!--<div id="banner"></div>-->
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title"></span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-h-square"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-window-restore"></i>
+                        <span>归档</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <!--<div id="header-title">-->
+                    <!---->
+                <!--</div>-->
+                <div id="header-description">
+                    
+                    <h4>
+                        先做好写代码这事
+                    </h4>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="github" target="_blank" href="//github.com/happyjared">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="微博" target="_blank" href="//weibo.com/u/5633332995">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="简书" target="_blank" href="//www.jianshu.com/u/000a530f461c">
+                            <i class="fa fa-book fa-2x"></i></a>
+                    
+                        <a title="qq" target="_blank" href="//wpa.qq.com/msgrd?v=3&uin=1394223902&site=qq&menu=yes">
+                            <i class="fa fa-qq fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-解决百度蜘蛛无法爬取Hexo博客的问题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      解决百度蜘蛛无法爬取Hexo博客的问题
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/开源/">开源</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-06-28
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <!--
+    self_category: 开源
+    self_tags: hexo，coding.net
+    osChina_sys_category: 其他类型
+    csdn_article_category: 原创
+    csdn_blog_category: 程序人生
+-->
+<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>&emsp;&emsp;先上两张图对比下：</p>
+<p><img src="https://image.mariojd.cn/smallstory/2018628/WeChat截圖_20180628113653.png" alt="Google-site:blog.mariojd.cn"></p>
+<p><img src="https://image.mariojd.cn/smallstory/2018628/WeChat截圖_20180628113704.png" alt="Baidu-site:blog.mariojd.cn"></p>
+<p>&emsp;&emsp;由于GitHub Pages是拒绝百度爬虫爬取的，包括用Hexo或Jekyll搭建的博客，因此你的站点再怎么SEO优化，这在国内也是收录和搜索不到的。本文介绍的方案同大多数一样，利用DNS将国内的线路请求到Coding Pages，然后国外的线路还是走GitHub Pages。</p>
+<p>&emsp;&emsp;上面是在完成以下几步操作几天后截的图，总之谷歌是很快就收录了我的博客站点(听说最多一两天)，相反国内的百度是迟迟没有动静，上站长平台各种地址、sitemap提交也是毫无反馈，还是提问后才了解到百度收录站点的速度确实会比较慢，短则一两周长则几个月，还是先做好时间、心理的持久战准备吧！</p>
+<h3 id="准备说明"><a href="#准备说明" class="headerlink" title="准备说明"></a>准备说明</h3><ul>
+<li><a href="https://coding.net/" target="_blank" rel="noopener">Coding</a></li>
+<li><a href="https://www.dnspod.cn/" target="_blank" rel="noopener">DNSPod</a></li>
+</ul>
+<h3 id="解决过程"><a href="#解决过程" class="headerlink" title="解决过程"></a>解决过程</h3><ul>
+<li><ol>
+<li>在Coding.net上创建当前用户名仓库</li>
+</ol>
+</li>
+</ul>
+<p><img src="https://image.mariojd.cn/smallstory/2018629/WeChat截圖_20180629095534.png" alt="happyjared - Coding.net"></p>
+<ul>
+<li><ol>
+<li>修改hexo根目录下的<code>_config.yml</code></li>
+</ol>
+</li>
+</ul>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 注意这里要修改成你的实际仓库地址，都是走SSH的方式所以要提前配置相关环境</span></span><br><span class="line"><span class="comment"># 如果实际分支不是默认的master，请自行修改并在平台上配置</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line"><span class="attr">  type:</span> <span class="string">git</span></span><br><span class="line"><span class="attr">  repo:</span></span><br><span class="line"><span class="attr">    github:</span> <span class="string">git@github.com:happyjared/happyjared.github.io.git,master</span></span><br><span class="line"><span class="attr">    coding:</span> <span class="string">git@git.coding.net:happyjared/happyjared.git,master</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><ol>
+<li>注册DNSPod并修改域名解析</li>
+</ol>
+</li>
+</ul>
+<p>&emsp;&emsp;这里需要两条CNAME主机记录。线路类型是国外的，记录值为：\<github username="">.github.io.；线路类型是国内的，记录值为：pages.coding.me.(注意，对应静态Pages来说这是个固定值)。</github></p>
+<p><img src="https://image.mariojd.cn/smallstory/2018629/WeChat截圖_20180629100251.png" alt="DNSPod"></p>
+<ul>
+<li><ol>
+<li>重新部署Hexo并测试访问</li>
+</ol>
+</li>
+</ul>
+<p>&emsp;&emsp;完成上述操作后使用<code>hexo g -d</code>命令重新部署双平台博客，然后通过访问<code>http://&lt;github username&gt;.github.io</code>或<code>http://&lt;coding username&gt;.coding.me</code>查看操作是否成功。</p>
+<ul>
+<li><ol>
+<li><p>添加自定义域名和Https</p>
+<ul>
+<li>GitHub Pages的配置在该仓库的<code>Settings</code>，参考下图：</li>
+</ul>
+<p><img src="https://image.mariojd.cn/smallstory/2018629/WeChat截圖_20180629101645.png" alt="GitHub Page Setting"></p>
+<ul>
+<li>Coding Pages的配置在当前仓库的<code>Pages服务</code>，如下图所示：</li>
+</ul>
+<p><img src="https://image.mariojd.cn/smallstory/2018629/WeChat截圖_20180629101855.png" alt="Coding Page Setting"></p>
+</li>
+</ol>
+</li>
+</ul>
+<p>&emsp;&emsp;<strong>提示</strong>：关于Coding Page的SSL/TLS证书申请 ，主要就是在DNSPod平台上正确的配置解析记录，如果出现验证错误，请参考<a href="https://coding.net/help/faq/pages/coding-pages-faq.html" target="_blank" rel="noopener">Coding Pages常见问题</a>。当时我遇到的错误信息是：<code>Fetching http://exmaple.com/.well-known/acme-challenge/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx: xxxxxxxx</code>，解决方案是先将上述CNAME记录值为<code>pages.coding.me.</code>的线路类型修改为默认，待验证通过后再调整为国内。</p>
+<ul>
+<li><ol>
+<li>关于Coding Pages跳转页</li>
+</ol>
+</li>
+</ul>
+<p>&emsp;&emsp;参考Coding.net官网说明，可以配置文字版或图片版，然后验证并解决。我这里使用的是文字版方案，修改了hexo主题<code>layout\_partial</code>目录下的<code>footer.ejs</code>。</p>
+<p><img src="https://image.mariojd.cn/smallstory/2018629/WeChat截圖_20180629103319.png" alt="Hosted by Coding Pages"></p>
+<p><img src="https://image.mariojd.cn/smallstory/2018629/WeChat截圖_20180629103912.png" alt="footer.ejs"></p>
+<h3 id="验证方案"><a href="#验证方案" class="headerlink" title="验证方案"></a>验证方案</h3><p><img src="https://image.mariojd.cn/smallstory/2018629/WeChat截圖_20180629104610.png" alt="Test Server"></p>
+<p>&emsp;&emsp;完成上述操作后，百度蜘蛛爬虫应该就可以成功抓取我们的站点了，下面列出两种测试方案。</p>
+<h4 id="模拟百度爬虫请求站点"><a href="#模拟百度爬虫请求站点" class="headerlink" title="模拟百度爬虫请求站点"></a>模拟百度爬虫请求站点</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">curl -A &quot;Mozilla/5.0 (compatible; Baiduspider/2.0; +http://www.baidu.com/search/spider.html)&quot; https://blog.mariojd.cn</span><br></pre></td></tr></table></figure>
+<h4 id="通过百度站长平台抓取验证"><a href="#通过百度站长平台抓取验证" class="headerlink" title="通过百度站长平台抓取验证"></a>通过百度站长平台抓取验证</h4><ul>
+<li>验证地址：<a href="https://ziyuan.baidu.com/crawltools/index" target="_blank" rel="noopener">抓取诊断 - 百度站长</a></li>
+</ul>
+<p><img src="https://image.mariojd.cn/smallstory/2018629/WeChat截圖_20180629090710.png" alt="抓取诊断 - 百度站长"></p>
+<h3 id="站长平台收录及验证"><a href="#站长平台收录及验证" class="headerlink" title="站长平台收录及验证"></a>站长平台收录及验证</h3><p>&emsp;&emsp;为了加快站点收录，可以通过站长平台(先验证)主动提交站点sitemap，这里可以通过hexo插件生成sitemap，参考如下：</p>
+<ul>
+<li>npm install hexo-generator-sitemap // 这是传统的sitemap</li>
+<li>npm install hexo-generator-baidu-sitemap //这是百度专有的sitemap</li>
+</ul>
+<p>&emsp;&emsp;安装完插件后，需要在Hexo根目录下配置<code>_config.yml</code>，使用<code>hexo g</code>可以在<code>public</code>目录下看到生成的sitemap.xml文件，最后<code>hexo d</code>部署到远程仓库即可:</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">sitemap:</span></span><br><span class="line"><span class="attr">  path:</span> <span class="string">sitemap.xml</span></span><br><span class="line"><span class="attr">baidusitemap:</span></span><br><span class="line"><span class="attr">  path:</span> <span class="string">baidusitemap.xml</span></span><br></pre></td></tr></table></figure>
+<h4 id="谷歌收录"><a href="#谷歌收录" class="headerlink" title="谷歌收录"></a>谷歌收录</h4><ul>
+<li><a href="https://www.google.com/webmasters" target="_blank" rel="noopener">谷歌站长平台</a></li>
+<li>添加站点后，在“抓取”-&gt;“站点地图”中提交sitemap</li>
+</ul>
+<p><img src="https://image.mariojd.cn/smallstory/2018629/WeChat截圖_20180629110321.png" alt="sitemap - Google"></p>
+<h4 id="百度收录"><a href="#百度收录" class="headerlink" title="百度收录"></a>百度收录</h4><ul>
+<li><a href="https://ziyuan.baidu.com/" target="_blank" rel="noopener">百度站长平台</a></li>
+<li>添加站点后，在“数据引入”-&gt;“链接提交”中提交sitemap</li>
+</ul>
+<p><img src="https://image.mariojd.cn/smallstory/2018629/WeChat截圖_20180629112117.png" alt="sitemap - Baidu"></p>
+<ul>
+<li>保险起见，可以在每个页面上嵌入百度的自动推送工具代码：</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> bp = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>);</span><br><span class="line">    <span class="keyword">var</span> curProtocol = <span class="built_in">window</span>.location.protocol.split(<span class="string">':'</span>)[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">if</span> (curProtocol === <span class="string">'https'</span>) &#123;</span><br><span class="line">        bp.src = <span class="string">'https://zz.bdstatic.com/linksubmit/push.js'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        bp.src = <span class="string">'http://push.zhanzhang.baidu.com/push.js'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">var</span> s = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"script"</span>)[<span class="number">0</span>];</span><br><span class="line">    s.parentNode.insertBefore(bp, s);</span><br><span class="line">&#125;)();</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="收录验证"><a href="#收录验证" class="headerlink" title="收录验证"></a>收录验证</h4><p>&emsp;&emsp;通过浏览器输入<code>site:站点</code>并搜索</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">site:https://blog.mariojd.cn</span><br></pre></td></tr></table></figure>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><blockquote>
+<p><a href="https://bblove.me/2016/03/06/migrate-pages-from-gitcafe-to-coding/" target="_blank" rel="noopener">解决 Github Pages 禁止百度爬虫的方法2–从gitcafe迁移到coding.net</a><br><a href="https://lz5z.com/%E8%BF%81%E7%A7%BBBlog%E5%88%B0Coding/" target="_blank" rel="noopener">迁移 Github pages 到 coding.net</a><br><a href="https://www.cnblogs.com/tengj/p/5352572.html" target="_blank" rel="noopener">hexo干货系列：（四）将hexo博客同时托管到github和coding</a><br><a href="https://www.cnblogs.com/tengj/p/5357879.html" target="_blank" rel="noopener">hexo干货系列：（六）hexo提交搜索引擎（百度+谷歌</a><br><a href="https://www.v2ex.com/t/344686" target="_blank" rel="noopener">Hexo 博客 Coding+Github 双线部署求 https 方案</a></p>
+</blockquote>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年07月03日 13:38</p>
+        <p>原始链接： <a class="post-url" href="/20180628/solve-the-problem-that-baidu-spiders-are-unable-to-crawl-hexo-blogs.html" title="解决百度蜘蛛无法爬取Hexo博客的问题">https://blog.mariojd.cn/20180628/solve-the-problem-that-baidu-spiders-are-unable-to-crawl-hexo-blogs.html</a></p>
+        <footer>
+            <a href="https://blog.mariojd.cn">
+                <img src="/images/logo.png" alt="Jared Qiu">
+                Jared Qiu
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赞赏支持
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.mariojd.cn/20180628/solve-the-problem-that-baidu-spiders-are-unable-to-crawl-hexo-blogs.html&title=《解决百度蜘蛛无法爬取Hexo博客的问题》 — happyJared - 博客&pic=https://image.mariojd.cn/smallstory/2018628/hexo124234422.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mariojd.cn/20180628/solve-the-problem-that-baidu-spiders-are-unable-to-crawl-hexo-blogs.html&title=《解决百度蜘蛛无法爬取Hexo博客的问题》 — happyJared - 博客&source=Java developer, like Python and javascript，为人乐观、积极、向上、勤奋、和善、好相处，讲卫生，爱学习，爱码字，爱..." data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.mariojd.cn/20180628/solve-the-problem-that-baidu-spiders-are-unable-to-crawl-hexo-blogs.html" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《解决百度蜘蛛无法爬取Hexo博客的问题》 — happyJared - 博客&url=https://blog.mariojd.cn/20180628/solve-the-problem-that-baidu-spiders-are-unable-to-crawl-hexo-blogs.html&via=https://blog.mariojd.cn" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://blog.mariojd.cn/20180628/solve-the-problem-that-baidu-spiders-are-unable-to-crawl-hexo-blogs.html" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://blog.mariojd.cn/20180628/solve-the-problem-that-baidu-spiders-are-unable-to-crawl-hexo-blogs.html" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/hexo/" class="color5">hexo</a>
+      
+    <a href="/tags/coding.net/" class="color1">coding.net</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#写在前面"><span class="post-toc-text">写在前面</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#准备说明"><span class="post-toc-text">准备说明</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#解决过程"><span class="post-toc-text">解决过程</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#验证方案"><span class="post-toc-text">验证方案</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#模拟百度爬虫请求站点"><span class="post-toc-text">模拟百度爬虫请求站点</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#通过百度站长平台抓取验证"><span class="post-toc-text">通过百度站长平台抓取验证</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#站长平台收录及验证"><span class="post-toc-text">站长平台收录及验证</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#谷歌收录"><span class="post-toc-text">谷歌收录</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#百度收录"><span class="post-toc-text">百度收录</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#收录验证"><span class="post-toc-text">收录验证</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参考链接"><span class="post-toc-text">参考链接</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/20180702/docker-+-redis-(4.0.10)-master-and-slave-environment-construction.html" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          Docker + Redis (4.0.10) 主从环境搭建
+        
+      </span>
+    </a>
+  
+  
+    <a href="/20180628/hexo,-add-the-title-translation-plug-in.html" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Hexo，添加标题翻译插件</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        <div id="SOHUCS" sid="解决百度蜘蛛无法爬取Hexo博客的问题" ></div>
+<script type="text/javascript">
+    (function(){
+        var appid = 'cytsi4W0L';
+        var conf = 'prod_302a63175740fd2ee2587f9345477b4c';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+    <span style='margin-left:5px'>
+    	粤ICP备17033077号-1
+    </span>
+</p>
+
+ 
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+        &copy; 2018 Jared Qiu 
+		    Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a><br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "https://blog.mariojd.cn",
+      animate: false,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/Chocolatey/">Chocolatey</a><a class="category-link" href="/categories/Docker/">Docker</a><a class="category-link" href="/categories/Docker/MySQL/">MySQL</a><a class="category-link" href="/categories/Docker/PostgreSQL/">PostgreSQL</a><a class="category-link" href="/categories/Docker/Redis/">Redis</a><a class="category-link" href="/categories/IDEA/">IDEA</a><a class="category-link" href="/categories/Java/">Java</a><a class="category-link" href="/categories/Java/Lombok/">Lombok</a><a class="category-link" href="/categories/Java/Spring-Boot/">Spring Boot</a><a class="category-link" href="/categories/Java/Spring-Boot/Swagger/">Swagger</a><a class="category-link" href="/categories/Java/热部署/">热部署</a><a class="category-link" href="/categories/Jmeter/">Jmeter</a><a class="category-link" href="/categories/Python/">Python</a><a class="category-link" href="/categories/Python/Selenium/">Selenium</a><a class="category-link" href="/categories/Python/Selenium/Windows-Batch/">Windows Batch</a><a class="category-link" href="/categories/Spring/">Spring</a><a class="category-link" href="/categories/hexo/">hexo</a><a class="category-link" href="/categories/websocket/">websocket</a><a class="category-link" href="/categories/学习资源/">学习资源</a><a class="category-link" href="/categories/开源/">开源</a><a class="category-link" href="/categories/开源/YApi/">YApi</a><a class="category-link" href="/categories/开源/YApi/Swagger/">Swagger</a><a class="category-link" href="/categories/开源项目/">开源项目</a><a class="category-link" href="/categories/抓包工具/">抓包工具</a><a class="category-link" href="/categories/数据库中间件/">数据库中间件</a><a class="category-link" href="/categories/数据库中间件/Mycat/">Mycat</a><a class="category-link" href="/categories/编辑器/">编辑器</a><a class="category-link" href="/categories/编辑器/个人感悟/">个人感悟</a><a class="category-link" href="/categories/编辑器/快捷键/">快捷键</a><a class="category-link" href="/categories/随笔/">随笔</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/AcpectJ/" style="font-size: 10px;">AcpectJ</a> <a href="/tags/Aop/" style="font-size: 10px;">Aop</a> <a href="/tags/Chocolatey/" style="font-size: 10px;">Chocolatey</a> <a href="/tags/Eclipse/" style="font-size: 11.25px;">Eclipse</a> <a href="/tags/Fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/tags/GitHub-Pages/" style="font-size: 11.25px;">GitHub Pages</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDEA/" style="font-size: 20px;">IDEA</a> <a href="/tags/Java/" style="font-size: 17.5px;">Java</a> <a href="/tags/Java类库/" style="font-size: 10px;">Java类库</a> <a href="/tags/JetBrains/" style="font-size: 18.75px;">JetBrains</a> <a href="/tags/Jmeter/" style="font-size: 12.5px;">Jmeter</a> <a href="/tags/Lombok/" style="font-size: 10px;">Lombok</a> <a href="/tags/Mycat/" style="font-size: 13.75px;">Mycat</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/RestTemplate/" style="font-size: 10px;">RestTemplate</a> <a href="/tags/Spring/" style="font-size: 11.25px;">Spring</a> <a href="/tags/Spring-Boot/" style="font-size: 11.25px;">Spring Boot</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/bat/" style="font-size: 10px;">bat</a> <a href="/tags/bat脚本/" style="font-size: 10px;">bat脚本</a> <a href="/tags/chrome-plugin/" style="font-size: 10px;">chrome plugin</a> <a href="/tags/coding-net/" style="font-size: 10px;">coding.net</a> <a href="/tags/csdn/" style="font-size: 10px;">csdn</a> <a href="/tags/docker/" style="font-size: 13.75px;">docker</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/hexo-themes/" style="font-size: 10px;">hexo themes</a> <a href="/tags/hexo-translate-title/" style="font-size: 10px;">hexo-translate-title</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/http-s/" style="font-size: 10px;">http(s)</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/jvm/" style="font-size: 10px;">jvm</a> <a href="/tags/mysql/" style="font-size: 12.5px;">mysql</a> <a href="/tags/nginx/" style="font-size: 11.25px;">nginx</a> <a href="/tags/oschina/" style="font-size: 10px;">oschina</a> <a href="/tags/postgresql/" style="font-size: 11.25px;">postgresql</a> <a href="/tags/python/" style="font-size: 16.25px;">python</a> <a href="/tags/redis/" style="font-size: 11.25px;">redis</a> <a href="/tags/selenium/" style="font-size: 13.75px;">selenium</a> <a href="/tags/spider/" style="font-size: 10px;">spider</a> <a href="/tags/spring-boot/" style="font-size: 10px;">spring boot</a> <a href="/tags/swagger/" style="font-size: 11.25px;">swagger</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/vimium/" style="font-size: 10px;">vimium</a> <a href="/tags/websocket/" style="font-size: 10px;">websocket</a> <a href="/tags/ws-s/" style="font-size: 10px;">ws(s)</a> <a href="/tags/wss/" style="font-size: 10px;">wss</a> <a href="/tags/yapi/" style="font-size: 10px;">yapi</a> <a href="/tags/《Spring-in-action》/" style="font-size: 10px;">《Spring in action》</a> <a href="/tags/个人博客/" style="font-size: 11.25px;">个人博客</a> <a href="/tags/个人感悟/" style="font-size: 11.25px;">个人感悟</a> <a href="/tags/主从复制/" style="font-size: 11.25px;">主从复制</a> <a href="/tags/主从搭建/" style="font-size: 12.5px;">主从搭建</a> <a href="/tags/代理调试/" style="font-size: 10px;">代理调试</a> <a href="/tags/入门篇/" style="font-size: 10px;">入门篇</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/压测工具/" style="font-size: 12.5px;">压测工具</a> <a href="/tags/字符串机制/" style="font-size: 10px;">字符串机制</a> <a href="/tags/学习资源/" style="font-size: 11.25px;">学习资源</a> <a href="/tags/实践篇/" style="font-size: 11.25px;">实践篇</a> <a href="/tags/开源/" style="font-size: 10px;">开源</a> <a href="/tags/开源博客/" style="font-size: 11.25px;">开源博客</a> <a href="/tags/开源项目/" style="font-size: 11.25px;">开源项目</a> <a href="/tags/微信授权/" style="font-size: 10px;">微信授权</a> <a href="/tags/数据库中间件/" style="font-size: 13.75px;">数据库中间件</a> <a href="/tags/热部署/" style="font-size: 10px;">热部署</a> <a href="/tags/简书/" style="font-size: 10px;">简书</a> <a href="/tags/编辑器/" style="font-size: 20px;">编辑器</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a> <a href="/tags/读写分离/" style="font-size: 11.25px;">读写分离</a> <a href="/tags/跑步/" style="font-size: 10px;">跑步</a> <a href="/tags/配置篇/" style="font-size: 10px;">配置篇</a> <a href="/tags/钉钉运动/" style="font-size: 10px;">钉钉运动</a> <a href="/tags/阿里技术/" style="font-size: 10px;">阿里技术</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-h-square"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-window-restore"></i><span>归档</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/AcpectJ/" style="font-size: 10px;">AcpectJ</a> <a href="/tags/Aop/" style="font-size: 10px;">Aop</a> <a href="/tags/Chocolatey/" style="font-size: 10px;">Chocolatey</a> <a href="/tags/Eclipse/" style="font-size: 11.25px;">Eclipse</a> <a href="/tags/Fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/tags/GitHub-Pages/" style="font-size: 11.25px;">GitHub Pages</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDEA/" style="font-size: 20px;">IDEA</a> <a href="/tags/Java/" style="font-size: 17.5px;">Java</a> <a href="/tags/Java类库/" style="font-size: 10px;">Java类库</a> <a href="/tags/JetBrains/" style="font-size: 18.75px;">JetBrains</a> <a href="/tags/Jmeter/" style="font-size: 12.5px;">Jmeter</a> <a href="/tags/Lombok/" style="font-size: 10px;">Lombok</a> <a href="/tags/Mycat/" style="font-size: 13.75px;">Mycat</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/RestTemplate/" style="font-size: 10px;">RestTemplate</a> <a href="/tags/Spring/" style="font-size: 11.25px;">Spring</a> <a href="/tags/Spring-Boot/" style="font-size: 11.25px;">Spring Boot</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/bat/" style="font-size: 10px;">bat</a> <a href="/tags/bat脚本/" style="font-size: 10px;">bat脚本</a> <a href="/tags/chrome-plugin/" style="font-size: 10px;">chrome plugin</a> <a href="/tags/coding-net/" style="font-size: 10px;">coding.net</a> <a href="/tags/csdn/" style="font-size: 10px;">csdn</a> <a href="/tags/docker/" style="font-size: 13.75px;">docker</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/hexo-themes/" style="font-size: 10px;">hexo themes</a> <a href="/tags/hexo-translate-title/" style="font-size: 10px;">hexo-translate-title</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/http-s/" style="font-size: 10px;">http(s)</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/jvm/" style="font-size: 10px;">jvm</a> <a href="/tags/mysql/" style="font-size: 12.5px;">mysql</a> <a href="/tags/nginx/" style="font-size: 11.25px;">nginx</a> <a href="/tags/oschina/" style="font-size: 10px;">oschina</a> <a href="/tags/postgresql/" style="font-size: 11.25px;">postgresql</a> <a href="/tags/python/" style="font-size: 16.25px;">python</a> <a href="/tags/redis/" style="font-size: 11.25px;">redis</a> <a href="/tags/selenium/" style="font-size: 13.75px;">selenium</a> <a href="/tags/spider/" style="font-size: 10px;">spider</a> <a href="/tags/spring-boot/" style="font-size: 10px;">spring boot</a> <a href="/tags/swagger/" style="font-size: 11.25px;">swagger</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/vimium/" style="font-size: 10px;">vimium</a> <a href="/tags/websocket/" style="font-size: 10px;">websocket</a> <a href="/tags/ws-s/" style="font-size: 10px;">ws(s)</a> <a href="/tags/wss/" style="font-size: 10px;">wss</a> <a href="/tags/yapi/" style="font-size: 10px;">yapi</a> <a href="/tags/《Spring-in-action》/" style="font-size: 10px;">《Spring in action》</a> <a href="/tags/个人博客/" style="font-size: 11.25px;">个人博客</a> <a href="/tags/个人感悟/" style="font-size: 11.25px;">个人感悟</a> <a href="/tags/主从复制/" style="font-size: 11.25px;">主从复制</a> <a href="/tags/主从搭建/" style="font-size: 12.5px;">主从搭建</a> <a href="/tags/代理调试/" style="font-size: 10px;">代理调试</a> <a href="/tags/入门篇/" style="font-size: 10px;">入门篇</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/压测工具/" style="font-size: 12.5px;">压测工具</a> <a href="/tags/字符串机制/" style="font-size: 10px;">字符串机制</a> <a href="/tags/学习资源/" style="font-size: 11.25px;">学习资源</a> <a href="/tags/实践篇/" style="font-size: 11.25px;">实践篇</a> <a href="/tags/开源/" style="font-size: 10px;">开源</a> <a href="/tags/开源博客/" style="font-size: 11.25px;">开源博客</a> <a href="/tags/开源项目/" style="font-size: 11.25px;">开源项目</a> <a href="/tags/微信授权/" style="font-size: 10px;">微信授权</a> <a href="/tags/数据库中间件/" style="font-size: 13.75px;">数据库中间件</a> <a href="/tags/热部署/" style="font-size: 10px;">热部署</a> <a href="/tags/简书/" style="font-size: 10px;">简书</a> <a href="/tags/编辑器/" style="font-size: 20px;">编辑器</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a> <a href="/tags/读写分离/" style="font-size: 11.25px;">读写分离</a> <a href="/tags/跑步/" style="font-size: 10px;">跑步</a> <a href="/tags/配置篇/" style="font-size: 10px;">配置篇</a> <a href="/tags/钉钉运动/" style="font-size: 10px;">钉钉运动</a> <a href="/tags/阿里技术/" style="font-size: 10px;">阿里技术</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>

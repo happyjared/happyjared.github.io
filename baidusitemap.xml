@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>https://blog.mariojd.cn/20180704/construction-of-redis-high-availability-cluster-based-on-docker-(redis-sentinel).html</loc>
+    <lastmod>2018-07-06T03:40:53.572Z</lastmod>
+    <data>
+        <display>
+        <title>基于Docker的Redis高可用集群搭建(redis-sentinel)</title>
+        <pubTime>2018-07-03T16:00:00.000Z</pubTime>
+        
+        <tag>docker</tag>
+         
+        <tag>redis-sentinel</tag>
+         
+         
+           
+             
+              <breadCrumb title="Docker" url="https://blog.mariojd.cn/categories/Docker/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://blog.mariojd.cn/20180702/docker-+-redis-(4.0.10)-master-and-slave-environment-construction.html</loc>
     <lastmod>2018-07-03T07:18:44.870Z</lastmod>
     <data>

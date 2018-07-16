@@ -16,17 +16,17 @@
 <meta property="og:site_name" content="happyJared - 博客">
 <meta property="og:description" content="前言&amp;emsp;&amp;emsp;之前介绍了用docker来搭建redis主从环境，但这只是对数据添加了从库备份(主从复制)，当主库down掉的时候，从库是不会自动升级为主库的，也就是说，该redis主从集群并非是高可用的。&amp;emsp;&amp;emsp;目前来说，高可用(主从复制、主从切换)redis集群有两种方案，一种是redis-sentinel，只有一个master，各实例数据保持一致；一种是redi">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/smallstory/201875/67346963428966a1f5baea667f9ac2545e8b1631.png">
-<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/smallstory/201875/WeChat截圖_20180705105201.png">
-<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/smallstory/201876/WeChat截圖_20180706105819.png">
-<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/smallstory/201876/WeChat截圖_20180706113110.png">
-<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/smallstory/201876/WeChat截圖_20180706112925.png">
-<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/smallstory/201876/WeChat截圖_20180706113423.png">
-<meta property="og:updated_time" content="2018-07-06T03:42:56.013Z">
+<meta property="og:image" content="https://image.mariojd.cn/smallstory/201875/67346963428966a1f5baea667f9ac2545e8b1631.png">
+<meta property="og:image" content="https://image.mariojd.cn/smallstory/201875/WeChat截圖_20180705105201.png">
+<meta property="og:image" content="https://image.mariojd.cn/smallstory/201876/WeChat截圖_20180706105819.png">
+<meta property="og:image" content="https://image.mariojd.cn/smallstory/201876/WeChat截圖_20180706113110.png">
+<meta property="og:image" content="https://image.mariojd.cn/smallstory/201876/WeChat截圖_20180706112925.png">
+<meta property="og:image" content="https://image.mariojd.cn/smallstory/201876/WeChat截圖_20180706113423.png">
+<meta property="og:updated_time" content="2018-07-16T09:30:43.057Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于Docker的Redis高可用集群搭建(redis-sentinel)">
 <meta name="twitter:description" content="前言&amp;emsp;&amp;emsp;之前介绍了用docker来搭建redis主从环境，但这只是对数据添加了从库备份(主从复制)，当主库down掉的时候，从库是不会自动升级为主库的，也就是说，该redis主从集群并非是高可用的。&amp;emsp;&amp;emsp;目前来说，高可用(主从复制、主从切换)redis集群有两种方案，一种是redis-sentinel，只有一个master，各实例数据保持一致；一种是redi">
-<meta name="twitter:image" content="http://p3ry9qsas.bkt.clouddn.com/smallstory/201875/67346963428966a1f5baea667f9ac2545e8b1631.png">
+<meta name="twitter:image" content="https://image.mariojd.cn/smallstory/201875/67346963428966a1f5baea667f9ac2545e8b1631.png">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -165,7 +165,7 @@
 <blockquote>
 <p>&emsp;&emsp;很显然，只使用单个redis-sentinel进程来监控redis集群是不可靠的，由于redis-sentinel本身也有single-point-of-failure-problem(单点问题)，当出现问题时整个redis集群系统将无法按照预期的方式切换主从。官方推荐：一个健康的集群部署，至少需要3个Sentinel实例。另外，redis-sentinel只需要配置监控redis master，而集群之间可以通过master相互通信。</p>
 </blockquote>
-<p><img src="http://p3ry9qsas.bkt.clouddn.com/smallstory/201875/67346963428966a1f5baea667f9ac2545e8b1631.png" alt="实战拓扑图"></p>
+<p><img src="https://image.mariojd.cn/smallstory/201875/67346963428966a1f5baea667f9ac2545e8b1631.png" alt="实战拓扑图"></p>
 <h3 id="redis-sentinel"><a href="#redis-sentinel" class="headerlink" title="redis-sentinel"></a>redis-sentinel</h3><p>&emsp;&emsp;redis-sentinel作为独立的服务，用于管理多个redis实例，该系统主要执行以下三个任务：</p>
 <ul>
 <li>监控 (Monitor): 检查redis主、从实例是否正常运作</li>
@@ -180,7 +180,7 @@
 <h3 id="sentinel-conf"><a href="#sentinel-conf" class="headerlink" title="sentinel.conf"></a>sentinel.conf</h3><p>&emsp;&emsp;<code>sentinel.conf</code>是启动redis-sentinel的核心配置文件，可以从官网下载：<br><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget http://download.redis.io/redis-stable/sentinel.conf</span><br></pre></td></tr></table></figure></p>
 <h3 id="一主二从"><a href="#一主二从" class="headerlink" title="一主二从"></a>一主二从</h3><p>&emsp;&emsp;先搭建好Redis一主二从环境，这里仅给出操作过程，可以参考之前写的《Docker + Redis (4.0.10) 主从环境搭建》，在master上使用<code>info Replication</code>查看集群状态(注意，为了让redis-sentinel可以发现slave，这里要确保redis服务端口和容器映射端口一致)：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 主库</span><br><span class="line">docker run -it --name redis-master -d -p 6300:6300 redis redis-server --requirepass redispassword --port 6300</span><br><span class="line">docker exec -it redis-master bash</span><br><span class="line">redis-cli -a redispassword -p 6300</span><br><span class="line">config set masterauth redispassword</span><br><span class="line"></span><br><span class="line"># 从库1</span><br><span class="line">docker run -it --name redis-slave -d -p 6301:6301 redis redis-server --requirepass redispassword --port 6301</span><br><span class="line">docker exec -it redis-slave bash</span><br><span class="line">redis-cli -a redispassword -p 6301</span><br><span class="line">slaveof &lt;master-ip&gt; &lt;master-port&gt;</span><br><span class="line">config set masterauth redispassword</span><br><span class="line"></span><br><span class="line"># 从库2</span><br><span class="line">docker run -it --name redis-slave2 -d -p 6302:6302 redis redis-server --requirepass redispassword --port 6302</span><br><span class="line">docker exec -it redis-slave2 bash</span><br><span class="line">redis-cli -a redispassword -p 6302</span><br><span class="line">slaveof &lt;master-ip&gt; &lt;master-port&gt;</span><br><span class="line">config set masterauth redispassword</span><br></pre></td></tr></table></figure>
-<p><img src="http://p3ry9qsas.bkt.clouddn.com/smallstory/201875/WeChat截圖_20180705105201.png" alt="一主二从"></p>
+<p><img src="https://image.mariojd.cn/smallstory/201875/WeChat截圖_20180705105201.png" alt="一主二从"></p>
 <h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>&emsp;&emsp;根据上面下载好的<code>sentinel.conf</code>，找到并修改如下配置：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># mymaster:自定义集群名，如果需要监控多个redis集群，只需要配置多次并定义不同的&lt;master-name&gt; &lt;master-redis-ip&gt;:主库ip &lt;master-redis-port&gt;:主库port &lt;quorum&gt;:最小投票数，由于有三台redis-sentinel实例，所以可以设置成2</span><br><span class="line">sentinel monitor mymaster &lt;master-redis-ip&gt; &lt;master-redis-port&gt; &lt;quorum&gt;</span><br><span class="line"></span><br><span class="line"># 注：redis主从库搭建的时候，要么都不配置密码(这样下面这句也不需要配置)，不然都需要设置成一样的密码</span><br><span class="line">sentinel auth-pass mymaster redispassword</span><br><span class="line"></span><br><span class="line"># 添加后台运行</span><br><span class="line">daemonize yes</span><br></pre></td></tr></table></figure>
 <p>&emsp;&emsp;将上面的<code>sentinel.conf</code>复制三份，分别为<code>sentinel1.conf</code>,<code>sentinel2.conf</code>和<code>sentinel3.conf</code>，再次编辑修改<code>port</code>为<code>26000</code>,<code>26001</code>和<code>26002</code>。</p>
@@ -195,21 +195,21 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker exec -it redis-sentinel(x) bash</span><br><span class="line"># 或redis-server /usr/local/etc/redis/sentinel.conf --sentinel</span><br><span class="line">redis-sentinel /usr/local/etc/redis/sentinel.conf</span><br></pre></td></tr></table></figure>
 <p>&emsp;&emsp;连接并使用redis-sentinel API查看监控状况:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">redis-cli -p 26000 (26001 | 26002)</span><br><span class="line">sentinel master mymaster 或 sentinel slaves mymaster</span><br></pre></td></tr></table></figure>
-<p><img src="http://p3ry9qsas.bkt.clouddn.com/smallstory/201876/WeChat截圖_20180706105819.png" alt="sentinel master mymaster"></p>
+<p><img src="https://image.mariojd.cn/smallstory/201876/WeChat截圖_20180706105819.png" alt="sentinel master mymaster"></p>
 <h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>&emsp;&emsp;进入redis-master容器，休眠60秒redis服务：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker exec -it redis-master bash</span><br><span class="line">redis-cli -a redispassword -p 6300 DEBUG sleep 60</span><br></pre></td></tr></table></figure>
 <p>&emsp;&emsp;进入redis-slave或redis-slave2容器，查看<code>info Replication</code>，可以看到master已经完成了切换。</p>
-<p><img src="http://p3ry9qsas.bkt.clouddn.com/smallstory/201876/WeChat截圖_20180706113110.png" alt="原从库切换成主库"></p>
-<p><img src="http://p3ry9qsas.bkt.clouddn.com/smallstory/201876/WeChat截圖_20180706112925.png" alt="redis-sentinel输出主库切换信息"></p>
+<p><img src="https://image.mariojd.cn/smallstory/201876/WeChat截圖_20180706113110.png" alt="原从库切换成主库"></p>
+<p><img src="https://image.mariojd.cn/smallstory/201876/WeChat截圖_20180706112925.png" alt="redis-sentinel输出主库切换信息"></p>
 <p>&emsp;&emsp;60秒后原redis主库恢复服务，但降级后当前redis服务已无法恢复原主库身份。</p>
-<p><img src="http://p3ry9qsas.bkt.clouddn.com/smallstory/201876/WeChat截圖_20180706113423.png" alt="60秒后原主库服务"></p>
+<p><img src="https://image.mariojd.cn/smallstory/201876/WeChat截圖_20180706113423.png" alt="60秒后原主库服务"></p>
 <h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><blockquote>
 <p><a href="https://yq.aliyun.com/articles/58003" target="_blank" rel="noopener">Docker化高可用redis集群</a><br><a href="https://github.com/antirez/redis-doc/blob/master/topics/sentinel.md" target="_blank" rel="noopener">Redis Sentinel Documentation</a><br><a href="https://www.jianshu.com/p/d8b89aa1ec02" target="_blank" rel="noopener">Redis Sentinel 机制与用法（4.0.0版本）</a><br><a href="https://www.jianshu.com/p/ad878b513f9a" target="_blank" rel="noopener">Redis practise（二）使用Docker部署Redis高可用，分布式集群</a></p>
 </blockquote>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年07月06日 11:42</p>
+        <p>最后更新： 2018年07月16日 17:30</p>
         <p>原始链接： <a class="post-url" href="/20180704/construction-of-redis-high-availability-cluster-based-on-docker-(redis-sentinel).html" title="基于Docker的Redis高可用集群搭建(redis-sentinel)">https://blog.mariojd.cn/20180704/construction-of-redis-high-availability-cluster-based-on-docker-(redis-sentinel).html</a></p>
         <footer>
             <a href="https://blog.mariojd.cn">
@@ -267,7 +267,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.mariojd.cn/20180704/construction-of-redis-high-availability-cluster-based-on-docker-(redis-sentinel).html&title=《基于Docker的Redis高可用集群搭建(redis-sentinel)》 — happyJared - 博客&pic=http://p3ry9qsas.bkt.clouddn.com/smallstory/201874/03c0cb66e0b05312946f158f4afa5385.png" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.mariojd.cn/20180704/construction-of-redis-high-availability-cluster-based-on-docker-(redis-sentinel).html&title=《基于Docker的Redis高可用集群搭建(redis-sentinel)》 — happyJared - 博客&pic=https://image.mariojd.cn/smallstory/201874/03c0cb66e0b05312946f158f4afa5385.png" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>

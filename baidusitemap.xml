@@ -53,21 +53,6 @@
 
     
   <url>
-    <loc>https://blog.mariojd.cn/20180713/.html</loc>
-    <lastmod>2018-07-13T03:14:29.747Z</lastmod>
-    <data>
-        <display>
-        <title></title>
-        <pubTime>2018-07-13T03:14:29.745Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://blog.mariojd.cn/20180704/construction-of-redis-high-availability-cluster-based-on-docker-(redis-sentinel).html</loc>
     <lastmod>2018-07-06T03:42:56.013Z</lastmod>
     <data>

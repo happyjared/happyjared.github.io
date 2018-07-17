@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>https://blog.mariojd.cn/20180418/ali-technology-essence-dry-goods-finishing-(continuously-updated...).html</loc>
+    <lastmod>2018-07-17T09:25:17.276Z</lastmod>
+    <data>
+        <display>
+        <title>阿里技术精华干货整理（持续更新...）</title>
+        <pubTime>2018-04-17T16:00:00.000Z</pubTime>
+        
+        <tag>学习资源</tag>
+         
+        <tag>阿里技术</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习资源" url="https://blog.mariojd.cn/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://blog.mariojd.cn/20180704/construction-of-redis-high-availability-cluster-based-on-docker-(redis-sentinel).html</loc>
     <lastmod>2018-07-16T09:30:43.057Z</lastmod>
     <data>
@@ -95,28 +117,6 @@
           
              
               <breadCrumb title="Redis" url="https://blog.mariojd.cn/categories/Docker/Redis/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/20180418/ali-technology-essence-dry-goods-finishing-(continuously-updated...).html</loc>
-    <lastmod>2018-07-03T07:16:42.229Z</lastmod>
-    <data>
-        <display>
-        <title>阿里技术精华干货整理（持续更新...）</title>
-        <pubTime>2018-04-17T16:00:00.000Z</pubTime>
-        
-        <tag>学习资源</tag>
-         
-        <tag>阿里技术</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习资源" url="https://blog.mariojd.cn/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"/>
           
         </display>
     </data>

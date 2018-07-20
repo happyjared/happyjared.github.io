@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>记录一次迁移wss WebSocket的事故 | happyJared - 博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="happyJared - 博客。编码爱好者，代码小洁癖。" />
+  
+  <meta name="description" content="&amp;emsp;&amp;emsp;今天是2018年04月21日。 &amp;emsp;&amp;emsp;过去的这一个多月里，我的工（开）作（发）任务转战回了游戏。短短的一个月里，催着输出两款h5游戏，再加上对接、联调，想想真是够辛（ku）苦（bi）的。本人负责后端，也就是服务端这块的游戏主流程输出。去年下半年，在前任大佬的带领下，做过一两款棋牌类的手游，虽然目前的运营状况不太乐观。不过好在，过去学的那点皮毛也还没丢光，">
+<meta name="keywords" content="websocket,wss,nginx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="记录一次迁移wss WebSocket的事故">
+<meta property="og:url" content="https://blog.mariojd.cn/20180421/record-an-accident-that-migrated-wss-websocket.html">
+<meta property="og:site_name" content="happyJared - 博客">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;今天是2018年04月21日。 &amp;emsp;&amp;emsp;过去的这一个多月里，我的工（开）作（发）任务转战回了游戏。短短的一个月里，催着输出两款h5游戏，再加上对接、联调，想想真是够辛（ku）苦（bi）的。本人负责后端，也就是服务端这块的游戏主流程输出。去年下半年，在前任大佬的带领下，做过一两款棋牌类的手游，虽然目前的运营状况不太乐观。不过好在，过去学的那点皮毛也还没丢光，">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://image.mariojd.cn/xsj/2018422/bg2017051502.png">
+<meta property="og:image" content="https://image.mariojd.cn/xsj/2018422/bg2017051503.jpg">
+<meta property="og:image" content="https://image.mariojd.cn/xsj/2018422/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180422114052.png">
+<meta property="og:image" content="https://image.mariojd.cn/xsj/2018422/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180422115349.png">
+<meta property="og:image" content="https://image.mariojd.cn/xsj/2018422/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180422113602.png">
+<meta property="og:image" content="https://image.mariojd.cn/xsj/2018422/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180422132746.png">
+<meta property="og:image" content="https://image.mariojd.cn/xsj/2018422/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180422140421.png">
+<meta property="og:image" content="https://image.mariojd.cn/xsj/2018422/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180422142356.png">
+<meta property="og:updated_time" content="2018-07-19T09:16:27.756Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="记录一次迁移wss WebSocket的事故">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;今天是2018年04月21日。 &amp;emsp;&amp;emsp;过去的这一个多月里，我的工（开）作（发）任务转战回了游戏。短短的一个月里，催着输出两款h5游戏，再加上对接、联调，想想真是够辛（ku）苦（bi）的。本人负责后端，也就是服务端这块的游戏主流程输出。去年下半年，在前任大佬的带领下，做过一两款棋牌类的手游，虽然目前的运营状况不太乐观。不过好在，过去学的那点皮毛也还没丢光，">
+<meta name="twitter:image" content="https://image.mariojd.cn/xsj/2018422/bg2017051502.png">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?7d6076888c62ff336f5b580c57fd4141";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+  
+
+</head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <!--<div id="banner"></div>-->
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title"></span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-h-square"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-window-restore"></i>
+                        <span>归档</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <!--<div id="header-title">-->
+                    <!---->
+                <!--</div>-->
+                <div id="header-description">
+                    
+                    <h4>
+                        先做好写代码这事
+                    </h4>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="github" target="_blank" href="//github.com/happyjared">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="微博" target="_blank" href="//weibo.com/u/5633332995">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="简书" target="_blank" href="//www.jianshu.com/u/000a530f461c">
+                            <i class="fa fa-book fa-2x"></i></a>
+                    
+                        <a title="qq" target="_blank" href="//wpa.qq.com/msgrd?v=3&uin=1394223902&site=qq&menu=yes">
+                            <i class="fa fa-qq fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-记录一次迁移wss WebSocket的事故" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      记录一次迁移wss WebSocket的事故
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/websocket/">websocket</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-04-21
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <!--
+    self_category: Java
+    self_tags: websocket，wss，nginx
+    osChina_sys_category: 游戏开发
+    csdn_article_category: 原创
+    csdn_blog_category: 游戏开发
+-->
+<p>&emsp;&emsp;今天是2018年04月21日。</p>
+<p>&emsp;&emsp;过去的这一个多月里，我的工（开）作（发）任务转战回了游戏。短短的一个月里，催着输出两款h5游戏，再加上对接、联调，想想真是够辛（ku）苦（bi）的。本人负责后端，也就是服务端这块的游戏主流程输出。去年下半年，在前任大佬的带领下，做过一两款棋牌类的手游，虽然目前的运营状况不太乐观。不过好在，过去学的那点皮毛也还没丢光，所以这次写h5后端总体还算顺畅。至于怎么用Java来写游戏，下来如果有时间会整理下这块的思路和知识。</p>
+<p>关于WebSocket，维基百科是这样介绍的：</p>
+<blockquote>
+<p>&emsp;&emsp; 以前，很多网站为了实现实时推送技术，所用的技术都是轮询。轮询是在特定的时间间隔（如每1秒），由浏览器对服务器发出HTTP请求，然后由服务器返回最新的数据给客户端。这种传统的模式带来的缺点很明显，即浏览器需要不断的向服务器发出请求，然而HTTP请求包含较多的请求头信息，而其中真正有效的数据只是很小的一部分，显然这样会浪费很多的带宽等资源。在这种情况下，HTML5定义了WebSocket协议，能更好的节省服务器资源和带宽，并且能够更实时地进行通讯。<br>&emsp;&emsp; WebSocket是一种在单个TCP连接上进行全双工通讯的协议，使得客户端和服务器之间的数据交换变得更加简单，允许服务端主动向客户端推送数据。在WebSocket API中，浏览器和服务器只需要完成一次握手，两者之间就可以创建持久性的连接，并进行双向数据传输。</p>
+</blockquote>
+<p>&emsp;&emsp;WebSocket 协议在2008年诞生，2011年成为国际标准，现在几乎所有浏览器都已经支持了。它的最大特点就是，服务器可以主动向客户端推送信息，客户端也可以主动向服务器发送信息，是真正的双向平等对话，属于服务器推送技术的一种。</p>
+<p><img src="https://image.mariojd.cn/xsj/2018422/bg2017051502.png" alt="WebSocket" title="WebSocket"></p>
+<p>&emsp;&emsp;简单来说，WebSocket减少了客户端与服务器端建立连接的次数，减轻了服务器资源的开销，只需要完成一次HTTP握手。整个通讯过程是建立在一次连接/状态中，也就避免了HTTP的非状态性，服务端会一直与客户端保持连接，直到双方发起关闭请求，同时由原本的客户端主动询问，转换为服务器有信息的时候推送。所以，它能做实时通信（聊天室、直播间等），其他特点还包括：</p>
+<ul>
+<li>建立在 TCP 协议之上，服务器端的实现比较容易</li>
+<li>与 HTTP 协议有着良好的兼容性。默认端口也是80和443，并且握手阶段采用 HTTP 协议，因此握手时不容易屏蔽，能通过各种 HTTP 代理服务器</li>
+<li>数据格式比较轻量，性能开销小，通信高效</li>
+<li>可以发送文本，也可以发送二进制数据</li>
+<li>没有同源限制，客户端可以与任意服务器通信</li>
+<li>协议标识符是ws（如果加密，则为wss），服务器网址就是 URL</li>
+</ul>
+<p><img src="https://image.mariojd.cn/xsj/2018422/bg2017051503.jpg" alt="HTTP、HTTPS、WS、WSS" title="HTTP、HTTPS、WS、WSS"></p>
+<p>&emsp;&emsp;差点就跑题了。这不，由于业务需求，上头要求新出的h5游戏要配上Https。无奈，公司小，没有专业的运维人员，所以只能由我们这些开发“猿”顶上了，以为会很顺畅，但一连串的问题没想到也才刚刚开始。因此本文，就是用来记录这些踩过的“坑”，希望可以让后人少走点弯路。</p>
+<h3 id="1-申领证书"><a href="#1-申领证书" class="headerlink" title="1. 申领证书"></a>1. 申领证书</h3><p>&emsp;&emsp; 公有云服务器上，一般大家都习惯使用Nginx来做反向代理。首先，配置Https，需要我们到专业的CA机构去申领证书，这个证书大多数情况下都是要钱的，但其实也有免费的（有效期1年），例如利用国内的阿里云或者腾讯云就可以很方便的申请这证书。</p>
+<p>&emsp;&emsp;     - <a href="https://common-buy.aliyun.com/?spm=5176.7968328.911106.btn1.40594ebfQd767s&amp;commodityCode=cas#/buy" target="_blank" rel="noopener">阿里云 - Https证书申请</a><br>&emsp;&emsp;     - <a href="https://buy.cloud.tencent.com/ssl?fromSource=ssl&amp;from=qcloudHpHeaderSsl" target="_blank" rel="noopener">腾讯云 - Https证书申请</a></p>
+<h4 id="阿里云Https证书申请"><a href="#阿里云Https证书申请" class="headerlink" title="阿里云Https证书申请"></a>阿里云Https证书申请</h4><p><img src="https://image.mariojd.cn/xsj/2018422/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180422114052.png" alt="阿里云 - SSL证书申领" title="阿里云 - SSL证书申领"></p>
+<p>&emsp;&emsp;<strong>PS：</strong> 通过阿里云申领免费版SSL证书有点套路，藏得有点深。点击以上链接进入后，如果在“证书类型”一栏中没找到“免费型DV SSL”，那么请依次点击第三栏的“选择品牌”中的“Symantec”，然后回到第一栏的“证书类型”，点击出现的第三个选项“增强型OV SSL”，之后就会在“证书类型”中出现我们需要的第二项：“免费型DV SSL”。</p>
+<p><img src="https://image.mariojd.cn/xsj/2018422/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180422115349.png" alt="阿里云免费型SSL证书申领过程" title="阿里云免费型SSL证书申领过程"></p>
+<h4 id="腾讯云Https证书申请"><a href="#腾讯云Https证书申请" class="headerlink" title="腾讯云Https证书申请"></a>腾讯云Https证书申请</h4><p><img src="https://image.mariojd.cn/xsj/2018422/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180422113602.png" alt="腾讯云 - SSL证书申领" title="腾讯云 - SSL证书申领"></p>
+<p>&emsp;&emsp;确认申领、购买之后，下来还需要绑定我们的域名（注意：免费型的SSL证书一般仅支持绑定一个一级域名或者子域名，通配符的证书一般是需要花钱的），以及进行域名身份验证等操作。等这两步都完成之后，只需要等待CA机构扫描认证之后，我们就可以拿到真正的证书了。</p>
+<h3 id="2-配置Https"><a href="#2-配置Https" class="headerlink" title="2. 配置Https"></a>2. 配置Https</h3><p>&emsp;&emsp;下载好证书压缩包并解压之后，一般里面有IIS、Apache和Nginx三款主流服务器的ssl证书，这里我们也仅需要Nginx的证书。首先，将证书里Nginx文件夹下的1_{域名}<em>bundle.crt 和2</em>{域名}.key复制到我们服务器上的指定位置（假设在/root/ssl/下面）。基于Nginx的Https配置还是比较简单的，参考如下。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">    server &#123;</span><br><span class="line"># listen 80; #如果需要同时支持http和https</span><br><span class="line">        listen 443 ssl http2; </span><br><span class="line">        listen [::]:443 ssl http2; </span><br><span class="line">        ssl_certificate &quot;/root/ssl/1_&#123;域名&#125;_bundle.crt&quot;;</span><br><span class="line">        ssl_certificate_key &quot;/root/ssl/2_&#123;域名&#125;.key&quot;;</span><br><span class="line">        ssl_session_cache shared:SSL:1m;</span><br><span class="line">        ssl_session_timeout  10m;</span><br><span class="line">        ssl_ciphers HIGH:!aNULL:!MD5;</span><br><span class="line">        ssl_prefer_server_ciphers on;</span><br><span class="line"></span><br><span class="line">        server_name &#123;域名&#125;;</span><br><span class="line">        location / &#123;</span><br><span class="line">             proxy_pass http://localhost:&#123;代理端口&#125;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;附：下面是开启Nginx的Gzip压缩的配置，有需要的也可以参考。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">      http &#123;</span><br><span class="line">	gzip on;</span><br><span class="line">	gzip_disable &quot;msie6&quot;;</span><br><span class="line">	gzip_min_length 1k;</span><br><span class="line">	gzip_vary on;</span><br><span class="line">	gzip_proxied any;</span><br><span class="line">	gzip_comp_level 6;</span><br><span class="line">	gzip_buffers 16 8k;</span><br><span class="line">	gzip_http_version 1.1;</span><br><span class="line">	gzip_types application/font-woff text/plain application/javascript application/json text/css application/xml text/javascript image/jpg image/jpeg image/png image/gif image/x-icon;</span><br><span class="line">	</span><br><span class="line">	server &#123;</span><br><span class="line">	  # 这里是server相关的配置</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-事故现场"><a href="#3-事故现场" class="headerlink" title="3. 事故现场"></a>3. 事故现场</h3><p>&emsp;&emsp;完成以上步骤后，按道理来说，h5游戏确实可以通过https的形式来打开了，简单测试后的确没啥问题，然后大家也就这样愉快的下班了。不过正如“墨菲定律”所说的：“凡事只要有可能出错，那就一定会出错”。果不其然，一段时间后，测试就在群里反馈，某段时间后h5游戏就无法加载正常进行下去了，一看时间，正是配完Https之后开始出现的问题。没办法，于是连忙打开电脑，开始排查解决问题，直觉告诉我要先打开浏览器的控制面板，果不其然，立刻发现了问题。</p>
+<p><img src="https://image.mariojd.cn/xsj/2018422/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180422132746.png" alt="浏览器控制面板异常信息" title="浏览器控制面板异常信息"></p>
+<blockquote>
+<p>Mixed Content: The page at ‘<a href="https://{域名}.com/‘" target="_blank" rel="noopener">https://{域名}.com/‘</a> was loaded over HTTPS, but attempted to connect to the insecure WebSocket endpoint ‘ws://{ip}:{port}/‘. This request has been blocked; this endpoint must be available over WSS.<br>Uncaught DOMException: Failed to construct ‘WebSocket’: An insecure WebSocket connection may not be initiated from a page loaded over HTTPS.</p>
+</blockquote>
+<p>&emsp;&emsp;好家伙，这种情况，毫无疑问我们就需要使用 wss:// 安全协议了，于是立即联系h5客户端，把连接服务端webscoket的形式由ws:// 改为 wss:// 。本以为这样就解决了，没想到一段时间后下一个问题又来了。</p>
+<h4 id="扩展：关于-ws-和-wss"><a href="#扩展：关于-ws-和-wss" class="headerlink" title="扩展：关于 ws 和 wss"></a>扩展：关于 ws 和 wss</h4><blockquote>
+<p>WebSocket可以使用 ws 或 wss 来作为统一资源标志符，类似于 HTTP 或 HTTPS。其中 ，wss 表示在 TLS 之上的 WebSocket，相当于 HTTPS。默认情况下，WebSocket的 ws 协议基于Http的 80 端口；当运行在TLS之上时，wss 协议默认是基于Http的 443 端口。说白了，wss 就是 ws 基于 SSL 的安全传输，与 HTTPS 一样样的道理。所以，如果你的网站是 HTTPS 协议的，那你就不能使用 ws:// 了，浏览器会 block 掉连接，和 HTTPS 下不允许 HTTP 请求一样。</p>
+</blockquote>
+<p>&emsp;&emsp;h5客户端改成wss连接后，测试发现还是无法正常游戏。无奈，再次打开浏览器面板，果然，又看到一个新的问题。</p>
+<p><img src="https://image.mariojd.cn/xsj/2018422/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180422140421.png" alt="浏览器控制面板异常信息" title="浏览器控制面板异常信息"></p>
+<blockquote>
+<p>WebSocket connection to ‘wss://{ip}:{port}/‘ failed: Error in connection establishment: net::ERR_SSL_PROTOCOL_ERROR</p>
+</blockquote>
+<p>&emsp;&emsp;之前在Http的情况下，客户端一直是用ip+port的形式来连接服务端，当然了也不会出现什么问题。很明显，在更改成Https后，若还是以这种方式连接服务端，浏览器就会报 SSL 协议错误，这很明显就是证书的问题。如果这时候还用 IP + 端口号 的方式连接 WebSocket ，是根本就没有证书存在的（即使我们在Nginx配置了SSL证书，但这种方式其实是不会走Nginx代理的），所以在生成环境下，更推荐大家用域名的方式来连接。于是，立刻又联系前端，再一次做更改，修改为 wss://{域名}/ 进行连接。我以为这样就真的解决了，没想到还是too young too simple，没一会下个问题又来了，测试反馈的结果还是不可以，第三次打开浏览器控制面板，果然又是一个新的错误信息。 </p>
+<p><img src="https://image.mariojd.cn/xsj/2018422/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180422142356.png" alt="浏览器控制面板异常信息" title="浏览器控制面板异常信息"></p>
+<blockquote>
+<p>WebSocket connection to ‘wss://{域名}/‘ failed: Error during WebSocket handshake: Unexpected response code: 400</p>
+</blockquote>
+<p>&emsp;&emsp;看到这个错误信息后，确定这是服务端返回的400响应。既然可以请求到服务端，就说明客户端这边是没有问题的，那么问题最可能出在客户端和服务端之间。由于中间层使用了Nginx做转发，所以导致服务端无法知道这是一个合法的WebSocket请求。于是立刻查找了网上资料，在Nginx配置文件加入了以下配置，成功解决了这个问题。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">   server &#123;</span><br><span class="line">    location / &#123;</span><br><span class="line">	        proxy_pass http://localhost:&#123;port&#125;;</span><br><span class="line">			proxy_http_version 1.1;</span><br><span class="line">               proxy_set_header Upgrade $http_upgrade;</span><br><span class="line">               proxy_set_header Connection &quot;upgrade&quot;;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;接着，连忙拿域名进行再次连接测试，终于看到了101 Switching Protocols的响应Status Code。就这样，也算是终于解决完在 HTTPS 下以 wss://{域名}/ 的方式连接 WebSocket的一系列问题。不过，最后这其中还有一个小问（插）题（曲）。</p>
+<h4 id="关于Nginx中的WebSocket配置"><a href="#关于Nginx中的WebSocket配置" class="headerlink" title="关于Nginx中的WebSocket配置"></a>关于Nginx中的WebSocket配置</h4><blockquote>
+<p>&emsp;&emsp; 自1.3 版本开始，Nginx就支持 WebSocket，并且可以为 WebSocket 应用程序做反向代理和负载均衡。WebSocket 和 HTTP 是两种不同的协议，但是 WebSocket 中的握手和 HTTP 中的握手兼容，它使用 HTTP 中的 Upgrade 协议头将连接从 HTTP 升级到 WebSocket，当客户端发过来一个 Connection: Upgrade请求头时，其实Nginx是不知道的。所以，当 Nginx 代理服务器拦截到一个客户端发来的 Upgrade 请求时，需要我们显式的配置Connection、Upgrade头信息，并使用 101（交换协议）返回响应，在客户端、代理服务器和后端应用服务之间建立隧道来支持 WebSocket。<br>&emsp;&emsp; 当然，还需要注意一点，此时WebSocket 仍然受到 Nginx 缺省为60秒的 proxy_read_timeout 配置影响。这意味着，如果你有一个程序使用了 WebSocket，但又可能超过60秒不发送任何数据的话，那么需要增大超时时间（配置proxy_read_timeout），要么实现一个Ping、Pong的心跳消息以保持客户端和服务端的联系。使用Ping、Pong的解决方法有额外的好处，如：可以发现连接是否被意外关闭等。</p>
+</blockquote>
+<p>&emsp;&emsp;关于最后的这个小问题，主要是在对Nginx配置的时候将location=/的请求都进行了proxy_pass（转发）。由于h5客户端的文件打包成静态文件后，存放在服务器的指定目录下（这里假设在/root/html/static/路径下），这也就导致这种配置的情况下Nginx无法正常代理指定目录下的客户端文件。于是再一次修改配置文件，添加location配置，最终完美解决所有问题。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">location /static/ &#123;</span><br><span class="line">		root /root/html;</span><br><span class="line"> 	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="4-写在最后"><a href="#4-写在最后" class="headerlink" title="4. 写在最后"></a>4. 写在最后</h3><p>&emsp;&emsp;事故一波三折，现在回想起当时，也是一把辛酸史，一把辛酸泪（累）啊。所以仅以此文，记录下我的填“坑”过程。</p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年07月19日 17:16</p>
+        <p>原始链接： <a class="post-url" href="/20180421/record-an-accident-that-migrated-wss-websocket.html" title="记录一次迁移wss WebSocket的事故">https://blog.mariojd.cn/20180421/record-an-accident-that-migrated-wss-websocket.html</a></p>
+        <footer>
+            <a href="https://blog.mariojd.cn">
+                <img src="/images/logo.png" alt="Jared Qiu">
+                Jared Qiu
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赞赏支持
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.mariojd.cn/20180421/record-an-accident-that-migrated-wss-websocket.html&title=《记录一次迁移wss WebSocket的事故》 — happyJared - 博客&pic=https://image.mariojd.cn/xsj/2018422/bg2017051501.png "HTML5 - WebSocket"" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mariojd.cn/20180421/record-an-accident-that-migrated-wss-websocket.html&title=《记录一次迁移wss WebSocket的事故》 — happyJared - 博客&source=Java developer, like Python and javascript，为人乐观、积极、向上、勤奋、和善、好相处，讲卫生，爱学习，爱码字，爱..." data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.mariojd.cn/20180421/record-an-accident-that-migrated-wss-websocket.html" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《记录一次迁移wss WebSocket的事故》 — happyJared - 博客&url=https://blog.mariojd.cn/20180421/record-an-accident-that-migrated-wss-websocket.html&via=https://blog.mariojd.cn" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://blog.mariojd.cn/20180421/record-an-accident-that-migrated-wss-websocket.html" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://blog.mariojd.cn/20180421/record-an-accident-that-migrated-wss-websocket.html" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/websocket/" class="color5">websocket</a>
+      
+    <a href="/tags/wss/" class="color4">wss</a>
+      
+    <a href="/tags/nginx/" class="color1">nginx</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-申领证书"><span class="post-toc-text">1. 申领证书</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#阿里云Https证书申请"><span class="post-toc-text">阿里云Https证书申请</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#腾讯云Https证书申请"><span class="post-toc-text">腾讯云Https证书申请</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-配置Https"><span class="post-toc-text">2. 配置Https</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-事故现场"><span class="post-toc-text">3. 事故现场</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#扩展：关于-ws-和-wss"><span class="post-toc-text">扩展：关于 ws 和 wss</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#关于Nginx中的WebSocket配置"><span class="post-toc-text">关于Nginx中的WebSocket配置</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-写在最后"><span class="post-toc-text">4. 写在最后</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/20180423/about-jmeter.html" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          关于Jmeter
+        
+      </span>
+    </a>
+  
+  
+    <a href="/20180418/ali-technology-essence-dry-goods-finishing-continuous-update.html" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">阿里技术精华干货整理（持续更新...）</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        <div id="SOHUCS" sid="记录一次迁移wss WebSocket的事故" ></div>
+<script type="text/javascript">
+    (function(){
+        var appid = 'cytsi4W0L';
+        var conf = 'prod_302a63175740fd2ee2587f9345477b4c';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+    <span style='margin-left:5px'>
+    	粤ICP备17033077号-1
+    </span>
+</p>
+
+ 
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+        &copy; 2018 Jared Qiu 
+		    Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a><br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "https://blog.mariojd.cn",
+      animate: false,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/Chocolatey/">Chocolatey</a><a class="category-link" href="/categories/Docker/">Docker</a><a class="category-link" href="/categories/Docker/MySQL/">MySQL</a><a class="category-link" href="/categories/Docker/PostgreSQL/">PostgreSQL</a><a class="category-link" href="/categories/Docker/Redis/">Redis</a><a class="category-link" href="/categories/IDEA/">IDEA</a><a class="category-link" href="/categories/Java/">Java</a><a class="category-link" href="/categories/Java/Lombok/">Lombok</a><a class="category-link" href="/categories/Java/Spring-Boot/">Spring Boot</a><a class="category-link" href="/categories/Java/Spring-Boot/Swagger/">Swagger</a><a class="category-link" href="/categories/Java/热部署/">热部署</a><a class="category-link" href="/categories/Jmeter/">Jmeter</a><a class="category-link" href="/categories/Python/">Python</a><a class="category-link" href="/categories/Python/Selenium/">Selenium</a><a class="category-link" href="/categories/Python/Selenium/Windows-Batch/">Windows Batch</a><a class="category-link" href="/categories/Spring/">Spring</a><a class="category-link" href="/categories/hexo/">hexo</a><a class="category-link" href="/categories/websocket/">websocket</a><a class="category-link" href="/categories/学习资源/">学习资源</a><a class="category-link" href="/categories/开源/">开源</a><a class="category-link" href="/categories/开源/YApi/">YApi</a><a class="category-link" href="/categories/开源/YApi/Swagger/">Swagger</a><a class="category-link" href="/categories/开源项目/">开源项目</a><a class="category-link" href="/categories/抓包工具/">抓包工具</a><a class="category-link" href="/categories/数据库中间件/">数据库中间件</a><a class="category-link" href="/categories/数据库中间件/Mycat/">Mycat</a><a class="category-link" href="/categories/编辑器/">编辑器</a><a class="category-link" href="/categories/编辑器/个人感悟/">个人感悟</a><a class="category-link" href="/categories/编辑器/快捷键/">快捷键</a><a class="category-link" href="/categories/设计模式/">设计模式</a><a class="category-link" href="/categories/随笔/">随笔</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/AcpectJ/" style="font-size: 10px;">AcpectJ</a> <a href="/tags/Aop/" style="font-size: 10px;">Aop</a> <a href="/tags/Chocolatey/" style="font-size: 10px;">Chocolatey</a> <a href="/tags/Eclipse/" style="font-size: 11.25px;">Eclipse</a> <a href="/tags/Fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/tags/GitHub-Pages/" style="font-size: 11.25px;">GitHub Pages</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDEA/" style="font-size: 20px;">IDEA</a> <a href="/tags/Java/" style="font-size: 17.5px;">Java</a> <a href="/tags/Java类库/" style="font-size: 10px;">Java类库</a> <a href="/tags/JetBrains/" style="font-size: 18.75px;">JetBrains</a> <a href="/tags/Jmeter/" style="font-size: 12.5px;">Jmeter</a> <a href="/tags/Lombok/" style="font-size: 10px;">Lombok</a> <a href="/tags/Mycat/" style="font-size: 13.75px;">Mycat</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/RestTemplate/" style="font-size: 10px;">RestTemplate</a> <a href="/tags/Spring/" style="font-size: 11.25px;">Spring</a> <a href="/tags/Spring-Boot/" style="font-size: 12.5px;">Spring Boot</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/bat/" style="font-size: 10px;">bat</a> <a href="/tags/bat脚本/" style="font-size: 10px;">bat脚本</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/chrome-plugin/" style="font-size: 10px;">chrome plugin</a> <a href="/tags/coding-net/" style="font-size: 10px;">coding.net</a> <a href="/tags/csdn/" style="font-size: 10px;">csdn</a> <a href="/tags/design-patterns/" style="font-size: 10px;">design patterns</a> <a href="/tags/docker/" style="font-size: 15px;">docker</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/hexo-themes/" style="font-size: 10px;">hexo themes</a> <a href="/tags/hexo-translate-title/" style="font-size: 10px;">hexo-translate-title</a> <a href="/tags/hot-key/" style="font-size: 10px;">hot key</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/http-s/" style="font-size: 10px;">http(s)</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/jvm/" style="font-size: 10px;">jvm</a> <a href="/tags/mysql/" style="font-size: 12.5px;">mysql</a> <a href="/tags/nginx/" style="font-size: 11.25px;">nginx</a> <a href="/tags/oschina/" style="font-size: 10px;">oschina</a> <a href="/tags/postgresql/" style="font-size: 11.25px;">postgresql</a> <a href="/tags/python/" style="font-size: 16.25px;">python</a> <a href="/tags/redis/" style="font-size: 11.25px;">redis</a> <a href="/tags/redis-sentinel/" style="font-size: 10px;">redis-sentinel</a> <a href="/tags/selenium/" style="font-size: 13.75px;">selenium</a> <a href="/tags/shortcuts-key/" style="font-size: 10px;">shortcuts key</a> <a href="/tags/spider/" style="font-size: 10px;">spider</a> <a href="/tags/spring-boot/" style="font-size: 10px;">spring boot</a> <a href="/tags/swagger/" style="font-size: 11.25px;">swagger</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/vimium/" style="font-size: 10px;">vimium</a> <a href="/tags/websocket/" style="font-size: 10px;">websocket</a> <a href="/tags/ws-s/" style="font-size: 10px;">ws(s)</a> <a href="/tags/wss/" style="font-size: 10px;">wss</a> <a href="/tags/yapi/" style="font-size: 10px;">yapi</a> <a href="/tags/《Spring-in-action》/" style="font-size: 10px;">《Spring in action》</a> <a href="/tags/个人博客/" style="font-size: 11.25px;">个人博客</a> <a href="/tags/个人感悟/" style="font-size: 11.25px;">个人感悟</a> <a href="/tags/主从复制/" style="font-size: 11.25px;">主从复制</a> <a href="/tags/主从搭建/" style="font-size: 12.5px;">主从搭建</a> <a href="/tags/代理调试/" style="font-size: 10px;">代理调试</a> <a href="/tags/入门篇/" style="font-size: 10px;">入门篇</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/压测工具/" style="font-size: 12.5px;">压测工具</a> <a href="/tags/字符串机制/" style="font-size: 10px;">字符串机制</a> <a href="/tags/学习资源/" style="font-size: 11.25px;">学习资源</a> <a href="/tags/实践篇/" style="font-size: 11.25px;">实践篇</a> <a href="/tags/开源/" style="font-size: 10px;">开源</a> <a href="/tags/开源博客/" style="font-size: 11.25px;">开源博客</a> <a href="/tags/开源项目/" style="font-size: 11.25px;">开源项目</a> <a href="/tags/微信授权/" style="font-size: 10px;">微信授权</a> <a href="/tags/数据库中间件/" style="font-size: 13.75px;">数据库中间件</a> <a href="/tags/热部署/" style="font-size: 10px;">热部署</a> <a href="/tags/简书/" style="font-size: 10px;">简书</a> <a href="/tags/编辑器/" style="font-size: 20px;">编辑器</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a> <a href="/tags/读写分离/" style="font-size: 11.25px;">读写分离</a> <a href="/tags/跑步/" style="font-size: 10px;">跑步</a> <a href="/tags/配置篇/" style="font-size: 10px;">配置篇</a> <a href="/tags/钉钉运动/" style="font-size: 10px;">钉钉运动</a> <a href="/tags/阿里技术/" style="font-size: 10px;">阿里技术</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-h-square"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-window-restore"></i><span>归档</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/AcpectJ/" style="font-size: 10px;">AcpectJ</a> <a href="/tags/Aop/" style="font-size: 10px;">Aop</a> <a href="/tags/Chocolatey/" style="font-size: 10px;">Chocolatey</a> <a href="/tags/Eclipse/" style="font-size: 11.25px;">Eclipse</a> <a href="/tags/Fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/tags/GitHub-Pages/" style="font-size: 11.25px;">GitHub Pages</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDEA/" style="font-size: 20px;">IDEA</a> <a href="/tags/Java/" style="font-size: 17.5px;">Java</a> <a href="/tags/Java类库/" style="font-size: 10px;">Java类库</a> <a href="/tags/JetBrains/" style="font-size: 18.75px;">JetBrains</a> <a href="/tags/Jmeter/" style="font-size: 12.5px;">Jmeter</a> <a href="/tags/Lombok/" style="font-size: 10px;">Lombok</a> <a href="/tags/Mycat/" style="font-size: 13.75px;">Mycat</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/RestTemplate/" style="font-size: 10px;">RestTemplate</a> <a href="/tags/Spring/" style="font-size: 11.25px;">Spring</a> <a href="/tags/Spring-Boot/" style="font-size: 12.5px;">Spring Boot</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/bat/" style="font-size: 10px;">bat</a> <a href="/tags/bat脚本/" style="font-size: 10px;">bat脚本</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/chrome-plugin/" style="font-size: 10px;">chrome plugin</a> <a href="/tags/coding-net/" style="font-size: 10px;">coding.net</a> <a href="/tags/csdn/" style="font-size: 10px;">csdn</a> <a href="/tags/design-patterns/" style="font-size: 10px;">design patterns</a> <a href="/tags/docker/" style="font-size: 15px;">docker</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/hexo-themes/" style="font-size: 10px;">hexo themes</a> <a href="/tags/hexo-translate-title/" style="font-size: 10px;">hexo-translate-title</a> <a href="/tags/hot-key/" style="font-size: 10px;">hot key</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/http-s/" style="font-size: 10px;">http(s)</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/jvm/" style="font-size: 10px;">jvm</a> <a href="/tags/mysql/" style="font-size: 12.5px;">mysql</a> <a href="/tags/nginx/" style="font-size: 11.25px;">nginx</a> <a href="/tags/oschina/" style="font-size: 10px;">oschina</a> <a href="/tags/postgresql/" style="font-size: 11.25px;">postgresql</a> <a href="/tags/python/" style="font-size: 16.25px;">python</a> <a href="/tags/redis/" style="font-size: 11.25px;">redis</a> <a href="/tags/redis-sentinel/" style="font-size: 10px;">redis-sentinel</a> <a href="/tags/selenium/" style="font-size: 13.75px;">selenium</a> <a href="/tags/shortcuts-key/" style="font-size: 10px;">shortcuts key</a> <a href="/tags/spider/" style="font-size: 10px;">spider</a> <a href="/tags/spring-boot/" style="font-size: 10px;">spring boot</a> <a href="/tags/swagger/" style="font-size: 11.25px;">swagger</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/vimium/" style="font-size: 10px;">vimium</a> <a href="/tags/websocket/" style="font-size: 10px;">websocket</a> <a href="/tags/ws-s/" style="font-size: 10px;">ws(s)</a> <a href="/tags/wss/" style="font-size: 10px;">wss</a> <a href="/tags/yapi/" style="font-size: 10px;">yapi</a> <a href="/tags/《Spring-in-action》/" style="font-size: 10px;">《Spring in action》</a> <a href="/tags/个人博客/" style="font-size: 11.25px;">个人博客</a> <a href="/tags/个人感悟/" style="font-size: 11.25px;">个人感悟</a> <a href="/tags/主从复制/" style="font-size: 11.25px;">主从复制</a> <a href="/tags/主从搭建/" style="font-size: 12.5px;">主从搭建</a> <a href="/tags/代理调试/" style="font-size: 10px;">代理调试</a> <a href="/tags/入门篇/" style="font-size: 10px;">入门篇</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/压测工具/" style="font-size: 12.5px;">压测工具</a> <a href="/tags/字符串机制/" style="font-size: 10px;">字符串机制</a> <a href="/tags/学习资源/" style="font-size: 11.25px;">学习资源</a> <a href="/tags/实践篇/" style="font-size: 11.25px;">实践篇</a> <a href="/tags/开源/" style="font-size: 10px;">开源</a> <a href="/tags/开源博客/" style="font-size: 11.25px;">开源博客</a> <a href="/tags/开源项目/" style="font-size: 11.25px;">开源项目</a> <a href="/tags/微信授权/" style="font-size: 10px;">微信授权</a> <a href="/tags/数据库中间件/" style="font-size: 13.75px;">数据库中间件</a> <a href="/tags/热部署/" style="font-size: 10px;">热部署</a> <a href="/tags/简书/" style="font-size: 10px;">简书</a> <a href="/tags/编辑器/" style="font-size: 20px;">编辑器</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a> <a href="/tags/读写分离/" style="font-size: 11.25px;">读写分离</a> <a href="/tags/跑步/" style="font-size: 10px;">跑步</a> <a href="/tags/配置篇/" style="font-size: 10px;">配置篇</a> <a href="/tags/钉钉运动/" style="font-size: 10px;">钉钉运动</a> <a href="/tags/阿里技术/" style="font-size: 10px;">阿里技术</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>

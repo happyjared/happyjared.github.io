@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.mariojd.cn/20180718/introduction-to-design-pattern:-simple-factory-mode.html</loc>
+    
+    <lastmod>2018-07-23T03:14:49.506Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.mariojd.cn/20180723/introduction-to-design-pattern:-factory-method-model.html</loc>
+    
+    <lastmod>2018-07-23T03:14:49.506Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.mariojd.cn/20180304/mycat-(practice-section---postgresql-based-horizontal-segmentation,-master-slave-replication,-separation-of-read-and-write).html</loc>
     
-    <lastmod>2018-07-20T08:47:12.570Z</lastmod>
+    <lastmod>2018-07-20T08:54:51.507Z</lastmod>
     
   </url>
   
@@ -114,14 +128,14 @@
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/20180401/after-10000-steps-and-21-days-of-nail-race,-the-great-god-race..html</loc>
+    <loc>https://blog.mariojd.cn/20180311/idea-shortcut-key-disassembly-series-(four):-view.html</loc>
     
     <lastmod>2018-07-20T08:26:00.193Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/20180311/idea-shortcut-key-disassembly-series-(four):-view.html</loc>
+    <loc>https://blog.mariojd.cn/20180401/after-10000-steps-and-21-days-of-nail-race,-the-great-god-race..html</loc>
     
     <lastmod>2018-07-20T08:26:00.193Z</lastmod>
     
@@ -135,14 +149,14 @@
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/20180418/ali-technology-essence-dry-goods-finishing-(continuously-updated...).html</loc>
+    <loc>https://blog.mariojd.cn/20180503/hexo,-custom-domain-name-http-upgrade-https.html</loc>
     
     <lastmod>2018-07-20T08:25:59.994Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/20180503/hexo,-custom-domain-name-http-upgrade-https.html</loc>
+    <loc>https://blog.mariojd.cn/20180418/ali-technology-essence-dry-goods-finishing-(continuously-updated...).html</loc>
     
     <lastmod>2018-07-20T08:25:59.994Z</lastmod>
     
@@ -254,7 +268,7 @@
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/20180514/package-manager-under-chocolatey,-windows.html</loc>
+    <loc>https://blog.mariojd.cn/20180619/service-configuration-commonly-used-by-java-developers-(nginx,-tomcat,-jvm,-mysql,-redis).html</loc>
     
     <lastmod>2018-07-20T08:25:58.754Z</lastmod>
     
@@ -268,7 +282,7 @@
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/20180619/service-configuration-commonly-used-by-java-developers-(nginx,-tomcat,-jvm,-mysql,-redis).html</loc>
+    <loc>https://blog.mariojd.cn/20180514/package-manager-under-chocolatey,-windows.html</loc>
     
     <lastmod>2018-07-20T08:25:58.754Z</lastmod>
     
@@ -289,13 +303,6 @@
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/20180322/idea-shortcut-key-disassembly-series-(fifteen):-experience.html</loc>
-    
-    <lastmod>2018-07-20T08:25:58.664Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.mariojd.cn/20180627/vimium---the-artifact-that-allows-chrome-to-work-efficiently.html</loc>
     
     <lastmod>2018-07-20T08:25:58.664Z</lastmod>
@@ -303,7 +310,7 @@
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/20180319/idea-shortcut-key-disassembly-series-(twelve):-vcs.html</loc>
+    <loc>https://blog.mariojd.cn/20180322/idea-shortcut-key-disassembly-series-(fifteen):-experience.html</loc>
     
     <lastmod>2018-07-20T08:25:58.664Z</lastmod>
     
@@ -318,6 +325,13 @@
   
   <url>
     <loc>https://blog.mariojd.cn/20180330/fiddler-implementation-of-wechat-authorized-development-and-debugging.html</loc>
+    
+    <lastmod>2018-07-20T08:25:58.664Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.mariojd.cn/20180319/idea-shortcut-key-disassembly-series-(twelve):-vcs.html</loc>
     
     <lastmod>2018-07-20T08:25:58.664Z</lastmod>
     
@@ -352,13 +366,6 @@
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/20180520/a-simple-'jane-book'-little-crawler.html</loc>
-    
-    <lastmod>2018-07-20T08:25:58.404Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.mariojd.cn/20180704/construction-of-redis-high-availability-cluster-based-on-docker-(redis-sentinel).html</loc>
     
     <lastmod>2018-07-20T08:25:58.404Z</lastmod>
@@ -366,7 +373,14 @@
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/20180320/idea-shortcut-key-disassembly-series-(thirteen):-window.html</loc>
+    <loc>https://blog.mariojd.cn/20180520/a-simple-'jane-book'-little-crawler.html</loc>
+    
+    <lastmod>2018-07-20T08:25:58.404Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.mariojd.cn/20180301/mycat-(introductory-article).html</loc>
     
     <lastmod>2018-07-20T08:25:58.394Z</lastmod>
     
@@ -380,14 +394,14 @@
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/20180614/intellij-idea-artifacts-still-have-these-little-tricks..html</loc>
+    <loc>https://blog.mariojd.cn/20180320/idea-shortcut-key-disassembly-series-(thirteen):-window.html</loc>
     
     <lastmod>2018-07-20T08:25:58.394Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/20180301/mycat-(introductory-article).html</loc>
+    <loc>https://blog.mariojd.cn/20180614/intellij-idea-artifacts-still-have-these-little-tricks..html</loc>
     
     <lastmod>2018-07-20T08:25:58.394Z</lastmod>
     

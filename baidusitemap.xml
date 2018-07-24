@@ -4,8 +4,349 @@
 
     
   <url>
+    <loc>https://blog.mariojd.cn/20180211/face---oriented-spring.html</loc>
+    <lastmod>2018-07-24T06:07:42.619Z</lastmod>
+    <data>
+        <display>
+        <title>面向切面的Spring</title>
+        <pubTime>2018-02-10T16:00:00.000Z</pubTime>
+        
+        <tag>Spring</tag>
+         
+        <tag>《Spring in action》</tag>
+         
+        <tag>AcpectJ</tag>
+         
+        <tag>Aop</tag>
+         
+        <tag>读书笔记</tag>
+         
+         
+           
+             
+              <breadCrumb title="Spring" url="https://blog.mariojd.cn/categories/Spring/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180520/use-python-to-count-your-book-data.html</loc>
+    <lastmod>2018-07-24T06:07:09.096Z</lastmod>
+    <data>
+        <display>
+        <title>用Python统计你的简书数据</title>
+        <pubTime>2018-05-19T16:00:00.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+        <tag>spider</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="https://blog.mariojd.cn/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180619/service-configuration-commonly-used-by-java-developers-(nginx,-tomcat,-jvm,-mysql,-redis).html</loc>
+    <lastmod>2018-07-24T06:06:24.453Z</lastmod>
+    <data>
+        <display>
+        <title>Java开发人员常用的服务配置（Nginx、Tomcat、JVM、Mysql、Redis）</title>
+        <pubTime>2018-06-18T16:00:00.000Z</pubTime>
+        
+        <tag>mysql</tag>
+         
+        <tag>redis</tag>
+         
+        <tag>nginx</tag>
+         
+        <tag>tomcat</tag>
+         
+        <tag>jvm</tag>
+         
+         
+           
+             
+              <breadCrumb title="Java" url="https://blog.mariojd.cn/categories/Java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180305/python-learning-resources-collation.html</loc>
+    <lastmod>2018-07-24T06:05:51.668Z</lastmod>
+    <data>
+        <display>
+        <title>Python学习资源整理</title>
+        <pubTime>2018-03-04T16:00:00.000Z</pubTime>
+        
+        <tag>Python</tag>
+         
+        <tag>学习资源</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="https://blog.mariojd.cn/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180418/dry-goods-finishing-of-ali-technical-essence.html</loc>
+    <lastmod>2018-07-24T06:05:39.034Z</lastmod>
+    <data>
+        <display>
+        <title>阿里技术精华干货整理</title>
+        <pubTime>2018-04-17T16:00:00.000Z</pubTime>
+        
+        <tag>学习资源</tag>
+         
+        <tag>阿里技术</tag>
+         
+         
+           
+             
+              <breadCrumb title="学习资源" url="https://blog.mariojd.cn/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180403/programmer-artifact,-intellij-idea-2018.1-officially-released.html</loc>
+    <lastmod>2018-07-24T06:05:33.520Z</lastmod>
+    <data>
+        <display>
+        <title>程序员神器，IntelliJ IDEA 2018.1 正式发布</title>
+        <pubTime>2018-04-02T16:00:00.000Z</pubTime>
+        
+        <tag>IDEA</tag>
+         
+        <tag>编辑器</tag>
+         
+        <tag>Java</tag>
+         
+         
+           
+             
+              <breadCrumb title="IDEA" url="https://blog.mariojd.cn/categories/IDEA/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180704/construction-of-redis-high-availability-cluster-based-on-docker-(redis-sentinel).html</loc>
+    <lastmod>2018-07-24T06:05:25.382Z</lastmod>
+    <data>
+        <display>
+        <title>基于Docker的Redis高可用集群搭建（redis-sentinel）</title>
+        <pubTime>2018-07-03T16:00:00.000Z</pubTime>
+        
+        <tag>docker</tag>
+         
+        <tag>redis-sentinel</tag>
+         
+         
+           
+             
+              <breadCrumb title="Docker" url="https://blog.mariojd.cn/categories/Docker/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180614/intellij-idea-artifact,-those-little-tricks-that-people-love-to-put-up-with..html</loc>
+    <lastmod>2018-07-24T06:03:26.704Z</lastmod>
+    <data>
+        <display>
+        <title>Intellij IDEA 神器那些让人爱不释手的小技巧</title>
+        <pubTime>2018-06-13T16:00:00.000Z</pubTime>
+        
+        <tag>IDEA</tag>
+         
+        <tag>编辑器</tag>
+         
+        <tag>Java</tag>
+         
+         
+           
+             
+              <breadCrumb title="IDEA" url="https://blog.mariojd.cn/categories/IDEA/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180427/docker-+-anoyi-blog-to-build-an-exclusive-personal-book.html</loc>
+    <lastmod>2018-07-24T06:03:26.694Z</lastmod>
+    <data>
+        <display>
+        <title>Docker + anoyi-blog 打造专属个人简书</title>
+        <pubTime>2018-04-26T16:00:00.000Z</pubTime>
+        
+        <tag>docker</tag>
+         
+        <tag>博客</tag>
+         
+         
+           
+             
+              <breadCrumb title="开源" url="https://blog.mariojd.cn/categories/%E5%BC%80%E6%BA%90/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180614/the-intellij-idea-artifact-has-these-little-tricks.html</loc>
+    <lastmod>2018-07-24T06:03:26.694Z</lastmod>
+    <data>
+        <display>
+        <title>Intellij IDEA 神器居然还有这些小技巧</title>
+        <pubTime>2018-06-13T16:00:00.000Z</pubTime>
+        
+        <tag>IDEA</tag>
+         
+        <tag>编辑器</tag>
+         
+        <tag>Java</tag>
+         
+         
+           
+             
+              <breadCrumb title="IDEA" url="https://blog.mariojd.cn/categories/IDEA/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180702/docker-+-redis-master-and-slave-environment-construction.html</loc>
+    <lastmod>2018-07-24T05:34:23.314Z</lastmod>
+    <data>
+        <display>
+        <title>Docker + Redis 主从环境搭建</title>
+        <pubTime>2018-07-01T16:00:00.000Z</pubTime>
+        
+        <tag>docker</tag>
+         
+        <tag>主从搭建</tag>
+         
+        <tag>redis</tag>
+         
+         
+           
+             
+              <breadCrumb title="Docker" url="https://blog.mariojd.cn/categories/Docker/"/>
+          
+             
+              <breadCrumb title="Redis" url="https://blog.mariojd.cn/categories/Docker/Redis/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180621/docker-+-postgresql-master-and-slave-environment-construction.html</loc>
+    <lastmod>2018-07-24T05:34:23.311Z</lastmod>
+    <data>
+        <display>
+        <title>Docker + PostgreSQL 主从环境搭建</title>
+        <pubTime>2018-06-20T16:00:00.000Z</pubTime>
+        
+        <tag>docker</tag>
+         
+        <tag>postgresql</tag>
+         
+        <tag>主从搭建</tag>
+         
+         
+           
+             
+              <breadCrumb title="Docker" url="https://blog.mariojd.cn/categories/Docker/"/>
+          
+             
+              <breadCrumb title="PostgreSQL" url="https://blog.mariojd.cn/categories/Docker/PostgreSQL/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180622/docker-+-mysql-master-and-slave-environment-construction.html</loc>
+    <lastmod>2018-07-24T05:34:23.308Z</lastmod>
+    <data>
+        <display>
+        <title>Docker + MySQL 主从环境搭建</title>
+        <pubTime>2018-06-21T16:00:00.000Z</pubTime>
+        
+        <tag>docker</tag>
+         
+        <tag>主从搭建</tag>
+         
+        <tag>mysql</tag>
+         
+         
+           
+             
+              <breadCrumb title="Docker" url="https://blog.mariojd.cn/categories/Docker/"/>
+          
+             
+              <breadCrumb title="MySQL" url="https://blog.mariojd.cn/categories/Docker/MySQL/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180401/10-thousand-step-21-day-nail-sports-grand-god.html</loc>
+    <lastmod>2018-07-24T05:34:23.305Z</lastmod>
+    <data>
+        <display>
+        <title>1万步21天钉钉运动大神赛</title>
+        <pubTime>2018-03-31T16:00:00.000Z</pubTime>
+        
+        <tag>跑步</tag>
+         
+        <tag>钉钉运动</tag>
+         
+         
+           
+             
+              <breadCrumb title="随笔" url="https://blog.mariojd.cn/categories/%E9%9A%8F%E7%AC%94/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://blog.mariojd.cn/20180724/introduction-to-design-pattern:-abstract-factory-model.html</loc>
-    <lastmod>2018-07-23T09:23:24.409Z</lastmod>
+    <lastmod>2018-07-23T09:24:00.937Z</lastmod>
     <data>
         <display>
         <title>设计模式入门：抽象工厂模式</title>
@@ -275,33 +616,6 @@
 
     
   <url>
-    <loc>https://blog.mariojd.cn/20180702/docker-+-redis-(4.0.10)-master-and-slave-environment-construction.html</loc>
-    <lastmod>2018-07-20T08:26:01.079Z</lastmod>
-    <data>
-        <display>
-        <title>Docker + Redis (4.0.10) 主从环境搭建</title>
-        <pubTime>2018-07-01T16:00:00.000Z</pubTime>
-        
-        <tag>docker</tag>
-         
-        <tag>主从搭建</tag>
-         
-        <tag>redis</tag>
-         
-         
-           
-             
-              <breadCrumb title="Docker" url="https://blog.mariojd.cn/categories/Docker/"/>
-          
-             
-              <breadCrumb title="Redis" url="https://blog.mariojd.cn/categories/Docker/Redis/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://blog.mariojd.cn/20180628/solve-the-problem-that-baidu-spiders-are-unable-to-crawl-hexo-blogs.html</loc>
     <lastmod>2018-07-20T08:26:00.889Z</lastmod>
     <data>
@@ -317,30 +631,6 @@
            
              
               <breadCrumb title="开源" url="https://blog.mariojd.cn/categories/%E5%BC%80%E6%BA%90/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/20180403/programmer-artifact,-intellij-idea-2018.1-officially-released-(reprinted).html</loc>
-    <lastmod>2018-07-20T08:26:00.760Z</lastmod>
-    <data>
-        <display>
-        <title>程序员神器，IntelliJ IDEA 2018.1 正式发布（转载）</title>
-        <pubTime>2018-04-02T16:00:00.000Z</pubTime>
-        
-        <tag>IDEA</tag>
-         
-        <tag>编辑器</tag>
-         
-        <tag>Java</tag>
-         
-         
-           
-             
-              <breadCrumb title="IDEA" url="https://blog.mariojd.cn/categories/IDEA/"/>
           
         </display>
     </data>
@@ -537,28 +827,6 @@
 
     
   <url>
-    <loc>https://blog.mariojd.cn/20180401/after-10000-steps-and-21-days-of-nail-race,-the-great-god-race..html</loc>
-    <lastmod>2018-07-20T08:26:00.193Z</lastmod>
-    <data>
-        <display>
-        <title>在完成了10000步21天钉钉运动大神赛之后...</title>
-        <pubTime>2018-03-31T16:00:00.000Z</pubTime>
-        
-        <tag>跑步</tag>
-         
-        <tag>钉钉运动</tag>
-         
-         
-           
-             
-              <breadCrumb title="随笔" url="https://blog.mariojd.cn/categories/%E9%9A%8F%E7%AC%94/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://blog.mariojd.cn/20180330/several-solutions-to-realize-java-hot-deployment.html</loc>
     <lastmod>2018-07-20T08:26:00.014Z</lastmod>
     <data>
@@ -601,28 +869,6 @@
            
              
               <breadCrumb title="hexo" url="https://blog.mariojd.cn/categories/hexo/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/20180418/ali-technology-essence-dry-goods-finishing-(continuously-updated...).html</loc>
-    <lastmod>2018-07-20T08:25:59.994Z</lastmod>
-    <data>
-        <display>
-        <title>阿里技术精华干货整理（持续更新...）</title>
-        <pubTime>2018-04-17T16:00:00.000Z</pubTime>
-        
-        <tag>学习资源</tag>
-         
-        <tag>阿里技术</tag>
-         
-         
-           
-             
-              <breadCrumb title="学习资源" url="https://blog.mariojd.cn/categories/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90/"/>
           
         </display>
     </data>
@@ -686,9 +932,9 @@
         
         <tag>Jmeter</tag>
          
-        <tag>压测工具</tag>
-         
         <tag>ws(s)</tag>
+         
+        <tag>压测工具</tag>
          
          
            
@@ -721,34 +967,6 @@
           
              
               <breadCrumb title="快捷键" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/20180211/facet-oriented-spring---spring-fourth-chapters-(notes).html</loc>
-    <lastmod>2018-07-20T08:25:59.404Z</lastmod>
-    <data>
-        <display>
-        <title>面向切面的Spring - 《Spring实战》第4章（笔记）</title>
-        <pubTime>2018-02-10T16:00:00.000Z</pubTime>
-        
-        <tag>Spring</tag>
-         
-        <tag>《Spring in action》</tag>
-         
-        <tag>AcpectJ</tag>
-         
-        <tag>Aop</tag>
-         
-        <tag>读书笔记</tag>
-         
-         
-           
-             
-              <breadCrumb title="Spring" url="https://blog.mariojd.cn/categories/Spring/"/>
           
         </display>
     </data>
@@ -834,33 +1052,6 @@
 
     
   <url>
-    <loc>https://blog.mariojd.cn/20180621/docker-+-postgresql-(10.1)-setting-up-the-main-and-subordinate-environment.html</loc>
-    <lastmod>2018-07-20T08:25:59.224Z</lastmod>
-    <data>
-        <display>
-        <title>Docker + PostgreSQL（10.1）主从环境搭建</title>
-        <pubTime>2018-06-20T16:00:00.000Z</pubTime>
-        
-        <tag>docker</tag>
-         
-        <tag>主从搭建</tag>
-         
-        <tag>postgresql</tag>
-         
-         
-           
-             
-              <breadCrumb title="Docker" url="https://blog.mariojd.cn/categories/Docker/"/>
-          
-             
-              <breadCrumb title="PostgreSQL" url="https://blog.mariojd.cn/categories/Docker/PostgreSQL/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://blog.mariojd.cn/20180316/idea-shortcut-key-disassembly-series-(nine):-build.html</loc>
     <lastmod>2018-07-20T08:25:59.194Z</lastmod>
     <data>
@@ -934,30 +1125,6 @@
 
     
   <url>
-    <loc>https://blog.mariojd.cn/20180614/intellij-idea-artifact,-those-little-tricks-that-people-love-to-put-up-with..html</loc>
-    <lastmod>2018-07-20T08:25:58.854Z</lastmod>
-    <data>
-        <display>
-        <title>Intellij IDEA 神器那些让人爱不释手的小技巧（转载）</title>
-        <pubTime>2018-06-13T16:00:00.000Z</pubTime>
-        
-        <tag>IDEA</tag>
-         
-        <tag>编辑器</tag>
-         
-        <tag>Java</tag>
-         
-         
-           
-             
-              <breadCrumb title="IDEA" url="https://blog.mariojd.cn/categories/IDEA/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://blog.mariojd.cn/20180317/idea-shortcut-key-disassembly-series-(ten):-run.html</loc>
     <lastmod>2018-07-20T08:25:58.764Z</lastmod>
     <data>
@@ -985,85 +1152,6 @@
 
     
   <url>
-    <loc>https://blog.mariojd.cn/20180404/access-to-rest-services-using-spring-resttemplate.html</loc>
-    <lastmod>2018-07-20T08:25:58.754Z</lastmod>
-    <data>
-        <display>
-        <title>使用Spring RestTemplate访问Rest服务</title>
-        <pubTime>2018-04-03T16:00:00.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>RestTemplate</tag>
-         
-        <tag>Spring</tag>
-         
-         
-           
-             
-              <breadCrumb title="Java" url="https://blog.mariojd.cn/categories/Java/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/20180619/service-configuration-commonly-used-by-java-developers-(nginx,-tomcat,-jvm,-mysql,-redis).html</loc>
-    <lastmod>2018-07-20T08:25:58.754Z</lastmod>
-    <data>
-        <display>
-        <title>Java开发人员常用的服务配置(Nginx、Tomcat、JVM、Mysql、Redis)</title>
-        <pubTime>2018-06-18T16:00:00.000Z</pubTime>
-        
-        <tag>mysql</tag>
-         
-        <tag>redis</tag>
-         
-        <tag>nginx</tag>
-         
-        <tag>tomcat</tag>
-         
-        <tag>jvm</tag>
-         
-         
-           
-             
-              <breadCrumb title="Java" url="https://blog.mariojd.cn/categories/Java/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/20180622/docker-+-mysql-(8.0.11)-master-and-slave-environment-construction.html</loc>
-    <lastmod>2018-07-20T08:25:58.754Z</lastmod>
-    <data>
-        <display>
-        <title>Docker + MySQL (8.0.11) 主从环境搭建</title>
-        <pubTime>2018-06-21T16:00:00.000Z</pubTime>
-        
-        <tag>docker</tag>
-         
-        <tag>mysql</tag>
-         
-        <tag>主从搭建</tag>
-         
-         
-           
-             
-              <breadCrumb title="Docker" url="https://blog.mariojd.cn/categories/Docker/"/>
-          
-             
-              <breadCrumb title="MySQL" url="https://blog.mariojd.cn/categories/Docker/MySQL/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://blog.mariojd.cn/20180514/package-manager-under-chocolatey,-windows.html</loc>
     <lastmod>2018-07-20T08:25:58.754Z</lastmod>
     <data>
@@ -1081,6 +1169,30 @@
            
              
               <breadCrumb title="Chocolatey" url="https://blog.mariojd.cn/categories/Chocolatey/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180404/access-to-rest-services-using-spring-resttemplate.html</loc>
+    <lastmod>2018-07-20T08:25:58.754Z</lastmod>
+    <data>
+        <display>
+        <title>使用Spring RestTemplate访问Rest服务</title>
+        <pubTime>2018-04-03T16:00:00.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>RestTemplate</tag>
+         
+        <tag>Spring</tag>
+         
+         
+           
+             
+              <breadCrumb title="Java" url="https://blog.mariojd.cn/categories/Java/"/>
           
         </display>
     </data>
@@ -1142,6 +1254,55 @@
 
     
   <url>
+    <loc>https://blog.mariojd.cn/20180627/vimium---the-artifact-that-allows-chrome-to-work-efficiently.html</loc>
+    <lastmod>2018-07-20T08:25:58.664Z</lastmod>
+    <data>
+        <display>
+        <title>Vimium - 让Chrome高效工作的神器</title>
+        <pubTime>2018-06-26T16:00:00.000Z</pubTime>
+        
+        <tag>vimium</tag>
+         
+        <tag>chrome plugin</tag>
+         
+         
+           
+             
+              <breadCrumb title="开源" url="https://blog.mariojd.cn/categories/%E5%BC%80%E6%BA%90/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180310/idea-shortcut-key-disassembly-series-(three):-edit.html</loc>
+    <lastmod>2018-07-20T08:25:58.664Z</lastmod>
+    <data>
+        <display>
+        <title>IDEA快捷键拆解系列（三）：Edit篇</title>
+        <pubTime>2018-03-09T16:00:00.000Z</pubTime>
+        
+        <tag>IDEA</tag>
+         
+        <tag>编辑器</tag>
+         
+        <tag>JetBrains</tag>
+         
+         
+           
+             
+              <breadCrumb title="编辑器" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/"/>
+          
+             
+              <breadCrumb title="快捷键" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://blog.mariojd.cn/20180330/fiddler-implementation-of-wechat-authorized-development-and-debugging.html</loc>
     <lastmod>2018-07-20T08:25:58.664Z</lastmod>
     <data>
@@ -1166,12 +1327,12 @@
 
     
   <url>
-    <loc>https://blog.mariojd.cn/20180310/idea-shortcut-key-disassembly-series-(three):-edit.html</loc>
+    <loc>https://blog.mariojd.cn/20180322/idea-shortcut-key-disassembly-series-(fifteen):-experience.html</loc>
     <lastmod>2018-07-20T08:25:58.664Z</lastmod>
     <data>
         <display>
-        <title>IDEA快捷键拆解系列（三）：Edit篇</title>
-        <pubTime>2018-03-09T16:00:00.000Z</pubTime>
+        <title>IDEA快捷键拆解系列（十五）：经验篇</title>
+        <pubTime>2018-03-21T16:00:00.000Z</pubTime>
         
         <tag>IDEA</tag>
          
@@ -1213,55 +1374,6 @@
           
              
               <breadCrumb title="快捷键" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/20180322/idea-shortcut-key-disassembly-series-(fifteen):-experience.html</loc>
-    <lastmod>2018-07-20T08:25:58.664Z</lastmod>
-    <data>
-        <display>
-        <title>IDEA快捷键拆解系列（十五）：经验篇</title>
-        <pubTime>2018-03-21T16:00:00.000Z</pubTime>
-        
-        <tag>IDEA</tag>
-         
-        <tag>编辑器</tag>
-         
-        <tag>JetBrains</tag>
-         
-         
-           
-             
-              <breadCrumb title="编辑器" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/"/>
-          
-             
-              <breadCrumb title="快捷键" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/20180627/vimium---the-artifact-that-allows-chrome-to-work-efficiently.html</loc>
-    <lastmod>2018-07-20T08:25:58.664Z</lastmod>
-    <data>
-        <display>
-        <title>Vimium - 让Chrome高效工作的神器</title>
-        <pubTime>2018-06-26T16:00:00.000Z</pubTime>
-        
-        <tag>vimium</tag>
-         
-        <tag>chrome plugin</tag>
-         
-         
-           
-             
-              <breadCrumb title="开源" url="https://blog.mariojd.cn/categories/%E5%BC%80%E6%BA%90/"/>
           
         </display>
     </data>
@@ -1374,101 +1486,6 @@
 
     
   <url>
-    <loc>https://blog.mariojd.cn/20180520/a-simple-'jane-book'-little-crawler.html</loc>
-    <lastmod>2018-07-20T08:25:58.404Z</lastmod>
-    <data>
-        <display>
-        <title>一个简单的 '简书' 数据小爬虫</title>
-        <pubTime>2018-05-19T16:00:00.000Z</pubTime>
-        
-        <tag>python</tag>
-         
-        <tag>spider</tag>
-         
-         
-           
-             
-              <breadCrumb title="Python" url="https://blog.mariojd.cn/categories/Python/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/20180704/construction-of-redis-high-availability-cluster-based-on-docker-(redis-sentinel).html</loc>
-    <lastmod>2018-07-20T08:25:58.404Z</lastmod>
-    <data>
-        <display>
-        <title>基于Docker的Redis高可用集群搭建(redis-sentinel)</title>
-        <pubTime>2018-07-03T16:00:00.000Z</pubTime>
-        
-        <tag>docker</tag>
-         
-        <tag>redis-sentinel</tag>
-         
-         
-           
-             
-              <breadCrumb title="Docker" url="https://blog.mariojd.cn/categories/Docker/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/20180614/intellij-idea-artifacts-still-have-these-little-tricks..html</loc>
-    <lastmod>2018-07-20T08:25:58.394Z</lastmod>
-    <data>
-        <display>
-        <title>Intellij IDEA 神器居然还有这些小技巧（转载）</title>
-        <pubTime>2018-06-13T16:00:00.000Z</pubTime>
-        
-        <tag>IDEA</tag>
-         
-        <tag>编辑器</tag>
-         
-        <tag>Java</tag>
-         
-         
-           
-             
-              <breadCrumb title="IDEA" url="https://blog.mariojd.cn/categories/IDEA/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/20180301/mycat-(introductory-article).html</loc>
-    <lastmod>2018-07-20T08:25:58.394Z</lastmod>
-    <data>
-        <display>
-        <title>Mycat（入门篇）</title>
-        <pubTime>2018-02-28T16:00:00.000Z</pubTime>
-        
-        <tag>Mycat</tag>
-         
-        <tag>数据库中间件</tag>
-         
-        <tag>入门篇</tag>
-         
-         
-           
-             
-              <breadCrumb title="数据库中间件" url="https://blog.mariojd.cn/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E9%97%B4%E4%BB%B6/"/>
-          
-             
-              <breadCrumb title="Mycat" url="https://blog.mariojd.cn/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E9%97%B4%E4%BB%B6/Mycat/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://blog.mariojd.cn/20180320/idea-shortcut-key-disassembly-series-(thirteen):-window.html</loc>
     <lastmod>2018-07-20T08:25:58.394Z</lastmod>
     <data>
@@ -1489,28 +1506,6 @@
           
              
               <breadCrumb title="快捷键" url="https://blog.mariojd.cn/categories/%E7%BC%96%E8%BE%91%E5%99%A8/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/20180614/is-and-=-=-and-string-resident-mechanism-in-python.html</loc>
-    <lastmod>2018-07-20T08:25:58.394Z</lastmod>
-    <data>
-        <display>
-        <title>Python中的is和==以及字符串驻留机制</title>
-        <pubTime>2018-06-13T16:00:00.000Z</pubTime>
-        
-        <tag>python</tag>
-         
-        <tag>字符串机制</tag>
-         
-         
-           
-             
-              <breadCrumb title="Python" url="https://blog.mariojd.cn/categories/Python/"/>
           
         </display>
     </data>
@@ -1547,6 +1542,55 @@
 
     
   <url>
+    <loc>https://blog.mariojd.cn/20180614/is-and-=-=-and-string-resident-mechanism-in-python.html</loc>
+    <lastmod>2018-07-20T08:25:58.394Z</lastmod>
+    <data>
+        <display>
+        <title>Python中的is和==以及字符串驻留机制</title>
+        <pubTime>2018-06-13T16:00:00.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+        <tag>字符串机制</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="https://blog.mariojd.cn/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180301/mycat-(introductory-article).html</loc>
+    <lastmod>2018-07-20T08:25:58.394Z</lastmod>
+    <data>
+        <display>
+        <title>Mycat（入门篇）</title>
+        <pubTime>2018-02-28T16:00:00.000Z</pubTime>
+        
+        <tag>Mycat</tag>
+         
+        <tag>数据库中间件</tag>
+         
+        <tag>入门篇</tag>
+         
+         
+           
+             
+              <breadCrumb title="数据库中间件" url="https://blog.mariojd.cn/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E9%97%B4%E4%BB%B6/"/>
+          
+             
+              <breadCrumb title="Mycat" url="https://blog.mariojd.cn/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E9%97%B4%E4%BB%B6/Mycat/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://blog.mariojd.cn/20180327/solve-the-problem-that-idea-can't-prompt-to-import-java.util.date..html</loc>
     <lastmod>2018-07-20T08:25:58.384Z</lastmod>
     <data>
@@ -1571,7 +1615,7 @@
 
     
   <url>
-    <loc>https://blog.mariojd.cn/20180518/python-+-selenium-automatically-publish-articles-(three):-csdn.html</loc>
+    <loc>https://blog.mariojd.cn/20180518/python-+-selenium-automatically-publishes-articles-(3):-csdn.html</loc>
     <lastmod>2018-07-20T08:25:58.384Z</lastmod>
     <data>
         <display>
@@ -1591,6 +1635,32 @@
           
              
               <breadCrumb title="Selenium" url="https://blog.mariojd.cn/categories/Python/Selenium/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/20180208/hexo-integration-of-github-pages.html</loc>
+    <lastmod>2018-07-20T08:25:58.254Z</lastmod>
+    <data>
+        <display>
+        <title>Hexo整合GitHub Pages</title>
+        <pubTime>2018-02-07T16:00:00.000Z</pubTime>
+        
+        <tag>Hexo</tag>
+         
+        <tag>GitHub Pages</tag>
+         
+        <tag>个人博客</tag>
+         
+        <tag>开源项目</tag>
+         
+         
+           
+             
+              <breadCrumb title="开源项目" url="https://blog.mariojd.cn/categories/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/"/>
           
         </display>
     </data>
@@ -1625,32 +1695,6 @@
 
     
   <url>
-    <loc>https://blog.mariojd.cn/20180208/hexo-integration-of-github-pages.html</loc>
-    <lastmod>2018-07-20T08:25:58.254Z</lastmod>
-    <data>
-        <display>
-        <title>Hexo整合GitHub Pages</title>
-        <pubTime>2018-02-07T16:00:00.000Z</pubTime>
-        
-        <tag>GitHub Pages</tag>
-         
-        <tag>个人博客</tag>
-         
-        <tag>开源项目</tag>
-         
-        <tag>Hexo</tag>
-         
-         
-           
-             
-              <breadCrumb title="开源项目" url="https://blog.mariojd.cn/categories/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://blog.mariojd.cn/20180424/jmeter-measurement-of-http-(s).html</loc>
     <lastmod>2018-07-20T08:25:58.214Z</lastmod>
     <data>
@@ -1660,58 +1704,14 @@
         
         <tag>Jmeter</tag>
          
-        <tag>http(s)</tag>
-         
         <tag>压测工具</tag>
+         
+        <tag>http(s)</tag>
          
          
            
              
               <breadCrumb title="Jmeter" url="https://blog.mariojd.cn/categories/Jmeter/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/20180427/docker-+-anoyi-blog-to-create-exclusive-personal-simplified-book-blog.html</loc>
-    <lastmod>2018-07-20T08:25:58.194Z</lastmod>
-    <data>
-        <display>
-        <title>docker + anoyi-blog 打造专属个人“简书”博客</title>
-        <pubTime>2018-04-26T16:00:00.000Z</pubTime>
-        
-        <tag>docker</tag>
-         
-        <tag>博客</tag>
-         
-         
-           
-             
-              <breadCrumb title="开源" url="https://blog.mariojd.cn/categories/%E5%BC%80%E6%BA%90/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/20180305/python-learning-resource-consolidation-(continuous-update).html</loc>
-    <lastmod>2018-07-20T08:25:58.154Z</lastmod>
-    <data>
-        <display>
-        <title>Python学习资源整理（持续更新...）</title>
-        <pubTime>2018-03-04T16:00:00.000Z</pubTime>
-        
-        <tag>Python</tag>
-         
-        <tag>学习资源</tag>
-         
-         
-           
-             
-              <breadCrumb title="Python" url="https://blog.mariojd.cn/categories/Python/"/>
           
         </display>
     </data>

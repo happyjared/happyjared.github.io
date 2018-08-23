@@ -4,6 +4,148 @@
 
     
   <url>
+    <loc>https://blog.mariojd.cn/head-first-design-patterns.html</loc>
+    <lastmod>2018-08-23T06:49:41.098Z</lastmod>
+    <data>
+        <display>
+        <title>设计模式入门</title>
+        <pubTime>2018-07-17T16:00:00.000Z</pubTime>
+        
+        <tag>design patterns</tag>
+         
+         
+           
+             
+              <breadCrumb title="设计模式" url="https://blog.mariojd.cn/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/builder-of-design-pattern.html</loc>
+    <lastmod>2018-08-23T06:48:41.261Z</lastmod>
+    <data>
+        <display>
+        <title>设计模式入门：建造者模式</title>
+        <pubTime>2018-07-31T16:00:00.000Z</pubTime>
+        
+        <tag>design patterns</tag>
+         
+        <tag>builder</tag>
+         
+        <tag>建造者</tag>
+         
+         
+           
+             
+              <breadCrumb title="设计模式" url="https://blog.mariojd.cn/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/factory-method-of-design-pattern.html</loc>
+    <lastmod>2018-08-23T06:48:41.223Z</lastmod>
+    <data>
+        <display>
+        <title>设计模式入门：工厂方法模式</title>
+        <pubTime>2018-07-22T16:00:00.000Z</pubTime>
+        
+        <tag>design patterns</tag>
+         
+        <tag>simple factory</tag>
+         
+        <tag>工厂方法</tag>
+         
+         
+           
+             
+              <breadCrumb title="设计模式" url="https://blog.mariojd.cn/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/abstract-factory-of-design-pattern.html</loc>
+    <lastmod>2018-08-23T06:48:41.156Z</lastmod>
+    <data>
+        <display>
+        <title>设计模式入门：抽象工厂模式</title>
+        <pubTime>2018-07-23T16:00:00.000Z</pubTime>
+        
+        <tag>design patterns</tag>
+         
+        <tag>simple factory</tag>
+         
+        <tag>抽象工厂</tag>
+         
+         
+           
+             
+              <breadCrumb title="设计模式" url="https://blog.mariojd.cn/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/prototype-of-design-pattern.html</loc>
+    <lastmod>2018-08-23T06:48:41.106Z</lastmod>
+    <data>
+        <display>
+        <title>设计模式入门：原型模式</title>
+        <pubTime>2018-07-30T16:00:00.000Z</pubTime>
+        
+        <tag>design patterns</tag>
+         
+        <tag>prototype</tag>
+         
+        <tag>原型</tag>
+         
+         
+           
+             
+              <breadCrumb title="设计模式" url="https://blog.mariojd.cn/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/undefined.html</loc>
+    <lastmod>2018-08-23T06:39:13.233Z</lastmod>
+    <data>
+        <display>
+        <title>Python褥京东羊毛 (京豆)，快来</title>
+        <pubTime>2018-08-19T16:00:00.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+        <tag>selenium</tag>
+         
+        <tag>requests</tag>
+         
+        <tag>beautifulsoup4</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="https://blog.mariojd.cn/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://blog.mariojd.cn/efficient-easily-powerful-visual-interface-management-platform-about-yapi.html</loc>
     <lastmod>2018-08-23T06:23:41.608Z</lastmod>
     <data>
@@ -32,26 +174,6 @@
 
     
   <url>
-    <loc>https://blog.mariojd.cn/head-first-design-patterns-introduction.html</loc>
-    <lastmod>2018-08-23T06:21:54.999Z</lastmod>
-    <data>
-        <display>
-        <title>设计模式入门</title>
-        <pubTime>2018-07-17T16:00:00.000Z</pubTime>
-        
-        <tag>design patterns</tag>
-         
-         
-           
-             
-              <breadCrumb title="设计模式" url="https://blog.mariojd.cn/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://blog.mariojd.cn/oriented-face-in-spring.html</loc>
     <lastmod>2018-08-23T06:21:05.390Z</lastmod>
     <data>
@@ -73,54 +195,6 @@
            
              
               <breadCrumb title="Spring" url="https://blog.mariojd.cn/categories/Spring/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/introduction-to-design-pattern-factory-method-model.html</loc>
-    <lastmod>2018-08-23T06:20:44.661Z</lastmod>
-    <data>
-        <display>
-        <title>设计模式入门：工厂方法模式</title>
-        <pubTime>2018-07-22T16:00:00.000Z</pubTime>
-        
-        <tag>design patterns</tag>
-         
-        <tag>simple factory</tag>
-         
-        <tag>工厂方法</tag>
-         
-         
-           
-             
-              <breadCrumb title="设计模式" url="https://blog.mariojd.cn/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/introduction-to-design-pattern-abstract-factory-model.html</loc>
-    <lastmod>2018-08-23T06:20:39.356Z</lastmod>
-    <data>
-        <display>
-        <title>设计模式入门：抽象工厂模式</title>
-        <pubTime>2018-07-23T16:00:00.000Z</pubTime>
-        
-        <tag>design patterns</tag>
-         
-        <tag>simple factory</tag>
-         
-        <tag>抽象工厂</tag>
-         
-         
-           
-             
-              <breadCrumb title="设计模式" url="https://blog.mariojd.cn/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
           
         </display>
     </data>

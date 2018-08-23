@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>设计模式入门 | happyJared - 博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="happyJared - 博客。编码爱好者，代码小洁癖。" />
+  
+  <meta name="description" content="前言&amp;emsp;&amp;emsp;俗话说，好记性也不如烂笔头，最近开始阅读设计模式这方面的书籍，算是借此开个好头，把一些理解的和不太理解的都写下来。本人工作时间不长，经验、资历各方面也还比较欠缺，但目前来说还是很有决心多看一点好书，做好一些事情的。 &amp;emsp;&amp;emsp;去年就入手了好几本设计模式类的书籍，有《大话设计模式》、《设计模式之禅》和《Head First设计模式》，不过直到最近也是一次都">
+<meta name="keywords" content="design patterns">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计模式入门">
+<meta property="og:url" content="https://blog.mariojd.cn/head-first-design-patterns-introduction.html">
+<meta property="og:site_name" content="happyJared - 博客">
+<meta property="og:description" content="前言&amp;emsp;&amp;emsp;俗话说，好记性也不如烂笔头，最近开始阅读设计模式这方面的书籍，算是借此开个好头，把一些理解的和不太理解的都写下来。本人工作时间不长，经验、资历各方面也还比较欠缺，但目前来说还是很有决心多看一点好书，做好一些事情的。 &amp;emsp;&amp;emsp;去年就入手了好几本设计模式类的书籍，有《大话设计模式》、《设计模式之禅》和《Head First设计模式》，不过直到最近也是一次都">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018720/57a92d42-4d84-3aa9-a8b9-63a0b02c2c37.jpg">
+<meta property="og:updated_time" content="2018-08-23T06:21:54.999Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="设计模式入门">
+<meta name="twitter:description" content="前言&amp;emsp;&amp;emsp;俗话说，好记性也不如烂笔头，最近开始阅读设计模式这方面的书籍，算是借此开个好头，把一些理解的和不太理解的都写下来。本人工作时间不长，经验、资历各方面也还比较欠缺，但目前来说还是很有决心多看一点好书，做好一些事情的。 &amp;emsp;&amp;emsp;去年就入手了好几本设计模式类的书籍，有《大话设计模式》、《设计模式之禅》和《Head First设计模式》，不过直到最近也是一次都">
+<meta name="twitter:image" content="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018720/57a92d42-4d84-3aa9-a8b9-63a0b02c2c37.jpg">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?7d6076888c62ff336f5b580c57fd4141";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+  
+
+</head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <!--<div id="banner"></div>-->
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title"></span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-h-square"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-window-restore"></i>
+                        <span>归档</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <!--<div id="header-title">-->
+                    <!---->
+                <!--</div>-->
+                <div id="header-description">
+                    
+                    <h4>
+                        保持勤学习的心，做好写代码这事
+                    </h4>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="github" target="_blank" href="//github.com/happyjared">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="简书" target="_blank" href="//www.jianshu.com/u/000a530f461c">
+                            <i class="fa fa-book fa-2x"></i></a>
+                    
+                        <a title="qq" target="_blank" href="//wpa.qq.com/msgrd?v=3&uin=1394223902&site=qq&menu=yes">
+                            <i class="fa fa-qq fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-设计模式入门" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      设计模式入门
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/设计模式/">设计模式</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-07-18
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <!--
+    self_category: 设计模式
+    self_tags: design patterns
+    osChina_sys_category: 软件工程
+    csdn_article_category: 原创
+    csdn_blog_category: 计算机理论与基础
+-->
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>&emsp;&emsp;俗话说，好记性也不如烂笔头，最近开始阅读设计模式这方面的书籍，算是借此开个好头，把一些理解的和不太理解的都写下来。本人工作时间不长，经验、资历各方面也还比较欠缺，但目前来说还是很有决心多看一点好书，做好一些事情的。</p>
+<p>&emsp;&emsp;去年就入手了好几本设计模式类的书籍，有《大话设计模式》、《设计模式之禅》和《Head First设计模式》，不过直到最近也是一次都没翻开过。前不久决心从《大话设计模式》看起，并开始记录这个设计模式入门。</p>
+<h3 id="百科"><a href="#百科" class="headerlink" title="百科"></a>百科</h3><h4 id="设计原则"><a href="#设计原则" class="headerlink" title="设计原则"></a>设计原则</h4><p>&emsp;&emsp;面向对象编程中一般遵循以下几个原则，设计模式就是为了实现这些原则，从而达到了代码复用、提高可维护性的目的：</p>
+<ol>
+<li>开放封闭原则 (OCP, Open Closed Principle)</li>
+</ol>
+<ul>
+<li>对扩展开放，对更改封闭</li>
+</ul>
+<ol>
+<li>里氏替换原则 (LSP, Liskov Substitution Principle)</li>
+</ol>
+<ul>
+<li>子类型必须能够替换掉它们的父类型</li>
+</ul>
+<ol>
+<li>依赖倒转原则 (DIP, Dependency Inversion Principle)</li>
+</ol>
+<ul>
+<li>依赖抽象而不依赖于具体，高层模块不能依赖低层</li>
+</ul>
+<ol>
+<li>接口隔离原则 (ISP, Interface Segregation Principle)</li>
+</ol>
+<ul>
+<li>使用多个隔离的接口，比使用单个接口要好，降低类之间的耦合</li>
+</ul>
+<ol>
+<li>单一职责原则 (SRP, Single Responsiblity Principle)</li>
+</ol>
+<ul>
+<li>就一个类而言，应该只有一个引起它变化的原因</li>
+</ul>
+<ol>
+<li>合成/聚合复用原则 (CARP, Composite/Aggregate Reuse Principle)</li>
+</ol>
+<ul>
+<li>尽量使用合成/聚合，而不是使用类继承</li>
+</ul>
+<ol>
+<li>最小知识原则，也叫迪米特法则 (PLK, Principle of Least Knowledge)</li>
+</ol>
+<ul>
+<li>实体应尽量少的与其他实体之间发生相互作用，使得系统功能模块相对独立</li>
+</ul>
+<h4 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h4><p>&emsp;&emsp;<a href="https://baike.baidu.com/item/GoF" target="_blank" rel="noopener">GOF</a>在《Design Patterns: Elements of Reusable Object-Oriented Software》(《设计模式：可复用面向对象软件的基础》)一书中将设计模式划分为三种类型，共计23种:</p>
+<ul>
+<li>创建型(5种)：单例模式、工厂方法模式、抽象工厂模式、建造者模式、原型模式；</li>
+<li>结构型(7种)：适配器模式、装饰器模式、桥接模式、组合模式、外观模式、享元模式、代理模式；</li>
+<li>行为型(11种)：模版方法模式、命令模式、迭代器模式、观察者模式、中介者模式、备忘录模式、解释器模式、状态模式、策略模式、责任链模式、访问者模式。</li>
+</ul>
+<h4 id="关系图"><a href="#关系图" class="headerlink" title="关系图"></a>关系图</h4><p><img src="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018720/57a92d42-4d84-3aa9-a8b9-63a0b02c2c37.jpg" alt="设计模式关系图"></p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年08月23日 14:21</p>
+        <p>原始链接： <a class="post-url" href="/head-first-design-patterns-introduction.html" title="设计模式入门">https://blog.mariojd.cn/head-first-design-patterns-introduction.html</a></p>
+        <footer>
+            <a href="https://blog.mariojd.cn">
+                <img src="/images/logo.png" alt="Jared Qiu">
+                Jared Qiu
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赞赏支持
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.mariojd.cn/head-first-design-patterns-introduction.html&title=《设计模式入门》 — happyJared - 博客&pic=https://image.mariojd.cn/smallstory/2018719/03_java_design_pattern.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mariojd.cn/head-first-design-patterns-introduction.html&title=《设计模式入门》 — happyJared - 博客&source=Java developer, like Python and javascript，为人乐观、积极、向上、勤奋、和善、好相处，讲卫生，爱学习，爱码字，爱..." data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.mariojd.cn/head-first-design-patterns-introduction.html" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《设计模式入门》 — happyJared - 博客&url=https://blog.mariojd.cn/head-first-design-patterns-introduction.html&via=https://blog.mariojd.cn" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://blog.mariojd.cn/head-first-design-patterns-introduction.html" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://blog.mariojd.cn/head-first-design-patterns-introduction.html" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/designpatterns/" class="color1">design patterns</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#前言"><span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#百科"><span class="post-toc-text">百科</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#设计原则"><span class="post-toc-text">设计原则</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#设计模式"><span class="post-toc-text">设计模式</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#关系图"><span class="post-toc-text">关系图</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/introduction-to-design-pattern-simple-factory-mode.html" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          设计模式入门：简单工厂模式
+        
+      </span>
+    </a>
+  
+  
+    <a href="/several-ways-to-read-configuration-properties-in-spring-boot.html" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Spring Boot中读取配置属性的几种方式</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        <div id="SOHUCS" sid="设计模式入门" ></div>
+<script type="text/javascript">
+    (function(){
+        var appid = 'cytsi4W0L';
+        var conf = 'prod_302a63175740fd2ee2587f9345477b4c';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+    <span style='margin-left:5px'>
+    	粤ICP备17033077号-1
+    </span>
+</p>
+
+ 
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+        &copy; 2018 Jared Qiu 
+		    Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a><br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "https://blog.mariojd.cn",
+      animate: false,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/Chocolatey/">Chocolatey</a><a class="category-link" href="/categories/Docker/">Docker</a><a class="category-link" href="/categories/Docker/MySQL/">MySQL</a><a class="category-link" href="/categories/Docker/PostgreSQL/">PostgreSQL</a><a class="category-link" href="/categories/Docker/Redis/">Redis</a><a class="category-link" href="/categories/IDEA/">IDEA</a><a class="category-link" href="/categories/Java/">Java</a><a class="category-link" href="/categories/Java/Lombok/">Lombok</a><a class="category-link" href="/categories/Java/Spring-Boot/">Spring Boot</a><a class="category-link" href="/categories/Java/Spring-Boot/Swagger/">Swagger</a><a class="category-link" href="/categories/Java/热部署/">热部署</a><a class="category-link" href="/categories/Jmeter/">Jmeter</a><a class="category-link" href="/categories/Python/">Python</a><a class="category-link" href="/categories/Python/Selenium/">Selenium</a><a class="category-link" href="/categories/Python/Selenium/Windows-Batch/">Windows Batch</a><a class="category-link" href="/categories/Spring/">Spring</a><a class="category-link" href="/categories/hexo/">hexo</a><a class="category-link" href="/categories/websocket/">websocket</a><a class="category-link" href="/categories/学习资源/">学习资源</a><a class="category-link" href="/categories/开源/">开源</a><a class="category-link" href="/categories/开源/YApi/">YApi</a><a class="category-link" href="/categories/开源/YApi/Swagger/">Swagger</a><a class="category-link" href="/categories/开源项目/">开源项目</a><a class="category-link" href="/categories/抓包工具/">抓包工具</a><a class="category-link" href="/categories/数据库中间件/">数据库中间件</a><a class="category-link" href="/categories/数据库中间件/Mycat/">Mycat</a><a class="category-link" href="/categories/编辑器/">编辑器</a><a class="category-link" href="/categories/编辑器/个人感悟/">个人感悟</a><a class="category-link" href="/categories/编辑器/快捷键/">快捷键</a><a class="category-link" href="/categories/设计模式/">设计模式</a><a class="category-link" href="/categories/随笔/">随笔</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/AcpectJ/" style="font-size: 10px;">AcpectJ</a> <a href="/tags/Aop/" style="font-size: 10px;">Aop</a> <a href="/tags/Chocolatey/" style="font-size: 10px;">Chocolatey</a> <a href="/tags/Eclipse/" style="font-size: 11.25px;">Eclipse</a> <a href="/tags/Fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/tags/GitHub-Pages/" style="font-size: 11.25px;">GitHub Pages</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDEA/" style="font-size: 20px;">IDEA</a> <a href="/tags/Java/" style="font-size: 17.5px;">Java</a> <a href="/tags/Java类库/" style="font-size: 10px;">Java类库</a> <a href="/tags/JetBrains/" style="font-size: 18.75px;">JetBrains</a> <a href="/tags/Jmeter/" style="font-size: 12.5px;">Jmeter</a> <a href="/tags/Lombok/" style="font-size: 10px;">Lombok</a> <a href="/tags/Mycat/" style="font-size: 13.75px;">Mycat</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/RestTemplate/" style="font-size: 10px;">RestTemplate</a> <a href="/tags/Spring/" style="font-size: 11.25px;">Spring</a> <a href="/tags/Spring-Boot/" style="font-size: 12.5px;">Spring Boot</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/bat/" style="font-size: 10px;">bat</a> <a href="/tags/bat脚本/" style="font-size: 10px;">bat脚本</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/chrome-plugin/" style="font-size: 10px;">chrome plugin</a> <a href="/tags/coding-net/" style="font-size: 10px;">coding.net</a> <a href="/tags/csdn/" style="font-size: 10px;">csdn</a> <a href="/tags/design-patterns/" style="font-size: 13.75px;">design patterns</a> <a href="/tags/docker/" style="font-size: 15px;">docker</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/hexo-themes/" style="font-size: 10px;">hexo themes</a> <a href="/tags/hexo-translate-title/" style="font-size: 10px;">hexo-translate-title</a> <a href="/tags/hot-key/" style="font-size: 10px;">hot key</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/http-s/" style="font-size: 10px;">http(s)</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/jvm/" style="font-size: 10px;">jvm</a> <a href="/tags/mysql/" style="font-size: 12.5px;">mysql</a> <a href="/tags/nginx/" style="font-size: 11.25px;">nginx</a> <a href="/tags/oschina/" style="font-size: 10px;">oschina</a> <a href="/tags/postgresql/" style="font-size: 11.25px;">postgresql</a> <a href="/tags/python/" style="font-size: 16.25px;">python</a> <a href="/tags/redis/" style="font-size: 11.25px;">redis</a> <a href="/tags/redis-sentinel/" style="font-size: 10px;">redis-sentinel</a> <a href="/tags/selenium/" style="font-size: 13.75px;">selenium</a> <a href="/tags/shortcuts-key/" style="font-size: 10px;">shortcuts key</a> <a href="/tags/simple-factory/" style="font-size: 12.5px;">simple factory</a> <a href="/tags/spider/" style="font-size: 10px;">spider</a> <a href="/tags/spring-boot/" style="font-size: 10px;">spring boot</a> <a href="/tags/swagger/" style="font-size: 11.25px;">swagger</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/vimium/" style="font-size: 10px;">vimium</a> <a href="/tags/websocket/" style="font-size: 10px;">websocket</a> <a href="/tags/ws-s/" style="font-size: 10px;">ws(s)</a> <a href="/tags/wss/" style="font-size: 10px;">wss</a> <a href="/tags/yapi/" style="font-size: 10px;">yapi</a> <a href="/tags/《Spring-in-action》/" style="font-size: 10px;">《Spring in action》</a> <a href="/tags/个人博客/" style="font-size: 11.25px;">个人博客</a> <a href="/tags/个人感悟/" style="font-size: 11.25px;">个人感悟</a> <a href="/tags/主从复制/" style="font-size: 11.25px;">主从复制</a> <a href="/tags/主从搭建/" style="font-size: 12.5px;">主从搭建</a> <a href="/tags/代理调试/" style="font-size: 10px;">代理调试</a> <a href="/tags/入门篇/" style="font-size: 10px;">入门篇</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/压测工具/" style="font-size: 12.5px;">压测工具</a> <a href="/tags/字符串机制/" style="font-size: 10px;">字符串机制</a> <a href="/tags/学习资源/" style="font-size: 11.25px;">学习资源</a> <a href="/tags/实践篇/" style="font-size: 11.25px;">实践篇</a> <a href="/tags/工厂方法/" style="font-size: 10px;">工厂方法</a> <a href="/tags/开源/" style="font-size: 10px;">开源</a> <a href="/tags/开源博客/" style="font-size: 11.25px;">开源博客</a> <a href="/tags/开源项目/" style="font-size: 11.25px;">开源项目</a> <a href="/tags/微信授权/" style="font-size: 10px;">微信授权</a> <a href="/tags/抽象工厂/" style="font-size: 10px;">抽象工厂</a> <a href="/tags/数据库中间件/" style="font-size: 13.75px;">数据库中间件</a> <a href="/tags/热部署/" style="font-size: 10px;">热部署</a> <a href="/tags/简书/" style="font-size: 10px;">简书</a> <a href="/tags/简单工厂/" style="font-size: 10px;">简单工厂</a> <a href="/tags/编辑器/" style="font-size: 20px;">编辑器</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a> <a href="/tags/读写分离/" style="font-size: 11.25px;">读写分离</a> <a href="/tags/跑步/" style="font-size: 10px;">跑步</a> <a href="/tags/配置篇/" style="font-size: 10px;">配置篇</a> <a href="/tags/钉钉运动/" style="font-size: 10px;">钉钉运动</a> <a href="/tags/阿里技术/" style="font-size: 10px;">阿里技术</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-h-square"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-window-restore"></i><span>归档</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/AcpectJ/" style="font-size: 10px;">AcpectJ</a> <a href="/tags/Aop/" style="font-size: 10px;">Aop</a> <a href="/tags/Chocolatey/" style="font-size: 10px;">Chocolatey</a> <a href="/tags/Eclipse/" style="font-size: 11.25px;">Eclipse</a> <a href="/tags/Fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/tags/GitHub-Pages/" style="font-size: 11.25px;">GitHub Pages</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDEA/" style="font-size: 20px;">IDEA</a> <a href="/tags/Java/" style="font-size: 17.5px;">Java</a> <a href="/tags/Java类库/" style="font-size: 10px;">Java类库</a> <a href="/tags/JetBrains/" style="font-size: 18.75px;">JetBrains</a> <a href="/tags/Jmeter/" style="font-size: 12.5px;">Jmeter</a> <a href="/tags/Lombok/" style="font-size: 10px;">Lombok</a> <a href="/tags/Mycat/" style="font-size: 13.75px;">Mycat</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/RestTemplate/" style="font-size: 10px;">RestTemplate</a> <a href="/tags/Spring/" style="font-size: 11.25px;">Spring</a> <a href="/tags/Spring-Boot/" style="font-size: 12.5px;">Spring Boot</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/bat/" style="font-size: 10px;">bat</a> <a href="/tags/bat脚本/" style="font-size: 10px;">bat脚本</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/chrome-plugin/" style="font-size: 10px;">chrome plugin</a> <a href="/tags/coding-net/" style="font-size: 10px;">coding.net</a> <a href="/tags/csdn/" style="font-size: 10px;">csdn</a> <a href="/tags/design-patterns/" style="font-size: 13.75px;">design patterns</a> <a href="/tags/docker/" style="font-size: 15px;">docker</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/hexo-themes/" style="font-size: 10px;">hexo themes</a> <a href="/tags/hexo-translate-title/" style="font-size: 10px;">hexo-translate-title</a> <a href="/tags/hot-key/" style="font-size: 10px;">hot key</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/http-s/" style="font-size: 10px;">http(s)</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/jvm/" style="font-size: 10px;">jvm</a> <a href="/tags/mysql/" style="font-size: 12.5px;">mysql</a> <a href="/tags/nginx/" style="font-size: 11.25px;">nginx</a> <a href="/tags/oschina/" style="font-size: 10px;">oschina</a> <a href="/tags/postgresql/" style="font-size: 11.25px;">postgresql</a> <a href="/tags/python/" style="font-size: 16.25px;">python</a> <a href="/tags/redis/" style="font-size: 11.25px;">redis</a> <a href="/tags/redis-sentinel/" style="font-size: 10px;">redis-sentinel</a> <a href="/tags/selenium/" style="font-size: 13.75px;">selenium</a> <a href="/tags/shortcuts-key/" style="font-size: 10px;">shortcuts key</a> <a href="/tags/simple-factory/" style="font-size: 12.5px;">simple factory</a> <a href="/tags/spider/" style="font-size: 10px;">spider</a> <a href="/tags/spring-boot/" style="font-size: 10px;">spring boot</a> <a href="/tags/swagger/" style="font-size: 11.25px;">swagger</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/vimium/" style="font-size: 10px;">vimium</a> <a href="/tags/websocket/" style="font-size: 10px;">websocket</a> <a href="/tags/ws-s/" style="font-size: 10px;">ws(s)</a> <a href="/tags/wss/" style="font-size: 10px;">wss</a> <a href="/tags/yapi/" style="font-size: 10px;">yapi</a> <a href="/tags/《Spring-in-action》/" style="font-size: 10px;">《Spring in action》</a> <a href="/tags/个人博客/" style="font-size: 11.25px;">个人博客</a> <a href="/tags/个人感悟/" style="font-size: 11.25px;">个人感悟</a> <a href="/tags/主从复制/" style="font-size: 11.25px;">主从复制</a> <a href="/tags/主从搭建/" style="font-size: 12.5px;">主从搭建</a> <a href="/tags/代理调试/" style="font-size: 10px;">代理调试</a> <a href="/tags/入门篇/" style="font-size: 10px;">入门篇</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/压测工具/" style="font-size: 12.5px;">压测工具</a> <a href="/tags/字符串机制/" style="font-size: 10px;">字符串机制</a> <a href="/tags/学习资源/" style="font-size: 11.25px;">学习资源</a> <a href="/tags/实践篇/" style="font-size: 11.25px;">实践篇</a> <a href="/tags/工厂方法/" style="font-size: 10px;">工厂方法</a> <a href="/tags/开源/" style="font-size: 10px;">开源</a> <a href="/tags/开源博客/" style="font-size: 11.25px;">开源博客</a> <a href="/tags/开源项目/" style="font-size: 11.25px;">开源项目</a> <a href="/tags/微信授权/" style="font-size: 10px;">微信授权</a> <a href="/tags/抽象工厂/" style="font-size: 10px;">抽象工厂</a> <a href="/tags/数据库中间件/" style="font-size: 13.75px;">数据库中间件</a> <a href="/tags/热部署/" style="font-size: 10px;">热部署</a> <a href="/tags/简书/" style="font-size: 10px;">简书</a> <a href="/tags/简单工厂/" style="font-size: 10px;">简单工厂</a> <a href="/tags/编辑器/" style="font-size: 20px;">编辑器</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a> <a href="/tags/读写分离/" style="font-size: 11.25px;">读写分离</a> <a href="/tags/跑步/" style="font-size: 10px;">跑步</a> <a href="/tags/配置篇/" style="font-size: 10px;">配置篇</a> <a href="/tags/钉钉运动/" style="font-size: 10px;">钉钉运动</a> <a href="/tags/阿里技术/" style="font-size: 10px;">阿里技术</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>

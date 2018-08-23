@@ -4,6 +4,54 @@
 
     
   <url>
+    <loc>https://blog.mariojd.cn/singleton-of-design-pattern.html</loc>
+    <lastmod>2018-08-23T06:53:52.592Z</lastmod>
+    <data>
+        <display>
+        <title>设计模式入门：单例模式</title>
+        <pubTime>2018-07-26T16:00:00.000Z</pubTime>
+        
+        <tag>design patterns</tag>
+         
+        <tag>singleton</tag>
+         
+        <tag>单例</tag>
+         
+         
+           
+             
+              <breadCrumb title="设计模式" url="https://blog.mariojd.cn/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/simple-factory-of-design-pattern.html</loc>
+    <lastmod>2018-08-23T06:53:52.532Z</lastmod>
+    <data>
+        <display>
+        <title>设计模式入门：简单工厂模式</title>
+        <pubTime>2018-07-17T16:00:00.000Z</pubTime>
+        
+        <tag>design patterns</tag>
+         
+        <tag>simple factory</tag>
+         
+        <tag>简单工厂</tag>
+         
+         
+           
+             
+              <breadCrumb title="设计模式" url="https://blog.mariojd.cn/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://blog.mariojd.cn/head-first-design-patterns.html</loc>
     <lastmod>2018-08-23T06:49:41.098Z</lastmod>
     <data>
@@ -195,30 +243,6 @@
            
              
               <breadCrumb title="Spring" url="https://blog.mariojd.cn/categories/Spring/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/introduction-to-design-pattern-simple-factory-mode.html</loc>
-    <lastmod>2018-08-23T06:20:31.791Z</lastmod>
-    <data>
-        <display>
-        <title>设计模式入门：简单工厂模式</title>
-        <pubTime>2018-07-17T16:00:00.000Z</pubTime>
-        
-        <tag>design patterns</tag>
-         
-        <tag>simple factory</tag>
-         
-        <tag>简单工厂</tag>
-         
-         
-           
-             
-              <breadCrumb title="设计模式" url="https://blog.mariojd.cn/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
           
         </display>
     </data>

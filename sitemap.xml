@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.mariojd.cn/singleton-of-design-pattern.html</loc>
+    
+    <lastmod>2018-08-23T06:53:52.592Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.mariojd.cn/simple-factory-of-design-pattern.html</loc>
+    
+    <lastmod>2018-08-23T06:53:52.532Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.mariojd.cn/head-first-design-patterns.html</loc>
     
     <lastmod>2018-08-23T06:49:41.098Z</lastmod>
@@ -54,13 +68,6 @@
     <loc>https://blog.mariojd.cn/oriented-face-in-spring.html</loc>
     
     <lastmod>2018-08-23T06:21:05.390Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.mariojd.cn/introduction-to-design-pattern-simple-factory-mode.html</loc>
-    
-    <lastmod>2018-08-23T06:20:31.791Z</lastmod>
     
   </url>
   

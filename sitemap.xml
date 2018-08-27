@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.mariojd.cn/use-python-to-analyze-wechat-friends.html</loc>
+    
+    <lastmod>2018-08-27T02:03:56.012Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.mariojd.cn/use-python-to-bedding-jd-wool.html</loc>
+    
+    <lastmod>2018-08-27T02:03:55.986Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.mariojd.cn/singleton-of-design-pattern.html</loc>
     
     <lastmod>2018-08-23T06:53:52.592Z</lastmod>

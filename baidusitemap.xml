@@ -4,6 +4,56 @@
 
     
   <url>
+    <loc>https://blog.mariojd.cn/use-python-to-analyze-wechat-friends.html</loc>
+    <lastmod>2018-08-27T02:03:56.012Z</lastmod>
+    <data>
+        <display>
+        <title>用python快速分析你的微信好友</title>
+        <pubTime>2018-08-25T16:00:00.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+        <tag>itchat</tag>
+         
+        <tag>weixin</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="https://blog.mariojd.cn/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/use-python-to-bedding-jd-wool.html</loc>
+    <lastmod>2018-08-27T02:03:55.986Z</lastmod>
+    <data>
+        <display>
+        <title>如何用Python简单褥羊毛 (京东京豆)</title>
+        <pubTime>2018-08-19T16:00:00.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+        <tag>selenium</tag>
+         
+        <tag>requests</tag>
+         
+        <tag>beautifulsoup4</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="https://blog.mariojd.cn/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://blog.mariojd.cn/singleton-of-design-pattern.html</loc>
     <lastmod>2018-08-23T06:53:52.592Z</lastmod>
     <data>

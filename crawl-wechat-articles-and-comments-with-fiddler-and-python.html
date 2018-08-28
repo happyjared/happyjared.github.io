@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Python爬取微信公众号文章和评论 (基于Fiddler抓包分析) | happyJared - 博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="happyJared - 博客。编码爱好者，代码小洁癖。" />
+  
+  <meta name="description" content="背景说明&amp;emsp;&amp;emsp;感觉微信公众号算得是比较难爬的平台之一，不过一番折腾之后还是小有收获的。没有用Scrapy(估计爬太快也有反爬限制)，但后面会开始整理写一些实战出来。简单介绍下本次的开发环境：  python3 requests psycopg2 (操作postgres数据库)  抓包分析&amp;emsp;&amp;emsp;前一篇文章介绍过抓包前要做的准备，这里不再做相关说明。本次实战对抓取">
+<meta name="keywords" content="spider crawl,fiddler capture">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python爬取微信公众号文章和评论 (基于Fiddler抓包分析)">
+<meta property="og:url" content="https://blog.mariojd.cn/crawl-wechat-articles-and-comments-with-fiddler-and-python.html">
+<meta property="og:site_name" content="happyJared - 博客">
+<meta property="og:description" content="背景说明&amp;emsp;&amp;emsp;感觉微信公众号算得是比较难爬的平台之一，不过一番折腾之后还是小有收获的。没有用Scrapy(估计爬太快也有反爬限制)，但后面会开始整理写一些实战出来。简单介绍下本次的开发环境：  python3 requests psycopg2 (操作postgres数据库)  抓包分析&amp;emsp;&amp;emsp;前一篇文章介绍过抓包前要做的准备，这里不再做相关说明。本次实战对抓取">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/xsj/2018827/20180827221128.png">
+<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/xsj/2018827/20180827221823.jpg">
+<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/xsj/2018827/20180827221830.jpg">
+<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/xsj/2018827/20180827222825.png">
+<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018828/20180828143527.png">
+<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018828/20180828145756.jpg">
+<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018828/20180828145635.png">
+<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018828/20180828151820.png">
+<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018828/20180828164427.png">
+<meta property="og:updated_time" content="2018-08-28T09:02:46.576Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python爬取微信公众号文章和评论 (基于Fiddler抓包分析)">
+<meta name="twitter:description" content="背景说明&amp;emsp;&amp;emsp;感觉微信公众号算得是比较难爬的平台之一，不过一番折腾之后还是小有收获的。没有用Scrapy(估计爬太快也有反爬限制)，但后面会开始整理写一些实战出来。简单介绍下本次的开发环境：  python3 requests psycopg2 (操作postgres数据库)  抓包分析&amp;emsp;&amp;emsp;前一篇文章介绍过抓包前要做的准备，这里不再做相关说明。本次实战对抓取">
+<meta name="twitter:image" content="http://p3ry9qsas.bkt.clouddn.com/xsj/2018827/20180827221128.png">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+
+  
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?7d6076888c62ff336f5b580c57fd4141";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+  
+
+</head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <!--<div id="banner"></div>-->
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title"></span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-h-square"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-window-restore"></i>
+                        <span>归档</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <!--<div id="header-title">-->
+                    <!---->
+                <!--</div>-->
+                <div id="header-description">
+                    
+                    <h4>
+                        保持勤学习的心，做好写代码这事
+                    </h4>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="github" target="_blank" href="//github.com/happyjared">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="简书" target="_blank" href="//www.jianshu.com/u/000a530f461c">
+                            <i class="fa fa-book fa-2x"></i></a>
+                    
+                        <a title="qq" target="_blank" href="//wpa.qq.com/msgrd?v=3&uin=1394223902&site=qq&menu=yes">
+                            <i class="fa fa-qq fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-Python爬取微信公众号文章和评论 (基于Fiddler抓包分析)" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      Python爬取微信公众号文章和评论 (基于Fiddler抓包分析)
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/python/">python</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-08-27
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <!--
+    self_category: Java
+    self_tags: Java
+    osChina_sys_category: 编程语言
+    csdn_article_category: 原创
+    csdn_blog_category: 编程语言
+-->
+<h3 id="背景说明"><a href="#背景说明" class="headerlink" title="背景说明"></a>背景说明</h3><p>&emsp;&emsp;感觉微信公众号算得是比较难爬的平台之一，不过一番折腾之后还是小有收获的。没有用Scrapy(估计爬太快也有反爬限制)，但后面会开始整理写一些实战出来。简单介绍下本次的开发环境：</p>
+<ul>
+<li>python3</li>
+<li>requests</li>
+<li>psycopg2 (操作postgres数据库)</li>
+</ul>
+<h3 id="抓包分析"><a href="#抓包分析" class="headerlink" title="抓包分析"></a>抓包分析</h3><p>&emsp;&emsp;前一篇文章介绍过抓包前要做的准备，这里不再做相关说明。本次实战对抓取的公众号没有限制，但不同公众号每次抓取之前都要进行分析。打开Fiddler，将手机配置好相关代理，为避免干扰过多，这里给Fiddler加个过滤规则，只需要指定微信域名<code>mp.weixin.qq.com</code>就好：</p>
+<p><img src="http://p3ry9qsas.bkt.clouddn.com/xsj/2018827/20180827221128.png" alt="Fiddler配置Filter规则"></p>
+<p>&emsp;&emsp;平时关注的公众号也比较多，本次实战以“36氪”公众号为例，继续往下看：</p>
+<p><img src="http://p3ry9qsas.bkt.clouddn.com/xsj/2018827/20180827221823.jpg" alt="“36氪”公众号"></p>
+<p><img src="http://p3ry9qsas.bkt.clouddn.com/xsj/2018827/20180827221830.jpg" alt="公众号右上角 -&gt; 全部消息"></p>
+<p>&emsp;&emsp;在公众号主页，右上角有三个实心圆点，点击进入消息界面，下滑找到并点击“全部消息”，往下请求加载几次历史文章，然后回到Fiddler界面，不出意外的话应该可以看到这几次请求，可以看到返回的数据是json格式的，同时文章数据是以json字符串的形式定义在<code>general_msg_list</code>字段中：</p>
+<p><img src="http://p3ry9qsas.bkt.clouddn.com/xsj/2018827/20180827222825.png" alt="公众号文章列表抓包请求"></p>
+<h3 id="分析文章列表接口"><a href="#分析文章列表接口" class="headerlink" title="分析文章列表接口"></a>分析文章列表接口</h3><p>&emsp;&emsp;把请求URL和Cookie贴上来进行分析：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">https://mp.weixin.qq.com/mp/profile_ext?action=getmsg&amp;__biz=MzI2NDk5NzA0Mw==&amp;f=json&amp;offset=10&amp;count=10&amp;is_ok=1&amp;scene=126&amp;uin=777&amp;key=777&amp;pass_ticket=QhOypNwH5dAr5w6UgMjyBrTSOdMEUT86vWc73GANoziWFl8xJd1hIMbMZ82KgCpN&amp;wxtoken=&amp;appmsg_token=971_LwY7Z%252BFBoaEv5z8k_dFWfJkdySbNkMR4OmFxNw~~&amp;x5=1&amp;f=json</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Cookie: pgv_pvid=2027337976; pgv_info=ssid=s3015512850; rewardsn=; wxtokenkey=777; wxuin=2089823341; devicetype=android-26; version=26070237; lang=zh_CN;pass_ticket=NDndxxaZ7p6Z9PYulWpLqMbI0i3ULFeCPIHBFu1sf5pX2IhkGfyxZ6b9JieSYRUy;wap_sid2=CO3YwOQHEogBQnN4VTNhNmxQWmc3UHI2U3kteWhUeVExZHFVMnN0QXlsbzVJRUJKc1pkdVFUU2Y5UzhSVEtOZmt1VVlYTkR4SEllQ2huejlTTThJWndMQzZfYUw2SldLVGVMQUthUjc3QWdVMUdoaGN0Nml2SU05cXR1dTN2RkhRUVd1V2Y3SFJ5d01BQUF+fjCB1pLcBTgNQJVO</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;下面把重要的参数说明一下，没提到的说明就不那么重要了：</p>
+<ul>
+<li>__biz：相当于是当前公众号的id(唯一固定标志)</li>
+<li>offset：文章数据接口请求偏移量标志(从0开始)，每次返回的json数据中会有下一次请求的offset，注意这里并不是按某些规则递增的</li>
+<li>count：每次请求的数据量(亲测最多可以是10)</li>
+<li>pass_ticket：可以理解是请求票据，而且隔一段时间后(大概几个小时)就会过期，这也是为什么微信公众号比较难按固定规则进行抓取的原因</li>
+<li>appmsg_token：同样理解为非固定有过期策略的票据</li>
+<li>Cookie：使用的时候可以把整段贴上去，但最少仅需要<code>wap_sid2</code>这部分</li>
+</ul>
+<p>&emsp;&emsp;是不是感觉有点麻烦，毕竟不是要搞大规模专业的爬虫，所以单就一个公众号这么分析下来，还是可以往下继续的，贴上截取的一段json数据，用于设计文章数据表：</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"ret"</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="attr">"errmsg"</span>: <span class="string">"ok"</span>,</span><br><span class="line">    <span class="attr">"msg_count"</span>: <span class="number">10</span>,</span><br><span class="line">    <span class="attr">"can_msg_continue"</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="attr">"general_msg_list"</span>: <span class="string">"&#123;\"list\":[&#123;\"comm_msg_info\":&#123;\"id\":1000005700,\"type\":49,\"datetime\":1535100943,\"fakeid\":\"3264997043\",\"status\":2,\"content\":\"\"&#125;,\"app_msg_ext_info\":&#123;\"title\":\"金融危机又十年：钱荒之下，二手基金迎来高光时刻\",\"digest\":\"退出永远是基金的主旋律。\",\"content\":\"\",\"fileid\":100034824,\"content_url\":\"http:\\/\\/mp.weixin.qq.com\\/s?__biz=MzI2NDk5NzA0Mw==&amp;mid=2247518479&amp;idx=1&amp;sn=124ab52f7478c1069a6b4592cdf3c5f5&amp;chksm=eaa6d8d3ddd151c5bb95a7ae118de6d080023246aa0a419e1d53bfe48a8d9a77e52b752d9b80&amp;scene=27#wechat_redirect\",\"source_url\":\"\",\"cover\":\"http:\\/\\/mmbiz.qpic.cn\\/mmbiz_jpg\\/QicyPhNHD5vYgdpprkibtnWCAN7l4ZaqibKvopNyCWWLQAwX7QpzWicnQSVfcBZmPrR5YuHS45JIUzVjb0dZTiaLPyA\\/0?wx_fmt=jpeg\",\"subtype\":9,\"is_multi\":0,\"multi_app_msg_item_list\":[],\"author\":\"石亚琼\",\"copyright_stat\":11,\"duration\":0,\"del_flag\":1,\"item_show_type\":0,\"audio_fileid\":0,\"play_url\":\"\",\"malicious_title_reason_id\":0,\"malicious_content_type\":0&#125;&#125;]&#125;"</span>,</span><br><span class="line">    <span class="attr">"next_offset"</span>: <span class="number">20</span>,</span><br><span class="line">    <span class="attr">"video_count"</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="attr">"use_video_tab"</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="attr">"real_type"</span>: <span class="number">0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;可以简单抽取想要的数据，这里将文章表结构定义如下，顺便贴上建表的SQL语句：</p>
+<p><img src="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018828/20180828143527.png" alt="文章数据表"></p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- ----------------------------</span></span><br><span class="line"><span class="comment">-- Table structure for tb_article</span></span><br><span class="line"><span class="comment">-- ----------------------------</span></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> <span class="string">"public"</span>.<span class="string">"tb_article"</span>;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">"public"</span>.<span class="string">"tb_article"</span> (</span><br><span class="line">  <span class="string">"id"</span> serial4 PRIMARY <span class="keyword">KEY</span>,</span><br><span class="line">  <span class="string">"msg_id"</span> <span class="built_in">int8</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">"title"</span> <span class="built_in">varchar</span>(<span class="number">200</span>) <span class="keyword">COLLATE</span> <span class="string">"pg_catalog"</span>.<span class="string">"default"</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">"author"</span> <span class="built_in">varchar</span>(<span class="number">20</span>) <span class="keyword">COLLATE</span> <span class="string">"pg_catalog"</span>.<span class="string">"default"</span>,</span><br><span class="line">  <span class="string">"cover"</span> <span class="built_in">varchar</span>(<span class="number">500</span>) <span class="keyword">COLLATE</span> <span class="string">"pg_catalog"</span>.<span class="string">"default"</span>,</span><br><span class="line">  <span class="string">"digest"</span> <span class="built_in">varchar</span>(<span class="number">200</span>) <span class="keyword">COLLATE</span> <span class="string">"pg_catalog"</span>.<span class="string">"default"</span>,</span><br><span class="line">  <span class="string">"source_url"</span> <span class="built_in">varchar</span>(<span class="number">800</span>) <span class="keyword">COLLATE</span> <span class="string">"pg_catalog"</span>.<span class="string">"default"</span>,</span><br><span class="line">  <span class="string">"content_url"</span> <span class="built_in">varchar</span>(<span class="number">600</span>) <span class="keyword">COLLATE</span> <span class="string">"pg_catalog"</span>.<span class="string">"default"</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">"post_time"</span> <span class="keyword">timestamp</span>(<span class="number">6</span>),</span><br><span class="line">  <span class="string">"create_time"</span> <span class="keyword">timestamp</span>(<span class="number">6</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span></span><br><span class="line">)</span><br><span class="line">;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> <span class="string">"public"</span>.<span class="string">"tb_article"</span>.<span class="string">"id"</span> <span class="keyword">IS</span> <span class="string">'自增主键'</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> <span class="string">"public"</span>.<span class="string">"tb_article"</span>.<span class="string">"msg_id"</span> <span class="keyword">IS</span> <span class="string">'消息id (唯一)'</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> <span class="string">"public"</span>.<span class="string">"tb_article"</span>.<span class="string">"title"</span> <span class="keyword">IS</span> <span class="string">'标题'</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> <span class="string">"public"</span>.<span class="string">"tb_article"</span>.<span class="string">"author"</span> <span class="keyword">IS</span> <span class="string">'作者'</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> <span class="string">"public"</span>.<span class="string">"tb_article"</span>.<span class="string">"cover"</span> <span class="keyword">IS</span> <span class="string">'封面图'</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> <span class="string">"public"</span>.<span class="string">"tb_article"</span>.<span class="string">"digest"</span> <span class="keyword">IS</span> <span class="string">'关键字'</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> <span class="string">"public"</span>.<span class="string">"tb_article"</span>.<span class="string">"source_url"</span> <span class="keyword">IS</span> <span class="string">'原文地址'</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> <span class="string">"public"</span>.<span class="string">"tb_article"</span>.<span class="string">"content_url"</span> <span class="keyword">IS</span> <span class="string">'文章地址'</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> <span class="string">"public"</span>.<span class="string">"tb_article"</span>.<span class="string">"post_time"</span> <span class="keyword">IS</span> <span class="string">'发布时间'</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> <span class="string">"public"</span>.<span class="string">"tb_article"</span>.<span class="string">"create_time"</span> <span class="keyword">IS</span> <span class="string">'入库时间'</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">TABLE</span> <span class="string">"public"</span>.<span class="string">"tb_article"</span> <span class="keyword">IS</span> <span class="string">'公众号文章表'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- ----------------------------</span></span><br><span class="line"><span class="comment">-- Indexes structure for table tb_article</span></span><br><span class="line"><span class="comment">-- ----------------------------</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">UNIQUE</span> <span class="keyword">INDEX</span> <span class="string">"unique_msg_id"</span> <span class="keyword">ON</span> <span class="string">"public"</span>.<span class="string">"tb_article"</span> <span class="keyword">USING</span> btree (</span><br><span class="line">  <span class="string">"msg_id"</span> <span class="string">"pg_catalog"</span>.<span class="string">"int8_ops"</span> <span class="keyword">ASC</span> <span class="keyword">NULLS</span> <span class="keyword">LAST</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;附请求文章接口并解析数据保存到数据库的相关代码：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">WxMps</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="string">"""微信公众号文章、评论抓取爬虫"""</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, _biz, _pass_ticket, _app_msg_token, _cookie, _offset=<span class="number">0</span>)</span>:</span></span><br><span class="line">        self.offset = _offset</span><br><span class="line">        self.biz = _biz  <span class="comment"># 公众号标志</span></span><br><span class="line">        self.msg_token = _app_msg_token  <span class="comment"># 票据(非固定)</span></span><br><span class="line">        self.pass_ticket = _pass_ticket  <span class="comment"># 票据(非固定)</span></span><br><span class="line">        self.headers = &#123;</span><br><span class="line">            <span class="string">'Cookie'</span>: _cookie,  <span class="comment"># Cookie(非固定)</span></span><br><span class="line">            <span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.132 '</span></span><br><span class="line">        &#125;</span><br><span class="line">        wx_mps = <span class="string">'wxmps'</span>  <span class="comment"># 这里数据库、用户、密码一致(需替换成实际的)</span></span><br><span class="line">        self.postgres = pgs.Pgs(host=<span class="string">'localhost'</span>, port=<span class="string">'5432'</span>, db_name=wx_mps, user=wx_mps, password=wx_mps)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">start</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""请求获取公众号的文章接口"""</span></span><br><span class="line"></span><br><span class="line">        offset = self.offset</span><br><span class="line">        <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">            api = <span class="string">'https://mp.weixin.qq.com/mp/profile_ext?action=getmsg&amp;__biz=&#123;0&#125;&amp;f=json&amp;offset=&#123;1&#125;'</span> \</span><br><span class="line">                  <span class="string">'&amp;count=10&amp;is_ok=1&amp;scene=124&amp;uin=777&amp;key=777&amp;pass_ticket=&#123;2&#125;&amp;wxtoken=&amp;appmsg_token'</span> \</span><br><span class="line">                  <span class="string">'=&#123;3&#125;&amp;x5=1&amp;f=json'</span>.format(self.biz, offset, self.pass_ticket, self.msg_token)</span><br><span class="line"></span><br><span class="line">            resp = requests.get(api, headers=self.headers).json()</span><br><span class="line">            ret, status = resp.get(<span class="string">'ret'</span>), resp.get(<span class="string">'errmsg'</span>)  <span class="comment"># 状态信息</span></span><br><span class="line">            <span class="keyword">if</span> ret == <span class="number">0</span> <span class="keyword">or</span> status == <span class="string">'ok'</span>:</span><br><span class="line">                print(<span class="string">'Crawl article: '</span> + api)</span><br><span class="line">                offset = resp[<span class="string">'next_offset'</span>]  <span class="comment"># 下一次请求偏移量</span></span><br><span class="line">                general_msg_list = resp[<span class="string">'general_msg_list'</span>]</span><br><span class="line">                msg_list = json.loads(general_msg_list)[<span class="string">'list'</span>]  <span class="comment"># 获取文章列表</span></span><br><span class="line">                <span class="keyword">for</span> msg <span class="keyword">in</span> msg_list:</span><br><span class="line">                    comm_msg_info = msg[<span class="string">'comm_msg_info'</span>]  <span class="comment"># 该数据是本次推送多篇文章公共的</span></span><br><span class="line">                    msg_id = comm_msg_info[<span class="string">'id'</span>]  <span class="comment"># 文章id</span></span><br><span class="line">                    post_time = datetime.fromtimestamp(comm_msg_info[<span class="string">'datetime'</span>])  <span class="comment"># 发布时间</span></span><br><span class="line">                    <span class="comment"># msg_type = comm_msg_info['type']  # 文章类型</span></span><br><span class="line">                    <span class="comment"># msg_data = json.dumps(comm_msg_info, ensure_ascii=False)  # msg原数据</span></span><br><span class="line"></span><br><span class="line">                    app_msg_ext_info = msg.get(<span class="string">'app_msg_ext_info'</span>)  <span class="comment"># article原数据</span></span><br><span class="line">                    <span class="keyword">if</span> app_msg_ext_info:</span><br><span class="line">                        <span class="comment"># 本次推送的首条文章</span></span><br><span class="line">                        self._parse_articles(app_msg_ext_info, msg_id, post_time)</span><br><span class="line">                        <span class="comment"># 本次推送的其余文章</span></span><br><span class="line">                        multi_app_msg_item_list = app_msg_ext_info.get(<span class="string">'multi_app_msg_item_list'</span>)</span><br><span class="line">                        <span class="keyword">if</span> multi_app_msg_item_list:</span><br><span class="line">                            <span class="keyword">for</span> item <span class="keyword">in</span> multi_app_msg_item_list:</span><br><span class="line">                                msg_id = item[<span class="string">'fileid'</span>]  <span class="comment"># 文章id</span></span><br><span class="line">                                <span class="keyword">if</span> msg_id == <span class="number">0</span>:</span><br><span class="line">                                    msg_id = int(time.time() * <span class="number">1000</span>)  <span class="comment"># 设置唯一id,解决部分文章id=0出现唯一索引冲突的情况</span></span><br><span class="line">                                self._parse_articles(item, msg_id, post_time)</span><br><span class="line">                print(<span class="string">'next offset is %d'</span> % offset)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                print(<span class="string">'Before break , Current offset is %d'</span> % offset)</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_parse_articles</span><span class="params">(self, info, msg_id, post_time)</span>:</span></span><br><span class="line">        <span class="string">"""解析嵌套文章数据并保存入库"""</span></span><br><span class="line"></span><br><span class="line">        title = info.get(<span class="string">'title'</span>)  <span class="comment"># 标题</span></span><br><span class="line">        cover = info.get(<span class="string">'cover'</span>)  <span class="comment"># 封面图</span></span><br><span class="line">        author = info.get(<span class="string">'author'</span>)  <span class="comment"># 作者</span></span><br><span class="line">        digest = info.get(<span class="string">'digest'</span>)  <span class="comment"># 关键字</span></span><br><span class="line">        source_url = info.get(<span class="string">'source_url'</span>)  <span class="comment"># 原文地址</span></span><br><span class="line">        content_url = info.get(<span class="string">'content_url'</span>)  <span class="comment"># 微信地址</span></span><br><span class="line">        <span class="comment"># ext_data = json.dumps(info, ensure_ascii=False)  # 原始数据</span></span><br><span class="line"></span><br><span class="line">        self.postgres.handler(self._save_article(), (msg_id, title, author, cover, digest,</span><br><span class="line">                                                                  source_url, content_url, post_time,</span><br><span class="line">                                                                  datetime.now()), fetch=<span class="keyword">True</span>)</span><br><span class="line">																  </span><br><span class="line"><span class="meta">    @staticmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_save_article</span><span class="params">()</span>:</span></span><br><span class="line">        sql = <span class="string">'insert into tb_article(msg_id,title,author,cover,digest,source_url,content_url,post_time,create_time) '</span> \</span><br><span class="line">              <span class="string">'values(%s,%s,%s,%s,%s,%s,%s,%s,%s)'</span></span><br><span class="line">        <span class="keyword">return</span> sql	</span><br><span class="line">		</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    biz = <span class="string">'MzI2NDk5NzA0Mw=='</span>  <span class="comment"># "36氪"</span></span><br><span class="line">    pass_ticket = <span class="string">'NDndxxaZ7p6Z9PYulWpLqMbI0i3ULFeCPIHBFu1sf5pX2IhkGfyxZ6b9JieSYRUy'</span></span><br><span class="line">    app_msg_token = <span class="string">'971_Z0lVNQBcGsWColSubRO9H13ZjrPhjuljyxLtiQ~~'</span></span><br><span class="line">    cookie = <span class="string">'wap_sid2=CO3YwOQHEogBQnN4VTNhNmxQWmc3UHI2U3kteWhUeVExZHFVMnN0QXlsbzVJRUJKc1pkdVFUU2Y5UzhSVEtOZmt1VVlYTkR4SEllQ2huejlTTThJWndMQzZfYUw2SldLVGVMQUthUjc3QWdVMUdoaGN0Nml2SU05cXR1dTN2RkhRUVd1V2Y3SFJ5d01BQUF+fjCB1pLcBTgNQJVO'</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 以上信息不同公众号每次抓取都需要借助抓包工具做修改</span></span><br><span class="line">    wxMps = WxMps(biz, pass_ticket, app_msg_token, cookie)</span><br><span class="line">    wxMps.start()  <span class="comment"># 开始爬取文章</span></span><br></pre></td></tr></table></figure>
+<h3 id="分析文章评论接口"><a href="#分析文章评论接口" class="headerlink" title="分析文章评论接口"></a>分析文章评论接口</h3><p>&emsp;&emsp;获取评论的思路大致是一样的，只是会更加麻烦一点。首先在手机端点开一篇有评论的文章，然后查看Fiddler抓取的请求：</p>
+<p><img src="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018828/20180828145756.jpg" alt="公众号文章评论"></p>
+<p><img src="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018828/20180828145635.png" alt="公众号文章评论接口抓包请求"></p>
+<p>&emsp;&emsp;提取其中的URL和Cookie再次分析：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">https://mp.weixin.qq.com/mp/appmsg_comment?action=getcomment&amp;scene=0&amp;__biz=MzI2NDk5NzA0Mw==&amp;appmsgid=2247518723&amp;idx=1&amp;comment_id=433253969406607362&amp;offset=0&amp;limit=100&amp;uin=777&amp;key=777&amp;pass_ticket=NDndxxaZ7p6Z9PYulWpLqMbI0i3ULFeCPIHBFu1sf5pX2IhkGfyxZ6b9JieSYRUy&amp;wxtoken=777&amp;devicetype=android-26&amp;clientversion=26070237&amp;appmsg_token=971_dLK7htA1j8LbMUk8pvJKRlC_o218HEgwDbS9uARPOyQ34_vfXv3iDstqYnq2gAyze1dBKm4ZMTlKeyfx&amp;x5=1&amp;f=json</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Cookie: pgv_pvid=2027337976; pgv_info=ssid=s3015512850; rewardsn=; wxuin=2089823341; devicetype=android-26; version=26070237; lang=zh_CN; pass_ticket=NDndxxaZ7p6Z9PYulWpLqMbI0i3ULFeCPIHBFu1sf5pX2IhkGfyxZ6b9JieSYRUy; wap_sid2=CO3YwOQHEogBdENPSVdaS3pHOWc1V2QzY1NvZG9PYk1DMndPS3NfbGlHM0Vfal8zLU9kcUdkWTQxdUYwckFBT3RZM1VYUXFaWkFad3NVaWFXZ28zbEFIQ2pTa1lqZktfb01vcGdPLTQ0aGdJQ2xOSXoxTVFvNUg3SVpBMV9GRU1lbnotci1MWWl5d01BQUF+fjCj45PcBTgNQAE=; wxtokenkey=777</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;接着分析参数：</p>
+<ul>
+<li>__biz：同上</li>
+<li>pass_ticket：同上</li>
+<li>Cookie：同上</li>
+<li>offset和limit：代表偏移量和请求数量，由于公众号评论最多展示100条，所以这两个参数也不用改它</li>
+<li>comment_id：获取文章评论数据的标记id，固定但需要从当前文章结构(Html)解析提取</li>
+<li>appmsgid：票据id，非固定每次需要从当前文章结构(Html)解析提取</li>
+<li>appmsg_token：票据token，非固定每次需要从当前文章结构(Html)解析提取</li>
+</ul>
+<p>&emsp;&emsp;可以看到最后三个参数要解析html获取(当初真的找了好久才想到看文章网页结构)。从文章请求接口可以获得文章地址，对应上面的<code>content_url</code>字段，但请求该地址前仍需要对url做相关处理，不然上面三个参数会有缺失，也就获取不到后面评论内容：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_parse_article_detail</span><span class="params">(self, content_url, article_id)</span>:</span></span><br><span class="line">    <span class="string">"""从文章页提取相关参数用于获取评论,article_id是已保存的文章id"""</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        api = content_url.replace(<span class="string">'amp;'</span>, <span class="string">''</span>).replace(<span class="string">'#wechat_redirect'</span>, <span class="string">''</span>).replace(<span class="string">'http'</span>, <span class="string">'https'</span>)</span><br><span class="line">        html = requests.get(api, headers=self.headers).text</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        print(<span class="string">'获取评论失败'</span> + content_url)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="comment"># group(0) is current line</span></span><br><span class="line">        str_comment = re.search(<span class="string">r'var comment_id = "(.*)" \|\| "(.*)" \* 1;'</span>, html)</span><br><span class="line">        str_msg = re.search(<span class="string">r"var appmsgid = '' \|\| '(.*)'\|\|"</span>, html)</span><br><span class="line">        str_token = re.search(<span class="string">r'window.appmsg_token = "(.*)";'</span>, html)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> str_comment <span class="keyword">and</span> str_msg <span class="keyword">and</span> str_token:</span><br><span class="line">            comment_id = str_comment.group(<span class="number">1</span>)  <span class="comment"># 评论id(固定)</span></span><br><span class="line">            app_msg_id = str_msg.group(<span class="number">1</span>)  <span class="comment"># 票据id(非固定)</span></span><br><span class="line">            appmsg_token = str_token.group(<span class="number">1</span>)  <span class="comment"># 票据token(非固定)</span></span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;再回来看该接口返回的json数据，分析结构后然后定义数据表(含SQL)：</p>
+<p><img src="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018828/20180828151820.png" alt="文章评论数据表"></p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">-- ----------------------------</span></span><br><span class="line"><span class="comment">-- Table structure for tb_article_comment</span></span><br><span class="line"><span class="comment">-- ----------------------------</span></span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> <span class="string">"public"</span>.<span class="string">"tb_article_comment"</span>;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="string">"public"</span>.<span class="string">"tb_article_comment"</span> (</span><br><span class="line">  <span class="string">"id"</span> serial4 PRIMARY <span class="keyword">KEY</span>,</span><br><span class="line">  <span class="string">"article_id"</span> int4 <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">"comment_id"</span> <span class="built_in">varchar</span>(<span class="number">50</span>) <span class="keyword">COLLATE</span> <span class="string">"pg_catalog"</span>.<span class="string">"default"</span>,</span><br><span class="line">  <span class="string">"nick_name"</span> <span class="built_in">varchar</span>(<span class="number">50</span>) <span class="keyword">COLLATE</span> <span class="string">"pg_catalog"</span>.<span class="string">"default"</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">"logo_url"</span> <span class="built_in">varchar</span>(<span class="number">300</span>) <span class="keyword">COLLATE</span> <span class="string">"pg_catalog"</span>.<span class="string">"default"</span>,</span><br><span class="line">  <span class="string">"content_id"</span> <span class="built_in">varchar</span>(<span class="number">50</span>) <span class="keyword">COLLATE</span> <span class="string">"pg_catalog"</span>.<span class="string">"default"</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">"content"</span> <span class="built_in">varchar</span>(<span class="number">3000</span>) <span class="keyword">COLLATE</span> <span class="string">"pg_catalog"</span>.<span class="string">"default"</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  <span class="string">"like_num"</span> int2,</span><br><span class="line">  <span class="string">"comment_time"</span> <span class="keyword">timestamp</span>(<span class="number">6</span>),</span><br><span class="line">  <span class="string">"create_time"</span> <span class="keyword">timestamp</span>(<span class="number">6</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span></span><br><span class="line">)</span><br><span class="line">;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> <span class="string">"public"</span>.<span class="string">"tb_article_comment"</span>.<span class="string">"id"</span> <span class="keyword">IS</span> <span class="string">'自增主键'</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> <span class="string">"public"</span>.<span class="string">"tb_article_comment"</span>.<span class="string">"article_id"</span> <span class="keyword">IS</span> <span class="string">'文章外键id'</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> <span class="string">"public"</span>.<span class="string">"tb_article_comment"</span>.<span class="string">"comment_id"</span> <span class="keyword">IS</span> <span class="string">'评论接口id'</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> <span class="string">"public"</span>.<span class="string">"tb_article_comment"</span>.<span class="string">"nick_name"</span> <span class="keyword">IS</span> <span class="string">'用户昵称'</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> <span class="string">"public"</span>.<span class="string">"tb_article_comment"</span>.<span class="string">"logo_url"</span> <span class="keyword">IS</span> <span class="string">'头像地址'</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> <span class="string">"public"</span>.<span class="string">"tb_article_comment"</span>.<span class="string">"content_id"</span> <span class="keyword">IS</span> <span class="string">'评论id (唯一)'</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> <span class="string">"public"</span>.<span class="string">"tb_article_comment"</span>.<span class="string">"content"</span> <span class="keyword">IS</span> <span class="string">'评论内容'</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> <span class="string">"public"</span>.<span class="string">"tb_article_comment"</span>.<span class="string">"like_num"</span> <span class="keyword">IS</span> <span class="string">'点赞数'</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> <span class="string">"public"</span>.<span class="string">"tb_article_comment"</span>.<span class="string">"comment_time"</span> <span class="keyword">IS</span> <span class="string">'评论时间'</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">COLUMN</span> <span class="string">"public"</span>.<span class="string">"tb_article_comment"</span>.<span class="string">"create_time"</span> <span class="keyword">IS</span> <span class="string">'入库时间'</span>;</span><br><span class="line"><span class="keyword">COMMENT</span> <span class="keyword">ON</span> <span class="keyword">TABLE</span> <span class="string">"public"</span>.<span class="string">"tb_article_comment"</span> <span class="keyword">IS</span> <span class="string">'公众号文章评论表'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- ----------------------------</span></span><br><span class="line"><span class="comment">-- Indexes structure for table tb_article_comment</span></span><br><span class="line"><span class="comment">-- ----------------------------</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">UNIQUE</span> <span class="keyword">INDEX</span> <span class="string">"unique_content_id"</span> <span class="keyword">ON</span> <span class="string">"public"</span>.<span class="string">"tb_article_comment"</span> <span class="keyword">USING</span> btree (</span><br><span class="line">  <span class="string">"content_id"</span> <span class="keyword">COLLATE</span> <span class="string">"pg_catalog"</span>.<span class="string">"default"</span> <span class="string">"pg_catalog"</span>.<span class="string">"text_ops"</span> <span class="keyword">ASC</span> <span class="keyword">NULLS</span> <span class="keyword">LAST</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;万里长征快到头了，最后贴上这部分代码，由于要先获取文章地址，所以和上面获取文章数据的代码是一起的：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> utils <span class="keyword">import</span> pgs</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">WxMps</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="string">"""微信公众号文章、评论抓取爬虫"""</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, _biz, _pass_ticket, _app_msg_token, _cookie, _offset=<span class="number">0</span>)</span>:</span></span><br><span class="line">        self.offset = _offset</span><br><span class="line">        self.biz = _biz  <span class="comment"># 公众号标志</span></span><br><span class="line">        self.msg_token = _app_msg_token  <span class="comment"># 票据(非固定)</span></span><br><span class="line">        self.pass_ticket = _pass_ticket  <span class="comment"># 票据(非固定)</span></span><br><span class="line">        self.headers = &#123;</span><br><span class="line">            <span class="string">'Cookie'</span>: _cookie,  <span class="comment"># Cookie(非固定)</span></span><br><span class="line">            <span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.132 '</span></span><br><span class="line">        &#125;</span><br><span class="line">        wx_mps = <span class="string">'wxmps'</span>  <span class="comment"># 这里数据库、用户、密码一致(需替换成实际的)</span></span><br><span class="line">        self.postgres = pgs.Pgs(host=<span class="string">'localhost'</span>, port=<span class="string">'5432'</span>, db_name=wx_mps, user=wx_mps, password=wx_mps)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">start</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""请求获取公众号的文章接口"""</span></span><br><span class="line"></span><br><span class="line">        offset = self.offset</span><br><span class="line">        <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">            api = <span class="string">'https://mp.weixin.qq.com/mp/profile_ext?action=getmsg&amp;__biz=&#123;0&#125;&amp;f=json&amp;offset=&#123;1&#125;'</span> \</span><br><span class="line">                  <span class="string">'&amp;count=10&amp;is_ok=1&amp;scene=124&amp;uin=777&amp;key=777&amp;pass_ticket=&#123;2&#125;&amp;wxtoken=&amp;appmsg_token'</span> \</span><br><span class="line">                  <span class="string">'=&#123;3&#125;&amp;x5=1&amp;f=json'</span>.format(self.biz, offset, self.pass_ticket, self.msg_token)</span><br><span class="line"></span><br><span class="line">            resp = requests.get(api, headers=self.headers).json()</span><br><span class="line">            ret, status = resp.get(<span class="string">'ret'</span>), resp.get(<span class="string">'errmsg'</span>)  <span class="comment"># 状态信息</span></span><br><span class="line">            <span class="keyword">if</span> ret == <span class="number">0</span> <span class="keyword">or</span> status == <span class="string">'ok'</span>:</span><br><span class="line">                print(<span class="string">'Crawl article: '</span> + api)</span><br><span class="line">                offset = resp[<span class="string">'next_offset'</span>]  <span class="comment"># 下一次请求偏移量</span></span><br><span class="line">                general_msg_list = resp[<span class="string">'general_msg_list'</span>]</span><br><span class="line">                msg_list = json.loads(general_msg_list)[<span class="string">'list'</span>]  <span class="comment"># 获取文章列表</span></span><br><span class="line">                <span class="keyword">for</span> msg <span class="keyword">in</span> msg_list:</span><br><span class="line">                    comm_msg_info = msg[<span class="string">'comm_msg_info'</span>]  <span class="comment"># 该数据是本次推送多篇文章公共的</span></span><br><span class="line">                    msg_id = comm_msg_info[<span class="string">'id'</span>]  <span class="comment"># 文章id</span></span><br><span class="line">                    post_time = datetime.fromtimestamp(comm_msg_info[<span class="string">'datetime'</span>])  <span class="comment"># 发布时间</span></span><br><span class="line">                    <span class="comment"># msg_type = comm_msg_info['type']  # 文章类型</span></span><br><span class="line">                    <span class="comment"># msg_data = json.dumps(comm_msg_info, ensure_ascii=False)  # msg原数据</span></span><br><span class="line"></span><br><span class="line">                    app_msg_ext_info = msg.get(<span class="string">'app_msg_ext_info'</span>)  <span class="comment"># article原数据</span></span><br><span class="line">                    <span class="keyword">if</span> app_msg_ext_info:</span><br><span class="line">                        <span class="comment"># 本次推送的首条文章</span></span><br><span class="line">                        self._parse_articles(app_msg_ext_info, msg_id, post_time)</span><br><span class="line">                        <span class="comment"># 本次推送的其余文章</span></span><br><span class="line">                        multi_app_msg_item_list = app_msg_ext_info.get(<span class="string">'multi_app_msg_item_list'</span>)</span><br><span class="line">                        <span class="keyword">if</span> multi_app_msg_item_list:</span><br><span class="line">                            <span class="keyword">for</span> item <span class="keyword">in</span> multi_app_msg_item_list:</span><br><span class="line">                                msg_id = item[<span class="string">'fileid'</span>]  <span class="comment"># 文章id</span></span><br><span class="line">                                <span class="keyword">if</span> msg_id == <span class="number">0</span>:</span><br><span class="line">                                    msg_id = int(time.time() * <span class="number">1000</span>)  <span class="comment"># 设置唯一id,解决部分文章id=0出现唯一索引冲突的情况</span></span><br><span class="line">                                self._parse_articles(item, msg_id, post_time)</span><br><span class="line">                print(<span class="string">'next offset is %d'</span> % offset)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                print(<span class="string">'Before break , Current offset is %d'</span> % offset)</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_parse_articles</span><span class="params">(self, info, msg_id, post_time)</span>:</span></span><br><span class="line">        <span class="string">"""解析嵌套文章数据并保存入库"""</span></span><br><span class="line"></span><br><span class="line">        title = info.get(<span class="string">'title'</span>)  <span class="comment"># 标题</span></span><br><span class="line">        cover = info.get(<span class="string">'cover'</span>)  <span class="comment"># 封面图</span></span><br><span class="line">        author = info.get(<span class="string">'author'</span>)  <span class="comment"># 作者</span></span><br><span class="line">        digest = info.get(<span class="string">'digest'</span>)  <span class="comment"># 关键字</span></span><br><span class="line">        source_url = info.get(<span class="string">'source_url'</span>)  <span class="comment"># 原文地址</span></span><br><span class="line">        content_url = info.get(<span class="string">'content_url'</span>)  <span class="comment"># 微信地址</span></span><br><span class="line">        <span class="comment"># ext_data = json.dumps(info, ensure_ascii=False)  # 原始数据</span></span><br><span class="line"></span><br><span class="line">        content_url = content_url.replace(<span class="string">'amp;'</span>, <span class="string">''</span>).replace(<span class="string">'#wechat_redirect'</span>, <span class="string">''</span>).replace(<span class="string">'http'</span>, <span class="string">'https'</span>)</span><br><span class="line">        article_id = self.postgres.handler(self._save_article(), (msg_id, title, author, cover, digest,</span><br><span class="line">                                                                  source_url, content_url, post_time,</span><br><span class="line">                                                                  datetime.now()), fetch=<span class="keyword">True</span>)</span><br><span class="line">        <span class="keyword">if</span> article_id:</span><br><span class="line">            self._parse_article_detail(content_url, article_id)</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">_parse_article_detail</span><span class="params">(self, content_url, article_id)</span>:</span></span><br><span class="line">        <span class="string">"""从文章页提取相关参数用于获取评论,article_id是已保存的文章id"""</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            html = requests.get(content_url, headers=self.headers).text</span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            print(<span class="string">'获取评论失败'</span> + content_url)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="comment"># group(0) is current line</span></span><br><span class="line">            str_comment = re.search(<span class="string">r'var comment_id = "(.*)" \|\| "(.*)" \* 1;'</span>, html)</span><br><span class="line">            str_msg = re.search(<span class="string">r"var appmsgid = '' \|\| '(.*)'\|\|"</span>, html)</span><br><span class="line">            str_token = re.search(<span class="string">r'window.appmsg_token = "(.*)";'</span>, html)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> str_comment <span class="keyword">and</span> str_msg <span class="keyword">and</span> str_token:</span><br><span class="line">                comment_id = str_comment.group(<span class="number">1</span>)  <span class="comment"># 评论id(固定)</span></span><br><span class="line">                app_msg_id = str_msg.group(<span class="number">1</span>)  <span class="comment"># 票据id(非固定)</span></span><br><span class="line">                appmsg_token = str_token.group(<span class="number">1</span>)  <span class="comment"># 票据token(非固定)</span></span><br><span class="line"></span><br><span class="line">                <span class="comment"># 缺一不可</span></span><br><span class="line">                <span class="keyword">if</span> appmsg_token <span class="keyword">and</span> app_msg_id <span class="keyword">and</span> comment_id:</span><br><span class="line">                    print(<span class="string">'Crawl article comments: '</span> + content_url)</span><br><span class="line">                    self._crawl_comments(app_msg_id, comment_id, appmsg_token, article_id)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_crawl_comments</span><span class="params">(self, app_msg_id, comment_id, appmsg_token, article_id)</span>:</span></span><br><span class="line">        <span class="string">"""抓取文章的评论"""</span></span><br><span class="line"></span><br><span class="line">        api = <span class="string">'https://mp.weixin.qq.com/mp/appmsg_comment?action=getcomment&amp;scene=0&amp;__biz=&#123;0&#125;'</span> \</span><br><span class="line">              <span class="string">'&amp;appmsgid=&#123;1&#125;&amp;idx=1&amp;comment_id=&#123;2&#125;&amp;offset=0&amp;limit=100&amp;uin=777&amp;key=777'</span> \</span><br><span class="line">              <span class="string">'&amp;pass_ticket=&#123;3&#125;&amp;wxtoken=777&amp;devicetype=android-26&amp;clientversion=26060739'</span> \</span><br><span class="line">              <span class="string">'&amp;appmsg_token=&#123;4&#125;&amp;x5=1&amp;f=json'</span>.format(self.biz, app_msg_id, comment_id,</span><br><span class="line">                                                     self.pass_ticket, appmsg_token)</span><br><span class="line">        resp = requests.get(api, headers=self.headers).json()</span><br><span class="line">        ret, status = resp[<span class="string">'base_resp'</span>][<span class="string">'ret'</span>], resp[<span class="string">'base_resp'</span>][<span class="string">'errmsg'</span>]</span><br><span class="line">        <span class="keyword">if</span> ret == <span class="number">0</span> <span class="keyword">or</span> status == <span class="string">'ok'</span>:</span><br><span class="line">            elected_comment = resp[<span class="string">'elected_comment'</span>]</span><br><span class="line">            <span class="keyword">for</span> comment <span class="keyword">in</span> elected_comment:</span><br><span class="line">                nick_name = comment.get(<span class="string">'nick_name'</span>)  <span class="comment"># 昵称</span></span><br><span class="line">                logo_url = comment.get(<span class="string">'logo_url'</span>)  <span class="comment"># 头像</span></span><br><span class="line">                comment_time = datetime.fromtimestamp(comment.get(<span class="string">'create_time'</span>))  <span class="comment"># 评论时间</span></span><br><span class="line">                content = comment.get(<span class="string">'content'</span>)  <span class="comment"># 评论内容</span></span><br><span class="line">                content_id = comment.get(<span class="string">'content_id'</span>)  <span class="comment"># id</span></span><br><span class="line">                like_num = comment.get(<span class="string">'like_num'</span>)  <span class="comment"># 点赞数</span></span><br><span class="line">                <span class="comment"># reply_list = comment.get('reply')['reply_list']  # 回复数据</span></span><br><span class="line"></span><br><span class="line">                self.postgres.handler(self._save_article_comment(), (article_id, comment_id, nick_name, logo_url,</span><br><span class="line">                                                                     content_id, content, like_num, comment_time,</span><br><span class="line">                                                                     datetime.now()))</span><br><span class="line"></span><br><span class="line"><span class="meta">    @staticmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_save_article</span><span class="params">()</span>:</span></span><br><span class="line">        sql = <span class="string">'insert into tb_article(msg_id,title,author,cover,digest,source_url,content_url,post_time,create_time) '</span> \</span><br><span class="line">              <span class="string">'values(%s,%s,%s,%s,%s,%s,%s,%s,%s) returning id'</span></span><br><span class="line">        <span class="keyword">return</span> sql</span><br><span class="line"></span><br><span class="line"><span class="meta">    @staticmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_save_article_comment</span><span class="params">()</span>:</span></span><br><span class="line">        sql = <span class="string">'insert into tb_article_comment(article_id,comment_id,nick_name,logo_url,content_id,content,like_num,'</span> \</span><br><span class="line">              <span class="string">'comment_time,create_time) values(%s,%s,%s,%s,%s,%s,%s,%s,%s)'</span></span><br><span class="line">        <span class="keyword">return</span> sql</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    biz = <span class="string">'MzI2NDk5NzA0Mw=='</span>  <span class="comment"># "36氪"</span></span><br><span class="line">    pass_ticket = <span class="string">'NDndxxaZ7p6Z9PYulWpLqMbI0i3ULFeCPIHBFu1sf5pX2IhkGfyxZ6b9JieSYRUy'</span></span><br><span class="line">    app_msg_token = <span class="string">'971_Z0lVNQBcGsWColSubRO9H13ZjrPhjuljyxLtiQ~~'</span></span><br><span class="line">    cookie = <span class="string">'wap_sid2=CO3YwOQHEogBQnN4VTNhNmxQWmc3UHI2U3kteWhUeVExZHFVMnN0QXlsbzVJRUJKc1pkdVFUU2Y5UzhSVEtOZmt1VVlYTkR4SEllQ2huejlTTThJWndMQzZfYUw2SldLVGVMQUthUjc3QWdVMUdoaGN0Nml2SU05cXR1dTN2RkhRUVd1V2Y3SFJ5d01BQUF+fjCB1pLcBTgNQJVO'</span></span><br><span class="line">    <span class="comment"># 以上信息不同公众号每次抓取都需要借助抓包工具做修改</span></span><br><span class="line">    wxMps = WxMps(biz, pass_ticket, app_msg_token, cookie)</span><br><span class="line">    wxMps.start()  <span class="comment"># 开始爬取文章及评论</span></span><br></pre></td></tr></table></figure>
+<h3 id="文末小结"><a href="#文末小结" class="headerlink" title="文末小结"></a>文末小结</h3><p>&emsp;&emsp;最后展示下数据库里的数据，单线程爬的慢而且又没这方面的数据需求，所以也只是随便试了下手：</p>
+<p><img src="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018828/20180828164427.png" alt="抓取的部分数据"></p>
+<p>&emsp;&emsp;有时候写爬虫是个细心活，如果觉得太麻烦的话，推荐了解下<a href="https://github.com/Chyroc/WechatSogou" target="_blank" rel="noopener">WechatSogou</a>这个工具。有问题的欢迎底部留言讨论。</p>
+<blockquote>
+<p>完整代码：<a href="https://github.com/happyjared/python-learning/blob/master/wechat/wx_mps.py" target="_blank" rel="noopener">GitHub</a></p>
+</blockquote>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年08月28日 17:02</p>
+        <p>原始链接： <a class="post-url" href="/crawl-wechat-articles-and-comments-with-fiddler-and-python.html" title="Python爬取微信公众号文章和评论 (基于Fiddler抓包分析)">https://blog.mariojd.cn/crawl-wechat-articles-and-comments-with-fiddler-and-python.html</a></p>
+        <footer>
+            <a href="https://blog.mariojd.cn">
+                <img src="/images/logo.png" alt="Jared Qiu">
+                Jared Qiu
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        赞赏支持
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.mariojd.cn/crawl-wechat-articles-and-comments-with-fiddler-and-python.html&title=《Python爬取微信公众号文章和评论 (基于Fiddler抓包分析)》 — happyJared - 博客&pic=https://image.mariojd.cn/xsj/2018827/20161214165113034zfk5.jpg" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mariojd.cn/crawl-wechat-articles-and-comments-with-fiddler-and-python.html&title=《Python爬取微信公众号文章和评论 (基于Fiddler抓包分析)》 — happyJared - 博客&source=Java developer, like Python and javascript，为人乐观、积极、向上、勤奋、和善、好相处，讲卫生，爱学习，爱码字，爱..." data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.mariojd.cn/crawl-wechat-articles-and-comments-with-fiddler-and-python.html" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Python爬取微信公众号文章和评论 (基于Fiddler抓包分析)》 — happyJared - 博客&url=https://blog.mariojd.cn/crawl-wechat-articles-and-comments-with-fiddler-and-python.html&via=https://blog.mariojd.cn" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://blog.mariojd.cn/crawl-wechat-articles-and-comments-with-fiddler-and-python.html" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://blog.mariojd.cn/crawl-wechat-articles-and-comments-with-fiddler-and-python.html" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/spidercrawl/" class="color3">spider crawl</a>
+      
+    <a href="/tags/fiddlercapture/" class="color1">fiddler capture</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#背景说明"><span class="post-toc-text">背景说明</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#抓包分析"><span class="post-toc-text">抓包分析</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#分析文章列表接口"><span class="post-toc-text">分析文章列表接口</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#分析文章评论接口"><span class="post-toc-text">分析文章评论接口</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#文末小结"><span class="post-toc-text">文末小结</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/elasticsearch6.3.2-in-practice.html" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          Elasticsearch 6.3.2版本踩填坑指南
+        
+      </span>
+    </a>
+  
+  
+    <a href="/install-https-certificate-for-fiddler-capture.html" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Fiddler抓包升级，安装https证书</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        <div id="SOHUCS" sid="Python爬取微信公众号文章和评论 (基于Fiddler抓包分析)" ></div>
+<script type="text/javascript">
+    (function(){
+        var appid = 'cytsi4W0L';
+        var conf = 'prod_302a63175740fd2ee2587f9345477b4c';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+    <span style='margin-left:5px'>
+    	粤ICP备17033077号-1
+    </span>
+</p>
+
+ 
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+        &copy; 2018 Jared Qiu 
+		    Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a><br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "https://blog.mariojd.cn",
+      animate: false,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/Chocolatey/">Chocolatey</a><a class="category-link" href="/categories/Docker/">Docker</a><a class="category-link" href="/categories/Docker/MySQL/">MySQL</a><a class="category-link" href="/categories/Docker/PostgreSQL/">PostgreSQL</a><a class="category-link" href="/categories/Docker/Redis/">Redis</a><a class="category-link" href="/categories/IDEA/">IDEA</a><a class="category-link" href="/categories/Java/">Java</a><a class="category-link" href="/categories/Java/Lombok/">Lombok</a><a class="category-link" href="/categories/Java/Spring-Boot/">Spring Boot</a><a class="category-link" href="/categories/Java/Spring-Boot/Swagger/">Swagger</a><a class="category-link" href="/categories/Java/热部署/">热部署</a><a class="category-link" href="/categories/Jmeter/">Jmeter</a><a class="category-link" href="/categories/Python/">Python</a><a class="category-link" href="/categories/Python/Selenium/">Selenium</a><a class="category-link" href="/categories/Python/Selenium/Windows-Batch/">Windows Batch</a><a class="category-link" href="/categories/Spring/">Spring</a><a class="category-link" href="/categories/hexo/">hexo</a><a class="category-link" href="/categories/python/">python</a><a class="category-link" href="/categories/websocket/">websocket</a><a class="category-link" href="/categories/中间件/">中间件</a><a class="category-link" href="/categories/学习资源/">学习资源</a><a class="category-link" href="/categories/开源/">开源</a><a class="category-link" href="/categories/开源/YApi/">YApi</a><a class="category-link" href="/categories/开源/YApi/Swagger/">Swagger</a><a class="category-link" href="/categories/开源项目/">开源项目</a><a class="category-link" href="/categories/抓包工具/">抓包工具</a><a class="category-link" href="/categories/数据库中间件/">数据库中间件</a><a class="category-link" href="/categories/数据库中间件/Mycat/">Mycat</a><a class="category-link" href="/categories/编辑器/">编辑器</a><a class="category-link" href="/categories/编辑器/个人感悟/">个人感悟</a><a class="category-link" href="/categories/编辑器/快捷键/">快捷键</a><a class="category-link" href="/categories/设计模式/">设计模式</a><a class="category-link" href="/categories/随笔/">随笔</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/AcpectJ/" style="font-size: 10px;">AcpectJ</a> <a href="/tags/Aop/" style="font-size: 10px;">Aop</a> <a href="/tags/Chocolatey/" style="font-size: 10px;">Chocolatey</a> <a href="/tags/Eclipse/" style="font-size: 11.11px;">Eclipse</a> <a href="/tags/Fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/tags/GitHub-Pages/" style="font-size: 11.11px;">GitHub Pages</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDEA/" style="font-size: 20px;">IDEA</a> <a href="/tags/Java/" style="font-size: 17.78px;">Java</a> <a href="/tags/Java类库/" style="font-size: 10px;">Java类库</a> <a href="/tags/JetBrains/" style="font-size: 18.89px;">JetBrains</a> <a href="/tags/Jmeter/" style="font-size: 12.22px;">Jmeter</a> <a href="/tags/Lombok/" style="font-size: 10px;">Lombok</a> <a href="/tags/Mycat/" style="font-size: 13.33px;">Mycat</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/RestTemplate/" style="font-size: 10px;">RestTemplate</a> <a href="/tags/Spring/" style="font-size: 11.11px;">Spring</a> <a href="/tags/Spring-Boot/" style="font-size: 12.22px;">Spring Boot</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/bat/" style="font-size: 10px;">bat</a> <a href="/tags/bat脚本/" style="font-size: 10px;">bat脚本</a> <a href="/tags/beautifulsoup4/" style="font-size: 10px;">beautifulsoup4</a> <a href="/tags/builder/" style="font-size: 10px;">builder</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/chrome-plugin/" style="font-size: 10px;">chrome plugin</a> <a href="/tags/coding-net/" style="font-size: 10px;">coding.net</a> <a href="/tags/csdn/" style="font-size: 10px;">csdn</a> <a href="/tags/design-patterns/" style="font-size: 15.56px;">design patterns</a> <a href="/tags/docker/" style="font-size: 14.44px;">docker</a> <a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/fiddler/" style="font-size: 10px;">fiddler</a> <a href="/tags/fiddler-capture/" style="font-size: 10px;">fiddler capture</a> <a href="/tags/hexo/" style="font-size: 14.44px;">hexo</a> <a href="/tags/hexo-themes/" style="font-size: 10px;">hexo themes</a> <a href="/tags/hexo-translate-title/" style="font-size: 10px;">hexo-translate-title</a> <a href="/tags/hot-key/" style="font-size: 10px;">hot key</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/http-s/" style="font-size: 10px;">http(s)</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/https抓包/" style="font-size: 10px;">https抓包</a> <a href="/tags/itchat/" style="font-size: 10px;">itchat</a> <a href="/tags/jvm/" style="font-size: 10px;">jvm</a> <a href="/tags/mysql/" style="font-size: 12.22px;">mysql</a> <a href="/tags/nginx/" style="font-size: 11.11px;">nginx</a> <a href="/tags/oschina/" style="font-size: 10px;">oschina</a> <a href="/tags/postgresql/" style="font-size: 11.11px;">postgresql</a> <a href="/tags/prototype/" style="font-size: 10px;">prototype</a> <a href="/tags/python/" style="font-size: 16.67px;">python</a> <a href="/tags/redis/" style="font-size: 11.11px;">redis</a> <a href="/tags/redis-sentinel/" style="font-size: 10px;">redis-sentinel</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/selenium/" style="font-size: 14.44px;">selenium</a> <a href="/tags/shortcuts-key/" style="font-size: 10px;">shortcuts key</a> <a href="/tags/simple-factory/" style="font-size: 12.22px;">simple factory</a> <a href="/tags/singleton/" style="font-size: 10px;">singleton</a> <a href="/tags/spider/" style="font-size: 10px;">spider</a> <a href="/tags/spider-crawl/" style="font-size: 10px;">spider crawl</a> <a href="/tags/spring-boot/" style="font-size: 10px;">spring boot</a> <a href="/tags/swagger/" style="font-size: 11.11px;">swagger</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/vimium/" style="font-size: 10px;">vimium</a> <a href="/tags/websocket/" style="font-size: 10px;">websocket</a> <a href="/tags/weixin/" style="font-size: 10px;">weixin</a> <a href="/tags/ws-s/" style="font-size: 10px;">ws(s)</a> <a href="/tags/wss/" style="font-size: 10px;">wss</a> <a href="/tags/yapi/" style="font-size: 10px;">yapi</a> <a href="/tags/《Spring-in-action》/" style="font-size: 10px;">《Spring in action》</a> <a href="/tags/个人博客/" style="font-size: 11.11px;">个人博客</a> <a href="/tags/个人感悟/" style="font-size: 11.11px;">个人感悟</a> <a href="/tags/主从复制/" style="font-size: 11.11px;">主从复制</a> <a href="/tags/主从搭建/" style="font-size: 12.22px;">主从搭建</a> <a href="/tags/代理调试/" style="font-size: 10px;">代理调试</a> <a href="/tags/入门篇/" style="font-size: 10px;">入门篇</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/压测工具/" style="font-size: 12.22px;">压测工具</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/字符串机制/" style="font-size: 10px;">字符串机制</a> <a href="/tags/学习资源/" style="font-size: 11.11px;">学习资源</a> <a href="/tags/实践篇/" style="font-size: 11.11px;">实践篇</a> <a href="/tags/工厂方法/" style="font-size: 10px;">工厂方法</a> <a href="/tags/建造者/" style="font-size: 10px;">建造者</a> <a href="/tags/开源/" style="font-size: 10px;">开源</a> <a href="/tags/开源博客/" style="font-size: 11.11px;">开源博客</a> <a href="/tags/开源项目/" style="font-size: 11.11px;">开源项目</a> <a href="/tags/微信授权/" style="font-size: 10px;">微信授权</a> <a href="/tags/抽象工厂/" style="font-size: 10px;">抽象工厂</a> <a href="/tags/数据库中间件/" style="font-size: 13.33px;">数据库中间件</a> <a href="/tags/热部署/" style="font-size: 10px;">热部署</a> <a href="/tags/简书/" style="font-size: 10px;">简书</a> <a href="/tags/简单工厂/" style="font-size: 10px;">简单工厂</a> <a href="/tags/编辑器/" style="font-size: 20px;">编辑器</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a> <a href="/tags/读写分离/" style="font-size: 11.11px;">读写分离</a> <a href="/tags/跑步/" style="font-size: 10px;">跑步</a> <a href="/tags/配置篇/" style="font-size: 10px;">配置篇</a> <a href="/tags/钉钉运动/" style="font-size: 10px;">钉钉运动</a> <a href="/tags/阿里技术/" style="font-size: 10px;">阿里技术</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-h-square"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-window-restore"></i><span>归档</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/AcpectJ/" style="font-size: 10px;">AcpectJ</a> <a href="/tags/Aop/" style="font-size: 10px;">Aop</a> <a href="/tags/Chocolatey/" style="font-size: 10px;">Chocolatey</a> <a href="/tags/Eclipse/" style="font-size: 11.11px;">Eclipse</a> <a href="/tags/Fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/tags/GitHub-Pages/" style="font-size: 11.11px;">GitHub Pages</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDEA/" style="font-size: 20px;">IDEA</a> <a href="/tags/Java/" style="font-size: 17.78px;">Java</a> <a href="/tags/Java类库/" style="font-size: 10px;">Java类库</a> <a href="/tags/JetBrains/" style="font-size: 18.89px;">JetBrains</a> <a href="/tags/Jmeter/" style="font-size: 12.22px;">Jmeter</a> <a href="/tags/Lombok/" style="font-size: 10px;">Lombok</a> <a href="/tags/Mycat/" style="font-size: 13.33px;">Mycat</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/RestTemplate/" style="font-size: 10px;">RestTemplate</a> <a href="/tags/Spring/" style="font-size: 11.11px;">Spring</a> <a href="/tags/Spring-Boot/" style="font-size: 12.22px;">Spring Boot</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/bat/" style="font-size: 10px;">bat</a> <a href="/tags/bat脚本/" style="font-size: 10px;">bat脚本</a> <a href="/tags/beautifulsoup4/" style="font-size: 10px;">beautifulsoup4</a> <a href="/tags/builder/" style="font-size: 10px;">builder</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/chrome-plugin/" style="font-size: 10px;">chrome plugin</a> <a href="/tags/coding-net/" style="font-size: 10px;">coding.net</a> <a href="/tags/csdn/" style="font-size: 10px;">csdn</a> <a href="/tags/design-patterns/" style="font-size: 15.56px;">design patterns</a> <a href="/tags/docker/" style="font-size: 14.44px;">docker</a> <a href="/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/tags/fiddler/" style="font-size: 10px;">fiddler</a> <a href="/tags/fiddler-capture/" style="font-size: 10px;">fiddler capture</a> <a href="/tags/hexo/" style="font-size: 14.44px;">hexo</a> <a href="/tags/hexo-themes/" style="font-size: 10px;">hexo themes</a> <a href="/tags/hexo-translate-title/" style="font-size: 10px;">hexo-translate-title</a> <a href="/tags/hot-key/" style="font-size: 10px;">hot key</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/http-s/" style="font-size: 10px;">http(s)</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/https抓包/" style="font-size: 10px;">https抓包</a> <a href="/tags/itchat/" style="font-size: 10px;">itchat</a> <a href="/tags/jvm/" style="font-size: 10px;">jvm</a> <a href="/tags/mysql/" style="font-size: 12.22px;">mysql</a> <a href="/tags/nginx/" style="font-size: 11.11px;">nginx</a> <a href="/tags/oschina/" style="font-size: 10px;">oschina</a> <a href="/tags/postgresql/" style="font-size: 11.11px;">postgresql</a> <a href="/tags/prototype/" style="font-size: 10px;">prototype</a> <a href="/tags/python/" style="font-size: 16.67px;">python</a> <a href="/tags/redis/" style="font-size: 11.11px;">redis</a> <a href="/tags/redis-sentinel/" style="font-size: 10px;">redis-sentinel</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/selenium/" style="font-size: 14.44px;">selenium</a> <a href="/tags/shortcuts-key/" style="font-size: 10px;">shortcuts key</a> <a href="/tags/simple-factory/" style="font-size: 12.22px;">simple factory</a> <a href="/tags/singleton/" style="font-size: 10px;">singleton</a> <a href="/tags/spider/" style="font-size: 10px;">spider</a> <a href="/tags/spider-crawl/" style="font-size: 10px;">spider crawl</a> <a href="/tags/spring-boot/" style="font-size: 10px;">spring boot</a> <a href="/tags/swagger/" style="font-size: 11.11px;">swagger</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/vimium/" style="font-size: 10px;">vimium</a> <a href="/tags/websocket/" style="font-size: 10px;">websocket</a> <a href="/tags/weixin/" style="font-size: 10px;">weixin</a> <a href="/tags/ws-s/" style="font-size: 10px;">ws(s)</a> <a href="/tags/wss/" style="font-size: 10px;">wss</a> <a href="/tags/yapi/" style="font-size: 10px;">yapi</a> <a href="/tags/《Spring-in-action》/" style="font-size: 10px;">《Spring in action》</a> <a href="/tags/个人博客/" style="font-size: 11.11px;">个人博客</a> <a href="/tags/个人感悟/" style="font-size: 11.11px;">个人感悟</a> <a href="/tags/主从复制/" style="font-size: 11.11px;">主从复制</a> <a href="/tags/主从搭建/" style="font-size: 12.22px;">主从搭建</a> <a href="/tags/代理调试/" style="font-size: 10px;">代理调试</a> <a href="/tags/入门篇/" style="font-size: 10px;">入门篇</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/压测工具/" style="font-size: 12.22px;">压测工具</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/字符串机制/" style="font-size: 10px;">字符串机制</a> <a href="/tags/学习资源/" style="font-size: 11.11px;">学习资源</a> <a href="/tags/实践篇/" style="font-size: 11.11px;">实践篇</a> <a href="/tags/工厂方法/" style="font-size: 10px;">工厂方法</a> <a href="/tags/建造者/" style="font-size: 10px;">建造者</a> <a href="/tags/开源/" style="font-size: 10px;">开源</a> <a href="/tags/开源博客/" style="font-size: 11.11px;">开源博客</a> <a href="/tags/开源项目/" style="font-size: 11.11px;">开源项目</a> <a href="/tags/微信授权/" style="font-size: 10px;">微信授权</a> <a href="/tags/抽象工厂/" style="font-size: 10px;">抽象工厂</a> <a href="/tags/数据库中间件/" style="font-size: 13.33px;">数据库中间件</a> <a href="/tags/热部署/" style="font-size: 10px;">热部署</a> <a href="/tags/简书/" style="font-size: 10px;">简书</a> <a href="/tags/简单工厂/" style="font-size: 10px;">简单工厂</a> <a href="/tags/编辑器/" style="font-size: 20px;">编辑器</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a> <a href="/tags/读写分离/" style="font-size: 11.11px;">读写分离</a> <a href="/tags/跑步/" style="font-size: 10px;">跑步</a> <a href="/tags/配置篇/" style="font-size: 10px;">配置篇</a> <a href="/tags/钉钉运动/" style="font-size: 10px;">钉钉运动</a> <a href="/tags/阿里技术/" style="font-size: 10px;">阿里技术</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>

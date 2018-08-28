@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.mariojd.cn/crawl-wechat-articles-and-comments-with-fiddler-and-python.html</loc>
+    
+    <lastmod>2018-08-28T09:02:46.576Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.mariojd.cn/elasticsearch6.3.2-in-practice.html</loc>
+    
+    <lastmod>2018-08-28T09:02:46.566Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.mariojd.cn/install-https-certificate-for-fiddler-capture.html</loc>
     
     <lastmod>2018-08-27T09:38:55.484Z</lastmod>

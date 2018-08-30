@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.mariojd.cn/problems-in-spring-boot2-with-elasticsearch-and-postgresql.html</loc>
+    
+    <lastmod>2018-08-30T06:35:39.369Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.mariojd.cn/elasticsearch6.3.2-in-practice.html</loc>
     
     <lastmod>2018-08-29T08:14:49.555Z</lastmod>

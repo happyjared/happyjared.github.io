@@ -4,6 +4,30 @@
 
     
   <url>
+    <loc>https://blog.mariojd.cn/problems-in-spring-boot2-with-elasticsearch-and-postgresql.html</loc>
+    <lastmod>2018-08-30T06:35:39.369Z</lastmod>
+    <data>
+        <display>
+        <title>Spring Boot2集成Elasticsearch、PostgreSQL遇到的问题</title>
+        <pubTime>2018-08-28T16:00:00.000Z</pubTime>
+        
+        <tag>postgresql</tag>
+         
+        <tag>elasticsearch</tag>
+         
+        <tag>spring boot2</tag>
+         
+         
+           
+             
+              <breadCrumb title="Java" url="https://blog.mariojd.cn/categories/Java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://blog.mariojd.cn/elasticsearch6.3.2-in-practice.html</loc>
     <lastmod>2018-08-29T08:14:49.555Z</lastmod>
     <data>

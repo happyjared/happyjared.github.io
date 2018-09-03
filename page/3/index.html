@@ -108,14 +108,14 @@
       <div class="outer">
         <section id="main" class="body-wrap">
   
-    <article id="post-Intellij IDEA 神器那些让人爱不释手的小技巧" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Python中的is和==以及字符串驻留机制" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/those-little-tricks-that-people-love-to-put-up-with-in-intellij-idea.html"  target="_blank"  >Intellij IDEA 神器那些让人爱不释手的小技巧</a>
+      <a class="article-title" href="/equal-compare-and-string-resident-mechanism-in-python.html"  target="_blank"  >Python中的is和==以及字符串驻留机制</a>
     </h1>
   
 
@@ -123,7 +123,7 @@
               <span class="header-cate">
                 <i class="fa fa-map-marker"></i>
                   
-                  <a href="/categories/IDEA/">IDEA</a>
+                  <a href="/categories/Python/">Python</a>
                   
               </span>
           
@@ -132,20 +132,16 @@
     <div class="article-entry " itemprop="articleBody">
       
         <div class="article-img">
-            <a href="/those-little-tricks-that-people-love-to-put-up-with-in-intellij-idea.html"  target="_blank" >
+            <a href="/equal-compare-and-string-resident-mechanism-in-python.html"  target="_blank" >
                 
-                <img src="https://image.mariojd.cn/smallstory/2018614/u=3751731334,3374076466&fm=27&gp=0.jpg" alt="Intellij IDEA 神器那些让人爱不释手的小技巧" title="Intellij IDEA 神器那些让人爱不释手的小技巧">
+                <img src="https://image.mariojd.cn/smallstory/2018619/1_ueWmI48uuShON-hX7LwI0w.png" alt="Python中的is和==以及字符串驻留机制" title="Python中的is和==以及字符串驻留机制">
                 
             </a>
         </div>
         <div class="article-feed">
             <p>
                 
-
-作者：Sam哥哥聊技术原文链接：https://blog.csdn.net/linsongbin1/article/details/80560332
-
-概述
-在2018年5月6日写了一篇介绍IntellIJ IDEA的文章，Intellij IDEA神器居然还有这些小技巧，主要是列出一些平时大家可能没用过或者没怎么用，但是又非常好用的IntellIJ IDEA小技巧。由于篇幅原因，只是列...
+is 和 ==&emsp;&emsp;先了解下官方文档中关于 is 和 == 的概念。is 表示的是对象标示符（object identity），而 == 表示的是相等（equality）；is 的作用是用来检查对象的标示符是否一致，也就是比较两个对象在内存中的地址是否一样（相当于检查 id(a) == id(b)），而 == 是用来检查两个对象引用的值是否相等（相当于检查 a.eq(b)...
             </p>
         </div>
       
@@ -161,17 +157,15 @@
   <li class="article-footer-tags">
     <i class="fa fa-tags"></i>
       
-    <a href="/tags/IDEA/" class="color5">IDEA</a>
+    <a href="/tags/python/" class="color2">python</a>
       
-    <a href="/tags/编辑器/" class="color4">编辑器</a>
-      
-    <a href="/tags/Java/" class="color5">Java</a>
+    <a href="/tags/字符串机制/" class="color1">字符串机制</a>
       
   </li>
 
         </ul>
         
-            <a href="/those-little-tricks-that-people-love-to-put-up-with-in-intellij-idea.html#more" class="article-more-link"  target="_blank" >&lt;&lt; 阅读全文 &gt;&gt;</a>
+            <a href="/equal-compare-and-string-resident-mechanism-in-python.html#more" class="article-more-link"  target="_blank" >&lt;&lt; 阅读全文 &gt;&gt;</a>
         
     </footer>
   </div>
@@ -882,6 +876,72 @@ http 升级 https 超简易教程
 
 
   
+    <article id="post-Spring Boot几种启动问题的解决方案" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/solutions-to-several-startup-problems-of-spring-boot.html"  target="_blank"  >Spring Boot几种启动问题的解决方案</a>
+    </h1>
+  
+
+          
+              <span class="header-cate">
+                <i class="fa fa-map-marker"></i>
+                  
+                  <a href="/categories/Java/">Java</a>
+                  
+              </span>
+          
+      </header>
+    
+    <div class="article-entry " itemprop="articleBody">
+      
+        <div class="article-img">
+            <a href="/solutions-to-several-startup-problems-of-spring-boot.html"  target="_blank" >
+                
+                <img src="https://image.mariojd.cn/xsj/201852/WeChat截圖_20180502175954.png" alt="Spring Boot几种启动问题的解决方案" title="Spring Boot几种启动问题的解决方案">
+                
+            </a>
+        </div>
+        <div class="article-feed">
+            <p>
+                
+&emsp;&emsp;使用Spring Boot以来，遇到和解决过好几次不同的项目启动问题，大多数事故起于错误的配置和依赖。因此，本文用于汇总这些问题，以及提供相应的解决方案，帮助大家更快的定位和排除故障。
+1. Unregistering JMX-exposed beans on shutdown&emsp;&emsp;项目中没有添加spring-boot-starter-web模块依...
+            </p>
+        </div>
+      
+        
+    </div>
+    <footer class="article-footer">
+        
+        <ul class="article-footer-menu">
+            
+                <li><i class="fa fa-calendar"></i>2018-05-02</li>
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/SpringBoot/" class="color2">Spring Boot</a>
+      
+    <a href="/tags/Java/" class="color5">Java</a>
+      
+  </li>
+
+        </ul>
+        
+            <a href="/solutions-to-several-startup-problems-of-spring-boot.html#more" class="article-more-link"  target="_blank" >&lt;&lt; 阅读全文 &gt;&gt;</a>
+        
+    </footer>
+  </div>
+</article>
+
+
+  
     <article id="post-Spring Boot中初始化资源的几种方式" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -943,72 +1003,6 @@ CommandLineRunner
         </ul>
         
             <a href="/several-ways-of-initializing-resources-in-spring-boot.html#more" class="article-more-link"  target="_blank" >&lt;&lt; 阅读全文 &gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-Spring Boot几种启动问题的解决方案" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/solutions-to-several-startup-problems-of-spring-boot.html"  target="_blank"  >Spring Boot几种启动问题的解决方案</a>
-    </h1>
-  
-
-          
-              <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                  
-                  <a href="/categories/Java/">Java</a>
-                  
-              </span>
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/solutions-to-several-startup-problems-of-spring-boot.html"  target="_blank" >
-                
-                <img src="https://image.mariojd.cn/xsj/201852/WeChat截圖_20180502175954.png" alt="Spring Boot几种启动问题的解决方案" title="Spring Boot几种启动问题的解决方案">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                
-&emsp;&emsp;使用Spring Boot以来，遇到和解决过好几次不同的项目启动问题，大多数事故起于错误的配置和依赖。因此，本文用于汇总这些问题，以及提供相应的解决方案，帮助大家更快的定位和排除故障。
-1. Unregistering JMX-exposed beans on shutdown&emsp;&emsp;项目中没有添加spring-boot-starter-web模块依...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2018-05-02</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/SpringBoot/" class="color2">Spring Boot</a>
-      
-    <a href="/tags/Java/" class="color5">Java</a>
-      
-  </li>
-
-        </ul>
-        
-            <a href="/solutions-to-several-startup-problems-of-spring-boot.html#more" class="article-more-link"  target="_blank" >&lt;&lt; 阅读全文 &gt;&gt;</a>
         
     </footer>
   </div>

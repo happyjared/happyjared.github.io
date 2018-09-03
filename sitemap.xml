@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://blog.mariojd.cn/use-scrapy-crawl-imooc.html</loc>
+    <loc>https://blog.mariojd.cn/use-scrapy-crawl-zealer.html</loc>
     
-    <lastmod>2018-09-03T01:34:00.604Z</lastmod>
+    <lastmod>2018-09-03T01:40:35.744Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://blog.mariojd.cn/getting-started-with-scrapy.html</loc>
     
-    <lastmod>2018-09-03T01:34:00.603Z</lastmod>
+    <lastmod>2018-09-03T01:40:35.744Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.mariojd.cn/use-scrapy-crawl-imooc.html</loc>
+    
+    <lastmod>2018-09-03T01:34:00.604Z</lastmod>
     
   </url>
   

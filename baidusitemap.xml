@@ -4,6 +4,50 @@
 
     
   <url>
+    <loc>https://blog.mariojd.cn/use-scrapy-crawl-imooc.html</loc>
+    <lastmod>2018-09-03T01:34:00.604Z</lastmod>
+    <data>
+        <display>
+        <title>爬虫进阶：Scrapy抓取慕课网</title>
+        <pubTime>2018-09-01T16:00:00.000Z</pubTime>
+        
+        <tag>scrapy</tag>
+         
+        <tag>imooc</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="https://blog.mariojd.cn/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/getting-started-with-scrapy.html</loc>
+    <lastmod>2018-09-03T01:34:00.603Z</lastmod>
+    <data>
+        <display>
+        <title>爬虫进阶：Scrapy入门</title>
+        <pubTime>2018-08-30T16:00:00.000Z</pubTime>
+        
+        <tag>spider</tag>
+         
+        <tag>scrapy</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="https://blog.mariojd.cn/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://blog.mariojd.cn/problems-in-spring-boot2-with-elasticsearch-and-postgresql.html</loc>
     <lastmod>2018-08-30T06:35:39.369Z</lastmod>
     <data>

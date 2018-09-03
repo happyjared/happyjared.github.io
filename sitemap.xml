@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.mariojd.cn/use-scrapy-crawl-imooc.html</loc>
+    
+    <lastmod>2018-09-03T01:34:00.604Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.mariojd.cn/getting-started-with-scrapy.html</loc>
+    
+    <lastmod>2018-09-03T01:34:00.603Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.mariojd.cn/problems-in-spring-boot2-with-elasticsearch-and-postgresql.html</loc>
     
     <lastmod>2018-08-30T06:35:39.369Z</lastmod>

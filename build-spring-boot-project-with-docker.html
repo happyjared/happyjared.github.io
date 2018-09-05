@@ -3,38 +3,25 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Jmeter 压测 http(s) | happyJared - 博客</title>
+  <title>Spring Boot项目Docker化快速上手 | happyJared - 博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="happyJared - 博客。编码爱好者，代码小洁癖。" />
   
-  <meta name="description" content="&amp;emsp;&amp;emsp;上一篇文章关于Jmeter介绍了Jmeter入门相关的知识。本文是实战篇，讲讲如何使用Jmeter对Http(s)进行压力测试。 Http测试测试一&amp;emsp;&amp;emsp;首先，添加 “线程组”，选择 “添加” -&amp;gt; “Sampler” -&amp;gt; “HTTP请求”。其次，分别添加 “查看结果树”，“聚合报告”，“图形结果”等，用于查看测试结果。  &amp;emsp;&amp;e">
-<meta name="keywords" content="Jmeter,压测工具,http(s)">
+  <meta name="description" content="开篇&amp;emsp;&amp;emsp;服务部署是应用上线前的必需环节。大道至简，如何做到项目简单化、自动化甚至傻瓜式部署是考验DevOps的一大难题。从docker面世到k8s的脱颖而出，有越来越多的开源工具也在帮助开发和运维人员解决这些问题。 &amp;emsp;&amp;emsp;对于开发人员，了解和学习Docker可谓是迫在眉睫。网上有很多优秀的学习资源，当然了，本文的主角不全是docker，但也不无关系。 &amp;em">
+<meta name="keywords" content="docker,spring boot">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Jmeter 压测 http(s)">
-<meta property="og:url" content="https://blog.mariojd.cn/jmeter-pressure-test-based-on-http.html">
+<meta property="og:title" content="Spring Boot项目Docker化快速上手">
+<meta property="og:url" content="https://blog.mariojd.cn/build-spring-boot-project-with-docker.html">
 <meta property="og:site_name" content="happyJared - 博客">
-<meta property="og:description" content="&amp;emsp;&amp;emsp;上一篇文章关于Jmeter介绍了Jmeter入门相关的知识。本文是实战篇，讲讲如何使用Jmeter对Http(s)进行压力测试。 Http测试测试一&amp;emsp;&amp;emsp;首先，添加 “线程组”，选择 “添加” -&amp;gt; “Sampler” -&amp;gt; “HTTP请求”。其次，分别添加 “查看结果树”，“聚合报告”，“图形结果”等，用于查看测试结果。  &amp;emsp;&amp;e">
+<meta property="og:description" content="开篇&amp;emsp;&amp;emsp;服务部署是应用上线前的必需环节。大道至简，如何做到项目简单化、自动化甚至傻瓜式部署是考验DevOps的一大难题。从docker面世到k8s的脱颖而出，有越来越多的开源工具也在帮助开发和运维人员解决这些问题。 &amp;emsp;&amp;emsp;对于开发人员，了解和学习Docker可谓是迫在眉睫。网上有很多优秀的学习资源，当然了，本文的主角不全是docker，但也不无关系。 &amp;em">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://image.mariojd.cn/xsj/2018429/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180429111739.png">
-<meta property="og:image" content="https://image.mariojd.cn/xsj/2018429/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180429111951.png">
-<meta property="og:image" content="https://image.mariojd.cn/xsj/2018429/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180429112635.png">
-<meta property="og:image" content="https://image.mariojd.cn/xsj/2018429/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180429114236.png">
-<meta property="og:image" content="https://image.mariojd.cn/xsj/2018429/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180429114316.png">
-<meta property="og:image" content="https://image.mariojd.cn/xsj/2018429/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180429114355.png">
-<meta property="og:image" content="https://image.mariojd.cn/xsj/2018429/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180429125730.png">
-<meta property="og:image" content="https://image.mariojd.cn/xsj/2018429/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180429125825.png">
-<meta property="og:image" content="https://image.mariojd.cn/xsj/2018429/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180429130248.png">
-<meta property="og:image" content="https://image.mariojd.cn/xsj/2018429/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180429130300.png">
-<meta property="og:image" content="https://image.mariojd.cn/xsj/2018429/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180429133541.png">
-<meta property="og:image" content="https://image.mariojd.cn/xsj/2018429/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180429133726.png">
-<meta property="og:image" content="https://image.mariojd.cn/xsj/2018429/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180429134050.png">
-<meta property="og:image" content="https://image.mariojd.cn/xsj/2018429/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180429135222.png">
-<meta property="og:updated_time" content="2018-08-23T06:04:03.738Z">
+<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/xsj/201894/20180904210535.jpg">
+<meta property="og:updated_time" content="2018-09-05T01:25:01.088Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jmeter 压测 http(s)">
-<meta name="twitter:description" content="&amp;emsp;&amp;emsp;上一篇文章关于Jmeter介绍了Jmeter入门相关的知识。本文是实战篇，讲讲如何使用Jmeter对Http(s)进行压力测试。 Http测试测试一&amp;emsp;&amp;emsp;首先，添加 “线程组”，选择 “添加” -&amp;gt; “Sampler” -&amp;gt; “HTTP请求”。其次，分别添加 “查看结果树”，“聚合报告”，“图形结果”等，用于查看测试结果。  &amp;emsp;&amp;e">
-<meta name="twitter:image" content="https://image.mariojd.cn/xsj/2018429/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180429111739.png">
+<meta name="twitter:title" content="Spring Boot项目Docker化快速上手">
+<meta name="twitter:description" content="开篇&amp;emsp;&amp;emsp;服务部署是应用上线前的必需环节。大道至简，如何做到项目简单化、自动化甚至傻瓜式部署是考验DevOps的一大难题。从docker面世到k8s的脱颖而出，有越来越多的开源工具也在帮助开发和运维人员解决这些问题。 &amp;emsp;&amp;emsp;对于开发人员，了解和学习Docker可谓是迫在眉睫。网上有很多优秀的学习资源，当然了，本文的主角不全是docker，但也不无关系。 &amp;em">
+<meta name="twitter:image" content="http://p3ry9qsas.bkt.clouddn.com/xsj/201894/20180904210535.jpg">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -123,14 +110,14 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap"><article id="post-Jmeter压测 http(s)" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main" class="body-wrap"><article id="post-Spring Boot项目Docker化快速上手" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="post-title" itemprop="name">
-      Jmeter 压测 http(s)
+      Spring Boot项目Docker化快速上手
     </h1>
     <div class="post-title-bar">
       <ul>
@@ -138,12 +125,12 @@
               <li>
                   <i class="fa fa-book"></i>
                   
-                      <a href="/categories/Jmeter/">Jmeter</a>
+                      <a href="/categories/Java/">Java</a>
                   
               </li>
           
         <li>
-          <i class="fa fa-calendar"></i>  2018-04-24
+          <i class="fa fa-calendar"></i>  2018-09-04
         </li>
         <li>
           <i class="fa fa-eye"></i>
@@ -160,53 +147,40 @@
       
             
             <!--
-    self_category: 测试
-    self_tags: Jmeter，http(s)，压测工具
-    osChina_sys_category: 系统运维
-    csdn_article_category: 原创
-    csdn_blog_category: 运维
+    self_category: 
+    self_tags: 
+    osChina_sys_category: 
+    csdn_article_category: 
+    csdn_blog_category: 
 -->
-<p>&emsp;&emsp;上一篇文章<a href="https://www.jianshu.com/p/cf16e48049d6" target="_blank" rel="noopener">关于Jmeter</a>介绍了Jmeter入门相关的知识。本文是实战篇，讲讲如何使用Jmeter对Http(s)进行压力测试。</p>
-<h3 id="Http测试"><a href="#Http测试" class="headerlink" title="Http测试"></a>Http测试</h3><h4 id="测试一"><a href="#测试一" class="headerlink" title="测试一"></a>测试一</h4><p>&emsp;&emsp;首先，添加 “线程组”，选择 “添加” -&gt; “Sampler” -&gt; “HTTP请求”。其次，分别添加 “查看结果树”，“聚合报告”，“图形结果”等，用于查看测试结果。</p>
-<p><img src="https://image.mariojd.cn/xsj/2018429/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180429111739.png" alt="Jmeter测试1" title="Jmeter测试1"></p>
-<p>&emsp;&emsp;配置 “HTTP请求”，对应上图中的 “jmeter测试1”。这里配置<code>Get</code>请求，测试本地<code>8080</code>端口下的<code>jmeter/test1</code>接口地址，具体的Http配置及测试代码请参考如下。</p>
-<p><img src="https://image.mariojd.cn/xsj/2018429/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180429111951.png" alt="Http配置1" title="Http配置1"></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"jmeter"</span>)</span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HttpController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> AtomicInteger atomicInteger = <span class="keyword">new</span> AtomicInteger(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"test1"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Map&lt;String, Object&gt; <span class="title">test1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Map&lt;String, Object&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;(<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">int</span> decrementAndGet = atomicInteger.incrementAndGet();</span><br><span class="line">        System.out.println(<span class="string">"decrementAndGet = "</span> + decrementAndGet);</span><br><span class="line">        map.put(<span class="string">"atomicInteger"</span>, decrementAndGet);</span><br><span class="line">        <span class="keyword">return</span> map;</span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;配置好后，点击绿色三角图标即可启动线程组，线程组的配置如下。</p>
-<p><img src="https://image.mariojd.cn/xsj/2018429/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180429112635.png" alt="线程组配置" title="线程组配置"></p>
-<p>&emsp;&emsp;启动测试请求后，响应结果如下，这是模拟1s内发起200次的请求。</p>
-<p><img src="https://image.mariojd.cn/xsj/2018429/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180429114236.png" alt="察看结果树响应" title="察看结果树响应"></p>
-<p><img src="https://image.mariojd.cn/xsj/2018429/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180429114316.png" alt="聚合报告响应" title="聚合报告响应"></p>
-<p><img src="https://image.mariojd.cn/xsj/2018429/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180429114355.png" alt="图形结果响应" title="图形结果响应"></p>
-<h4 id="测试二"><a href="#测试二" class="headerlink" title="测试二"></a>测试二</h4><p>&emsp;&emsp;一般而言，测试都需要尽可能的模拟真实用户。因此，通过传递不同的请求参数，来模拟不同的用户进行请求是必不可少的。接下来使用 “函数助手的” 方式，告诉大家如何模拟不同的用户进行压力测试。</p>
-<p>&emsp;&emsp;案例场景：模拟10个用户发起<code>POST</code>请求，请求地址<code>jmeter/test2</code>，要求在Http请求头中自定义请求头 <code>Authorization</code> ，不同用户对应的自定义请求头参数值不同。</p>
-<h5 id="1-使用函数助手添加请求头参数"><a href="#1-使用函数助手添加请求头参数" class="headerlink" title="1. 使用函数助手添加请求头参数"></a>1. 使用函数助手添加请求头参数</h5><blockquote>
-<p>CSV，即Comma Separate Values，这种文件格式经常用来作为不同程序之间的数据交互格式。具体文件格式：每条记录占一行，以逗号为分隔符，逗号前后的空格会被忽略。字段中包含有逗号，该字段必须用双引号括起来；字段中包含有换行符，该字段必须用双引号括起来；字段前后包含有空格，该字段必须用双引号括起来；字段中的双引号用两个双引号表示；字段中如果有双引号，该字段必须用双引号括起来。</p>
+<h3 id="开篇"><a href="#开篇" class="headerlink" title="开篇"></a>开篇</h3><p>&emsp;&emsp;服务部署是应用上线前的必需环节。大道至简，如何做到项目简单化、自动化甚至傻瓜式部署是考验DevOps的一大难题。从docker面世到k8s的脱颖而出，有越来越多的开源工具也在帮助开发和运维人员解决这些问题。</p>
+<p>&emsp;&emsp;对于开发人员，了解和学习Docker可谓是迫在眉睫。网上有很多优秀的学习资源，当然了，本文的主角不全是docker，但也不无关系。</p>
+<p>&emsp;&emsp;现在是CI时代。用过Jenkins，但对于个人或小型项目来说太笨重了，不过还有例如像Travis这样的轻量级CI可供我们选择。本文要介绍的不涉及CI工具，只需要借助Maven插件，就可以轻松打包SpringBoot项目到远程服务器，启动镜像即可部署上线。如果这描述适合你最近在捣腾的一些项目，可以继续往下看！</p>
+<h3 id="环境说明"><a href="#环境说明" class="headerlink" title="环境说明"></a>环境说明</h3><ul>
+<li>Docker v18.06.1-ce</li>
+<li>Spring Boot v2.0.4.RELEASE</li>
+</ul>
+<h3 id="配置准备"><a href="#配置准备" class="headerlink" title="配置准备"></a>配置准备</h3><p>&emsp;&emsp;通过Maven将本地打包好的SpringBoot Jar包推送到远程Docker服务中，关键步骤就在于为Docker服务配置这个暴露端口。这步操作也简单，直接命令编辑<code>vim /lib/systemd/system/docker.service</code>( 左侧为Ubuntu的路径; CentOS 的路径参考：<code>/usr/lib/systemd/system/docker.service</code>)，找到<code>ExecStart=/usr/bin/dockerd -H fd://</code>这行，修改为<code>ExecStart=/usr/bin/dockerd -H tcp://0.0.0.0:22375 -H unix:///var/run/docker.sock</code>(表示让Docker服务监听22375这个TCP端口)，重启让配置生效：<code>systemctl daemon-reload &amp;&amp; systemctl restart docker</code></p>
+<p>&emsp;&emsp;下面测试一下: <code>curl localhost:22375/info</code>，如果有一堆信息出来就可以继续往下走：</p>
+<p><img src="http://p3ry9qsas.bkt.clouddn.com/xsj/201894/20180904210535.jpg" alt="curl localhost:22375/info"></p>
+<h3 id="插件添加"><a href="#插件添加" class="headerlink" title="插件添加"></a>插件添加</h3><p>&emsp;&emsp;没有Spring Boot项目可以自行新建，然后在<code>pom.xml</code>中添加如下配置：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;build&gt;</span><br><span class="line">		&lt;!-- 最终Maven本地打包出来的jar包名称 --&gt;</span><br><span class="line">       &lt;finalName&gt;example&lt;/finalName&gt;</span><br><span class="line">       &lt;defaultGoal&gt;package&lt;/defaultGoal&gt;</span><br><span class="line">       &lt;plugins&gt;</span><br><span class="line">           &lt;plugin&gt;</span><br><span class="line">               &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">               &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;</span><br><span class="line">           &lt;/plugin&gt;</span><br><span class="line"></span><br><span class="line">           &lt;plugin&gt;</span><br><span class="line">               &lt;!-- GitHub: https://github.com/spotify/docker-maven-plugin --&gt;</span><br><span class="line">               &lt;groupId&gt;com.spotify&lt;/groupId&gt;</span><br><span class="line">               &lt;artifactId&gt;docker-maven-plugin&lt;/artifactId&gt;</span><br><span class="line">               &lt;version&gt;1.1.1&lt;/version&gt;</span><br><span class="line">               &lt;configuration&gt;</span><br><span class="line">				&lt;!-- 远程镜像名称 --&gt;</span><br><span class="line">                   &lt;imageName&gt;example&lt;/imageName&gt;</span><br><span class="line">                   &lt;forceTags&gt;true&lt;/forceTags&gt;</span><br><span class="line">                   &lt;imageTags&gt;</span><br><span class="line">                       &lt;imageTag&gt;$&#123;project.version&#125;&lt;/imageTag&gt;</span><br><span class="line">                       &lt;imageTag&gt;latest&lt;/imageTag&gt;</span><br><span class="line">                   &lt;/imageTags&gt;</span><br><span class="line">                   &lt;dockerHost&gt;http://服务器IP:22375&lt;/dockerHost&gt;</span><br><span class="line">                   &lt;dockerDirectory&gt;src/main/docker&lt;/dockerDirectory&gt;</span><br><span class="line">                   &lt;resources&gt;</span><br><span class="line">                       &lt;resource&gt;</span><br><span class="line">                           &lt;targetPath&gt;/&lt;/targetPath&gt;</span><br><span class="line">                           &lt;directory&gt;$&#123;project.build.directory&#125;&lt;/directory&gt;</span><br><span class="line">                           &lt;include&gt;$&#123;project.build.finalName&#125;.jar&lt;/include&gt;</span><br><span class="line">                       &lt;/resource&gt;</span><br><span class="line">                   &lt;/resources&gt;</span><br><span class="line">               &lt;/configuration&gt;</span><br><span class="line">           &lt;/plugin&gt;</span><br><span class="line">       &lt;/plugins&gt;</span><br><span class="line">   &lt;/build&gt;</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;参考上述配置，还需要新建<code>docker</code>文件夹，然后创建<code>Dockerfile</code>文件，并添加如下内容：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 指定基础镜像(必需且为第一条指令,scratch是空白镜像)</span><br><span class="line">FROM openjdk:8-jre-alpine</span><br><span class="line"></span><br><span class="line"># MAINTAINER已经过期，具体参考：https://docs.docker.com/engine/reference/builder/#label</span><br><span class="line">LABEL author-name=&quot;author-email&quot;</span><br><span class="line"></span><br><span class="line"># 为了防止运行时用户忘记将动态文件所保存目录挂载为卷，在 Dockerfile 中，我们可以事先指定某些目录挂载为匿名卷，</span><br><span class="line"># 这样在运行时如果用户不指定挂载，其应用也可以正常运行，不会向容器存储层写入大量数据。</span><br><span class="line">VOLUME /opt/tmp</span><br><span class="line"></span><br><span class="line"># 在 COPY 和 ADD 指令中选择的时候，可以遵循这样的原则,</span><br><span class="line"># 所有文件复制使用 COPY 指令，仅在需要自动解压缩的场合使用 ADD 指令</span><br><span class="line">COPY example.jar example.jar</span><br><span class="line"></span><br><span class="line"># JVM参数可选</span><br><span class="line">CMD [&quot;java&quot;,&quot;-jar&quot;,&quot;-Xms64m&quot;,&quot;-Xmx64m&quot;,&quot;example.jar&quot;]</span><br><span class="line"></span><br><span class="line"># EXPOSE 指令仅仅是声明的是运行时容器提供服务的端口</span><br><span class="line"># 用于帮助镜像使用者理解这个镜像服务的守护端口，以方便配置映射；</span><br><span class="line">EXPOSE 8080</span><br></pre></td></tr></table></figure>
+<h3 id="构建运行"><a href="#构建运行" class="headerlink" title="构建运行"></a>构建运行</h3><p>&emsp;&emsp;用maven命令构建远程镜像：<code>mvn clean package docker:build -Dmaven.test.skip=true</code></p>
+<p>&emsp;&emsp;在远程服务器上运行服务：<code>docker run --name example -d -p 8080:8080 example</code></p>
+<p>&emsp;&emsp;可以查看服务启动情况：<code>docker logs -f example</code></p>
+<h3 id="学习资源"><a href="#学习资源" class="headerlink" title="学习资源"></a>学习资源</h3><blockquote>
+<p><a href="https://peihsinsu.gitbooks.io/docker-note-book/" target="_blank" rel="noopener">Docker學習筆記</a><br><a href="https://yeasy.gitbooks.io/docker_practice/" target="_blank" rel="noopener">Docker — 从入门到实践</a></p>
 </blockquote>
-<p>&emsp;&emsp;在本地创建test2.cvs（如：G:\TEST\test2.cvs），添加10个用户对应的Authorization值（假设是：1 ~ 10），使用函数助手进行添加。</p>
-<p><img src="https://image.mariojd.cn/xsj/2018429/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180429125730.png" alt="函数助手配置" title="函数助手配置"></p>
-<h5 id="2-配置-“HTTP信息头管理器”"><a href="#2-配置-“HTTP信息头管理器”" class="headerlink" title="2. 配置 “HTTP信息头管理器”"></a>2. 配置 “HTTP信息头管理器”</h5><p><img src="https://image.mariojd.cn/xsj/2018429/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180429125825.png" alt="配置HTTP信息头管理器" title="配置HTTP信息头管理器"></p>
-<p>&emsp;&emsp;如上图所示，分别设置 <code>Content-Type:application/json</code>和<code>Authorization:${__CSVRead(G:\TEST\test2.cvs,0)}</code></p>
-<h5 id="3-模拟用户请求进行测试"><a href="#3-模拟用户请求进行测试" class="headerlink" title="3. 模拟用户请求进行测试"></a>3. 模拟用户请求进行测试</h5><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"jmeter"</span>)</span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HttpController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@PostMapping</span>(<span class="string">"test2"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Map&lt;String, Object&gt; <span class="title">test2</span><span class="params">(HttpServletRequest request)</span> </span>&#123;</span><br><span class="line">        Map&lt;String, Object&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;(<span class="number">1</span>);</span><br><span class="line">        String authorization = request.getHeader(<span class="string">"Authorization"</span>);</span><br><span class="line">        map.put(<span class="string">"authorization"</span>, authorization);</span><br><span class="line">        <span class="keyword">return</span> map;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;启动测试后，响应结果如下。</p>
-<p><img src="https://image.mariojd.cn/xsj/2018429/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180429130248.png" alt="察看结果树响应" title="察看结果树响应"></p>
-<p><img src="https://image.mariojd.cn/xsj/2018429/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180429130300.png" alt="聚合报告响应" title="聚合报告响应"></p>
-<h4 id="测试三"><a href="#测试三" class="headerlink" title="测试三"></a>测试三</h4><p>&emsp;&emsp;案例场景：使用配置元件 “CSV数据文件” 的方式，模拟10个用户发起<code>PUT</code>请求，请求地址<code>jmeter/test3</code>，要求不同用户对应请求参数<code>reqId</code>的值不同。</p>
-<h5 id="1-使用“CSV数据文件”添加请求参数"><a href="#1-使用“CSV数据文件”添加请求参数" class="headerlink" title="1. 使用“CSV数据文件”添加请求参数"></a>1. 使用“CSV数据文件”添加请求参数</h5><p>&emsp;&emsp;在本地创建test2.cvs（如：G:\TEST\test2.cvs），添加10个用户对应的reqId值（假设是：1 ~ 10）。</p>
-<p><img src="https://image.mariojd.cn/xsj/2018429/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180429133541.png" alt="CSV数据文件配置" title="CSV数据文件配置"></p>
-<h5 id="2-配置-“HTTP信息头管理器”-1"><a href="#2-配置-“HTTP信息头管理器”-1" class="headerlink" title="2. 配置 “HTTP信息头管理器”"></a>2. 配置 “HTTP信息头管理器”</h5><p><img src="https://image.mariojd.cn/xsj/2018429/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180429133726.png" alt="配置HTTP信息头管理器" title="配置HTTP信息头管理器"></p>
-<p>&emsp;&emsp;如上图所示，通过在请求路径使用占位符<code>${}</code>来读取“CSV数据文件”中对应的配置参数和值。注意，占位符内的参数名称要保持与配置一致。</p>
-<h5 id="3-模拟用户请求进行测试-1"><a href="#3-模拟用户请求进行测试-1" class="headerlink" title="3. 模拟用户请求进行测试"></a>3. 模拟用户请求进行测试</h5><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"jmeter"</span>)</span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HttpController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@PutMapping</span>(<span class="string">"test3"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Map&lt;String, Object&gt; <span class="title">test3</span><span class="params">(@RequestParam <span class="keyword">int</span> reqId)</span> </span>&#123;</span><br><span class="line">        Map&lt;String, Object&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;(<span class="number">1</span>);</span><br><span class="line">        System.out.println(<span class="string">"id = ["</span> + reqId + <span class="string">"]"</span>);</span><br><span class="line">        map.put(<span class="string">"id"</span>, reqId);</span><br><span class="line">        <span class="keyword">return</span> map;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;启动测试后，响应结果如下。</p>
-<p><img src="https://image.mariojd.cn/xsj/2018429/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180429134050.png" alt="察看结果树响应" title="察看结果树响应"></p>
-<h3 id="Https测试"><a href="#Https测试" class="headerlink" title="Https测试"></a>Https测试</h3><p>&emsp;&emsp;为了方便，关于https的测试将选取网上站点进行，如<a href="https://www.jianshu.com/u/000a530f461c" target="_blank" rel="noopener">我的简书主页</a>，参考如下。</p>
-<p><img src="https://image.mariojd.cn/xsj/2018429/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180429135222.png" alt="Https测试配置" title="Https测试配置"></p>
-<h3 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h3><p>&emsp;&emsp;关于http(s)这块的测试到这就介绍完了，本文重点部分就是学习两种实现参数化的方式。JMeter作为一款压测工具，我们只需要熟悉之后再多加练习，便可以基本掌握。下来我将继续梳理如何使用JMeter进行ws(s)测试，欢迎关注。</p>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><blockquote>
+<p><a href="https://blog.lqdev.cn/2018/07/27/springboot/chapter-fourteen/" target="_blank" rel="noopener">SpringBoot | 第十四章：基于Docker的简单部署</a><br><a href="https://docs.lvrui.io/2017/02/19/docker-socket%E8%AE%BE%E7%BD%AE/" target="_blank" rel="noopener">docker-socket设置</a><br><a href="http://blog.w2fzu.com/2016/11/21/2016-11-21-Node-and-Mysql-deploy-on-Docker/docker-socket设置" target="_blank" rel="noopener">Docker开发部署Node小结</a></p>
+</blockquote>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年08月23日 14:04</p>
-        <p>原始链接： <a class="post-url" href="/jmeter-pressure-test-based-on-http.html" title="Jmeter 压测 http(s)">https://blog.mariojd.cn/jmeter-pressure-test-based-on-http.html</a></p>
+        <p>最后更新： 2018年09月05日 09:25</p>
+        <p>原始链接： <a class="post-url" href="/build-spring-boot-project-with-docker.html" title="Spring Boot项目Docker化快速上手">https://blog.mariojd.cn/build-spring-boot-project-with-docker.html</a></p>
         <footer>
             <a href="https://blog.mariojd.cn">
                 <img src="/images/logo.png" alt="Jared Qiu">
@@ -263,7 +237,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.mariojd.cn/jmeter-pressure-test-based-on-http.html&title=《Jmeter 压测 http(s)》 — happyJared - 博客&pic=https://image.mariojd.cn/2018423/jmeter.jpg" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.mariojd.cn/build-spring-boot-project-with-docker.html&title=《Spring Boot项目Docker化快速上手》 — happyJared - 博客&pic=https://image.mariojd.cn/smallstory/201894/spring-boot-docker.jpg" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -273,22 +247,22 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mariojd.cn/jmeter-pressure-test-based-on-http.html&title=《Jmeter 压测 http(s)》 — happyJared - 博客&source=Java developer, like Python and javascript，为人乐观、积极、向上、勤奋、和善、好相处，讲卫生，爱学习，爱码字，爱..." data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mariojd.cn/build-spring-boot-project-with-docker.html&title=《Spring Boot项目Docker化快速上手》 — happyJared - 博客&source=Java developer, like Python and javascript，为人乐观、积极、向上、勤奋、和善、好相处，讲卫生，爱学习，爱码字，爱..." data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
           <li>
-            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.mariojd.cn/jmeter-pressure-test-based-on-http.html" data-title="Facebook">
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.mariojd.cn/build-spring-boot-project-with-docker.html" data-title="Facebook">
               <i class="fa fa-facebook"></i>
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Jmeter 压测 http(s)》 — happyJared - 博客&url=https://blog.mariojd.cn/jmeter-pressure-test-based-on-http.html&via=https://blog.mariojd.cn" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Spring Boot项目Docker化快速上手》 — happyJared - 博客&url=https://blog.mariojd.cn/build-spring-boot-project-with-docker.html&via=https://blog.mariojd.cn" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
           <li>
-            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://blog.mariojd.cn/jmeter-pressure-test-based-on-http.html" data-title="Google+">
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://blog.mariojd.cn/build-spring-boot-project-with-docker.html" data-title="Google+">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -298,7 +272,7 @@
 <div class="post-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;" id="wxShare-close">×</a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://blog.mariojd.cn/jmeter-pressure-test-based-on-http.html" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://blog.mariojd.cn/build-spring-boot-project-with-docker.html" alt="微信分享二维码">
 </div>
 
 <div class="mask"></div>
@@ -310,11 +284,9 @@
   <li class="article-footer-tags">
     <i class="fa fa-tags"></i>
       
-    <a href="/tags/Jmeter/" class="color2">Jmeter</a>
+    <a href="/tags/docker/" class="color2">docker</a>
       
-    <a href="/tags/压测工具/" class="color5">压测工具</a>
-      
-    <a href="/tags/http(s)/" class="color3">http(s)</a>
+    <a href="/tags/springboot/" class="color2">spring boot</a>
       
   </li>
 
@@ -327,26 +299,16 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Http测试"><span class="post-toc-text">Http测试</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#测试一"><span class="post-toc-text">测试一</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#测试二"><span class="post-toc-text">测试二</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#1-使用函数助手添加请求头参数"><span class="post-toc-text">1. 使用函数助手添加请求头参数</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#2-配置-“HTTP信息头管理器”"><span class="post-toc-text">2. 配置 “HTTP信息头管理器”</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#3-模拟用户请求进行测试"><span class="post-toc-text">3. 模拟用户请求进行测试</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#测试三"><span class="post-toc-text">测试三</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#1-使用“CSV数据文件”添加请求参数"><span class="post-toc-text">1. 使用“CSV数据文件”添加请求参数</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#2-配置-“HTTP信息头管理器”-1"><span class="post-toc-text">2. 配置 “HTTP信息头管理器”</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#3-模拟用户请求进行测试-1"><span class="post-toc-text">3. 模拟用户请求进行测试</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Https测试"><span class="post-toc-text">Https测试</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#写在最后"><span class="post-toc-text">写在最后</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#开篇"><span class="post-toc-text">开篇</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#环境说明"><span class="post-toc-text">环境说明</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置准备"><span class="post-toc-text">配置准备</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#插件添加"><span class="post-toc-text">插件添加</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#构建运行"><span class="post-toc-text">构建运行</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#学习资源"><span class="post-toc-text">学习资源</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参考链接"><span class="post-toc-text">参考链接</span></a></li></ol>
         </nav>
     </aside>
     
 
 <nav id="article-nav">
   
-    <a href="/jmeter-pressure-test-based-on-websocket.html" id="article-nav-newer" class="article-nav-link-wrap">
-
-      <span class="article-nav-title">
-        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
-        
-          Jmeter 压测 ws(s)
-        
-      </span>
-    </a>
   
-  
-    <a href="/about-jmeter.html" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">关于Jmeter</span>
+    <a href="/use-scrapy-crawl-zealer.html" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">爬虫进阶：Scrapy抓取科技平台Zealer</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   
@@ -355,7 +317,7 @@
 
 
     
-        <div id="SOHUCS" sid="Jmeter压测 http(s)" ></div>
+        <div id="SOHUCS" sid="Spring Boot项目Docker化快速上手" ></div>
 <script type="text/javascript">
     (function(){
         var appid = 'cytsi4W0L';

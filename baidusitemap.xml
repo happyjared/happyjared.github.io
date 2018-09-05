@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>https://blog.mariojd.cn/build-spring-boot-project-with-docker.html</loc>
+    <lastmod>2018-09-05T01:25:01.088Z</lastmod>
+    <data>
+        <display>
+        <title>Spring Boot项目Docker化快速上手</title>
+        <pubTime>2018-09-03T16:00:00.000Z</pubTime>
+        
+        <tag>docker</tag>
+         
+        <tag>spring boot</tag>
+         
+         
+           
+             
+              <breadCrumb title="Java" url="https://blog.mariojd.cn/categories/Java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://blog.mariojd.cn/use-scrapy-crawl-zealer.html</loc>
     <lastmod>2018-09-03T06:14:25.194Z</lastmod>
     <data>

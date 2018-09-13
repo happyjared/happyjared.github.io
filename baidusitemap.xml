@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>https://blog.mariojd.cn/common-questions-with-answer-in-spring-data-elasticsearch.html</loc>
+    <lastmod>2018-09-13T00:43:44.071Z</lastmod>
+    <data>
+        <display>
+        <title>Elasticsearch地理坐标类型(Geo-point)在Spring Data ES中的常见使用问题整理解答</title>
+        <pubTime>2018-09-11T16:00:00.000Z</pubTime>
+        
+        <tag>Spring Boot</tag>
+         
+        <tag>Spring Data Elasticsearch</tag>
+         
+         
+           
+             
+              <breadCrumb title="Java" url="https://blog.mariojd.cn/categories/Java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://blog.mariojd.cn/build-spring-boot-project-with-docker.html</loc>
     <lastmod>2018-09-05T01:25:01.088Z</lastmod>
     <data>

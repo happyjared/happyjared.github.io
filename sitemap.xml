@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.mariojd.cn/common-questions-with-answer-in-spring-data-elasticsearch.html</loc>
+    
+    <lastmod>2018-09-13T00:43:44.071Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.mariojd.cn/build-spring-boot-project-with-docker.html</loc>
     
     <lastmod>2018-09-05T01:25:01.088Z</lastmod>

@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.mariojd.cn/15-examples-of-java8-stream-usage.html</loc>
+    
+    <lastmod>2018-09-21T07:09:01.215Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.mariojd.cn/the-orm-tool-sqlalchemy-in-python.html</loc>
+    
+    <lastmod>2018-09-21T07:09:01.213Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.mariojd.cn/the-orm-tool-peewee-in-python.html</loc>
+    
+    <lastmod>2018-09-21T07:09:01.212Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.mariojd.cn/common-questions-with-answer-in-spring-data-elasticsearch.html</loc>
     
     <lastmod>2018-09-13T00:43:44.071Z</lastmod>

@@ -4,6 +4,78 @@
 
     
   <url>
+    <loc>https://blog.mariojd.cn/15-examples-of-java8-stream-usage.html</loc>
+    <lastmod>2018-09-21T07:09:01.215Z</lastmod>
+    <data>
+        <display>
+        <title>十五个常用经典的Java8 Stream API用法示例</title>
+        <pubTime>2018-09-17T16:00:00.000Z</pubTime>
+        
+        <tag>java8 stream</tag>
+         
+         
+           
+             
+              <breadCrumb title="Java" url="https://blog.mariojd.cn/categories/Java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/the-orm-tool-sqlalchemy-in-python.html</loc>
+    <lastmod>2018-09-21T07:09:01.213Z</lastmod>
+    <data>
+        <display>
+        <title>Python中的ORM工具：SQLAlchemy</title>
+        <pubTime>2018-09-19T16:00:00.000Z</pubTime>
+        
+        <tag>Python</tag>
+         
+        <tag>ORM</tag>
+         
+        <tag>Faker</tag>
+         
+        <tag>SQLAlchemy</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="https://blog.mariojd.cn/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/the-orm-tool-peewee-in-python.html</loc>
+    <lastmod>2018-09-21T07:09:01.212Z</lastmod>
+    <data>
+        <display>
+        <title>Python中的ORM工具：Peewee</title>
+        <pubTime>2018-09-20T16:00:00.000Z</pubTime>
+        
+        <tag>Python</tag>
+         
+        <tag>ORM</tag>
+         
+        <tag>Peewee</tag>
+         
+        <tag>Faker</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="https://blog.mariojd.cn/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://blog.mariojd.cn/common-questions-with-answer-in-spring-data-elasticsearch.html</loc>
     <lastmod>2018-09-13T00:43:44.071Z</lastmod>
     <data>

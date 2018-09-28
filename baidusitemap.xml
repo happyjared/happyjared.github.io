@@ -4,6 +4,76 @@
 
     
   <url>
+    <loc>https://blog.mariojd.cn/share-scrapy-experience-in-crawl-zhipin-and-lagou.html</loc>
+    <lastmod>2018-09-28T08:16:10.396Z</lastmod>
+    <data>
+        <display>
+        <title>爬虫进阶：Scrapy抓取boss直聘、拉勾心得经验</title>
+        <pubTime>2018-09-25T16:00:00.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+        <tag>scrapy</tag>
+         
+        <tag>boss</tag>
+         
+        <tag>lagou</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="https://blog.mariojd.cn/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/go-back-to-learn-linux.html</loc>
+    <lastmod>2018-09-28T08:16:10.386Z</lastmod>
+    <data>
+        <display>
+        <title>Linux私房菜：回头去学这点事</title>
+        <pubTime>2018-09-26T16:00:00.000Z</pubTime>
+        
+        <tag>linux thing</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="https://blog.mariojd.cn/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/linux-file-and-directory-permission.html</loc>
+    <lastmod>2018-09-28T08:16:10.386Z</lastmod>
+    <data>
+        <display>
+        <title>Linux私房菜：文件目录权限那点事</title>
+        <pubTime>2018-09-27T16:00:00.000Z</pubTime>
+        
+        <tag>linux thing</tag>
+         
+        <tag>file permission</tag>
+         
+        <tag>directory permission</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="https://blog.mariojd.cn/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://blog.mariojd.cn/elasticsearch-cluster-environment-construction-based-docker.html</loc>
     <lastmod>2018-09-26T09:16:56.358Z</lastmod>
     <data>
@@ -60,9 +130,9 @@
          
         <tag>ORM</tag>
          
-        <tag>Faker</tag>
-         
         <tag>SQLAlchemy</tag>
+         
+        <tag>Faker</tag>
          
          
            
@@ -86,9 +156,9 @@
          
         <tag>ORM</tag>
          
-        <tag>Peewee</tag>
-         
         <tag>Faker</tag>
+         
+        <tag>Peewee</tag>
          
          
            
@@ -521,9 +591,9 @@
         <title>YApi - 高效、易用、功能强大的可视化接口管理平台</title>
         <pubTime>2018-06-25T16:00:00.000Z</pubTime>
         
-        <tag>swagger</tag>
-         
         <tag>yapi</tag>
+         
+        <tag>swagger</tag>
          
          
            
@@ -1542,9 +1612,9 @@
         
         <tag>Jmeter</tag>
          
-        <tag>压测工具</tag>
-         
         <tag>http(s)</tag>
+         
+        <tag>压测工具</tag>
          
          
            
@@ -1566,9 +1636,9 @@
         
         <tag>Jmeter</tag>
          
-        <tag>ws(s)</tag>
-         
         <tag>压测工具</tag>
+         
+        <tag>ws(s)</tag>
          
          
            
@@ -2162,13 +2232,13 @@
         <title>Hexo整合GitHub Pages</title>
         <pubTime>2018-02-07T16:00:00.000Z</pubTime>
         
+        <tag>Hexo</tag>
+         
         <tag>GitHub Pages</tag>
          
         <tag>个人博客</tag>
          
         <tag>开源项目</tag>
-         
-        <tag>Hexo</tag>
          
          
            
@@ -2234,9 +2304,9 @@
         <title>Spring Boot集成Swagger简易教程</title>
         <pubTime>2018-06-24T16:00:00.000Z</pubTime>
         
-        <tag>spring boot</tag>
-         
         <tag>swagger</tag>
+         
+        <tag>spring boot</tag>
          
          
            

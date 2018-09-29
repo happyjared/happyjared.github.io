@@ -16,12 +16,12 @@
 <meta property="og:site_name" content="happyJared - 博客">
 <meta property="og:description" content="关于使用Scrapy的体会，最明显的感受就是这种模板化、工程化的脚手架体系，可以说是拿来即可开箱便用，大多仅需按一定的规则套路配置，剩下的就是专注于编写跟爬虫业务有关的代码。绝大多数的反反爬虫策略，大多有以下几种：  忽略robots.txt协议 添加随机请求头，如cookie、user-agent等 sleep休眠 控制并发请求数、设置页面下载延迟 验证码识别(靠谱) 使用ip代理池(最靠谱)">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018927/20180927170504.png">
-<meta property="og:updated_time" content="2018-09-28T08:16:10.396Z">
+<meta property="og:image" content="http://image.mariojd.cn/smallstory/2018927/20180927170504.png">
+<meta property="og:updated_time" content="2018-09-29T03:20:10.854Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="爬虫进阶：Scrapy抓取boss直聘、拉勾心得经验">
 <meta name="twitter:description" content="关于使用Scrapy的体会，最明显的感受就是这种模板化、工程化的脚手架体系，可以说是拿来即可开箱便用，大多仅需按一定的规则套路配置，剩下的就是专注于编写跟爬虫业务有关的代码。绝大多数的反反爬虫策略，大多有以下几种：  忽略robots.txt协议 添加随机请求头，如cookie、user-agent等 sleep休眠 控制并发请求数、设置页面下载延迟 验证码识别(靠谱) 使用ip代理池(最靠谱)">
-<meta name="twitter:image" content="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018927/20180927170504.png">
+<meta name="twitter:image" content="http://image.mariojd.cn/smallstory/2018927/20180927170504.png">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -164,7 +164,7 @@
 </ul>
 <p>文章的出发点是share本人使用scrapy爬取Boss和拉勾两个招聘网的一些实操总结经验。两个网站的网页结构不尽相同，好在需要及提取出的最终数据基本保持了一致，出于两个网站不同的反爬策略和请求配置(<code>settings.py</code>)，因此对应实际的情况是两个Scrapy项目。</p>
 <p>友情提醒，这里不介绍scrapy示例及完整代码(<strong>Tip: 下方贴有完整代码链接</strong>)。如文章标题描述的那样，由于拉勾和Boss都有各自不同的反爬策略，多少也限制了一些爬虫学习者的热情，包括我自身在内，不过多番尝试之后还是有收获的，跑的是定时计划，目前已入库的有近三万条数据。</p>
-<p><img src="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018927/20180927170504.png" alt="Data"></p>
+<p><img src="http://image.mariojd.cn/smallstory/2018927/20180927170504.png" alt="Data"></p>
 <p>进入正题，下面分别介绍拉勾网以及Boss直聘网岗位招聘数据的爬取心得，不过网站的反爬策略和网页结构随时都有发生变动的可能，因此还是需要根据实际情况进行再调整。本次分享的内容截止到2018年09月28日，在实际运行项目中依然生效。</p>
 <h3 id="拉勾"><a href="#拉勾" class="headerlink" title="拉勾"></a>拉勾</h3><ul>
 <li>关闭默认<code>cookie</code>(否则会跟请求头中的<code>Cookie</code>冲突)，自定义请求<code>headers</code>并添加随机<code>Cookie</code>属性<ul>
@@ -200,7 +200,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年09月28日 16:16</p>
+        <p>最后更新： 2018年09月29日 11:20</p>
         <p>原始链接： <a class="post-url" href="/share-scrapy-experience-in-crawl-zhipin-and-lagou.html" title="爬虫进阶：Scrapy抓取boss直聘、拉勾心得经验">https://blog.mariojd.cn/share-scrapy-experience-in-crawl-zhipin-and-lagou.html</a></p>
         <footer>
             <a href="https://blog.mariojd.cn">

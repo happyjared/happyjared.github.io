@@ -16,16 +16,16 @@
 <meta property="og:site_name" content="happyJared - 博客">
 <meta property="og:description" content="&amp;emsp;&amp;emsp;上一篇Jmeter压测http(s)介绍了如何使用Jmeter压测常规的web服务接口。本文将继续演示如何使用Jmeter对ws(s)进行压力测试。 &amp;emsp;&amp;emsp;有过Socket相关开发经验的人应该都不会陌生，ws协议就是WebSocket协议，而wss对应就是在SSL上运行的WebSocket协议。有关WebSocket的知识，这里不做过多说明，有兴趣可以看">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://image.mariojd.cn/xsj/2018430/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180430235237.png">
-<meta property="og:image" content="https://image.mariojd.cn/xsj/2018430/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180430232506.png">
-<meta property="og:image" content="https://image.mariojd.cn/xsj/2018430/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180430234436.png">
-<meta property="og:image" content="https://image.mariojd.cn/xsj/201851/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180430235954.png">
-<meta property="og:image" content="https://image.mariojd.cn/xsj/201851/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180501000001.png">
-<meta property="og:updated_time" content="2018-08-23T06:03:56.211Z">
+<meta property="og:image" content="http://image.mariojd.cn/xsj/2018430/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180430235237.png">
+<meta property="og:image" content="http://image.mariojd.cn/xsj/2018430/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180430232506.png">
+<meta property="og:image" content="http://image.mariojd.cn/xsj/2018430/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180430234436.png">
+<meta property="og:image" content="http://image.mariojd.cn/xsj/201851/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180430235954.png">
+<meta property="og:image" content="http://image.mariojd.cn/xsj/201851/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180501000001.png">
+<meta property="og:updated_time" content="2018-09-29T03:20:10.804Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Jmeter 压测 ws(s)">
 <meta name="twitter:description" content="&amp;emsp;&amp;emsp;上一篇Jmeter压测http(s)介绍了如何使用Jmeter压测常规的web服务接口。本文将继续演示如何使用Jmeter对ws(s)进行压力测试。 &amp;emsp;&amp;emsp;有过Socket相关开发经验的人应该都不会陌生，ws协议就是WebSocket协议，而wss对应就是在SSL上运行的WebSocket协议。有关WebSocket的知识，这里不做过多说明，有兴趣可以看">
-<meta name="twitter:image" content="https://image.mariojd.cn/xsj/2018430/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180430235237.png">
+<meta name="twitter:image" content="http://image.mariojd.cn/xsj/2018430/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180430235237.png">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -162,13 +162,13 @@
 <h3 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境"></a>配置环境</h3><p>&emsp;&emsp;由于JMeter需要添加几个扩展Jar包后方可支持ws测试，所以我们需要配置相关的测试环境，以下是这些jar包的下载地址。</p>
 <ul>
 <li><a href="https://jmeter-plugins.org/files/packages/websocket-sampler-1.0.2-SNAPSHOT.zip" target="_blank" rel="noopener">官方下载</a></li>
-<li><a href="https://image.mariojd.cn/WebSocketSampler-Jars.zip" target="_blank" rel="noopener">备用下载</a></li>
+<li><a href="http://image.mariojd.cn/WebSocketSampler-Jars.zip" target="_blank" rel="noopener">备用下载</a></li>
 </ul>
-<p><img src="https://image.mariojd.cn/xsj/2018430/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180430235237.png" alt="WebSocket Sampler jars" title="WebSocket Sampler jars"></p>
+<p><img src="http://image.mariojd.cn/xsj/2018430/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180430235237.png" alt="WebSocket Sampler jars" title="WebSocket Sampler jars"></p>
 <p>&emsp;&emsp;将下载好的Jar包放到JMeter的<code>lib\ext</code>目录下即可。</p>
 <h3 id="ws测试"><a href="#ws测试" class="headerlink" title="ws测试"></a>ws测试</h3><p>&emsp;&emsp;启动Jmeter后，右键依次选择 “测试计划” -&gt; “添加” -&gt; “Threads(Users)” -&gt; “线程组” -&gt; “Sampler” -&gt; “WebSocket Sampler”。</p>
-<p><img src="https://image.mariojd.cn/xsj/2018430/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180430232506.png" alt="WebSocket Sampler" title="WebSocket Sampler"></p>
-<p><img src="https://image.mariojd.cn/xsj/2018430/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180430234436.png" alt="WebSocket Sampler" title="WebSocket Sampler"></p>
+<p><img src="http://image.mariojd.cn/xsj/2018430/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180430232506.png" alt="WebSocket Sampler" title="WebSocket Sampler"></p>
+<p><img src="http://image.mariojd.cn/xsj/2018430/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180430234436.png" alt="WebSocket Sampler" title="WebSocket Sampler"></p>
 <h4 id="选项说明："><a href="#选项说明：" class="headerlink" title="选项说明："></a>选项说明：</h4><ul>
 <li><ol>
 <li>WebServer<ul>
@@ -199,14 +199,14 @@
 </li>
 </ul>
 <p>&emsp;&emsp;为了方便，下面以一个在线的<a href="http://www.websocket.org/echo.html" target="_blank" rel="noopener">WebSocket网站</a>来开展测试。分别在<code>Server Name or IP</code>一栏中输入：echo.websocket.org，在<code>Request data</code>一栏中输入：Send test。启动测试计划，得到如下响应结果。</p>
-<p><img src="https://image.mariojd.cn/xsj/201851/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180430235954.png" alt="察看结果树响应" title="察看结果树响应"></p>
-<p><img src="https://image.mariojd.cn/xsj/201851/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180501000001.png" alt="聚合报告响应" title="聚合报告响应"></p>
+<p><img src="http://image.mariojd.cn/xsj/201851/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180430235954.png" alt="察看结果树响应" title="察看结果树响应"></p>
+<p><img src="http://image.mariojd.cn/xsj/201851/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180501000001.png" alt="聚合报告响应" title="聚合报告响应"></p>
 <h3 id="wss测试"><a href="#wss测试" class="headerlink" title="wss测试"></a>wss测试</h3><p>&emsp;&emsp;相比于ws测试，wss的测试也仅需修改两处地方。分别将<code>Port Number</code>修改为：443，以及将<code>Protocol</code>修改为：wss。启动测试计划后，我们同样可以得到系统的正常响应。</p>
 <h3 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h3><p>&emsp;&emsp;结合“函数助手”或者“CVS数据文件”的方式，我们同样可以模拟实现不同的用户，发送不同的请求参数。有关于JMeter的内容到这就告一段落了，后续如果还有其它的补充，我会及时的更新上去。</p>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年08月23日 14:03</p>
+        <p>最后更新： 2018年09月29日 11:20</p>
         <p>原始链接： <a class="post-url" href="/jmeter-pressure-test-based-on-websocket.html" title="Jmeter 压测 ws(s)">https://blog.mariojd.cn/jmeter-pressure-test-based-on-websocket.html</a></p>
         <footer>
             <a href="https://blog.mariojd.cn">

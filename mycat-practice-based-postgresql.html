@@ -16,14 +16,14 @@
 <meta property="og:site_name" content="happyJared - 博客">
 <meta property="og:description" content="写在前面&amp;emsp;&amp;emsp;Mycat作为独立的数据库中间件，我们只需要进行相关的配置，就可以非常方便的帮我们实现水平切分、垂直切分、读写分离等功能，但PostgreSQL的主从复制需要我们通过其它方式实现。这里假设我们已经搭建好相关的环境，下面就开始我们的实践吧！ 准备环境 PostgreSQL(Version : 10.1)主从环境搭建 对应数据库建立（以下例子中使用的都是默认存在的po">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://image.mariojd.cn/20180303173140.png">
-<meta property="og:image" content="https://image.mariojd.cn/20180303172550.png">
-<meta property="og:image" content="https://image.mariojd.cn/20185454511.png">
-<meta property="og:updated_time" content="2018-08-23T06:02:22.791Z">
+<meta property="og:image" content="http://image.mariojd.cn/20180303173140.png">
+<meta property="og:image" content="http://image.mariojd.cn/20180303172550.png">
+<meta property="og:image" content="http://image.mariojd.cn/20185454511.png">
+<meta property="og:updated_time" content="2018-09-29T03:20:10.804Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mycat（实践篇 - 基于PostgreSQL的水平切分、主从复制、读写分离）">
 <meta name="twitter:description" content="写在前面&amp;emsp;&amp;emsp;Mycat作为独立的数据库中间件，我们只需要进行相关的配置，就可以非常方便的帮我们实现水平切分、垂直切分、读写分离等功能，但PostgreSQL的主从复制需要我们通过其它方式实现。这里假设我们已经搭建好相关的环境，下面就开始我们的实践吧！ 准备环境 PostgreSQL(Version : 10.1)主从环境搭建 对应数据库建立（以下例子中使用的都是默认存在的po">
-<meta name="twitter:image" content="https://image.mariojd.cn/20180303173140.png">
+<meta name="twitter:image" content="http://image.mariojd.cn/20180303173140.png">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -168,7 +168,7 @@
 <h4 id="引述《Mycat权威指南》里面的原话"><a href="#引述《Mycat权威指南》里面的原话" class="headerlink" title="引述《Mycat权威指南》里面的原话:"></a>引述《Mycat权威指南》里面的原话:</h4><blockquote>
 <p>从 1.6 版本开始支持 postgresql 的 native 原始协议。<br>如果使用 JDBC 的话需要将符合 JDBC4 标准的驱动 JAR 包放到 MYCAT\lib 目录下，并检查驱动 JAR 包中<br>包括如下目录结构的文件：META-INF\services\java.sql.Driver。在这个文件内写上具体的 Driver 类名，例如：<br>com.mysql.jdbc.Driver。</p>
 </blockquote>
-<p>&emsp;&emsp;所以，具体的解决方案就是找一个postgresql的jar包，然后丢到mycat的lib目录下，不然就会出现启动失败或者连接不到postgre数据库的异常情况。本例中用到的jar包是：<a href="https://image.mariojd.cn/postgresql-42.1.4.jar" target="_blank" rel="noopener">postgresql-42.1.4.jar</a></p>
+<p>&emsp;&emsp;所以，具体的解决方案就是找一个postgresql的jar包，然后丢到mycat的lib目录下，不然就会出现启动失败或者连接不到postgre数据库的异常情况。本例中用到的jar包是：<a href="http://image.mariojd.cn/postgresql-42.1.4.jar" target="_blank" rel="noopener">postgresql-42.1.4.jar</a></p>
 <h3 id="配置rule-xml"><a href="#配置rule-xml" class="headerlink" title="配置rule.xml"></a>配置rule.xml</h3><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">     <span class="tag">&lt;<span class="name">tableRule</span> <span class="attr">name</span>=<span class="string">"user-mod-long"</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">rule</span>&gt;</span></span><br><span class="line">                      <span class="tag">&lt;<span class="name">columns</span>&gt;</span>id<span class="tag">&lt;/<span class="name">columns</span>&gt;</span></span><br><span class="line">                      <span class="tag">&lt;<span class="name">algorithm</span>&gt;</span>mod-long<span class="tag">&lt;/<span class="name">algorithm</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;/<span class="name">rule</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">tableRule</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">tableRule</span> <span class="attr">name</span>=<span class="string">"student-mod-long"</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">rule</span>&gt;</span></span><br><span class="line">                      <span class="tag">&lt;<span class="name">columns</span>&gt;</span>user_id<span class="tag">&lt;/<span class="name">columns</span>&gt;</span></span><br><span class="line">                      <span class="tag">&lt;<span class="name">algorithm</span>&gt;</span>mod-long<span class="tag">&lt;/<span class="name">algorithm</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;/<span class="name">rule</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">tableRule</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">function</span> <span class="attr">name</span>=<span class="string">"mod-long"</span> <span class="attr">class</span>=<span class="string">"io.mycat.route.function.PartitionByMod"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"count"</span>&gt;</span>2<span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">function</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>&emsp;&emsp;修改了配置文件后，别忘了重启Mycat，如果有异常出现，请通过查看logs目录下的日志文件进行排查。</p>
 <h3 id="项目搭建（SpringBoot-JPA）"><a href="#项目搭建（SpringBoot-JPA）" class="headerlink" title="项目搭建（SpringBoot + JPA）"></a>项目搭建（SpringBoot + JPA）</h3><ul>
@@ -195,15 +195,15 @@
 </ol>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testAdd</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">long</span> i = <span class="number">0</span>; i &lt; <span class="number">30</span>; i++) &#123;</span><br><span class="line">            User user = <span class="keyword">new</span> User();</span><br><span class="line">            user.setId(i);</span><br><span class="line">            user.setName(<span class="string">"李四"</span> + i);</span><br><span class="line">            user.setGender(i % <span class="number">2</span> == <span class="number">0</span> ? <span class="number">1</span> : <span class="number">0</span>);</span><br><span class="line">            userDao.save(user);</span><br><span class="line"></span><br><span class="line">            Student student = <span class="keyword">new</span> Student();</span><br><span class="line">            student.setId(System.currentTimeMillis() + i);</span><br><span class="line">            student.setName(<span class="string">"李四学生"</span> + i);</span><br><span class="line">            student.setUserId(i);</span><br><span class="line">            studentDao.save(student);</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>测试结果：数据按id取模的方式划分到了两个数据库中，同时从库同步了主库的数据</p>
-<p><img src="https://image.mariojd.cn/20180303173140.png" alt="水平切分(id取模)" title="水平切分(id取模)"></p>
+<p><img src="http://image.mariojd.cn/20180303173140.png" alt="水平切分(id取模)" title="水平切分(id取模)"></p>
 <ol>
 <li>测试模糊查询+分页</li>
 </ol>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testFind</span><span class="params">()</span> </span>&#123;</span><br><span class="line"> 		Pageable pageable = <span class="keyword">new</span> PageRequest(<span class="number">0</span>, <span class="number">10</span>, Sort.Direction.ASC, <span class="string">"id"</span>);</span><br><span class="line">        List&lt;User&gt; userList = userDao.findByNameLike(<span class="string">"%李四1%"</span>, pageable).getContent();</span><br><span class="line">        userList.forEach(System.out::println);</span><br><span class="line"></span><br><span class="line">        Pageable pageable2 = <span class="keyword">new</span> PageRequest(<span class="number">0</span>, <span class="number">10</span>, Sort.Direction.ASC, <span class="string">"userId"</span>);</span><br><span class="line">        List&lt;Student&gt; studentList = studentDao.findByNameLike(<span class="string">"%李四学生2%"</span>, pageable2).getContent();</span><br><span class="line">        studentList.forEach(System.out::println);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>测试结果：按照模糊匹配及id升序的方式输出结果</p>
-<p><img src="https://image.mariojd.cn/20180303172550.png" alt="测试模糊查询+分页" title="测试模糊查询+分页"></p>
+<p><img src="http://image.mariojd.cn/20180303172550.png" alt="测试模糊查询+分页" title="测试模糊查询+分页"></p>
 <p>测试结果：读操作都走了从库</p>
-<p><img src="https://image.mariojd.cn/20185454511.png" alt="读写分离，读都走了从库" title="读写分离，读都走了从库"></p>
+<p><img src="http://image.mariojd.cn/20185454511.png" alt="读写分离，读都走了从库" title="读写分离，读都走了从库"></p>
 <ol>
 <li>删除及修改请自行测试</li>
 </ol>
@@ -213,7 +213,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年08月23日 14:02</p>
+        <p>最后更新： 2018年09月29日 11:20</p>
         <p>原始链接： <a class="post-url" href="/mycat-practice-based-postgresql.html" title="Mycat（实践篇 - 基于PostgreSQL的水平切分、主从复制、读写分离）">https://blog.mariojd.cn/mycat-practice-based-postgresql.html</a></p>
         <footer>
             <a href="https://blog.mariojd.cn">

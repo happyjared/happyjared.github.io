@@ -16,14 +16,14 @@
 <meta property="og:site_name" content="happyJared - 博客">
 <meta property="og:description" content="&amp;emsp;&amp;emsp;假设有这么一个需求，要求在项目启动过程中，完成线程池的初始化，加密证书加载等功能，你会怎么做？如果没想好答案，请接着往下看。今天介绍几种在Spring Boot中进行资源初始化的方式，帮助大家解决和回答这个问题。 CommandLineRunner 定义初始化类 MyCommandLineRunner 实现 CommandLineRunner 接口，并实现它的 run()">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://image.mariojd.cn/xsj/201852/WeChat%E6%88%AA%E5%9C%96_20180502171510.png">
-<meta property="og:image" content="https://image.mariojd.cn/xsj/201852/WeChat%E6%88%AA%E5%9C%96_20180502175629.png">
-<meta property="og:image" content="https://image.mariojd.cn/xsj/201852/WeChat%E6%88%AA%E5%9C%96_20180502173802.png">
-<meta property="og:updated_time" content="2018-07-20T08:25:59.110Z">
+<meta property="og:image" content="http://image.mariojd.cn/xsj/201852/WeChat%E6%88%AA%E5%9C%96_20180502171510.png">
+<meta property="og:image" content="http://image.mariojd.cn/xsj/201852/WeChat%E6%88%AA%E5%9C%96_20180502175629.png">
+<meta property="og:image" content="http://image.mariojd.cn/xsj/201852/WeChat%E6%88%AA%E5%9C%96_20180502173802.png">
+<meta property="og:updated_time" content="2018-09-29T03:20:10.824Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring Boot中初始化资源的几种方式">
 <meta name="twitter:description" content="&amp;emsp;&amp;emsp;假设有这么一个需求，要求在项目启动过程中，完成线程池的初始化，加密证书加载等功能，你会怎么做？如果没想好答案，请接着往下看。今天介绍几种在Spring Boot中进行资源初始化的方式，帮助大家解决和回答这个问题。 CommandLineRunner 定义初始化类 MyCommandLineRunner 实现 CommandLineRunner 接口，并实现它的 run()">
-<meta name="twitter:image" content="https://image.mariojd.cn/xsj/201852/WeChat%E6%88%AA%E5%9C%96_20180502171510.png">
+<meta name="twitter:image" content="http://image.mariojd.cn/xsj/201852/WeChat%E6%88%AA%E5%9C%96_20180502171510.png">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -175,15 +175,15 @@
 </ul>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyApplicationRunner</span> <span class="keyword">implements</span> <span class="title">ApplicationRunner</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">(ApplicationArguments applicationArguments)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"...init resources by implements ApplicationRunner"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>&emsp;&emsp;可以看到，通过实现 ApplicationRunner 接口，和通过实现 CommandLineRunner 接口都可以完成项目的初始化操作，实现相同的效果。两者之间唯一的区别是 <code>run()</code> 方法中自带的形参不相同，在 CommandLineRunner 中只是简单的<code>String... args</code>形参，而 ApplicationRunner 则是包含了 ApplicationArguments 对象，可以帮助获得更丰富的项目信息。</p>
-<p><img src="https://image.mariojd.cn/xsj/201852/WeChat%E6%88%AA%E5%9C%96_20180502171510.png" alt="ApplicationArguments" title="ApplicationArguments"></p>
+<p><img src="http://image.mariojd.cn/xsj/201852/WeChat%E6%88%AA%E5%9C%96_20180502171510.png" alt="ApplicationArguments" title="ApplicationArguments"></p>
 <h3 id="Order"><a href="#Order" class="headerlink" title="@Order"></a>@Order</h3><p>&emsp;&emsp;如果项目中既有实现了 <code>ApplicationRunner</code> 接口的初始化类，又有实现了 <code>CommandLineRunner</code> 接口的初始化类，那么会是哪一个先执行呢？测试告诉我们，答案是实现了 <code>ApplicationRunner</code> 接口的初始化类先执行，我想这点倒是不需要大家过分去关注为什么。但如果需要改变两个初始化类之间的默认执行顺序，那么使用 <code>@Order</code> 注解就可以帮助我们解决这个问题。</p>
-<p><img src="https://image.mariojd.cn/xsj/201852/WeChat%E6%88%AA%E5%9C%96_20180502175629.png" alt="@Order" title="@Order"></p>
+<p><img src="http://image.mariojd.cn/xsj/201852/WeChat%E6%88%AA%E5%9C%96_20180502175629.png" alt="@Order" title="@Order"></p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@Order</span>(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyCommandLineRunner</span> <span class="keyword">implements</span> <span class="title">CommandLineRunner</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">(String... args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"...init resources by implements CommandLineRunner"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@Order</span>(<span class="number">2</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyApplicationRunner</span> <span class="keyword">implements</span> <span class="title">ApplicationRunner</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">(ApplicationArguments applicationArguments)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"...init resources by implements ApplicationRunner"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>&emsp;&emsp;最终，控制台中打印如下。通过控制台输出我们发现， <code>@Order</code> 注解值越小，该初始化类也就越早执行。</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">。。。。。。（此处省略一堆打印信息）</span><br><span class="line"><span class="number">2018</span>-<span class="number">05</span>-<span class="number">02</span> <span class="number">17</span>:<span class="number">27</span>:<span class="number">31.450</span>  INFO <span class="number">28304</span> --- [           main] s.b.c.e.t.TomcatEmbeddedServletContainer : <span class="function">Tomcat started on <span class="title">port</span><span class="params">(s)</span>: 8080 <span class="params">(http)</span></span></span><br><span class="line"><span class="function">...init resources by implements CommandLineRunner</span></span><br><span class="line"><span class="function">...init resources by implements ApplicationRunner</span></span><br><span class="line"><span class="function">2018-05-02 17:27:31.453  INFO 28304 --- [           main] cn.mariojd.demo.DemoApplication          : Started DemoApplication in 2.086 <span class="title">seconds</span> <span class="params">(JVM running <span class="keyword">for</span> <span class="number">2.977</span>)</span></span></span><br></pre></td></tr></table></figure>
 <h3 id="PostConstruct"><a href="#PostConstruct" class="headerlink" title="@PostConstruct"></a>@PostConstruct</h3><p>&emsp;&emsp;使用 <code>@PostConstruct</code> 注解同样可以帮助我们完成资源的初始化操作，前提是这些初始化操作不需要依赖于其它Spring beans的初始化工作。</p>
-<p><img src="https://image.mariojd.cn/xsj/201852/WeChat%E6%88%AA%E5%9C%96_20180502173802.png" alt="@PostConstruct" title="@PostConstruct"></p>
+<p><img src="http://image.mariojd.cn/xsj/201852/WeChat%E6%88%AA%E5%9C%96_20180502173802.png" alt="@PostConstruct" title="@PostConstruct"></p>
 <p>&emsp;&emsp;可以看到 <code>@PostConstruct</code> 注解是用在方法上的，写一个方法测试一下吧。</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@PostConstruct</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">postConstruct</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    System.out.println(<span class="string">"... PostConstruct"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>&emsp;&emsp;启动项目，控制台中最终打印如下。</p>
@@ -192,7 +192,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年07月20日 16:25</p>
+        <p>最后更新： 2018年09月29日 11:20</p>
         <p>原始链接： <a class="post-url" href="/several-ways-of-initializing-resources-in-spring-boot.html" title="Spring Boot中初始化资源的几种方式">https://blog.mariojd.cn/several-ways-of-initializing-resources-in-spring-boot.html</a></p>
         <footer>
             <a href="https://blog.mariojd.cn">

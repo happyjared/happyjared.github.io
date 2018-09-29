@@ -16,13 +16,13 @@
 <meta property="og:site_name" content="happyJared - 博客">
 <meta property="og:description" content="前言&amp;emsp;&amp;emsp;本文介绍Spring Boot中读取配置属性的几种方式，项目示例中用到的application.yml和application.properties定义如下：   @Value&amp;emsp;&amp;emsp;@Value是比较常见的注入方式，功能强大但一般可读性较差。 @Value(&quot;str&quot;)private String str; // 注入普通字符串	@Value(&quot;$&amp;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://image.mariojd.cn/smallstory/2018713/20180713094313.png">
-<meta property="og:image" content="https://image.mariojd.cn/smallstory/2018713/20180713094341.png">
-<meta property="og:updated_time" content="2018-07-16T09:30:43.047Z">
+<meta property="og:image" content="http://image.mariojd.cn/smallstory/2018713/20180713094313.png">
+<meta property="og:image" content="http://image.mariojd.cn/smallstory/2018713/20180713094341.png">
+<meta property="og:updated_time" content="2018-09-29T03:20:10.824Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring Boot中读取配置属性的几种方式">
 <meta name="twitter:description" content="前言&amp;emsp;&amp;emsp;本文介绍Spring Boot中读取配置属性的几种方式，项目示例中用到的application.yml和application.properties定义如下：   @Value&amp;emsp;&amp;emsp;@Value是比较常见的注入方式，功能强大但一般可读性较差。 @Value(&quot;str&quot;)private String str; // 注入普通字符串	@Value(&quot;$&amp;">
-<meta name="twitter:image" content="https://image.mariojd.cn/smallstory/2018713/20180713094313.png">
+<meta name="twitter:image" content="http://image.mariojd.cn/smallstory/2018713/20180713094313.png">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -155,8 +155,8 @@
     csdn_blog_category: 后端
 -->
 <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>&emsp;&emsp;本文介绍Spring Boot中读取配置属性的几种方式，项目示例中用到的<code>application.yml</code>和<code>application.properties</code>定义如下：</p>
-<p><img src="https://image.mariojd.cn/smallstory/2018713/20180713094313.png" alt="application.yml"></p>
-<p><img src="https://image.mariojd.cn/smallstory/2018713/20180713094341.png" alt="application.properties"></p>
+<p><img src="http://image.mariojd.cn/smallstory/2018713/20180713094313.png" alt="application.yml"></p>
+<p><img src="http://image.mariojd.cn/smallstory/2018713/20180713094341.png" alt="application.properties"></p>
 <h4 id="Value"><a href="#Value" class="headerlink" title="@Value"></a>@Value</h4><p>&emsp;&emsp;@Value是比较常见的注入方式，功能强大但一般可读性较差。</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Value</span>(<span class="string">"str"</span>)</span><br><span class="line"><span class="keyword">private</span> String str; <span class="comment">// 注入普通字符串</span></span><br><span class="line">	</span><br><span class="line"><span class="meta">@Value</span>(<span class="string">"$&#123;hello&#125;"</span>)</span><br><span class="line"><span class="keyword">private</span> String hello; <span class="comment">// 注入配置属性</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@Value</span>(<span class="string">"#&#123;systemProperties['os.name']&#125;"</span>)</span><br><span class="line"><span class="keyword">private</span> String systemPropertiesName; <span class="comment">// 注入操作系统属性</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@Value</span>(<span class="string">"#&#123; T(java.lang.Math).random() * 100.0 &#125;"</span>)</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">double</span> randomNumber; <span class="comment">//注入表达式结果</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@Value</span>(<span class="string">"#&#123;userBean.name&#125;"</span>)</span><br><span class="line"><span class="keyword">private</span> String name; <span class="comment">// 注入Bean属性</span></span><br></pre></td></tr></table></figure>
 <p>&emsp;&emsp;下面通过@Value注解获取定义在配置文件的属性值：</p>
@@ -174,7 +174,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年07月16日 17:30</p>
+        <p>最后更新： 2018年09月29日 11:20</p>
         <p>原始链接： <a class="post-url" href="/several-ways-to-read-configuration-properties-in-spring-boot.html" title="Spring Boot中读取配置属性的几种方式">https://blog.mariojd.cn/several-ways-to-read-configuration-properties-in-spring-boot.html</a></p>
         <footer>
             <a href="https://blog.mariojd.cn">

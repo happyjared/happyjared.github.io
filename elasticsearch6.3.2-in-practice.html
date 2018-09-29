@@ -16,12 +16,12 @@
 <meta property="og:site_name" content="happyJared - 博客">
 <meta property="og:description" content="前言&amp;emsp;&amp;emsp;前端时间利用ES开发一个”附近地理位置+其它信息”查询搜索的功能(据了解，Redis和PostgreSQL也能实现同样的功能)，实践中遇到了不少的问题，所以通过这篇文章记录下踩填坑过程。 es with docker&amp;emsp;&amp;emsp;个人喜好，一般使用中间件都喜欢用Docker运行较新版本的，用docker pull elasticsearch命令拉下来的版本一">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018829/20180829135625.png">
-<meta property="og:updated_time" content="2018-08-29T08:14:49.555Z">
+<meta property="og:image" content="http://image.mariojd.cn/smallstory/2018829/20180829135625.png">
+<meta property="og:updated_time" content="2018-09-29T03:20:10.744Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Elasticsearch 6.3.2版本踩填坑指南">
 <meta name="twitter:description" content="前言&amp;emsp;&amp;emsp;前端时间利用ES开发一个”附近地理位置+其它信息”查询搜索的功能(据了解，Redis和PostgreSQL也能实现同样的功能)，实践中遇到了不少的问题，所以通过这篇文章记录下踩填坑过程。 es with docker&amp;emsp;&amp;emsp;个人喜好，一般使用中间件都喜欢用Docker运行较新版本的，用docker pull elasticsearch命令拉下来的版本一">
-<meta name="twitter:image" content="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018829/20180829135625.png">
+<meta name="twitter:image" content="http://image.mariojd.cn/smallstory/2018829/20180829135625.png">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -156,7 +156,7 @@
 <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>&emsp;&emsp;前端时间利用ES开发一个”附近地理位置+其它信息”查询搜索的功能(据了解，Redis和PostgreSQL也能实现同样的功能)，实践中遇到了不少的问题，所以通过这篇文章记录下踩填坑过程。</p>
 <h4 id="es-with-docker"><a href="#es-with-docker" class="headerlink" title="es with docker"></a>es with docker</h4><p>&emsp;&emsp;个人喜好，一般使用中间件都喜欢用Docker运行较新版本的，用<code>docker pull elasticsearch</code>命令拉下来的版本一般不会是最新的，所以可以从<a href="https://www.docker.elastic.co/" target="_blank" rel="noopener">这里</a>找到最新版本的拉取命令，稍加改造后我需要的是这样的：<code>docker run --name elasticsearch  -e &quot;ES_JAVA_OPTS=-Xms256m -Xmx256m&quot; -d -p 9200:9200 -p 9300:9300 docker.elastic.co/elasticsearch/elasticsearch-oss:6.3.2</code></p>
 <p>&emsp;&emsp;注意到这里指定的镜像是<code>elasticsearch-oss:6.3.2</code>，这个<code>-oss</code>表示不包括<code>X-Pack</code>的ES镜像，这也是在6.0+版本后划分的，剩下两种类型是<code>basic</code>(默认)和<code>platinum</code>，具体官方说明可以看下图。</p>
-<p><img src="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018829/20180829135625.png" alt="Elasticsearch Docker Image Types"></p>
+<p><img src="http://image.mariojd.cn/smallstory/2018829/20180829135625.png" alt="Elasticsearch Docker Image Types"></p>
 <p>&emsp;&emsp;如果启动失败，使用命令<code>docker logs elasticsearch</code>查看日志即可，<code>-f</code>参数用于监听，其中一种启动错误是要求你修改<code>vm.max_map_count</code>这个系统环境参数，Linux可参考命令<code>sysctl -w vm.max_map_count=262144</code>设置即可(其它系统在文末官方参考链接中有更详细介绍)。</p>
 <h4 id="create-mapping"><a href="#create-mapping" class="headerlink" title="create mapping"></a>create mapping</h4><p>&emsp;&emsp;这部分是重点，之前遇到的坑就是type mapping这块。</p>
 <ol>
@@ -185,7 +185,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年08月29日 16:14</p>
+        <p>最后更新： 2018年09月29日 11:20</p>
         <p>原始链接： <a class="post-url" href="/elasticsearch6.3.2-in-practice.html" title="Elasticsearch 6.3.2版本踩填坑指南">https://blog.mariojd.cn/elasticsearch6.3.2-in-practice.html</a></p>
         <footer>
             <a href="https://blog.mariojd.cn">

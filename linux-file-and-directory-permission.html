@@ -16,15 +16,15 @@
 <meta property="og:site_name" content="happyJared - 博客">
 <meta property="og:description" content="本文内容精简、整理、摘抄、有感于《鸟哥的Linux私房菜》第五章 • Linux的文件权限与目录配置。  文件目录身份 owner -&amp;gt; u -&amp;gt; 拥有者 group  -&amp;gt;  g -&amp;gt; 所属群 others -&amp;gt; o -&amp;gt; 其它人   文件目录权限 read -&amp;gt; r -&amp;gt; 可读 write -&amp;gt; w -&amp;gt; 可写(注意：于文件来说，">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018928/20180928135918.png">
-<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018928/20180928135947.png">
-<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018928/20180928140534.png">
-<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018928/20180928150734.png">
-<meta property="og:updated_time" content="2018-09-29T02:00:46.769Z">
+<meta property="og:image" content="http://image.mariojd.cn/smallstory/2018928/20180928135918.png">
+<meta property="og:image" content="http://image.mariojd.cn/smallstory/2018928/20180928135947.png">
+<meta property="og:image" content="http://image.mariojd.cn/smallstory/2018928/20180928140534.png">
+<meta property="og:image" content="http://image.mariojd.cn/smallstory/2018928/20180928150734.png">
+<meta property="og:updated_time" content="2018-09-29T03:20:10.804Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux私房菜：文件目录权限那点事">
 <meta name="twitter:description" content="本文内容精简、整理、摘抄、有感于《鸟哥的Linux私房菜》第五章 • Linux的文件权限与目录配置。  文件目录身份 owner -&amp;gt; u -&amp;gt; 拥有者 group  -&amp;gt;  g -&amp;gt; 所属群 others -&amp;gt; o -&amp;gt; 其它人   文件目录权限 read -&amp;gt; r -&amp;gt; 可读 write -&amp;gt; w -&amp;gt; 可写(注意：于文件来说，">
-<meta name="twitter:image" content="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018928/20180928135918.png">
+<meta name="twitter:image" content="http://image.mariojd.cn/smallstory/2018928/20180928135918.png">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -164,15 +164,15 @@
 <li>group  -&gt;  <code>g</code> -&gt; 所属群</li>
 <li>others -&gt; <code>o</code> -&gt; 其它人</li>
 </ul>
-<p><img src="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018928/20180928135918.png" alt="文件属性示意图"></p>
+<p><img src="http://image.mariojd.cn/smallstory/2018928/20180928135918.png" alt="文件属性示意图"></p>
 <h3 id="文件目录权限"><a href="#文件目录权限" class="headerlink" title="文件目录权限"></a>文件目录权限</h3><ul>
 <li>read -&gt; <code>r</code> -&gt; 可读</li>
 <li>write -&gt; <code>w</code> -&gt; 可写(注意：于文件来说，<code>w</code>仅针对文件内容而言，因此是可写但不可删；而目录有<code>w</code>权限则可删，含目录下的文件)</li>
 <li>execute -&gt; <code>x</code> -&gt; 可执行(注意：对文件来说，这只是个状态，能否执行成功只跟文件本身有关；而目录有<code>x</code>权限则表示可进入该目录)</li>
 <li>Tip：常见的目录开放，大多只给<code>r</code>和<code>x</code>权限而保留具有删除风险的<code>w</code>权限</li>
 </ul>
-<p><img src="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018928/20180928135947.png" alt="文件类型与权限"></p>
-<p><img src="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018928/20180928140534.png" alt="文件类型与权限详细说明"></p>
+<p><img src="http://image.mariojd.cn/smallstory/2018928/20180928135947.png" alt="文件类型与权限"></p>
+<p><img src="http://image.mariojd.cn/smallstory/2018928/20180928140534.png" alt="文件类型与权限详细说明"></p>
 <p>共有十个位，注意到第一个字符为[-]，表示文件；常见的还有<code>d</code>，代表目录(directory)；<code>l</code>，表示连接档(link)</p>
 <h3 id="相关文件位置"><a href="#相关文件位置" class="headerlink" title="相关文件位置"></a>相关文件位置</h3><ul>
 <li>root相关信息 -&gt; <code>/etc/passwd</code></li>
@@ -202,14 +202,14 @@
 </ul>
 </li>
 </ul>
-<h3 id="重点回顾"><a href="#重点回顾" class="headerlink" title="重点回顾"></a>重点回顾</h3><p><img src="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018928/20180928150734.png" alt="重点回顾"></p>
+<h3 id="重点回顾"><a href="#重点回顾" class="headerlink" title="重点回顾"></a>重点回顾</h3><p><img src="http://image.mariojd.cn/smallstory/2018928/20180928150734.png" alt="重点回顾"></p>
 <blockquote>
 <p>欢迎关注我的个人公众号：超级码里奥<br>如果这对您有帮助，欢迎点赞和分享，转载请注明出处  </p>
 </blockquote>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年09月29日 10:00</p>
+        <p>最后更新： 2018年09月29日 11:20</p>
         <p>原始链接： <a class="post-url" href="/linux-file-and-directory-permission.html" title="Linux私房菜：文件目录权限那点事">https://blog.mariojd.cn/linux-file-and-directory-permission.html</a></p>
         <footer>
             <a href="https://blog.mariojd.cn">

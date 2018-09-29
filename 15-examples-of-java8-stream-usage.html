@@ -16,12 +16,12 @@
 <meta property="og:site_name" content="happyJared - 博客">
 <meta property="og:description" content="不出意外的话，再过几天，Java 11就要正式对外发布了，不知各位同行都用上哪个版本了呢？先贴一张截取的调查图，由此可见，目前Java 7/8的使用群体还是相当之大的。  下面列举了十五个常用经典的Java8 Stream API用法示例。为了方便操作，首先抽取并定义公共数组变量array。 private Integer[] array = &amp;#123;10, 3, 3, 15, 9, 23&amp;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018920/screenshot135855.jpg">
-<meta property="og:updated_time" content="2018-09-21T07:09:01.215Z">
+<meta property="og:image" content="http://image.mariojd.cn/smallstory/2018920/screenshot135855.jpg">
+<meta property="og:updated_time" content="2018-09-29T03:20:10.844Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="十五个常用经典的Java8 Stream API用法示例">
 <meta name="twitter:description" content="不出意外的话，再过几天，Java 11就要正式对外发布了，不知各位同行都用上哪个版本了呢？先贴一张截取的调查图，由此可见，目前Java 7/8的使用群体还是相当之大的。  下面列举了十五个常用经典的Java8 Stream API用法示例。为了方便操作，首先抽取并定义公共数组变量array。 private Integer[] array = &amp;#123;10, 3, 3, 15, 9, 23&amp;">
-<meta name="twitter:image" content="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018920/screenshot135855.jpg">
+<meta name="twitter:image" content="http://image.mariojd.cn/smallstory/2018920/screenshot135855.jpg">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -154,7 +154,7 @@
     csdn_blog_category: 
 -->
 <p>不出意外的话，再过几天，Java 11就要正式对外发布了，不知各位同行都用上哪个版本了呢？先贴一张截取的调查图，由此可见，目前Java 7/8的使用群体还是相当之大的。</p>
-<p><img src="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018920/screenshot135855.jpg" alt="JDK版本使用调查图"></p>
+<p><img src="http://image.mariojd.cn/smallstory/2018920/screenshot135855.jpg" alt="JDK版本使用调查图"></p>
 <p>下面列举了十五个常用经典的Java8 Stream API用法示例。为了方便操作，首先抽取并定义公共数组变量<code>array</code>。</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span> Integer[] array = &#123;<span class="number">10</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">15</span>, <span class="number">9</span>, <span class="number">23</span>&#125;;</span><br></pre></td></tr></table></figure>
 <ol>
@@ -219,7 +219,7 @@
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">summaryStatistics</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    IntSummaryStatistics collect = Stream.of(array).collect(Collectors.summarizingInt(Integer::intValue));</span><br><span class="line">    System.out.println(collect.getCount() + <span class="string">" "</span> + collect.getSum() + <span class="string">" "</span> + collect.getMin() + <span class="string">" "</span> + collect.getAverage() + <span class="string">" "</span> + collect.getMax());</span><br><span class="line">    System.out.println(<span class="string">"collect = "</span> + collect); <span class="comment">// IntSummaryStatistics&#123;sumAndCount=6, sum=63, min=3, average=10.500000, max=23&#125;</span></span><br><span class="line"></span><br><span class="line">    IntSummaryStatistics intSummaryStatistics = Stream.of(array).mapToInt(Integer::intValue).summaryStatistics();</span><br><span class="line">    System.out.println(<span class="string">"intSummaryStatistics = "</span> + intSummaryStatistics); <span class="comment">// IntSummaryStatistics&#123;sumAndCount=6, sum=63, min=3, average=10.500000, max=23&#125;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年09月21日 15:09</p>
+        <p>最后更新： 2018年09月29日 11:20</p>
         <p>原始链接： <a class="post-url" href="/15-examples-of-java8-stream-usage.html" title="十五个常用经典的Java8 Stream API用法示例">https://blog.mariojd.cn/15-examples-of-java8-stream-usage.html</a></p>
         <footer>
             <a href="https://blog.mariojd.cn">

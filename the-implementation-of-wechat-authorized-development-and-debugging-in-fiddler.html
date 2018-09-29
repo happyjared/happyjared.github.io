@@ -16,18 +16,18 @@
 <meta property="og:site_name" content="happyJared - 博客">
 <meta property="og:description" content="一、下载、安装Fiddler二、微信授权调试&amp;emsp;&amp;emsp; 案发现场： 某天，一名正儿八经的开发”猿”，在疯狂一顿Coding之后，他完成了微信授权登录功能的编码。下来他想先在本地调试一下，然后再部署到线上环境。于是在本地Run起了Project，假设微信回调的地址是：localhost:9002。这时，他就可以利用Fiddler进行代理测试，具体操作实现请参考以下两种方法。 &amp;ems">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://image.mariojd.cn/201842/clip-20170820215707.png">
-<meta property="og:image" content="https://image.mariojd.cn/201842/clip-20170820220006.png">
-<meta property="og:image" content="https://image.mariojd.cn/201842/clip-20170820220628.png">
-<meta property="og:image" content="https://image.mariojd.cn/201842/clip-20170820220759.png">
-<meta property="og:image" content="https://image.mariojd.cn/201842/clip-20170820221008.png">
-<meta property="og:image" content="https://image.mariojd.cn/201842/clip-20170820221410.png">
-<meta property="og:image" content="https://image.mariojd.cn/201842/clip-20170820221606.png">
-<meta property="og:updated_time" content="2018-08-23T06:13:05.729Z">
+<meta property="og:image" content="http://image.mariojd.cn/201842/clip-20170820215707.png">
+<meta property="og:image" content="http://image.mariojd.cn/201842/clip-20170820220006.png">
+<meta property="og:image" content="http://image.mariojd.cn/201842/clip-20170820220628.png">
+<meta property="og:image" content="http://image.mariojd.cn/201842/clip-20170820220759.png">
+<meta property="og:image" content="http://image.mariojd.cn/201842/clip-20170820221008.png">
+<meta property="og:image" content="http://image.mariojd.cn/201842/clip-20170820221410.png">
+<meta property="og:image" content="http://image.mariojd.cn/201842/clip-20170820221606.png">
+<meta property="og:updated_time" content="2018-09-29T03:20:10.754Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Fiddler实现微信授权开发调试">
 <meta name="twitter:description" content="一、下载、安装Fiddler二、微信授权调试&amp;emsp;&amp;emsp; 案发现场： 某天，一名正儿八经的开发”猿”，在疯狂一顿Coding之后，他完成了微信授权登录功能的编码。下来他想先在本地调试一下，然后再部署到线上环境。于是在本地Run起了Project，假设微信回调的地址是：localhost:9002。这时，他就可以利用Fiddler进行代理测试，具体操作实现请参考以下两种方法。 &amp;ems">
-<meta name="twitter:image" content="https://image.mariojd.cn/201842/clip-20170820215707.png">
+<meta name="twitter:image" content="http://image.mariojd.cn/201842/clip-20170820215707.png">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -164,26 +164,26 @@
 <h4 id="1-Fiddler-微信web开发者工具"><a href="#1-Fiddler-微信web开发者工具" class="headerlink" title="1. Fiddler + 微信web开发者工具"></a>1. Fiddler + 微信web开发者工具</h4><ul>
 <li>打开微信web开发者工具，选择公众号网页开发：</li>
 </ul>
-<p><img src="https://image.mariojd.cn/201842/clip-20170820215707.png" alt="微信web开发者工具 -&gt; 公众号网页开发" title="微信web开发者工具 -&gt; 公众号网页开发"></p>
+<p><img src="http://image.mariojd.cn/201842/clip-20170820215707.png" alt="微信web开发者工具 -&gt; 公众号网页开发" title="微信web开发者工具 -&gt; 公众号网页开发"></p>
 <ul>
 <li>修改Fiddler中的Hosts配置信息</li>
 </ul>
-<p><img src="https://image.mariojd.cn/201842/clip-20170820220006.png" alt="Fiddler修改Hosts" title="Fiddler修改Hosts"></p>
+<p><img src="http://image.mariojd.cn/201842/clip-20170820220006.png" alt="Fiddler修改Hosts" title="Fiddler修改Hosts"></p>
 <p>&emsp;&emsp; 完成以上配置，即可利用微信web开发者工具在PC本地进行微信授权调试，就这么简单。</p>
 <h4 id="2-Fiddler-手机（需结合方法1的配置操作）"><a href="#2-Fiddler-手机（需结合方法1的配置操作）" class="headerlink" title="2. Fiddler + 手机（需结合方法1的配置操作）"></a>2. Fiddler + 手机（需结合方法1的配置操作）</h4><ul>
 <li>确保手机、电脑在同一个局域网，查看PC的ip地址</li>
 </ul>
-<p><img src="https://image.mariojd.cn/201842/clip-20170820220628.png" alt="ipconfig" title="ipconfig"></p>
+<p><img src="http://image.mariojd.cn/201842/clip-20170820220628.png" alt="ipconfig" title="ipconfig"></p>
 <ul>
 <li>Fiddler代理配置</li>
 </ul>
-<p><img src="https://image.mariojd.cn/201842/clip-20170820220759.png" alt="Fiddler -&gt; Options" title="Fiddler -&gt; Options"></p>
-<p><img src="https://image.mariojd.cn/201842/clip-20170820221008.png" alt="Fiddler -&gt; Options -&gt; Connections" title="Fiddler -&gt; Options -&gt; Connections"></p>
+<p><img src="http://image.mariojd.cn/201842/clip-20170820220759.png" alt="Fiddler -&gt; Options" title="Fiddler -&gt; Options"></p>
+<p><img src="http://image.mariojd.cn/201842/clip-20170820221008.png" alt="Fiddler -&gt; Options -&gt; Connections" title="Fiddler -&gt; Options -&gt; Connections"></p>
 <ul>
 <li>手机代理信息配置</li>
 </ul>
-<p><img src="https://image.mariojd.cn/201842/clip-20170820221410.png" alt="手机端配置" title="手机端配置"></p>
-<p><img src="https://image.mariojd.cn/201842/clip-20170820221606.png" alt="手机端配置" title="手机端配置"></p>
+<p><img src="http://image.mariojd.cn/201842/clip-20170820221410.png" alt="手机端配置" title="手机端配置"></p>
+<p><img src="http://image.mariojd.cn/201842/clip-20170820221606.png" alt="手机端配置" title="手机端配置"></p>
 <p>&emsp;&emsp; 完成以上配置，即可使用手机进行微信授权（可自行构造请求微信授权），微信回调后会走PC运行的项目接口，大概就这么简单。</p>
 <h3 id="三、推荐两个小工具"><a href="#三、推荐两个小工具" class="headerlink" title="三、推荐两个小工具"></a>三、推荐两个小工具</h3><ul>
 <li>内网映射工具（第三种调试方法，具体请参考在线教程）：<a href="https://natapp.cn/" target="_blank" rel="noopener">NATAPP</a></li>
@@ -192,7 +192,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年08月23日 14:13</p>
+        <p>最后更新： 2018年09月29日 11:20</p>
         <p>原始链接： <a class="post-url" href="/the-implementation-of-wechat-authorized-development-and-debugging-in-fiddler.html" title="Fiddler实现微信授权开发调试">https://blog.mariojd.cn/the-implementation-of-wechat-authorized-development-and-debugging-in-fiddler.html</a></p>
         <footer>
             <a href="https://blog.mariojd.cn">

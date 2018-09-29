@@ -16,16 +16,16 @@
 <meta property="og:site_name" content="happyJared - 博客">
 <meta property="og:description" content="写在前面&amp;emsp;&amp;emsp;本文是博主在看完面向切面的Spring（《Spring实战》第4章）后的一些实践笔记。&amp;emsp;&amp;emsp;为什么要用AOP呢？作者在书中也明确提到了，使用AOP，可以让代码逻辑更多的去关注自己本身的业务，而不用混杂和关注一些其它的东西。包括：安全，缓存，事务，日志等等。 名词概念 通知（Advice）  &amp;emsp;&amp;emsp;定义了切面做什么和什么时候去做。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://image.mariojd.cn/201837/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180307102122.png">
-<meta property="og:image" content="https://image.mariojd.cn/201837/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180307102142.png">
-<meta property="og:image" content="https://image.mariojd.cn/201836/20180306aop.png">
-<meta property="og:image" content="https://image.mariojd.cn/201837/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180307105708.png">
-<meta property="og:image" content="https://image.mariojd.cn/201837/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180307105755.png">
-<meta property="og:updated_time" content="2018-08-23T06:21:05.390Z">
+<meta property="og:image" content="http://image.mariojd.cn/201837/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180307102122.png">
+<meta property="og:image" content="http://image.mariojd.cn/201837/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180307102142.png">
+<meta property="og:image" content="http://image.mariojd.cn/201836/20180306aop.png">
+<meta property="og:image" content="http://image.mariojd.cn/201837/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180307105708.png">
+<meta property="og:image" content="http://image.mariojd.cn/201837/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180307105755.png">
+<meta property="og:updated_time" content="2018-09-29T03:20:10.884Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面向切面的Spring">
 <meta name="twitter:description" content="写在前面&amp;emsp;&amp;emsp;本文是博主在看完面向切面的Spring（《Spring实战》第4章）后的一些实践笔记。&amp;emsp;&amp;emsp;为什么要用AOP呢？作者在书中也明确提到了，使用AOP，可以让代码逻辑更多的去关注自己本身的业务，而不用混杂和关注一些其它的东西。包括：安全，缓存，事务，日志等等。 名词概念 通知（Advice）  &amp;emsp;&amp;emsp;定义了切面做什么和什么时候去做。">
-<meta name="twitter:image" content="https://image.mariojd.cn/201837/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180307102122.png">
+<meta name="twitter:image" content="http://image.mariojd.cn/201837/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180307102122.png">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -213,8 +213,8 @@
 <li>Spring只支持方法级别的连接点，不像AspectJ还可以通过构造器或属性注入</li>
 </ul>
 <h3 id="切点表达式"><a href="#切点表达式" class="headerlink" title="切点表达式"></a>切点表达式</h3><p>&emsp;&emsp;切点表达式算是一些比较概念性的知识，下面截了两个图供大家参考参考</p>
-<p><img src="https://image.mariojd.cn/201837/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180307102122.png" alt="切点表达式1" title="切点表达式1"></p>
-<p><img src="https://image.mariojd.cn/201837/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180307102142.png" alt="切点表达式2" title="切点表达式2"></p>
+<p><img src="http://image.mariojd.cn/201837/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180307102122.png" alt="切点表达式1" title="切点表达式1"></p>
+<p><img src="http://image.mariojd.cn/201837/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180307102142.png" alt="切点表达式2" title="切点表达式2"></p>
 <p>&emsp;&emsp;看得头晕了吧，不过好在只有execution()是用来执行匹配的，剩下的都是为了限制或定制连接点要匹配的位置<br>&emsp;&emsp;以下是execution()定义的格式（其中，带?号的为可选，否则必须给出） :</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">execution(modifiers-pattern? ret-type-pattern declaring-type-pattern? name-pattern(param-pattern)</span><br></pre></td></tr></table></figure>
 <p>&emsp;&emsp;还是举个真实栗子模仿一下吧</p>
@@ -244,7 +244,7 @@
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="comment">// @EnableAspectJAutoProxy //实测可以不添加该注解，因为SpringBoot中已经默认开启了AOP功能</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AspectjConfiguration</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> UserAspectjOne <span class="title">userAspectjOne</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> UserAspectjOne();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<p><img src="https://image.mariojd.cn/201836/20180306aop.png" alt="SpringBoot已经默认开启了aop" title="SpringBoot已经默认开启了aop"></p>
+<p><img src="http://image.mariojd.cn/201836/20180306aop.png" alt="SpringBoot已经默认开启了aop" title="SpringBoot已经默认开启了aop"></p>
 <ol>
 <li>Test updateName() with UserAspectjOne<ul>
 <li>6.1 先往数据库里添加一条数据<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testAdd</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       User user = <span class="keyword">new</span> User();</span><br><span class="line">       user.setName(<span class="string">"jared"</span>);</span><br><span class="line">       userDao.save(user);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
@@ -400,15 +400,15 @@
 <li>表示开启AOP代理自动配置，如果配@EnableAspectJAutoProxy表示使用cglib进行代理对象的生成；设置@EnableAspectJAutoProxy(exposeProxy=true)表示通过aop框架暴露该代理对象，使得aopContext能够直接访问</li>
 <li>从@EnableAspectJAutoProxy的定义可以看出，它引入AspectJAutoProxyRegister.class对象，该对象是基于注解@EnableAspectJAutoProxy注册了一个AnnotationAwareAspectJAutoProxyCreator，通过调用AopConfigUtils.registerAspectJAnnotationAutoProxyCreatorIfNecessary(registry)，注册了一个aop代理对象生成器</li>
 </ul>
-<p><img src="https://image.mariojd.cn/201837/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180307105708.png" alt="@EnableAspectJAutoProxy" title="@EnableAspectJAutoProxy"></p>
-<p><img src="https://image.mariojd.cn/201837/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180307105755.png" alt="AspectJAutoProxyRegistrar" title="AspectJAutoProxyRegistrar"></p>
+<p><img src="http://image.mariojd.cn/201837/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180307105708.png" alt="@EnableAspectJAutoProxy" title="@EnableAspectJAutoProxy"></p>
+<p><img src="http://image.mariojd.cn/201837/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180307105755.png" alt="AspectJAutoProxyRegistrar" title="AspectJAutoProxyRegistrar"></p>
 <h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><blockquote>
 <p><a href="http://www.eclipse.org/aspectj/" target="_blank" rel="noopener">AspectJ</a><br><a href="https://www.jianshu.com/p/63c7f788b1d6" target="_blank" rel="noopener">Spring AOP系列</a><br><a href="http://chiyx.iteye.com/blog/1568600" target="_blank" rel="noopener">Spring AOP中JoinPoint的表达式定义描述</a></p>
 </blockquote>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年08月23日 14:21</p>
+        <p>最后更新： 2018年09月29日 11:20</p>
         <p>原始链接： <a class="post-url" href="/oriented-face-in-spring.html" title="面向切面的Spring">https://blog.mariojd.cn/oriented-face-in-spring.html</a></p>
         <footer>
             <a href="https://blog.mariojd.cn">

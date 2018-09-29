@@ -16,13 +16,13 @@
 <meta property="og:site_name" content="happyJared - 博客">
 <meta property="og:description" content="写在前面&amp;emsp;&amp;emsp;说来也巧，之前有一次无意间留意到简书好像没有做文章总阅读量的统计（准确的说法应该叫展示），刚好最近有时间，趁这个机会就用Python写了这么个功能，既是学习也是练手。 展示效果&amp;emsp;&amp;emsp;再继续往下之前，先贴两张图看看最终的效果。第一张图片展示的是个人简书爬取后的数据，第二张可是大名鼎鼎简叔的简书数据。   &amp;emsp;&amp;emsp;两图一对比，果然这数">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://image.mariojd.cn/xsj/2018522/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180522191055.png">
-<meta property="og:image" content="https://image.mariojd.cn/xsj/2018522/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180522191129.png">
-<meta property="og:updated_time" content="2018-08-23T06:19:38.518Z">
+<meta property="og:image" content="http://image.mariojd.cn/xsj/2018522/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180522191055.png">
+<meta property="og:image" content="http://image.mariojd.cn/xsj/2018522/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180522191129.png">
+<meta property="og:updated_time" content="2018-09-29T03:20:10.854Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用Python统计你的简书数据">
 <meta name="twitter:description" content="写在前面&amp;emsp;&amp;emsp;说来也巧，之前有一次无意间留意到简书好像没有做文章总阅读量的统计（准确的说法应该叫展示），刚好最近有时间，趁这个机会就用Python写了这么个功能，既是学习也是练手。 展示效果&amp;emsp;&amp;emsp;再继续往下之前，先贴两张图看看最终的效果。第一张图片展示的是个人简书爬取后的数据，第二张可是大名鼎鼎简叔的简书数据。   &amp;emsp;&amp;emsp;两图一对比，果然这数">
-<meta name="twitter:image" content="https://image.mariojd.cn/xsj/2018522/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180522191055.png">
+<meta name="twitter:image" content="http://image.mariojd.cn/xsj/2018522/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180522191055.png">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -156,8 +156,8 @@
 -->
 <h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>&emsp;&emsp;说来也巧，之前有一次无意间留意到<code>简书</code>好像没有做文章总阅读量的统计（准确的说法应该叫展示），刚好最近有时间，趁这个机会就用Python写了这么个功能，既是学习也是练手。</p>
 <h3 id="展示效果"><a href="#展示效果" class="headerlink" title="展示效果"></a>展示效果</h3><p>&emsp;&emsp;再继续往下之前，先贴两张图看看最终的效果。第一张图片展示的是<a href="https://www.jianshu.com/u/000a530f461c" target="_blank" rel="noopener">个人简书</a>爬取后的<a href="http://120.77.250.15:8002/000a530f461c" target="_blank" rel="noopener">数据</a>，第二张可是大名鼎鼎<a href="https://www.jianshu.com/u/y3Dbcz" target="_blank" rel="noopener">简叔</a>的<a href="http://120.77.250.15:8002/y3Dbcz" target="_blank" rel="noopener">简书数据</a>。</p>
-<p><img src="https://image.mariojd.cn/xsj/2018522/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180522191055.png" alt="个人简书数据" title="个人简书数据"></p>
-<p><img src="https://image.mariojd.cn/xsj/2018522/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180522191129.png" alt="&#39;简叔&#39;简书数据" title="&#39;简叔&#39;简书数据"></p>
+<p><img src="http://image.mariojd.cn/xsj/2018522/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180522191055.png" alt="个人简书数据" title="个人简书数据"></p>
+<p><img src="http://image.mariojd.cn/xsj/2018522/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180522191129.png" alt="&#39;简叔&#39;简书数据" title="&#39;简叔&#39;简书数据"></p>
 <p>&emsp;&emsp;两图一对比，果然这数量和质量都不是一个等级的，不过后生会继续努力的。写了两个多月的博客了，没想到也有一千多的阅读量了，这是算喜还是算忧呢？哈哈，总之感觉还是蛮欣慰的。</p>
 <h3 id="环境说明"><a href="#环境说明" class="headerlink" title="环境说明"></a>环境说明</h3><ul>
 <li>python v3.6.4</li>
@@ -218,7 +218,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年08月23日 14:19</p>
+        <p>最后更新： 2018年09月29日 11:20</p>
         <p>原始链接： <a class="post-url" href="/use-python-to-count-your-jianshu-data.html" title="用Python统计你的简书数据">https://blog.mariojd.cn/use-python-to-count-your-jianshu-data.html</a></p>
         <footer>
             <a href="https://blog.mariojd.cn">

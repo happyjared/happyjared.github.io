@@ -16,15 +16,15 @@
 <meta property="og:site_name" content="happyJared - 博客">
 <meta property="og:description" content="无论是安装包形式还是基于Docker，搭建Elasticsearch集群环境还是较为简单的，实操的时候还遇到过一丢小问题，本文用于记录下操作过程。 运行先用docker分别启动两个es服务，由于后面需要进行配置，这里假设es1所在的机器公网ip为：123.11.23.1，es2所在机器ip：123.11.23.2 # 运行ES1docker run --name es1 -e &amp;quot;ES_">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018926/20180926154916.png">
-<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018926/20180926164803.png">
-<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018926/20180926164719.png">
-<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018926/20180926164940.png">
-<meta property="og:updated_time" content="2018-09-26T09:16:56.358Z">
+<meta property="og:image" content="http://image.mariojd.cn/smallstory/2018926/20180926154916.png">
+<meta property="og:image" content="http://image.mariojd.cn/smallstory/2018926/20180926164803.png">
+<meta property="og:image" content="http://image.mariojd.cn/smallstory/2018926/20180926164719.png">
+<meta property="og:image" content="http://image.mariojd.cn/smallstory/2018926/20180926164940.png">
+<meta property="og:updated_time" content="2018-09-29T03:20:10.714Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker + Elasticsearch 集群环境搭建">
 <meta name="twitter:description" content="无论是安装包形式还是基于Docker，搭建Elasticsearch集群环境还是较为简单的，实操的时候还遇到过一丢小问题，本文用于记录下操作过程。 运行先用docker分别启动两个es服务，由于后面需要进行配置，这里假设es1所在的机器公网ip为：123.11.23.1，es2所在机器ip：123.11.23.2 # 运行ES1docker run --name es1 -e &amp;quot;ES_">
-<meta name="twitter:image" content="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018926/20180926154916.png">
+<meta name="twitter:image" content="http://image.mariojd.cn/smallstory/2018926/20180926154916.png">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -166,7 +166,7 @@
 <h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>Elasticsearch集群环境由多个节点(es实例)之间互相发现并组成，因此核心关键就是正确配置，而主要的配置文件也仅有<code>config/elasticsearch.yml</code>。基于Docker启动服务的时候可以选择将配置目录(或文件)挂载出来，但这里并没有这么做，所以还可以进入到容器内部进行操作，以es1为例：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 进入es1</span><br><span class="line">docker exec -it es1 bash</span><br><span class="line"># 编辑config目录下的elasticsearch.yml</span><br><span class="line">vi config/elasticsearch.yml</span><br></pre></td></tr></table></figure>
 <p>下图Elasticsearch v6.3.2中的配置项较于低版本可是精简了很多(约定大于配置)，由于本文仅介绍ES集群的搭建，所以详尽的配置说明可以参考<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/settings.html" target="_blank" rel="noopener">这里</a>。</p>
-<p><img src="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018926/20180926154916.png" alt="elasticsearch.yml"></p>
+<p><img src="http://image.mariojd.cn/smallstory/2018926/20180926154916.png" alt="elasticsearch.yml"></p>
 <p>简单起见，本示例就不修改<code>cluster.name</code>这个配置项了，一个es集群首先就是要保证各节点该配置的相同，还有一个配置属性：<code>node.name</code>，这里应该设置成更为容易理解的节点名称。</p>
 <p>接着继续贴上两项配置，这也是让节点之间相互发现的关键所在：</p>
 <figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 当前机器公网ip</span></span><br><span class="line"><span class="string">network.publish_host:</span> <span class="number">123.11</span><span class="number">.23</span><span class="number">.1</span></span><br><span class="line"><span class="comment"># 其它节点的位置</span></span><br><span class="line"><span class="string">discovery.zen.ping.unicast.hosts:</span> <span class="string">["123.11.23.2:19300"]</span></span><br></pre></td></tr></table></figure>
@@ -179,22 +179,22 @@
 <li><p>节点信息：<code>curl http://localhost:9200/_nodes?pretty</code></p>
 </li>
 </ol>
-<p><img src="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018926/20180926164803.png" alt="nodes"></p>
+<p><img src="http://image.mariojd.cn/smallstory/2018926/20180926164803.png" alt="nodes"></p>
 <ol>
 <li>集群健康：<code>curl http://localhost:9200/_cluster/health</code></li>
 </ol>
-<p><img src="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018926/20180926164719.png" alt="cluster health"></p>
+<p><img src="http://image.mariojd.cn/smallstory/2018926/20180926164719.png" alt="cluster health"></p>
 <ol>
 <li>插件<code>elasticsearch-head</code></li>
 </ol>
-<p><img src="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018926/20180926164940.png" alt="elasticsearch-head"></p>
+<p><img src="http://image.mariojd.cn/smallstory/2018926/20180926164940.png" alt="elasticsearch-head"></p>
 <blockquote>
 <p>欢迎关注我的个人公众号：超级码里奥<br>如果这对您有帮助，欢迎点赞和分享，转载请注明出处</p>
 </blockquote>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年09月26日 17:16</p>
+        <p>最后更新： 2018年09月29日 11:20</p>
         <p>原始链接： <a class="post-url" href="/elasticsearch-cluster-environment-construction-based-docker.html" title="Docker + Elasticsearch 集群环境搭建">https://blog.mariojd.cn/elasticsearch-cluster-environment-construction-based-docker.html</a></p>
         <footer>
             <a href="https://blog.mariojd.cn">

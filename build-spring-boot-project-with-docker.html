@@ -16,12 +16,12 @@
 <meta property="og:site_name" content="happyJared - 博客">
 <meta property="og:description" content="开篇&amp;emsp;&amp;emsp;服务部署是应用上线前的必需环节。大道至简，如何做到项目简单化、自动化甚至傻瓜式部署是考验DevOps的一大难题。从docker面世到k8s的脱颖而出，有越来越多的开源工具也在帮助开发和运维人员解决这些问题。 &amp;emsp;&amp;emsp;对于开发人员，了解和学习Docker可谓是迫在眉睫。网上有很多优秀的学习资源，当然了，本文的主角不全是docker，但也不无关系。 &amp;em">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/xsj/201894/20180904210535.jpg">
-<meta property="og:updated_time" content="2018-09-05T01:25:01.088Z">
+<meta property="og:image" content="http://image.mariojd.cn/xsj/201894/20180904210535.jpg">
+<meta property="og:updated_time" content="2018-09-29T03:20:10.834Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring Boot项目Docker化快速上手">
 <meta name="twitter:description" content="开篇&amp;emsp;&amp;emsp;服务部署是应用上线前的必需环节。大道至简，如何做到项目简单化、自动化甚至傻瓜式部署是考验DevOps的一大难题。从docker面世到k8s的脱颖而出，有越来越多的开源工具也在帮助开发和运维人员解决这些问题。 &amp;emsp;&amp;emsp;对于开发人员，了解和学习Docker可谓是迫在眉睫。网上有很多优秀的学习资源，当然了，本文的主角不全是docker，但也不无关系。 &amp;em">
-<meta name="twitter:image" content="http://p3ry9qsas.bkt.clouddn.com/xsj/201894/20180904210535.jpg">
+<meta name="twitter:image" content="http://image.mariojd.cn/xsj/201894/20180904210535.jpg">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -162,7 +162,7 @@
 </ul>
 <h3 id="配置准备"><a href="#配置准备" class="headerlink" title="配置准备"></a>配置准备</h3><p>&emsp;&emsp;通过Maven将本地打包好的SpringBoot Jar包推送到远程Docker服务中，关键步骤就在于为Docker服务配置这个暴露端口。这步操作也简单，直接命令编辑<code>vim /lib/systemd/system/docker.service</code>( 左侧为Ubuntu的路径; CentOS 的路径参考：<code>/usr/lib/systemd/system/docker.service</code>)，找到<code>ExecStart=/usr/bin/dockerd -H fd://</code>这行，修改为<code>ExecStart=/usr/bin/dockerd -H tcp://0.0.0.0:22375 -H unix:///var/run/docker.sock</code>(表示让Docker服务监听22375这个TCP端口)，重启让配置生效：<code>systemctl daemon-reload &amp;&amp; systemctl restart docker</code></p>
 <p>&emsp;&emsp;下面测试一下: <code>curl localhost:22375/info</code>，如果有一堆信息出来就可以继续往下走：</p>
-<p><img src="http://p3ry9qsas.bkt.clouddn.com/xsj/201894/20180904210535.jpg" alt="curl localhost:22375/info"></p>
+<p><img src="http://image.mariojd.cn/xsj/201894/20180904210535.jpg" alt="curl localhost:22375/info"></p>
 <h3 id="插件添加"><a href="#插件添加" class="headerlink" title="插件添加"></a>插件添加</h3><p>&emsp;&emsp;没有Spring Boot项目可以自行新建，然后在<code>pom.xml</code>中添加如下配置：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;build&gt;</span><br><span class="line">		&lt;!-- 最终Maven本地打包出来的jar包名称 --&gt;</span><br><span class="line">       &lt;finalName&gt;example&lt;/finalName&gt;</span><br><span class="line">       &lt;defaultGoal&gt;package&lt;/defaultGoal&gt;</span><br><span class="line">       &lt;plugins&gt;</span><br><span class="line">           &lt;plugin&gt;</span><br><span class="line">               &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">               &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;</span><br><span class="line">           &lt;/plugin&gt;</span><br><span class="line"></span><br><span class="line">           &lt;plugin&gt;</span><br><span class="line">               &lt;!-- GitHub: https://github.com/spotify/docker-maven-plugin --&gt;</span><br><span class="line">               &lt;groupId&gt;com.spotify&lt;/groupId&gt;</span><br><span class="line">               &lt;artifactId&gt;docker-maven-plugin&lt;/artifactId&gt;</span><br><span class="line">               &lt;version&gt;1.1.1&lt;/version&gt;</span><br><span class="line">               &lt;configuration&gt;</span><br><span class="line">				&lt;!-- 远程镜像名称 --&gt;</span><br><span class="line">                   &lt;imageName&gt;example&lt;/imageName&gt;</span><br><span class="line">                   &lt;forceTags&gt;true&lt;/forceTags&gt;</span><br><span class="line">                   &lt;imageTags&gt;</span><br><span class="line">                       &lt;imageTag&gt;$&#123;project.version&#125;&lt;/imageTag&gt;</span><br><span class="line">                       &lt;imageTag&gt;latest&lt;/imageTag&gt;</span><br><span class="line">                   &lt;/imageTags&gt;</span><br><span class="line">                   &lt;dockerHost&gt;http://服务器IP:22375&lt;/dockerHost&gt;</span><br><span class="line">                   &lt;dockerDirectory&gt;src/main/docker&lt;/dockerDirectory&gt;</span><br><span class="line">                   &lt;resources&gt;</span><br><span class="line">                       &lt;resource&gt;</span><br><span class="line">                           &lt;targetPath&gt;/&lt;/targetPath&gt;</span><br><span class="line">                           &lt;directory&gt;$&#123;project.build.directory&#125;&lt;/directory&gt;</span><br><span class="line">                           &lt;include&gt;$&#123;project.build.finalName&#125;.jar&lt;/include&gt;</span><br><span class="line">                       &lt;/resource&gt;</span><br><span class="line">                   &lt;/resources&gt;</span><br><span class="line">               &lt;/configuration&gt;</span><br><span class="line">           &lt;/plugin&gt;</span><br><span class="line">       &lt;/plugins&gt;</span><br><span class="line">   &lt;/build&gt;</span><br></pre></td></tr></table></figure>
 <p>&emsp;&emsp;参考上述配置，还需要新建<code>docker</code>文件夹，然后创建<code>Dockerfile</code>文件，并添加如下内容：</p>
@@ -179,7 +179,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年09月05日 09:25</p>
+        <p>最后更新： 2018年09月29日 11:20</p>
         <p>原始链接： <a class="post-url" href="/build-spring-boot-project-with-docker.html" title="Spring Boot项目Docker化快速上手">https://blog.mariojd.cn/build-spring-boot-project-with-docker.html</a></p>
         <footer>
             <a href="https://blog.mariojd.cn">

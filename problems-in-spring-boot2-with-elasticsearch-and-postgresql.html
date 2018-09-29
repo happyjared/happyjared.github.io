@@ -16,14 +16,14 @@
 <meta property="og:site_name" content="happyJared - 博客">
 <meta property="og:description" content="项目背景&amp;emsp;&amp;emsp;在描述和还原事故之前，简单说明下相关环境：  spring boot v2.0.4.RELEASE spring-boot-starter-data-elasticsearch (以前做项目的时候，Spring Data ES跟ES服务存在版本匹配关系，但目前在spring boot v2.0.4.RELEASE中使用未发现有版本不兼容情况) spring-boo">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018830/20180830111106.png">
-<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018830/20180830093955.png">
-<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018830/20180830094702.png">
-<meta property="og:updated_time" content="2018-08-30T06:35:39.369Z">
+<meta property="og:image" content="http://image.mariojd.cn/smallstory/2018830/20180830111106.png">
+<meta property="og:image" content="http://image.mariojd.cn/smallstory/2018830/20180830093955.png">
+<meta property="og:image" content="http://image.mariojd.cn/smallstory/2018830/20180830094702.png">
+<meta property="og:updated_time" content="2018-09-29T03:20:10.824Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring Boot2集成Elasticsearch、PostgreSQL遇到的问题">
 <meta name="twitter:description" content="项目背景&amp;emsp;&amp;emsp;在描述和还原事故之前，简单说明下相关环境：  spring boot v2.0.4.RELEASE spring-boot-starter-data-elasticsearch (以前做项目的时候，Spring Data ES跟ES服务存在版本匹配关系，但目前在spring boot v2.0.4.RELEASE中使用未发现有版本不兼容情况) spring-boo">
-<meta name="twitter:image" content="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018830/20180830111106.png">
+<meta name="twitter:image" content="http://image.mariojd.cn/smallstory/2018830/20180830111106.png">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -178,7 +178,7 @@
 </ul>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@Entity</span><br><span class="line">@Table</span><br><span class="line">@Data</span><br><span class="line">public class Teacher extends BaseEntity &#123;</span><br><span class="line"></span><br><span class="line">    private String phone;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>&emsp;&emsp;此外，JPA中还有不同的遗传策略来解决多实体间的继承映射关系，同样可以实现上述一样的效果(<code>@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)</code>)：</p>
-<p><img src="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018830/20180830111106.png" alt="JPA InheritanceType"></p>
+<p><img src="http://image.mariojd.cn/smallstory/2018830/20180830111106.png" alt="JPA InheritanceType"></p>
 <h4 id="Spirng-Data抽取抽象Repository"><a href="#Spirng-Data抽取抽象Repository" class="headerlink" title="Spirng Data抽取抽象Repository"></a>Spirng Data抽取抽象Repository</h4><p>&emsp;&emsp;这种情况跟上面那种情况有一定的关联，我们借助泛型来解决，首先建立一个BaseDao(需指定为<code>@NoRepositoryBean</code>)：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@NoRepositoryBean</span><br><span class="line">public interface BaseDao&lt;T extends BaseEntity&gt; extends JpaRepository&lt;T, Integer&gt; &#123;</span><br><span class="line"></span><br><span class="line">	// 部分字段查询需添加相对应构造器</span><br><span class="line">    @Query(value = &quot;SELECT new #&#123;#entityName&#125;(id,username) FROM #&#123;#entityName&#125; WHERE username=?1&quot;)</span><br><span class="line">    T findByUsername(String username);</span><br><span class="line">	</span><br><span class="line">	T findByIdAndUsername(int id,String username);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>&emsp;&emsp;这样多个子Dao只需要继承这个BaseDao便可以拥有这些扩展方法。</p>
@@ -192,13 +192,13 @@
 </ul>
 <p>&emsp;&emsp;借助<code>@JsonProperty</code>更改ES字段与实体属性的映射关系</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@Data</span><br><span class="line">@Document(indexName = &quot;school&quot;, type = &quot;primary_school&quot;)</span><br><span class="line">public class Student &#123;</span><br><span class="line"></span><br><span class="line">    @Id</span><br><span class="line">    private String id;</span><br><span class="line"></span><br><span class="line">    private Integer gender;</span><br><span class="line"></span><br><span class="line">    @JsonProperty(&quot;student_name&quot;)</span><br><span class="line">    private String studentName;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018830/20180830093955.png" alt="Elasticsearch _mpping"></p>
+<p><img src="http://image.mariojd.cn/smallstory/2018830/20180830093955.png" alt="Elasticsearch _mpping"></p>
 <ul>
 <li>方案2</li>
 </ul>
 <p>&emsp;&emsp;使用<code>@JsonNaming</code>注解并指定相应的映射策略。如果当前实体需要使用多个<code>@JsonProperty</code>才能定义这种关系，可以考虑使用这种更快捷的方式</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@Data</span><br><span class="line">@Document(indexName = &quot;school&quot;, type = &quot;primary_school&quot;)</span><br><span class="line">@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)</span><br><span class="line">public class Student &#123;</span><br><span class="line"></span><br><span class="line">    @Id</span><br><span class="line">    private String id;</span><br><span class="line"></span><br><span class="line">    private Integer gender;</span><br><span class="line">    </span><br><span class="line">    private String studentName;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018830/20180830094702.png" alt="PropertyNamingStrategy"></p>
+<p><img src="http://image.mariojd.cn/smallstory/2018830/20180830094702.png" alt="PropertyNamingStrategy"></p>
 <p>&emsp;&emsp;从上图可以看到jackson包中已经定义好有五种不同的映射策略，如果都不满足实际需求的话还可以自行扩展，只需要继承<code>PropertyNamingStrategyBase</code>这个抽象类并重写它的translate()方法即可。</p>
 <h4 id="ES一个Index对应多个type问题"><a href="#ES一个Index对应多个type问题" class="headerlink" title="ES一个Index对应多个type问题"></a>ES一个Index对应多个type问题</h4><p>&emsp;&emsp;如果出现下面这个错误信息，说明定义了多个Type对应在一个Index。实际上在ES6.0之后，官方已经不推荐这种映射关系。按以前那种思路，Index对应Database，然后type对应table的关系(所以一个database中有多个table，那么一个index也就可以有多个type)是不严谨的，在官网上有这个<a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.0/breaking-changes-6.0.html" target="_blank" rel="noopener">Reference</a>。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.data.elasticsearch.repository.support.SimpleElasticsearchRepository]: Constructor threw exception; nested exception is java.lang.IllegalArgumentException: Rejecting mapping update to [school] as the final mapping would have more than 1 type: [teacher, student]</span><br></pre></td></tr></table></figure>
@@ -208,7 +208,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年08月30日 14:35</p>
+        <p>最后更新： 2018年09月29日 11:20</p>
         <p>原始链接： <a class="post-url" href="/problems-in-spring-boot2-with-elasticsearch-and-postgresql.html" title="Spring Boot2集成Elasticsearch、PostgreSQL遇到的问题">https://blog.mariojd.cn/problems-in-spring-boot2-with-elasticsearch-and-postgresql.html</a></p>
         <footer>
             <a href="https://blog.mariojd.cn">

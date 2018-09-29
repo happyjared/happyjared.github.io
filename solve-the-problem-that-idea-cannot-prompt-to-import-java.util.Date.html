@@ -16,13 +16,13 @@
 <meta property="og:site_name" content="happyJared - 博客">
 <meta property="og:description" content="&amp;emsp;&amp;emsp;之前有一段时间在使用IDEA的时候，发现通过快捷键Alt + Enter导入并没有提示有java.util.Date的包，仅仅只有java.sql.Date的包。于是每次使用都需要通过手写import java.util.Date;来进行导包。博主在好生不爽了一段时间后，终于在网上找到了解决办法，本文就是用来记录一下解决过程的。 &amp;emsp;&amp;emsp;找到设置（Alt">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://image.mariojd.cn/2018323/20180323151920.png">
-<meta property="og:image" content="https://image.mariojd.cn/2018323/20180323152456.png">
-<meta property="og:updated_time" content="2018-08-23T05:48:49.860Z">
+<meta property="og:image" content="http://image.mariojd.cn/2018323/20180323151920.png">
+<meta property="og:image" content="http://image.mariojd.cn/2018323/20180323152456.png">
+<meta property="og:updated_time" content="2018-09-29T03:20:10.864Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="解决IDEA无法提示导入java.util.Date的问题">
 <meta name="twitter:description" content="&amp;emsp;&amp;emsp;之前有一段时间在使用IDEA的时候，发现通过快捷键Alt + Enter导入并没有提示有java.util.Date的包，仅仅只有java.sql.Date的包。于是每次使用都需要通过手写import java.util.Date;来进行导包。博主在好生不爽了一段时间后，终于在网上找到了解决办法，本文就是用来记录一下解决过程的。 &amp;emsp;&amp;emsp;找到设置（Alt">
-<meta name="twitter:image" content="https://image.mariojd.cn/2018323/20180323151920.png">
+<meta name="twitter:image" content="http://image.mariojd.cn/2018323/20180323151920.png">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -156,13 +156,13 @@
 -->
 <p>&emsp;&emsp;之前有一段时间在使用IDEA的时候，发现通过快捷键<code>Alt + Enter</code>导入并没有提示有java.util.Date的包，仅仅只有java.sql.Date的包。于是每次使用都需要通过手写<code>import java.util.Date;</code>来进行导包。博主在好生不爽了一段时间后，终于在网上找到了解决办法，本文就是用来记录一下解决过程的。</p>
 <p>&emsp;&emsp;找到设置（<code>Alt + Shift + S</code>），搜索“Auto Import”。如下图所示，只需要把java.util.Date导入提示的排除设置删除即可。</p>
-<p><img src="https://image.mariojd.cn/2018323/20180323151920.png" alt="删除java.util.Date导入提示的排除设置" title="删除java.util.Date导入提示的排除设置"></p>
+<p><img src="http://image.mariojd.cn/2018323/20180323151920.png" alt="删除java.util.Date导入提示的排除设置" title="删除java.util.Date导入提示的排除设置"></p>
 <p>&emsp;&emsp;同理，因为一般项目中很少使用得到java.sql.Date，所以我们可以添加这么一条设置，用于排除java.sql.Date的导入提示。</p>
-<p><img src="https://image.mariojd.cn/2018323/20180323152456.png" alt="添加java.sql.Date导入提示的排除设置" title="添加java.sql.Date导入提示的排除设置"></p>
+<p><img src="http://image.mariojd.cn/2018323/20180323152456.png" alt="添加java.sql.Date导入提示的排除设置" title="添加java.sql.Date导入提示的排除设置"></p>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年08月23日 13:48</p>
+        <p>最后更新： 2018年09月29日 11:20</p>
         <p>原始链接： <a class="post-url" href="/solve-the-problem-that-idea-cannot-prompt-to-import-java.util.Date.html" title="解决IDEA无法提示导入java.util.Date的问题">https://blog.mariojd.cn/solve-the-problem-that-idea-cannot-prompt-to-import-java.util.Date.html</a></p>
         <footer>
             <a href="https://blog.mariojd.cn">

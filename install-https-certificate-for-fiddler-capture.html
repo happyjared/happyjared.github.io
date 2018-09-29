@@ -16,16 +16,16 @@
 <meta property="og:site_name" content="happyJared - 博客">
 <meta property="og:description" content="前言&amp;emsp;&amp;emsp;之前借助过Fiddler来抓取微信公众号的文章和留言(Https协议的，下一篇介绍)，所以安装https证书又是必不可少的，这里简单还原下安装步骤。如果没有正确安装证书，Fiddler抓包的时候会提示：HTTPS traffic decryption error: System.Security.Authentication.AuthenticationExcepti">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018827/20180827162918.png">
-<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018827/20180827164121.png">
-<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018827/20180827163135.png">
-<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018827/20180827170621.jpg">
-<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018827/20180827170613.jpg">
-<meta property="og:updated_time" content="2018-08-27T09:38:55.484Z">
+<meta property="og:image" content="http://image.mariojd.cn/smallstory/2018827/20180827162918.png">
+<meta property="og:image" content="http://image.mariojd.cn/smallstory/2018827/20180827164121.png">
+<meta property="og:image" content="http://image.mariojd.cn/smallstory/2018827/20180827163135.png">
+<meta property="og:image" content="http://image.mariojd.cn/smallstory/2018827/20180827170621.jpg">
+<meta property="og:image" content="http://image.mariojd.cn/smallstory/2018827/20180827170613.jpg">
+<meta property="og:updated_time" content="2018-09-29T03:20:10.754Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Fiddler抓包升级，安装https证书">
 <meta name="twitter:description" content="前言&amp;emsp;&amp;emsp;之前借助过Fiddler来抓取微信公众号的文章和留言(Https协议的，下一篇介绍)，所以安装https证书又是必不可少的，这里简单还原下安装步骤。如果没有正确安装证书，Fiddler抓包的时候会提示：HTTPS traffic decryption error: System.Security.Authentication.AuthenticationExcepti">
-<meta name="twitter:image" content="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018827/20180827162918.png">
+<meta name="twitter:image" content="http://image.mariojd.cn/smallstory/2018827/20180827162918.png">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -159,9 +159,9 @@
 <li>配置Fiddler选型：</li>
 </ol>
 <p>&emsp;&emsp;从左上角选择栏依次选择”Tools” -&gt; “Options”, 参考下面几张图配置好即可：</p>
-<p><img src="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018827/20180827162918.png" alt="&quot;Tools&quot; -&gt; &quot;Options&quot; -&gt; &quot;Https&quot;"></p>
-<p><img src="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018827/20180827164121.png" alt="重新配置证书和导出证书"></p>
-<p><img src="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018827/20180827163135.png" alt="&quot;Tools&quot; -&gt; &quot;Options&quot; -&gt; &quot;Connections&quot;"></p>
+<p><img src="http://image.mariojd.cn/smallstory/2018827/20180827162918.png" alt="&quot;Tools&quot; -&gt; &quot;Options&quot; -&gt; &quot;Https&quot;"></p>
+<p><img src="http://image.mariojd.cn/smallstory/2018827/20180827164121.png" alt="重新配置证书和导出证书"></p>
+<p><img src="http://image.mariojd.cn/smallstory/2018827/20180827163135.png" alt="&quot;Tools&quot; -&gt; &quot;Options&quot; -&gt; &quot;Connections&quot;"></p>
 <ol>
 <li>手机端安装证书</li>
 </ol>
@@ -170,14 +170,14 @@
 <li>方法一</li>
 </ul>
 <p>&emsp;&emsp;在手机浏览器输入<a href="http://ip:port" target="_blank" rel="noopener">http://ip:port</a> (表示代理ip和端口，不太懂的可以找找之前写的文章), 点击最下边的”FiddlerRoot certificate”，先下载到SD卡根目录;</p>
-<p><img src="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018827/20180827170621.jpg" alt="获取证书"></p>
+<p><img src="http://image.mariojd.cn/smallstory/2018827/20180827170621.jpg" alt="获取证书"></p>
 <ul>
 <li>方法二</li>
 </ul>
 <p>&emsp;&emsp;从左上角选择栏依次选择”Tools” -&gt; “Options”-&gt; “Https”, 找到”Actions”里面的”Export Root Certificert to Desktop”(参考步骤2图2), 下载到桌面再传到手机根目录即可;</p>
 <p>&emsp;&emsp;下面是在手机端按照该证书操作：</p>
 <p>&emsp;&emsp;从手机”设置”中找到类似”安装证书”这一选项(不同手机不太一样，这里是在”安全与隐私”里面)，点击后选择上面下载好的证书，接着进行安装即可。</p>
-<p><img src="http://p3ry9qsas.bkt.clouddn.com/smallstory/2018827/20180827170613.jpg" alt="安装证书"></p>
+<p><img src="http://image.mariojd.cn/smallstory/2018827/20180827170613.jpg" alt="安装证书"></p>
 <h3 id="参考说明"><a href="#参考说明" class="headerlink" title="参考说明"></a>参考说明</h3><ul>
 <li><p>Fiddler抓包不支持Http2、TCP、UDP、WebSocket等协议；</p>
 </li>
@@ -192,7 +192,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年08月27日 17:38</p>
+        <p>最后更新： 2018年09月29日 11:20</p>
         <p>原始链接： <a class="post-url" href="/install-https-certificate-for-fiddler-capture.html" title="Fiddler抓包升级，安装https证书">https://blog.mariojd.cn/install-https-certificate-for-fiddler-capture.html</a></p>
         <footer>
             <a href="https://blog.mariojd.cn">

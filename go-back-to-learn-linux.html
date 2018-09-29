@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Linux私房菜：回头去学这点事 | happyJared - 博客</title>
+  <title>Linux私房菜：回头去学 | happyJared - 博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="happyJared - 博客。编码爱好者，代码小洁癖。" />
@@ -11,15 +11,18 @@
   <meta name="description" content="说来惭愧，从学编程到现在写代码，算是用过不少东西，不过很多只停留在半解半知的状态，包括Linux在内，一直以来还没有较为系统的从基础开始学起。最近逼着自己回头看Linux相关书籍：《鸟哥的Linux私房菜》，此书真是蛮厚的，花点时间和心思啃完先。因为Linux本身的知识体系非常庞大，应用也非常广泛，所以光凭理解和记忆肯定是不行的了，按目前的计划构想，将get的好知识点梳理出来，方便日后再学习回顾">
 <meta name="keywords" content="linux thing">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux私房菜：回头去学这点事">
+<meta property="og:title" content="Linux私房菜：回头去学">
 <meta property="og:url" content="https://blog.mariojd.cn/go-back-to-learn-linux.html">
 <meta property="og:site_name" content="happyJared - 博客">
 <meta property="og:description" content="说来惭愧，从学编程到现在写代码，算是用过不少东西，不过很多只停留在半解半知的状态，包括Linux在内，一直以来还没有较为系统的从基础开始学起。最近逼着自己回头看Linux相关书籍：《鸟哥的Linux私房菜》，此书真是蛮厚的，花点时间和心思啃完先。因为Linux本身的知识体系非常庞大，应用也非常广泛，所以光凭理解和记忆肯定是不行的了，按目前的计划构想，将get的好知识点梳理出来，方便日后再学习回顾">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-28T08:16:10.386Z">
+<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/xsj/2018928/20180928231424.jpg">
+<meta property="og:image" content="http://p3ry9qsas.bkt.clouddn.com/xsj/2018928/20180928231502.jpg">
+<meta property="og:updated_time" content="2018-09-29T02:00:46.769Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux私房菜：回头去学这点事">
+<meta name="twitter:title" content="Linux私房菜：回头去学">
 <meta name="twitter:description" content="说来惭愧，从学编程到现在写代码，算是用过不少东西，不过很多只停留在半解半知的状态，包括Linux在内，一直以来还没有较为系统的从基础开始学起。最近逼着自己回头看Linux相关书籍：《鸟哥的Linux私房菜》，此书真是蛮厚的，花点时间和心思啃完先。因为Linux本身的知识体系非常庞大，应用也非常广泛，所以光凭理解和记忆肯定是不行的了，按目前的计划构想，将get的好知识点梳理出来，方便日后再学习回顾">
+<meta name="twitter:image" content="http://p3ry9qsas.bkt.clouddn.com/xsj/2018928/20180928231424.jpg">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -108,14 +111,14 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap"><article id="post-Linux私房菜：回头去学这点事" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main" class="body-wrap"><article id="post-Linux私房菜：回头去学" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="post-title" itemprop="name">
-      Linux私房菜：回头去学这点事
+      Linux私房菜：回头去学
     </h1>
     <div class="post-title-bar">
       <ul>
@@ -152,14 +155,59 @@
     csdn_blog_category: 
 -->
 <p>说来惭愧，从学编程到现在写代码，算是用过不少东西，不过很多只停留在半解半知的状态，包括Linux在内，一直以来还没有较为系统的从基础开始学起。最近逼着自己回头看Linux相关书籍：《鸟哥的Linux私房菜》，此书真是蛮厚的，花点时间和心思啃完先。因为Linux本身的知识体系非常庞大，应用也非常广泛，所以光凭理解和记忆肯定是不行的了，按目前的计划构想，将get的好知识点梳理出来，方便日后再学习回顾。</p>
+<p>先整理一些基本的入门知识点：</p>
+<ul>
+<li><p>操作符：</p>
+<ul>
+<li>root超管：<code>#</code></li>
+<li>普通用户：<code>$</code></li>
+</ul>
+</li>
+<li><p>命令形式：<code>command [-options] *parameters</code>，命令太长用反斜杠<code>\</code>转义到下一行</p>
+</li>
+<li><p>小工具：</p>
+<ul>
+<li>日期时间：<code>date</code></li>
+<li>日历：<code>cal [ [month] year]</code></li>
+<li>计算器：<code>bc</code></li>
+</ul>
+</li>
+<li><p>常用热键：</p>
+<ul>
+<li><code>Tab</code>，命令及文件快速补全；</li>
+<li><code>Ctrl + c</code>，输入命令快速中断；</li>
+<li><code>Ctrl + d</code>，退出相当于exit效果</li>
+</ul>
+</li>
+<li><p>帮助命令：</p>
+<ul>
+<li><p><code>man command</code>，全称manual (操作说明)，用于查看命令或文件的用法</p>
+<p><img src="http://p3ry9qsas.bkt.clouddn.com/xsj/2018928/20180928231424.jpg" alt="man"></p>
+</li>
+<li><p><code>info page</code>，提供一种在线求助的方式</p>
+<p><img src="http://p3ry9qsas.bkt.clouddn.com/xsj/2018928/20180928231502.jpg" alt="info"></p>
+</li>
+</ul>
+</li>
+<li><p>数据同步写入磁盘：<code>sync</code></p>
+</li>
+<li><p>关机命令：</p>
+<ul>
+<li>shutdown </li>
+<li>reboot</li>
+<li>halt</li>
+<li>poweroff</li>
+</ul>
+</li>
+</ul>
 <blockquote>
-<p>欢迎关注我的个人公众号：超级码里奥<br>如果这对您有帮助，欢迎点赞和分享，转载请注明出处</p>
+<p>欢迎关注我的个人公众号：超级码里奥<br>如果这对您有帮助，欢迎点赞和分享，转载请注明出处  </p>
 </blockquote>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年09月28日 16:16</p>
-        <p>原始链接： <a class="post-url" href="/go-back-to-learn-linux.html" title="Linux私房菜：回头去学这点事">https://blog.mariojd.cn/go-back-to-learn-linux.html</a></p>
+        <p>最后更新： 2018年09月29日 10:00</p>
+        <p>原始链接： <a class="post-url" href="/go-back-to-learn-linux.html" title="Linux私房菜：回头去学">https://blog.mariojd.cn/go-back-to-learn-linux.html</a></p>
         <footer>
             <a href="https://blog.mariojd.cn">
                 <img src="/images/logo.png" alt="Jared Qiu">
@@ -216,7 +264,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.mariojd.cn/go-back-to-learn-linux.html&title=《Linux私房菜：回头去学这点事》 — happyJared - 博客&pic=https://image.mariojd.cn/smallstory/2018928/go-back-to-learn-linux.jpg" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.mariojd.cn/go-back-to-learn-linux.html&title=《Linux私房菜：回头去学》 — happyJared - 博客&pic=https://image.mariojd.cn/smallstory/2018928/go-back-to-learn-linux.jpg" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -226,7 +274,7 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mariojd.cn/go-back-to-learn-linux.html&title=《Linux私房菜：回头去学这点事》 — happyJared - 博客&source=Java developer, like Python and javascript，为人乐观、积极、向上、勤奋、和善、好相处，讲卫生，爱学习，爱码字，爱..." data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mariojd.cn/go-back-to-learn-linux.html&title=《Linux私房菜：回头去学》 — happyJared - 博客&source=Java developer, like Python and javascript，为人乐观、积极、向上、勤奋、和善、好相处，讲卫生，爱学习，爱码字，爱..." data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
@@ -236,7 +284,7 @@
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Linux私房菜：回头去学这点事》 — happyJared - 博客&url=https://blog.mariojd.cn/go-back-to-learn-linux.html&via=https://blog.mariojd.cn" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Linux私房菜：回头去学》 — happyJared - 博客&url=https://blog.mariojd.cn/go-back-to-learn-linux.html&via=https://blog.mariojd.cn" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -288,8 +336,8 @@
     </a>
   
   
-    <a href="/share-scrapy-experience-in-crawl-zhipin-and-lagou.html" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">爬虫进阶：Scrapy抓取boss直聘、拉勾心得经验</span>
+    <a href="/elasticsearch-cluster-environment-construction-based-docker.html" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Docker + Elasticsearch 集群环境搭建</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   
@@ -298,7 +346,7 @@
 
 
     
-        <div id="SOHUCS" sid="Linux私房菜：回头去学这点事" ></div>
+        <div id="SOHUCS" sid="Linux私房菜：回头去学" ></div>
 <script type="text/javascript">
     (function(){
         var appid = 'cytsi4W0L';

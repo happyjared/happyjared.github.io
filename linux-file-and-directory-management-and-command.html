@@ -8,19 +8,19 @@
   
     <meta name="keywords" content="happyJared - 博客。保持勤學習的心，做好寫代碼這事。我有一个公众号：超级码里奥。" />
   
-  <meta name="description" content="本文内容精简、整理、摘抄、有感于《鸟哥的Linux私房菜 - 基础篇第四版》第六章 • Linux的文件权限与目录管理。   路径(PATH)  相对路径：cd /var/tmp/，由根目录/开头 绝对路径：不以/开头，与相对路径写法相对应   环境变量(ENVIRONMENT VARIABLE)   由一堆目录组成，不同目录之间用:分隔。命令相同的情况下，靠前指定的环境变量配置优先级高。">
+  <meta name="description" content="本文内容精简、整理、摘抄、有感于《鸟哥的Linux私房菜 - 基础篇第四版》第六章 • Linux的文件权限与目录管理。   路径(PATH)  相对路径：cd /var/tmp/，由根目录/开头 绝对路径：不以/开头，与相对路径写法相对应   环境变量(ENVIRONMENT VARIABLE)。由一堆目录组成，不同目录之间用:分隔。命令相同的情况下，靠前指定的环境变量配置优先级高。  查看">
 <meta name="keywords" content="linux thing,file management,directory management,common commands">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux私房菜：文件目录管理及常见命令">
 <meta property="og:url" content="https://blog.mariojd.cn/linux-file-and-directory-management-and-command.html">
 <meta property="og:site_name" content="happyJared - 博客">
-<meta property="og:description" content="本文内容精简、整理、摘抄、有感于《鸟哥的Linux私房菜 - 基础篇第四版》第六章 • Linux的文件权限与目录管理。   路径(PATH)  相对路径：cd /var/tmp/，由根目录/开头 绝对路径：不以/开头，与相对路径写法相对应   环境变量(ENVIRONMENT VARIABLE)   由一堆目录组成，不同目录之间用:分隔。命令相同的情况下，靠前指定的环境变量配置优先级高。">
+<meta property="og:description" content="本文内容精简、整理、摘抄、有感于《鸟哥的Linux私房菜 - 基础篇第四版》第六章 • Linux的文件权限与目录管理。   路径(PATH)  相对路径：cd /var/tmp/，由根目录/开头 绝对路径：不以/开头，与相对路径写法相对应   环境变量(ENVIRONMENT VARIABLE)。由一堆目录组成，不同目录之间用:分隔。命令相同的情况下，靠前指定的环境变量配置优先级高。  查看">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://image.mariojd.cn/smallstory/2018109/20181009095712.png">
-<meta property="og:updated_time" content="2018-10-10T08:19:14.232Z">
+<meta property="og:updated_time" content="2018-10-10T08:23:15.541Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux私房菜：文件目录管理及常见命令">
-<meta name="twitter:description" content="本文内容精简、整理、摘抄、有感于《鸟哥的Linux私房菜 - 基础篇第四版》第六章 • Linux的文件权限与目录管理。   路径(PATH)  相对路径：cd /var/tmp/，由根目录/开头 绝对路径：不以/开头，与相对路径写法相对应   环境变量(ENVIRONMENT VARIABLE)   由一堆目录组成，不同目录之间用:分隔。命令相同的情况下，靠前指定的环境变量配置优先级高。">
+<meta name="twitter:description" content="本文内容精简、整理、摘抄、有感于《鸟哥的Linux私房菜 - 基础篇第四版》第六章 • Linux的文件权限与目录管理。   路径(PATH)  相对路径：cd /var/tmp/，由根目录/开头 绝对路径：不以/开头，与相对路径写法相对应   环境变量(ENVIRONMENT VARIABLE)。由一堆目录组成，不同目录之间用:分隔。命令相同的情况下，靠前指定的环境变量配置优先级高。  查看">
 <meta name="twitter:image" content="http://image.mariojd.cn/smallstory/2018109/20181009095712.png">
   
   
@@ -183,14 +183,13 @@ ga('send', 'pageview');
 <li>绝对路径：不以<code>/</code>开头，与相对路径写法相对应</li>
 </ul>
 </li>
-<li><p>环境变量(ENVIRONMENT VARIABLE)</p>
-</li>
-</ul>
-<p>由一堆目录组成，不同目录之间用<code>:</code>分隔。命令相同的情况下，靠前指定的环境变量配置优先级高。</p>
+<li><p>环境变量(ENVIRONMENT VARIABLE)。由一堆目录组成，不同目录之间用<code>:</code>分隔。命令相同的情况下，靠前指定的环境变量配置优先级高。</p>
 <ul>
 <li>查看命令: <code>echo $PATH</code></li>
 <li>配置文件：<code>/etc/profile</code></li>
 <li>立即刷新：<code>source /etc/profile</code></li>
+</ul>
+</li>
 </ul>
 <h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><ul>
 <li><p>文件类型</p>
@@ -386,7 +385,7 @@ ga('send', 'pageview');
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年10月10日 16:19</p>
+        <p>最后更新： 2018年10月10日 16:23</p>
         <p>原始链接： <a class="post-url" href="/linux-file-and-directory-management-and-command.html" title="Linux私房菜：文件目录管理及常见命令">https://blog.mariojd.cn/linux-file-and-directory-management-and-command.html</a></p>
         <footer>
             <a href="https://blog.mariojd.cn">

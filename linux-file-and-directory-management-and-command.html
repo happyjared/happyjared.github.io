@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Linux私房菜：文件目录管理及常见命令 | happyJared - 博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="happyJared - 博客。保持勤學習的心，做好寫代碼這事。我有一个公众号：超级码里奥。" />
+  
+  <meta name="description" content="本文内容精简、整理、摘抄、有感于《鸟哥的Linux私房菜 - 基础篇第四版》第六章 • Linux的文件权限与目录管理。   路径(PATH)  相对路径：cd /var/tmp/，由根目录/开头 绝对路径：不以/开头，与相对路径写法相对应   环境变量(ENVIRONMENT VARIABLE)   由一堆目录组成，不同目录之间用:分隔。命令相同的情况下，靠前指定的环境变量配置优先级高。">
+<meta name="keywords" content="linux thing,file management,directory management,common commands">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux私房菜：文件目录管理及常见命令">
+<meta property="og:url" content="https://blog.mariojd.cn/linux-file-and-directory-management-and-command.html">
+<meta property="og:site_name" content="happyJared - 博客">
+<meta property="og:description" content="本文内容精简、整理、摘抄、有感于《鸟哥的Linux私房菜 - 基础篇第四版》第六章 • Linux的文件权限与目录管理。   路径(PATH)  相对路径：cd /var/tmp/，由根目录/开头 绝对路径：不以/开头，与相对路径写法相对应   环境变量(ENVIRONMENT VARIABLE)   由一堆目录组成，不同目录之间用:分隔。命令相同的情况下，靠前指定的环境变量配置优先级高。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://image.mariojd.cn/smallstory/2018109/20181009095712.png">
+<meta property="og:updated_time" content="2018-10-10T08:19:14.232Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux私房菜：文件目录管理及常见命令">
+<meta name="twitter:description" content="本文内容精简、整理、摘抄、有感于《鸟哥的Linux私房菜 - 基础篇第四版》第六章 • Linux的文件权限与目录管理。   路径(PATH)  相对路径：cd /var/tmp/，由根目录/开头 绝对路径：不以/开头，与相对路径写法相对应   环境变量(ENVIRONMENT VARIABLE)   由一堆目录组成，不同目录之间用:分隔。命令相同的情况下，靠前指定的环境变量配置优先级高。">
+<meta name="twitter:image" content="http://image.mariojd.cn/smallstory/2018109/20181009095712.png">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-127138870-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?7d6076888c62ff336f5b580c57fd4141";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+  
+  <div style="display: none;">
+    <script src="//s22.cnzz.com/z_stat.php?id=1274993267&web_id=1274993267" language="JavaScript"></script>
+  </div>
+
+
+</head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <!--<div id="banner"></div>-->
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title"></span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-h-square"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-window-restore"></i>
+                        <span>归档</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <!--<div id="header-title">-->
+                    <!---->
+                <!--</div>-->
+                <div id="header-description">
+                    <div id="hitokoto" style="height:18px;line-height:18px;">
+                        
+                            保持勤學習的心，做好寫代碼這事
+                                                    
+                    </div>
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="github" target="_blank" href="//github.com/happyjared">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="简书" target="_blank" href="//www.jianshu.com/u/000a530f461c">
+                            <i class="fa fa-book fa-2x"></i></a>
+                    
+                        <a title="企鹅号" target="_blank" href="//wpa.qq.com/msgrd?v=3&uin=1394223902&site=qq&menu=yes">
+                            <i class="fa fa-qq fa-2x"></i></a>
+                    
+                        <a title="公众号" target="_blank" href="//image.mariojd.cn/qrcode_for_supermmario_1280.jpg">
+                            <i class="fa fa-wechat fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-Linux私房菜：文件目录管理及常见命令" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      Linux私房菜：文件目录管理及常见命令
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/Linux/">Linux</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-10-08
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <!--
+    self_category: Java
+    self_tags: Java
+    osChina_sys_category: 编程语言
+    csdn_article_category: 原创
+    csdn_blog_category: 编程语言
+-->
+<blockquote>
+<p>本文内容精简、整理、摘抄、有感于《鸟哥的Linux私房菜 - 基础篇第四版》第六章 • Linux的文件权限与目录管理。</p>
+</blockquote>
+<ul>
+<li><p>路径(PATH)</p>
+<ul>
+<li>相对路径：<code>cd /var/tmp/</code>，由根目录<code>/</code>开头</li>
+<li>绝对路径：不以<code>/</code>开头，与相对路径写法相对应</li>
+</ul>
+</li>
+<li><p>环境变量(ENVIRONMENT VARIABLE)</p>
+</li>
+</ul>
+<p>由一堆目录组成，不同目录之间用<code>:</code>分隔。命令相同的情况下，靠前指定的环境变量配置优先级高。</p>
+<ul>
+<li>查看命令: <code>echo $PATH</code></li>
+<li>配置文件：<code>/etc/profile</code></li>
+<li>立即刷新：<code>source /etc/profile</code></li>
+</ul>
+<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><ul>
+<li><p>文件类型</p>
+<ul>
+<li><code>file 文件</code>，多用于判断是<code>ascii</code>，<code>data</code>或<code>binary</code>文件</li>
+</ul>
+</li>
+<li><p>目录相关</p>
+<ul>
+<li><p><code>cd</code> - change directory，更换目录。可以是相对路径或者是绝对路径，常见的有：</p>
+<ul>
+<li><code>.</code>，表示当前目录</li>
+<li><code>..</code>，进入上一层目录</li>
+<li><code>-</code>，返回前一个工作目录</li>
+<li><code>~[user]</code>，进入当前用户(或指定user用户)的家目录，不指定<code>~</code>也可以返回家目录</li>
+</ul>
+</li>
+<li><p><code>pwd</code> - print work directory，显示当前工作目录</p>
+<ul>
+<li><code>pwd [-P]</code>，显示实际路径而非链接路径</li>
+</ul>
+</li>
+<li><p><code>mkdir</code> - make directory，创建目录</p>
+<ul>
+<li><code>mkdir [-mp] 目录名称</code>。<code>-m</code>指定目录所属权限；<code>-p</code>同时创建多级目录</li>
+</ul>
+</li>
+<li><p><code>rmdir</code> - remove directory，删除空目录(<strong>被删目录不能含其它子目录及文件</strong>)</p>
+<ul>
+<li><code>rmdir [-p] 目录名称</code>。<code>-p</code>参数可同时删除上级空目录</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>文件目录管理</p>
+<ul>
+<li><p><code>ls [-aAdfFhilnrRSt] [--color={never,auto,always}] [--time={mtime,atime,ctime}] [--full-time] 文件或目录</code> - list，列出列表。参数较多，请用<code>man ls</code>查看更多详细用法，大部分情况下用<code>ll</code>能满足日常使用(<strong>等价于<code>ls -al</code></strong>)</p>
+<ul>
+<li><code>-a</code>含全部隐藏文件</li>
+<li><code>-A</code>含隐藏文件但不含<code>.</code>和<code>..</code>这两个目录</li>
+<li><code>-h</code>以可读形式(KB，GB)展示文件大小，默认为Byte</li>
+<li><code>-l</code>以每行长串输出展示数据</li>
+<li><code>-r</code>自然排序输出结果的反向</li>
+<li><code>-R</code>连同子目录文件一同输出</li>
+<li><code>-S</code>以文件大小排序</li>
+<li><code>-t</code>以时间排序</li>
+</ul>
+</li>
+<li><p><code>touch [-acdmt] File</code> - 创建文件</p>
+</li>
+<li><p><code>cp [-adfilprsu] source*(一个或多个来源文件或目录) destination(目标文件或目录)</code> - copy，复制 </p>
+<ul>
+<li><code>-a</code>完全相同复制</li>
+<li><code>-i</code>出现覆盖询问</li>
+<li><code>-p</code>连同源文件属性(权限、用户、时间)一起复制</li>
+<li><code>-r</code>递归复制文件目录</li>
+<li><code>-s</code>快捷方式形式复制(软连接)</li>
+<li><code>-l</code>硬连接</li>
+<li><code>-u</code>目标不存在才复制，或存在但<code>mtime</code>较旧</li>
+</ul>
+</li>
+<li><p><code>rm [-fir] 文件或目录</code> - remove，删除</p>
+<ul>
+<li><code>-f</code>忽略警告</li>
+<li><code>-i</code>删除询问</li>
+<li><code>-r</code>递归删除</li>
+</ul>
+</li>
+<li><p><code>mv [-fiu] source*(一个或多个来源文件或目录) directory(目标目录)</code> - move，移动或重命名</p>
+<ul>
+<li><code>-f</code>强制覆盖</li>
+<li><code>-i</code>覆盖询问</li>
+<li><code>-u</code>目标对象存在且<code>mtime</code>较旧的情况下才更新</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>文件内容查阅</p>
+<ul>
+<li><p><code>cat [-AbEnTv] File</code>，Concatenate，从第一行开始显示文件全部内容</p>
+<ul>
+<li><code>-b</code>显示行号(不含空白行)</li>
+<li><code>-n</code>显示行号(包含空白行)</li>
+</ul>
+</li>
+<li><p><code>tac</code>，相对应上面的<code>cat</code>命令，反向从最后一行开始显示文件全部内容</p>
+</li>
+<li><p><code>nl [-bnw] File</code>，类同于上面两个命令 ( 暂无说明 )</p>
+</li>
+<li><p><code>more File</code>，一页页向下翻阅查看文件</p>
+<ul>
+<li><code>space空格键</code>翻页</li>
+<li><code>b 或 ctrl + b</code>往回翻页</li>
+<li><code>enter确认键</code>翻行</li>
+<li><code>/字符串</code>向下搜索</li>
+<li><code>:f</code>显示文件名和当前末尾行的行数</li>
+<li><code>q</code>退出</li>
+</ul>
+</li>
+<li><p><code>less File</code>，类似于<code>more</code>但功能更强大，同样用于翻阅查看文件</p>
+<ul>
+<li><code>space空格键 或 page down</code>翻页</li>
+<li><code>b 或 ctrl + b 或 page up</code>往回翻页</li>
+<li><code>enter确认键</code>翻行</li>
+<li><code>/字符串</code>向下搜索</li>
+<li><code>?字符串</code>向上搜索</li>
+<li><code>n</code>搜索匹配的下一个</li>
+<li><code>N</code>搜索匹配的前一个</li>
+<li><code>:f</code>显示文件名、当前显示行范围、byte大小和百分占比等</li>
+<li><code>g 或 home</code>跳到文件开头</li>
+<li><code>G 或 end</code>跳到文件末尾</li>
+<li><code>q</code>退出</li>
+</ul>
+</li>
+<li><p><code>head [-n num] File</code>，取出前面几行</p>
+<ul>
+<li><code>head -n 100 info.log</code>，取出前100行</li>
+<li><code>head -n -100 info.log</code>，取出不包括最后100行的所有行</li>
+</ul>
+</li>
+<li><p><code>tail [-n num] File</code>，取出后面几行</p>
+<ul>
+<li><code>-f</code>侦测文件输出</li>
+<li><code>tail -n 100 info.log</code>，取出后100行</li>
+<li><code>tail -n +100 info.log</code>，取出100行以后的所有行</li>
+</ul>
+</li>
+<li><p><code>od [-t acdfox] File</code>，非纯文档文本读取命令( 暂无说明 )</p>
+</li>
+</ul>
+</li>
+<li><p>文件预设权限</p>
+<ul>
+<li><code>umask [-S] [-num]</code> ，显示当前用户在新建文件或目录时的权限默认值</li>
+<li><code>umask -num</code>，修改当前用户在新建文件或目录时的权限默认值</li>
+</ul>
+</li>
+<li><p>文件隐藏属性</p>
+<ul>
+<li><p><code>chattr [+-=][ASacdistu] 文件或目录</code>，配置文件隐藏属性</p>
+<ul>
+<li><code>+</code>增设属性</li>
+<li><code>-</code>删减属性</li>
+<li><code>=</code>赋值属性</li>
+<li><code>a</code>只能追加数据不可修改删除</li>
+<li><code>i</code>文件不能删除修改添加改名等</li>
+</ul>
+</li>
+<li><p><code>lsattr [-adR] 文件或目录</code>，显示文件隐藏属性</p>
+<ul>
+<li><code>a</code>包括隐藏文件</li>
+<li><code>d</code>仅列出目录属性</li>
+<li><code>R</code>包含子目录</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>脚本文件搜寻</p>
+<ul>
+<li><p><code>which [-a] command</code>，搜寻该command的执行档所在位置</p>
+</li>
+<li><p><code>whereis -[lbmsu] 文件或目录</code>，在指定目录搜索文件或目录</p>
+<ul>
+<li><code>l</code>列出指定目录</li>
+<li><code>b</code>只找binary文件</li>
+<li><code>m</code>只找在manual路径下的文件</li>
+<li><code>s</code>只找来源文件</li>
+<li><code>u</code>只找不在上面三种类型中的其它文件</li>
+</ul>
+</li>
+<li><p><code>locate [-iclSr] keyword</code>，根据指定数据库<code>/var/lib/mlocate/mlocate.db</code>搜索，可用<code>updatedb</code>命令更新</p>
+<ul>
+<li><code>i</code>忽略大小写</li>
+<li><code>c</code>输出统计数量</li>
+<li><code>l</code>后面接数量，表示输出几行</li>
+<li><code>S</code>展示数据库信息</li>
+</ul>
+</li>
+<li><p><code>find [PATH] [option] 文件或目录(支持正则匹配)</code>，功能比较强大和丰富，具体请用<code>man find</code>查看，常见的option选项有：</p>
+<ul>
+<li><code>[-{mtime,atime,ctime} {+,-}n]</code>，与时间相关的帅选</li>
+<li><code>[-{user,group,nouser,nogroup}]</code>，与拥有者或群组相关的过滤</li>
+<li><code>[-{name,size,type}]</code>，与文件名、大小、类型有关的参数</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="重点回顾"><a href="#重点回顾" class="headerlink" title="重点回顾"></a>重点回顾</h3><p><img src="http://image.mariojd.cn/smallstory/2018109/20181009095712.png" alt="重点回顾"></p>
+<blockquote>
+<p>欢迎关注我的个人公众号：超级码里奥<br>如果这对您有帮助，欢迎点赞和分享，转载请注明出处  </p>
+</blockquote>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年10月10日 16:19</p>
+        <p>原始链接： <a class="post-url" href="/linux-file-and-directory-management-and-command.html" title="Linux私房菜：文件目录管理及常见命令">https://blog.mariojd.cn/linux-file-and-directory-management-and-command.html</a></p>
+        <footer>
+            <a href="https://blog.mariojd.cn">
+                <img src="/images/logo.png" alt="happyJared">
+                happyJared
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        支持创作
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.mariojd.cn/linux-file-and-directory-management-and-command.html&title=《Linux私房菜：文件目录管理及常见命令》 — happyJared - 博客&pic=https://image.mariojd.cn/smallstory/2018108/linux-file-and-directory-management-and-commands.jpg" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mariojd.cn/linux-file-and-directory-management-and-command.html&title=《Linux私房菜：文件目录管理及常见命令》 — happyJared - 博客&source=Java developer, like Python and Javascript too，为人乐观、积极、向上、勤奋、和善、好相处，讲卫生，爱学习，爱..." data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.mariojd.cn/linux-file-and-directory-management-and-command.html" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Linux私房菜：文件目录管理及常见命令》 — happyJared - 博客&url=https://blog.mariojd.cn/linux-file-and-directory-management-and-command.html&via=https://blog.mariojd.cn" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://blog.mariojd.cn/linux-file-and-directory-management-and-command.html" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://blog.mariojd.cn/linux-file-and-directory-management-and-command.html" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/linuxthing/" class="color2">linux thing</a>
+      
+    <a href="/tags/filemanagement/" class="color1">file management</a>
+      
+    <a href="/tags/directorymanagement/" class="color1">directory management</a>
+      
+    <a href="/tags/commoncommands/" class="color1">common commands</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#常用命令"><span class="post-toc-text">常用命令</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#重点回顾"><span class="post-toc-text">重点回顾</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+  
+    <a href="/linux-file-and-directory-permission.html" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Linux私房菜：文件目录权限那点事</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        <div id="SOHUCS" sid="Linux私房菜：文件目录管理及常见命令" ></div>
+<script type="text/javascript">
+    (function(){
+        var appid = 'cytsi4W0L';
+        var conf = 'prod_302a63175740fd2ee2587f9345477b4c';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+    <span style='margin-left:5px'>
+    	粤ICP备17033077号-1
+    </span>
+</p>
+
+ 
+      <p>
+        <!-- Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>  -->
+        <!-- Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a> -->
+        Copyright &copy; 2018 happyJared 
+		    Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a>
+
+        <script type="text/javascript" src="//js.users.51.la/19683707.js"></script>   
+        <!-- <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1274993267'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1274993267%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script> -->
+        <br>
+      </p>
+    </div>
+  </div>
+</footer>
+
+    <script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
+
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "https://blog.mariojd.cn",
+      animate: false,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/Chocolatey/">Chocolatey</a><a class="category-link" href="/categories/Docker/">Docker</a><a class="category-link" href="/categories/Docker/Elasticsearch/">Elasticsearch</a><a class="category-link" href="/categories/Docker/MySQL/">MySQL</a><a class="category-link" href="/categories/Docker/PostgreSQL/">PostgreSQL</a><a class="category-link" href="/categories/Docker/Redis/">Redis</a><a class="category-link" href="/categories/IDEA/">IDEA</a><a class="category-link" href="/categories/Java/">Java</a><a class="category-link" href="/categories/Java/Lombok/">Lombok</a><a class="category-link" href="/categories/Java/Spring-Boot/">Spring Boot</a><a class="category-link" href="/categories/Java/Spring-Boot/Swagger/">Swagger</a><a class="category-link" href="/categories/Java/热部署/">热部署</a><a class="category-link" href="/categories/Jmeter/">Jmeter</a><a class="category-link" href="/categories/Linux/">Linux</a><a class="category-link" href="/categories/Python/">Python</a><a class="category-link" href="/categories/Python/Selenium/">Selenium</a><a class="category-link" href="/categories/Python/Selenium/Windows-Batch/">Windows Batch</a><a class="category-link" href="/categories/Spring/">Spring</a><a class="category-link" href="/categories/hexo/">hexo</a><a class="category-link" href="/categories/python/">python</a><a class="category-link" href="/categories/websocket/">websocket</a><a class="category-link" href="/categories/中间件/">中间件</a><a class="category-link" href="/categories/学习资源/">学习资源</a><a class="category-link" href="/categories/开源/">开源</a><a class="category-link" href="/categories/开源/YApi/">YApi</a><a class="category-link" href="/categories/开源/YApi/Swagger/">Swagger</a><a class="category-link" href="/categories/开源项目/">开源项目</a><a class="category-link" href="/categories/抓包工具/">抓包工具</a><a class="category-link" href="/categories/数据库中间件/">数据库中间件</a><a class="category-link" href="/categories/数据库中间件/Mycat/">Mycat</a><a class="category-link" href="/categories/编辑器/">编辑器</a><a class="category-link" href="/categories/编辑器/个人感悟/">个人感悟</a><a class="category-link" href="/categories/编辑器/快捷键/">快捷键</a><a class="category-link" href="/categories/设计模式/">设计模式</a><a class="category-link" href="/categories/随笔/">随笔</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/AcpectJ/" style="font-size: 10px;">AcpectJ</a> <a href="/tags/Aop/" style="font-size: 10px;">Aop</a> <a href="/tags/Chocolatey/" style="font-size: 10px;">Chocolatey</a> <a href="/tags/Eclipse/" style="font-size: 11.25px;">Eclipse</a> <a href="/tags/Faker/" style="font-size: 11.25px;">Faker</a> <a href="/tags/Fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/tags/GitHub-Pages/" style="font-size: 11.25px;">GitHub Pages</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDEA/" style="font-size: 20px;">IDEA</a> <a href="/tags/Java/" style="font-size: 17.5px;">Java</a> <a href="/tags/Java类库/" style="font-size: 10px;">Java类库</a> <a href="/tags/JetBrains/" style="font-size: 18.75px;">JetBrains</a> <a href="/tags/Jmeter/" style="font-size: 12.5px;">Jmeter</a> <a href="/tags/Lombok/" style="font-size: 10px;">Lombok</a> <a href="/tags/Mycat/" style="font-size: 13.75px;">Mycat</a> <a href="/tags/ORM/" style="font-size: 11.25px;">ORM</a> <a href="/tags/Peewee/" style="font-size: 10px;">Peewee</a> <a href="/tags/Python/" style="font-size: 12.5px;">Python</a> <a href="/tags/RestTemplate/" style="font-size: 10px;">RestTemplate</a> <a href="/tags/SQLAlchemy/" style="font-size: 10px;">SQLAlchemy</a> <a href="/tags/Spring/" style="font-size: 11.25px;">Spring</a> <a href="/tags/Spring-Boot/" style="font-size: 13.75px;">Spring Boot</a> <a href="/tags/Spring-Data-Elasticsearch/" style="font-size: 10px;">Spring Data Elasticsearch</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/bat/" style="font-size: 10px;">bat</a> <a href="/tags/bat脚本/" style="font-size: 10px;">bat脚本</a> <a href="/tags/beautifulsoup4/" style="font-size: 10px;">beautifulsoup4</a> <a href="/tags/boss/" style="font-size: 10px;">boss</a> <a href="/tags/builder/" style="font-size: 10px;">builder</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/chrome-plugin/" style="font-size: 10px;">chrome plugin</a> <a href="/tags/coding-net/" style="font-size: 10px;">coding.net</a> <a href="/tags/common-commands/" style="font-size: 10px;">common commands</a> <a href="/tags/csdn/" style="font-size: 10px;">csdn</a> <a href="/tags/design-patterns/" style="font-size: 16.25px;">design patterns</a> <a href="/tags/directory-management/" style="font-size: 10px;">directory management</a> <a href="/tags/directory-permission/" style="font-size: 10px;">directory permission</a> <a href="/tags/docker/" style="font-size: 16.25px;">docker</a> <a href="/tags/elasticsearch/" style="font-size: 11.25px;">elasticsearch</a> <a href="/tags/elasticsearch-cluster/" style="font-size: 10px;">elasticsearch cluster</a> <a href="/tags/fiddler/" style="font-size: 10px;">fiddler</a> <a href="/tags/fiddler-capture/" style="font-size: 10px;">fiddler capture</a> <a href="/tags/file-management/" style="font-size: 10px;">file management</a> <a href="/tags/file-permission/" style="font-size: 10px;">file permission</a> <a href="/tags/head-plugin/" style="font-size: 10px;">head plugin</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/hexo-themes/" style="font-size: 10px;">hexo themes</a> <a href="/tags/hexo-translate-title/" style="font-size: 10px;">hexo-translate-title</a> <a href="/tags/hot-key/" style="font-size: 10px;">hot key</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/http-s/" style="font-size: 10px;">http(s)</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/https抓包/" style="font-size: 10px;">https抓包</a> <a href="/tags/ik-analysis/" style="font-size: 10px;">ik analysis</a> <a href="/tags/imooc/" style="font-size: 10px;">imooc</a> <a href="/tags/itchat/" style="font-size: 10px;">itchat</a> <a href="/tags/java8-stream/" style="font-size: 10px;">java8 stream</a> <a href="/tags/jvm/" style="font-size: 10px;">jvm</a> <a href="/tags/lagou/" style="font-size: 10px;">lagou</a> <a href="/tags/linux-thing/" style="font-size: 12.5px;">linux thing</a> <a href="/tags/mysql/" style="font-size: 12.5px;">mysql</a> <a href="/tags/nginx/" style="font-size: 11.25px;">nginx</a> <a href="/tags/oschina/" style="font-size: 10px;">oschina</a> <a href="/tags/postgresql/" style="font-size: 12.5px;">postgresql</a> <a href="/tags/prototype/" style="font-size: 10px;">prototype</a> <a href="/tags/python/" style="font-size: 17.5px;">python</a> <a href="/tags/redis/" style="font-size: 11.25px;">redis</a> <a href="/tags/redis-sentinel/" style="font-size: 10px;">redis-sentinel</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/scrapy/" style="font-size: 13.75px;">scrapy</a> <a href="/tags/selenium/" style="font-size: 15px;">selenium</a> <a href="/tags/shortcuts-key/" style="font-size: 10px;">shortcuts key</a> <a href="/tags/simple-factory/" style="font-size: 12.5px;">simple factory</a> <a href="/tags/singleton/" style="font-size: 10px;">singleton</a> <a href="/tags/spider/" style="font-size: 11.25px;">spider</a> <a href="/tags/spider-crawl/" style="font-size: 10px;">spider crawl</a> <a href="/tags/spring-boot/" style="font-size: 11.25px;">spring boot</a> <a href="/tags/spring-boot2/" style="font-size: 10px;">spring boot2</a> <a href="/tags/swagger/" style="font-size: 11.25px;">swagger</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/vimium/" style="font-size: 10px;">vimium</a> <a href="/tags/websocket/" style="font-size: 10px;">websocket</a> <a href="/tags/weixin/" style="font-size: 10px;">weixin</a> <a href="/tags/ws-s/" style="font-size: 10px;">ws(s)</a> <a href="/tags/wss/" style="font-size: 10px;">wss</a> <a href="/tags/yapi/" style="font-size: 10px;">yapi</a> <a href="/tags/zealer/" style="font-size: 10px;">zealer</a> <a href="/tags/《Spring-in-action》/" style="font-size: 10px;">《Spring in action》</a> <a href="/tags/个人博客/" style="font-size: 11.25px;">个人博客</a> <a href="/tags/个人感悟/" style="font-size: 11.25px;">个人感悟</a> <a href="/tags/主从复制/" style="font-size: 11.25px;">主从复制</a> <a href="/tags/主从搭建/" style="font-size: 12.5px;">主从搭建</a> <a href="/tags/代理调试/" style="font-size: 10px;">代理调试</a> <a href="/tags/入门篇/" style="font-size: 10px;">入门篇</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/压测工具/" style="font-size: 12.5px;">压测工具</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/字符串机制/" style="font-size: 10px;">字符串机制</a> <a href="/tags/学习资源/" style="font-size: 11.25px;">学习资源</a> <a href="/tags/实践篇/" style="font-size: 11.25px;">实践篇</a> <a href="/tags/工厂方法/" style="font-size: 10px;">工厂方法</a> <a href="/tags/建造者/" style="font-size: 10px;">建造者</a> <a href="/tags/开源/" style="font-size: 10px;">开源</a> <a href="/tags/开源博客/" style="font-size: 11.25px;">开源博客</a> <a href="/tags/开源项目/" style="font-size: 11.25px;">开源项目</a> <a href="/tags/微信授权/" style="font-size: 10px;">微信授权</a> <a href="/tags/抽象工厂/" style="font-size: 10px;">抽象工厂</a> <a href="/tags/数据库中间件/" style="font-size: 13.75px;">数据库中间件</a> <a href="/tags/热部署/" style="font-size: 10px;">热部署</a> <a href="/tags/简书/" style="font-size: 10px;">简书</a> <a href="/tags/简单工厂/" style="font-size: 10px;">简单工厂</a> <a href="/tags/编辑器/" style="font-size: 20px;">编辑器</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a> <a href="/tags/读写分离/" style="font-size: 11.25px;">读写分离</a> <a href="/tags/跑步/" style="font-size: 10px;">跑步</a> <a href="/tags/配置篇/" style="font-size: 10px;">配置篇</a> <a href="/tags/钉钉运动/" style="font-size: 10px;">钉钉运动</a> <a href="/tags/阿里技术/" style="font-size: 10px;">阿里技术</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-h-square"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-window-restore"></i><span>归档</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/AcpectJ/" style="font-size: 10px;">AcpectJ</a> <a href="/tags/Aop/" style="font-size: 10px;">Aop</a> <a href="/tags/Chocolatey/" style="font-size: 10px;">Chocolatey</a> <a href="/tags/Eclipse/" style="font-size: 11.25px;">Eclipse</a> <a href="/tags/Faker/" style="font-size: 11.25px;">Faker</a> <a href="/tags/Fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/tags/GitHub-Pages/" style="font-size: 11.25px;">GitHub Pages</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDEA/" style="font-size: 20px;">IDEA</a> <a href="/tags/Java/" style="font-size: 17.5px;">Java</a> <a href="/tags/Java类库/" style="font-size: 10px;">Java类库</a> <a href="/tags/JetBrains/" style="font-size: 18.75px;">JetBrains</a> <a href="/tags/Jmeter/" style="font-size: 12.5px;">Jmeter</a> <a href="/tags/Lombok/" style="font-size: 10px;">Lombok</a> <a href="/tags/Mycat/" style="font-size: 13.75px;">Mycat</a> <a href="/tags/ORM/" style="font-size: 11.25px;">ORM</a> <a href="/tags/Peewee/" style="font-size: 10px;">Peewee</a> <a href="/tags/Python/" style="font-size: 12.5px;">Python</a> <a href="/tags/RestTemplate/" style="font-size: 10px;">RestTemplate</a> <a href="/tags/SQLAlchemy/" style="font-size: 10px;">SQLAlchemy</a> <a href="/tags/Spring/" style="font-size: 11.25px;">Spring</a> <a href="/tags/Spring-Boot/" style="font-size: 13.75px;">Spring Boot</a> <a href="/tags/Spring-Data-Elasticsearch/" style="font-size: 10px;">Spring Data Elasticsearch</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/bat/" style="font-size: 10px;">bat</a> <a href="/tags/bat脚本/" style="font-size: 10px;">bat脚本</a> <a href="/tags/beautifulsoup4/" style="font-size: 10px;">beautifulsoup4</a> <a href="/tags/boss/" style="font-size: 10px;">boss</a> <a href="/tags/builder/" style="font-size: 10px;">builder</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/chrome-plugin/" style="font-size: 10px;">chrome plugin</a> <a href="/tags/coding-net/" style="font-size: 10px;">coding.net</a> <a href="/tags/common-commands/" style="font-size: 10px;">common commands</a> <a href="/tags/csdn/" style="font-size: 10px;">csdn</a> <a href="/tags/design-patterns/" style="font-size: 16.25px;">design patterns</a> <a href="/tags/directory-management/" style="font-size: 10px;">directory management</a> <a href="/tags/directory-permission/" style="font-size: 10px;">directory permission</a> <a href="/tags/docker/" style="font-size: 16.25px;">docker</a> <a href="/tags/elasticsearch/" style="font-size: 11.25px;">elasticsearch</a> <a href="/tags/elasticsearch-cluster/" style="font-size: 10px;">elasticsearch cluster</a> <a href="/tags/fiddler/" style="font-size: 10px;">fiddler</a> <a href="/tags/fiddler-capture/" style="font-size: 10px;">fiddler capture</a> <a href="/tags/file-management/" style="font-size: 10px;">file management</a> <a href="/tags/file-permission/" style="font-size: 10px;">file permission</a> <a href="/tags/head-plugin/" style="font-size: 10px;">head plugin</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/hexo-themes/" style="font-size: 10px;">hexo themes</a> <a href="/tags/hexo-translate-title/" style="font-size: 10px;">hexo-translate-title</a> <a href="/tags/hot-key/" style="font-size: 10px;">hot key</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/http-s/" style="font-size: 10px;">http(s)</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/https抓包/" style="font-size: 10px;">https抓包</a> <a href="/tags/ik-analysis/" style="font-size: 10px;">ik analysis</a> <a href="/tags/imooc/" style="font-size: 10px;">imooc</a> <a href="/tags/itchat/" style="font-size: 10px;">itchat</a> <a href="/tags/java8-stream/" style="font-size: 10px;">java8 stream</a> <a href="/tags/jvm/" style="font-size: 10px;">jvm</a> <a href="/tags/lagou/" style="font-size: 10px;">lagou</a> <a href="/tags/linux-thing/" style="font-size: 12.5px;">linux thing</a> <a href="/tags/mysql/" style="font-size: 12.5px;">mysql</a> <a href="/tags/nginx/" style="font-size: 11.25px;">nginx</a> <a href="/tags/oschina/" style="font-size: 10px;">oschina</a> <a href="/tags/postgresql/" style="font-size: 12.5px;">postgresql</a> <a href="/tags/prototype/" style="font-size: 10px;">prototype</a> <a href="/tags/python/" style="font-size: 17.5px;">python</a> <a href="/tags/redis/" style="font-size: 11.25px;">redis</a> <a href="/tags/redis-sentinel/" style="font-size: 10px;">redis-sentinel</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/scrapy/" style="font-size: 13.75px;">scrapy</a> <a href="/tags/selenium/" style="font-size: 15px;">selenium</a> <a href="/tags/shortcuts-key/" style="font-size: 10px;">shortcuts key</a> <a href="/tags/simple-factory/" style="font-size: 12.5px;">simple factory</a> <a href="/tags/singleton/" style="font-size: 10px;">singleton</a> <a href="/tags/spider/" style="font-size: 11.25px;">spider</a> <a href="/tags/spider-crawl/" style="font-size: 10px;">spider crawl</a> <a href="/tags/spring-boot/" style="font-size: 11.25px;">spring boot</a> <a href="/tags/spring-boot2/" style="font-size: 10px;">spring boot2</a> <a href="/tags/swagger/" style="font-size: 11.25px;">swagger</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/vimium/" style="font-size: 10px;">vimium</a> <a href="/tags/websocket/" style="font-size: 10px;">websocket</a> <a href="/tags/weixin/" style="font-size: 10px;">weixin</a> <a href="/tags/ws-s/" style="font-size: 10px;">ws(s)</a> <a href="/tags/wss/" style="font-size: 10px;">wss</a> <a href="/tags/yapi/" style="font-size: 10px;">yapi</a> <a href="/tags/zealer/" style="font-size: 10px;">zealer</a> <a href="/tags/《Spring-in-action》/" style="font-size: 10px;">《Spring in action》</a> <a href="/tags/个人博客/" style="font-size: 11.25px;">个人博客</a> <a href="/tags/个人感悟/" style="font-size: 11.25px;">个人感悟</a> <a href="/tags/主从复制/" style="font-size: 11.25px;">主从复制</a> <a href="/tags/主从搭建/" style="font-size: 12.5px;">主从搭建</a> <a href="/tags/代理调试/" style="font-size: 10px;">代理调试</a> <a href="/tags/入门篇/" style="font-size: 10px;">入门篇</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/压测工具/" style="font-size: 12.5px;">压测工具</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/字符串机制/" style="font-size: 10px;">字符串机制</a> <a href="/tags/学习资源/" style="font-size: 11.25px;">学习资源</a> <a href="/tags/实践篇/" style="font-size: 11.25px;">实践篇</a> <a href="/tags/工厂方法/" style="font-size: 10px;">工厂方法</a> <a href="/tags/建造者/" style="font-size: 10px;">建造者</a> <a href="/tags/开源/" style="font-size: 10px;">开源</a> <a href="/tags/开源博客/" style="font-size: 11.25px;">开源博客</a> <a href="/tags/开源项目/" style="font-size: 11.25px;">开源项目</a> <a href="/tags/微信授权/" style="font-size: 10px;">微信授权</a> <a href="/tags/抽象工厂/" style="font-size: 10px;">抽象工厂</a> <a href="/tags/数据库中间件/" style="font-size: 13.75px;">数据库中间件</a> <a href="/tags/热部署/" style="font-size: 10px;">热部署</a> <a href="/tags/简书/" style="font-size: 10px;">简书</a> <a href="/tags/简单工厂/" style="font-size: 10px;">简单工厂</a> <a href="/tags/编辑器/" style="font-size: 20px;">编辑器</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a> <a href="/tags/读写分离/" style="font-size: 11.25px;">读写分离</a> <a href="/tags/跑步/" style="font-size: 10px;">跑步</a> <a href="/tags/配置篇/" style="font-size: 10px;">配置篇</a> <a href="/tags/钉钉运动/" style="font-size: 10px;">钉钉运动</a> <a href="/tags/阿里技术/" style="font-size: 10px;">阿里技术</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>

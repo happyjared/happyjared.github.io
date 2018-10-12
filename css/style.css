@@ -574,9 +574,9 @@ body {
   letter-spacing: 5px;
 }
 #header-description {
-  width: 600px;
+  width: 50%;
   margin: 20px auto;
-  padding: 10px 0;
+  padding: 0 0 25px;
   color: #666;
   letter-spacing: 5px;
 }

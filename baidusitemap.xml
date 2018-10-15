@@ -5,11 +5,11 @@
     
   <url>
     <loc>https://blog.mariojd.cn/python_standard_library_knowledge_system.html</loc>
-    <lastmod>2018-10-12T07:57:12.208Z</lastmod>
+    <lastmod>2018-10-15T00:58:42.257Z</lastmod>
     <data>
         <display>
         <title>7张思维导图告诉你 - Python标准库知识体系【 正则、日期、数据库、进程线程... 】</title>
-        <pubTime>2018-10-11T16:00:00.000Z</pubTime>
+        <pubTime>2018-10-13T16:00:00.000Z</pubTime>
         
         <tag>python</tag>
          
@@ -28,12 +28,36 @@
 
     
   <url>
+    <loc>https://blog.mariojd.cn/python_data_science_knowledge_system.html</loc>
+    <lastmod>2018-10-15T00:58:42.257Z</lastmod>
+    <data>
+        <display>
+        <title>12张思维导图告诉你 - Python数据科学知识体系【 Numpy、Pandas、Matplotlib 】</title>
+        <pubTime>2018-10-14T16:00:00.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+        <tag>python data science</tag>
+         
+        <tag>mind mapping</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="https://blog.mariojd.cn/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://blog.mariojd.cn/python_spider_knowledge_system.html</loc>
-    <lastmod>2018-10-12T06:56:26.132Z</lastmod>
+    <lastmod>2018-10-15T00:58:42.257Z</lastmod>
     <data>
         <display>
         <title>4张思维导图告诉你 - Python爬虫知识体系</title>
-        <pubTime>2018-10-11T16:00:00.000Z</pubTime>
+        <pubTime>2018-10-12T16:00:00.000Z</pubTime>
         
         <tag>python</tag>
          
@@ -62,30 +86,6 @@
         <tag>python</tag>
          
         <tag>python core</tag>
-         
-         
-           
-             
-              <breadCrumb title="Python" url="https://blog.mariojd.cn/categories/Python/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/python_data_science_knowledge_system.html</loc>
-    <lastmod>2018-10-12T06:56:26.125Z</lastmod>
-    <data>
-        <display>
-        <title>12张思维导图告诉你 - Python数据科学知识体系【 Numpy、Pandas、Matplotlib 】</title>
-        <pubTime>2018-10-11T16:00:00.000Z</pubTime>
-        
-        <tag>python</tag>
-         
-        <tag>python data science</tag>
-         
-        <tag>mind mapping</tag>
          
          
            

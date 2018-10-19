@@ -3,21 +3,25 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: python spider | happyJared - 博客</title>
+  <title>Linux私房菜：走进bash | happyJared - 博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="happyJared - 博客。保持勤學習的心，做好寫代碼這事。我有一个公众号：超级码里奥。" />
   
-  <meta name="description" content="Java developer, like Python and Javascript too，为人乐观、积极、向上、勤奋、和善、好相处，讲卫生，爱学习，爱码字，爱技术，爱生活">
-<meta property="og:type" content="website">
-<meta property="og:title" content="happyJared - 博客">
-<meta property="og:url" content="https://blog.mariojd.cn/tags/python-spider/index.html">
+  <meta name="description" content="本文内容精简、整理、摘抄、有感于《鸟哥的Linux私房菜 - 基础篇第四版》第十章 • 认识与学习BASH。  Bash功能 命令编辑修复能力：history。用户bash指令使用记录文件：~/.bash_history  命令与文件补全：tab  命令别名设定：alias  工作控制、前景和背景控制  程序化脚本：shell scripts  通配符：wildcard   指令操作   快捷">
+<meta name="keywords" content="bash">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux私房菜：走进bash">
+<meta property="og:url" content="https://blog.mariojd.cn/linux-bash.html">
 <meta property="og:site_name" content="happyJared - 博客">
-<meta property="og:description" content="Java developer, like Python and Javascript too，为人乐观、积极、向上、勤奋、和善、好相处，讲卫生，爱学习，爱码字，爱技术，爱生活">
+<meta property="og:description" content="本文内容精简、整理、摘抄、有感于《鸟哥的Linux私房菜 - 基础篇第四版》第十章 • 认识与学习BASH。  Bash功能 命令编辑修复能力：history。用户bash指令使用记录文件：~/.bash_history  命令与文件补全：tab  命令别名设定：alias  工作控制、前景和背景控制  程序化脚本：shell scripts  通配符：wildcard   指令操作   快捷">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://image.mariojd.cn/happyjared/20181018/20181018141303.png">
+<meta property="og:updated_time" content="2018-10-19T06:01:45.267Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="happyJared - 博客">
-<meta name="twitter:description" content="Java developer, like Python and Javascript too，为人乐观、积极、向上、勤奋、和善、好相处，讲卫生，爱学习，爱码字，爱技术，爱生活">
+<meta name="twitter:title" content="Linux私房菜：走进bash">
+<meta name="twitter:description" content="本文内容精简、整理、摘抄、有感于《鸟哥的Linux私房菜 - 基础篇第四版》第十章 • 认识与学习BASH。  Bash功能 命令编辑修复能力：history。用户bash指令使用记录文件：~/.bash_history  命令与文件补全：tab  命令别名设定：alias  工作控制、前景和背景控制  程序化脚本：shell scripts  通配符：wildcard   指令操作   快捷">
+<meta name="twitter:image" content="http://image.mariojd.cn/happyjared/20181018/20181018141303.png">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -126,57 +130,464 @@ ga('send', 'pageview');
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap">
-  
-  
+        <section id="main" class="body-wrap"><article id="post-Linux私房菜：走进bash" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/python_spider_knowledge_system.html" class="archive-article-date">
-  <time datetime="2018-10-12T16:00:00.000Z" itemprop="datePublished">10-13</time>
-</a>
-      
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/python_spider_knowledge_system.html"  target="_blank"  >4张思维导图告诉你 - Python爬虫知识体系</a>
+    <h1 class="post-title" itemprop="name">
+      Linux私房菜：走进bash
     </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/Linux/">Linux</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-10-18
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
   
 
-    </header>
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
       
-        <div class="archive-post-footer">
+            
+            <!--
+    self_category: 
+    self_tags: 
+    osChina_sys_category: 
+    csdn_article_category: 
+    csdn_blog_category: 
+-->
+<blockquote>
+<p>本文内容精简、整理、摘抄、有感于《鸟哥的Linux私房菜 - 基础篇第四版》第十章 • 认识与学习BASH。</p>
+</blockquote>
+<h3 id="Bash功能"><a href="#Bash功能" class="headerlink" title="Bash功能"></a>Bash功能</h3><ul>
+<li><p>命令编辑修复能力：<code>history</code>。用户bash指令使用记录文件：<code>~/.bash_history</code></p>
+</li>
+<li><p>命令与文件补全：<code>tab</code></p>
+</li>
+<li><p>命令别名设定：<code>alias</code></p>
+</li>
+<li><p>工作控制、前景和背景控制</p>
+</li>
+<li><p>程序化脚本：shell scripts</p>
+</li>
+<li><p>通配符：wildcard</p>
+</li>
+</ul>
+<h3 id="指令操作"><a href="#指令操作" class="headerlink" title="指令操作"></a>指令操作</h3><table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>backspace</code></td>
+<td>向前删除指令</td>
+</tr>
+<tr>
+<td><code>ctrl + u</code></td>
+<td>向前删除全部指令</td>
+</tr>
+<tr>
+<td><code>del</code></td>
+<td>向后删除指令</td>
+</tr>
+<tr>
+<td><code>ctrl + k</code></td>
+<td>向后删除全部指令</td>
+</tr>
+<tr>
+<td><code>ctrl + a</code> 或 <code>home</code></td>
+<td>移动到指令串最前面</td>
+</tr>
+<tr>
+<td><code>ctrl + e</code> 或 <code>end</code></td>
+<td>移动到指令串最末尾</td>
+</tr>
+</tbody>
+</table>
+<h3 id="变量使用"><a href="#变量使用" class="headerlink" title="变量使用"></a>变量使用</h3><ol>
+<li><p>在终端输入，如设定<code>a=b</code>(不能以数字开头，等号两边不能有空格)，那么可以使用<code>echo</code>指令取出值b：<code>echo $a</code>，这种设定仅对本次登录有效；</p>
+</li>
+<li><p>常见的环境变量有<code>$HOME</code>、<code>$PATH</code>等，可用<code>env</code>、<code>set</code>或<code>export</code>命令查找已定义的变量；</p>
+</li>
+</ol>
+<ul>
+<li>打印本shell的PID：<code>echo $$</code></li>
+<li>打印上一个指令的回传值：<code>echo $?</code>(正常回传为0)</li>
+</ul>
+<ol>
+<li><p>取消变量设定：<code>unset a</code>；</p>
+</li>
+<li><p>双引号字符串中，仍可引用变量，而单引号字符串仅代表是字符串本身。</p>
+</li>
+</ol>
+<h3 id="相关命令"><a href="#相关命令" class="headerlink" title="相关命令"></a>相关命令</h3><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>alias</code></td>
+<td>设定别名</td>
+</tr>
+<tr>
+<td><code>unalias</code></td>
+<td>取消设定别名</td>
+</tr>
+<tr>
+<td><code>history</code></td>
+<td>查看历史命令。<code>!number</code>，执行第n个指令；<code>!command</code>，往前模糊搜索匹配的指令并执行；<code>!!</code>，执行上一个指令，相当于<code>↑ + Enter</code></td>
+</tr>
+<tr>
+<td><code>ctrl + u</code></td>
+<td>提示符命令输入下可快速删除整行</td>
+</tr>
+<tr>
+<td><code>ctrl + s</code></td>
+<td>暂停屏幕的输出</td>
+</tr>
+<tr>
+<td><code>ctrl + q</code></td>
+<td>恢复屏幕的输出</td>
+</tr>
+</tbody>
+</table>
+<h3 id="特殊符号"><a href="#特殊符号" class="headerlink" title="特殊符号"></a>特殊符号</h3><table>
+<thead>
+<tr>
+<th>bash特殊符号</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>#</td>
+<td>批注符号：注释</td>
+</tr>
+<tr>
+<td>\</td>
+<td>跳脱符号：将特殊字符或通配符还原成一般字符</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>管线：连接两个管线命令</td>
+</tr>
+<tr>
+<td>;</td>
+<td>分隔多个连续性命令</td>
+</tr>
+<tr>
+<td>~</td>
+<td>当前用户的家目录</td>
+</tr>
+<tr>
+<td>$</td>
+<td>取用变量前导符</td>
+</tr>
+<tr>
+<td>&amp;</td>
+<td>工作控制：将指令设为后台工作</td>
+</tr>
+<tr>
+<td>/</td>
+<td>目录间的分隔符</td>
+</tr>
+<tr>
+<td>!</td>
+<td>逻辑运算符：非，not</td>
+</tr>
+<tr>
+<td>&gt;, &gt;&gt;</td>
+<td>数据流输出重导向，前者是覆盖追加，后者是累记追加</td>
+</tr>
+<tr>
+<td>&lt;, &lt;&lt;</td>
+<td>数据流输入重导向</td>
+</tr>
+<tr>
+<td>‘xxx’</td>
+<td>单引号确保了当前引用的肯定为字符串</td>
+</tr>
+<tr>
+<td>“xxx”</td>
+<td>双引号仍具有变量置换功能(如$可保留相关变量引用)</td>
+</tr>
+<tr>
+<td>`xxx`</td>
+<td>可执行的指令，亦可使用$()</td>
+</tr>
+<tr>
+<td>()</td>
+<td>中间为子shell的起始和结束</td>
+</tr>
+<tr>
+<td>{}</td>
+<td>中间为命令区块的结合</td>
+</tr>
+<tr>
+<td>cmd1 &amp;&amp; cmd2</td>
+<td>cmd2仅在cmd1正确执行的情况下执行</td>
+</tr>
+<tr>
+<td>cmd1</td>
+<td></td>
+<td>cmd2</td>
+<td>cmd2仅在cmd1错误执行的情况下执行</td>
+</tr>
+</tbody>
+</table>
+<h3 id="数据流重导向"><a href="#数据流重导向" class="headerlink" title="数据流重导向"></a>数据流重导向</h3><ul>
+<li><p>标准输入(stdin，standard input): 代码为0，使用 <code>&lt;</code> 或 <code>&lt;&lt;</code></p>
+</li>
+<li><p>标准输出(stdout，standard output)：指令正确执行所回传的讯息。代码为1，使用 <code>&gt;</code> 或 <code>&gt;&gt;</code></p>
+</li>
+<li><p>标准错误输出(stderr，standard error output)：指令执行失败后，所回传的讯息。代码为2，使用 <code>2&gt;</code> 或 <code>2&gt;&gt;</code></p>
+</li>
+<li><p>垃圾桶黑洞：<code>/dev/null</code></p>
+</li>
+</ul>
+<h3 id="提取命令"><a href="#提取命令" class="headerlink" title="提取命令"></a>提取命令</h3><ul>
+<li><p><code>cut [-dfc]</code>，将输入讯息的某一段切出来 (<strong>不适合处理多空格或无规则的数据</strong>)</p>
+<ul>
+<li><code>d</code>后接指定分隔符，与<code>-f</code>一起使用</li>
+<li><code>f</code>分段后，这个代表第几段(以1开始，同时取出多段以<code>,</code>分隔)，<code>echo $PATH | cut -d &quot;:&quot; -f 4,5,6</code></li>
+<li><code>c</code>以字符为单位取出行的固定字符区间，后接区间范围，如<code>10-</code>表示取出第10个字符到最后，<code>export | cut -c 12-</code></li>
+</ul>
+</li>
+<li><p><code>grep [-acinv] [--color=auto] &#39;搜寻字符串&#39; filename</code></p>
+<ul>
+<li><code>a</code>将binary文件转成text文件后再搜索</li>
+<li><code>c</code>计算出现次数</li>
+<li><code>i</code>忽略大小写</li>
+<li><code>n</code>输出行号</li>
+<li><code>v</code>反向选择未搜索匹配到的</li>
+</ul>
+</li>
+</ul>
+<h3 id="排序命令"><a href="#排序命令" class="headerlink" title="排序命令"></a>排序命令</h3><ul>
+<li><p><code>sort [-fbMnrtuk] [file or stdin]</code></p>
+<ul>
+<li><code>f</code>忽略大小写</li>
+<li><code>b</code>忽略前面的空格</li>
+<li><code>M</code>按月份排序</li>
+<li><code>n</code>按数字排序</li>
+<li><code>r</code>反向排序</li>
+<li><code>u</code>去重，相同数据仅出现一行</li>
+<li><code>t</code>指定分隔符</li>
+<li><code>k</code>按指定区间排序，<code>cat /etc/passwd | sort -t &#39;:&#39; -k 3</code></li>
+</ul>
+</li>
+<li><p><code>wc [-lwm]</code>，数据统计</p>
+<ul>
+<li><code>l</code>统计行</li>
+<li><code>w</code>统计英文单字</li>
+<li><code>m</code>统计字符</li>
+</ul>
+</li>
+<li><p><code>uniq [-c]</code>，去重，<code>c</code>代表统计次数</p>
+</li>
+</ul>
+<h3 id="双向重导向"><a href="#双向重导向" class="headerlink" title="双向重导向"></a>双向重导向</h3><ul>
+<li><code>tee [-a] file</code>，用于同时将数据流分送到文件和屏幕，而类似<code>&gt;</code>和<code>&gt;&gt;</code>只能输送到文件，<code>-a</code>参数代表追加</li>
+</ul>
+<h3 id="字符转换"><a href="#字符转换" class="headerlink" title="字符转换"></a>字符转换</h3><ul>
+<li><p><code>tr [-ds]</code>，用于将删除或替换某一讯息中的文字</p>
+<ul>
+<li><code>d</code>后接某一字符用于删除</li>
+<li><code>s</code>后接被替换的字符和待取代的字符</li>
+</ul>
+</li>
+<li><p><code>col [-xb]</code>，将<code>tab</code>键转换成对等的空格键</p>
+</li>
+<li><p><code>join -[til2] file1 file2</code>，处理两个文字的数据</p>
+</li>
+<li><p><code>paste [-d] file1 file2</code>，以<code>tab</code>键分隔将两文件的对应每一行合并成一行，<code>-d</code>参数可以指定分隔符</p>
+</li>
+<li><p><code>expand [-t] file</code>，将空格键转换成对等的<code>tab</code>键，<code>-t</code>参数可以指定一个<code>tab</code>键代表多少个字符</p>
+</li>
+</ul>
+<h3 id="分区命令"><a href="#分区命令" class="headerlink" title="分区命令"></a>分区命令</h3><ul>
+<li><code>split -[bl] file [PREFIX]</code>，<code>-b</code>参数后接分区文件大小，可指定b,k,m,g等；<code>-l</code>参数为以行数进行分区；<code>PREFIX</code>指定分区文件名前缀</li>
+</ul>
+<h3 id="参数替换"><a href="#参数替换" class="headerlink" title="参数替换"></a>参数替换</h3><ul>
+<li><code>xargs -[0epn] command</code>，产生某个指令的参数</li>
+</ul>
+<h3 id="减号用途"><a href="#减号用途" class="headerlink" title="减号用途"></a>减号用途</h3><p>减号<code>-</code>可用于连接一些特殊的stdin和stdout，像这个文件压缩和解压缩的示例：<code>tar -cvf - /home | tar -xvf - -C /tmp/home</code>。前面的<code>-</code>用于将stdout传到后面，而后面那个<code>-</code>则用于接收stdout，这样就可以免去要生成file的流程</p>
+<h3 id="重点回顾"><a href="#重点回顾" class="headerlink" title="重点回顾"></a>重点回顾</h3><p><img src="http://image.mariojd.cn/happyjared/20181018/20181018141303.png" alt="重点回顾"></p>
+<blockquote>
+<p>欢迎关注我的个人公众号：超级码里奥<br>如果这对您有帮助，欢迎点赞和分享，转载请注明出处  </p>
+</blockquote>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年10月19日 14:01</p>
+        <p>原始链接： <a class="post-url" href="/linux-bash.html" title="Linux私房菜：走进bash">https://blog.mariojd.cn/linux-bash.html</a></p>
+        <footer>
+            <a href="https://blog.mariojd.cn">
+                <img src="/images/logo.png" alt="happyJared">
+                happyJared
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        支持创作
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.mariojd.cn/linux-bash.html&title=《Linux私房菜：走进bash》 — happyJared - 博客&pic=https://image.mariojd.cn/happyjared/20181018/linux-bash.jpg" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mariojd.cn/linux-bash.html&title=《Linux私房菜：走进bash》 — happyJared - 博客&source=Java developer, like Python and Javascript too，为人乐观、积极、向上、勤奋、和善、好相处，讲卫生，爱学习，爱..." data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.mariojd.cn/linux-bash.html" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Linux私房菜：走进bash》 — happyJared - 博客&url=https://blog.mariojd.cn/linux-bash.html&via=https://blog.mariojd.cn" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://blog.mariojd.cn/linux-bash.html" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://blog.mariojd.cn/linux-bash.html" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
             
   <li class="article-footer-tags">
     <i class="fa fa-tags"></i>
       
-    <a href="/tags/python/" class="color2">python</a>
-      
-    <a href="/tags/pythonspider/" class="color4">python spider</a>
-      
-    <a href="/tags/mindmapping/" class="color3">mind mapping</a>
+    <a href="/tags/bash/" class="color5">bash</a>
       
   </li>
 
-        </div>
-      
+        </ul>
+        
+    </footer>
   </div>
 </article>
 
-  
-  
-    </div></section>
-  
 
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Bash功能"><span class="post-toc-text">Bash功能</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#指令操作"><span class="post-toc-text">指令操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#变量使用"><span class="post-toc-text">变量使用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#相关命令"><span class="post-toc-text">相关命令</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#特殊符号"><span class="post-toc-text">特殊符号</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#数据流重导向"><span class="post-toc-text">数据流重导向</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#提取命令"><span class="post-toc-text">提取命令</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#排序命令"><span class="post-toc-text">排序命令</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#双向重导向"><span class="post-toc-text">双向重导向</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#字符转换"><span class="post-toc-text">字符转换</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#分区命令"><span class="post-toc-text">分区命令</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参数替换"><span class="post-toc-text">参数替换</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#减号用途"><span class="post-toc-text">减号用途</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#重点回顾"><span class="post-toc-text">重点回顾</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+  
+    <a href="/linux-vi-and-vim.html" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Linux私房菜：vi与vim编辑器</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        <div id="SOHUCS" sid="Linux私房菜：走进bash" ></div>
+<script type="text/javascript">
+    (function(){
+        var appid = 'cytsi4W0L';
+        var conf = 'prod_302a63175740fd2ee2587f9345477b4c';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+    
 </section>
         
       </div>

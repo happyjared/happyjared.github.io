@@ -3,23 +3,44 @@
 <head>
   <meta charset="utf-8">
   
-  <title>IDEA快捷键拆解系列（二）：File篇 | happyJared - 博客</title>
+  <title>IntelliJ IDEA 2018.3 Beta 重大更新：支持CPU火焰图，新增酷炫主题 | happyJared - 博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="happyJared - 博客。保持勤學習的心，做好寫代碼這事。我有一个公众号：超级码里奥。" />
   
-  <meta name="description" content="&amp;emsp;&amp;emsp;这是IDEA快捷键拆解系列的第二篇。  &amp;emsp;&amp;emsp;以下是关于File导航项及其每一子项的拆解，其中，加粗部分的选项是博主认为比较重要的。  File New Project （ 新建项目 ） Project from Existing Sources （ 从本地导入项目，包括Eclipse、Maven、Gradle项目等 ） Project from Ver">
-<meta name="keywords" content="IDEA,编辑器,JetBrains">
+  <meta name="description" content="本文转载自公众号：闪电侠的博客JetBrain 是一家伟大的公司，一直致力于为开发者开发世界上最好用的集成开发环境  就在上周，JetBrain 公司发布了 Java 集成开发环境 IntelliJ IDEA 最新版本 2018.3 Beta，本篇文章，我将根据官方博客以及自己的理解来为大家解读一下这次更新有哪些重磅的功能。 1. 重构类、文件、符号，Action 搜索IntelliJ IDE">
+<meta name="keywords" content="IDEA">
 <meta property="og:type" content="article">
-<meta property="og:title" content="IDEA快捷键拆解系列（二）：File篇">
-<meta property="og:url" content="https://blog.mariojd.cn/idea-shortcut-key-disassembly-series-two.html">
+<meta property="og:title" content="IntelliJ IDEA 2018.3 Beta 重大更新：支持CPU火焰图，新增酷炫主题">
+<meta property="og:url" content="https://blog.mariojd.cn/idea-2018.3-beat.html">
 <meta property="og:site_name" content="happyJared - 博客">
-<meta property="og:description" content="&amp;emsp;&amp;emsp;这是IDEA快捷键拆解系列的第二篇。  &amp;emsp;&amp;emsp;以下是关于File导航项及其每一子项的拆解，其中，加粗部分的选项是博主认为比较重要的。  File New Project （ 新建项目 ） Project from Existing Sources （ 从本地导入项目，包括Eclipse、Maven、Gradle项目等 ） Project from Ver">
+<meta property="og:description" content="本文转载自公众号：闪电侠的博客JetBrain 是一家伟大的公司，一直致力于为开发者开发世界上最好用的集成开发环境  就在上周，JetBrain 公司发布了 Java 集成开发环境 IntelliJ IDEA 最新版本 2018.3 Beta，本篇文章，我将根据官方博客以及自己的理解来为大家解读一下这次更新有哪些重磅的功能。 1. 重构类、文件、符号，Action 搜索IntelliJ IDE">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-23T06:10:24.847Z">
+<meta property="og:image" content="http://image.mariojd.cn/happyjared/20181029/6UmdCbHeJgwdRHKa7xOiciaAe2pzshee.gif">
+<meta property="og:image" content="http://image.mariojd.cn/happyjared/20181029/WQJfBygBmAzKRKMH51gpqkBmNlmCyXzjCscsA.gif">
+<meta property="og:image" content="http://image.mariojd.cn/happyjared/20181029/ghkyYeuLuvQt1fVhOSVYEovic877Xd.gif">
+<meta property="og:image" content="http://image.mariojd.cn/happyjared/20181029/RHKa7xOiciaAe2pzsheeRupiaZ11.gif">
+<meta property="og:image" content="http://image.mariojd.cn/happyjared/20181029/gwdRHKa7xOiciaAe2pzsheeR.gif">
+<meta property="og:image" content="http://image.mariojd.cn/happyjared/20181029/3jiaoiadoZABfAnGRu19wKvUiaN.png">
+<meta property="og:image" content="http://image.mariojd.cn/happyjared/20181029/dRHKa7xOiciaAe2pzsheeRu7HgzicJC5II.png">
+<meta property="og:image" content="http://image.mariojd.cn/happyjared/20181029/RHKa7xOiciaAe2pzsheeRu4l5uqQNFykBhWrgoAIG.png">
+<meta property="og:image" content="http://image.mariojd.cn/happyjared/20181029/CbHeJgwdRHKa7xOiciaAe2pzsheeRudfbX3sO1.png">
+<meta property="og:image" content="http://image.mariojd.cn/happyjared/20181029/gwdRHKa7xOiciaAe2pzsheeRuUK.png">
+<meta property="og:image" content="http://image.mariojd.cn/happyjared/20181029/7xOiciaAe2pzsheeRuFmzBhe9DupKszSMnbPqNb.gif">
+<meta property="og:image" content="http://image.mariojd.cn/happyjared/20181029/6UmdCbHeJgwdRHKa7xOiciaAe2.png">
+<meta property="og:image" content="http://image.mariojd.cn/happyjared/20181029/605IDoicZIRwbggicmwQEuicYxIRE.gif">
+<meta property="og:image" content="http://image.mariojd.cn/happyjared/20181029/xOiciaAe2pzsheeRuWOicOAZq.png">
+<meta property="og:image" content="http://image.mariojd.cn/happyjared/20181029/RucXtCibxyB4flNicWG1wkHxuoKqmmmZmL.png">
+<meta property="og:image" content="http://image.mariojd.cn/happyjared/20181029/gwdRHKa7xOiciaAe2pzsheeRuFR.png">
+<meta property="og:image" content="http://image.mariojd.cn/happyjared/20181029/VibSZfv2gU1pfK29NRwEkeF7lhgPb.gif">
+<meta property="og:image" content="http://image.mariojd.cn/happyjared/20181029/2pzsheeRuPtibBsZWGRcNGgkra6YCg.png">
+<meta property="og:image" content="http://image.mariojd.cn/happyjared/20181029/XqNBrLcZHXkuC9A43qKwI.png">
+<meta property="og:image" content="http://image.mariojd.cn/happyjared/20181029/HKa7xOiciaAe2pzsheeRuPaiaJ2jqtV9Pw6cBjBcziaQqib.gif">
+<meta property="og:updated_time" content="2018-10-29T07:34:27.442Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="IDEA快捷键拆解系列（二）：File篇">
-<meta name="twitter:description" content="&amp;emsp;&amp;emsp;这是IDEA快捷键拆解系列的第二篇。  &amp;emsp;&amp;emsp;以下是关于File导航项及其每一子项的拆解，其中，加粗部分的选项是博主认为比较重要的。  File New Project （ 新建项目 ） Project from Existing Sources （ 从本地导入项目，包括Eclipse、Maven、Gradle项目等 ） Project from Ver">
+<meta name="twitter:title" content="IntelliJ IDEA 2018.3 Beta 重大更新：支持CPU火焰图，新增酷炫主题">
+<meta name="twitter:description" content="本文转载自公众号：闪电侠的博客JetBrain 是一家伟大的公司，一直致力于为开发者开发世界上最好用的集成开发环境  就在上周，JetBrain 公司发布了 Java 集成开发环境 IntelliJ IDEA 最新版本 2018.3 Beta，本篇文章，我将根据官方博客以及自己的理解来为大家解读一下这次更新有哪些重磅的功能。 1. 重构类、文件、符号，Action 搜索IntelliJ IDE">
+<meta name="twitter:image" content="http://image.mariojd.cn/happyjared/20181029/6UmdCbHeJgwdRHKa7xOiciaAe2pzshee.gif">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -133,14 +154,14 @@ ga('send', 'pageview');
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap"><article id="post-IDEA快捷键拆解系列（二）：File篇" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main" class="body-wrap"><article id="post-IntelliJ IDEA 2018.3 Beta 重大更新：支持CPU火焰图，新增酷炫主题" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="post-title" itemprop="name">
-      IDEA快捷键拆解系列（二）：File篇
+      IntelliJ IDEA 2018.3 Beta 重大更新：支持CPU火焰图，新增酷炫主题
     </h1>
     <div class="post-title-bar">
       <ul>
@@ -148,14 +169,12 @@ ga('send', 'pageview');
               <li>
                   <i class="fa fa-book"></i>
                   
-                      <a href="/categories/编辑器/">编辑器</a>
-                  
-                      <a href="/categories/快捷键/">快捷键</a>
+                      <a href="/categories/IDEA/">IDEA</a>
                   
               </li>
           
         <li>
-          <i class="fa fa-calendar"></i>  2018-03-09
+          <i class="fa fa-calendar"></i>  2018-10-29
         </li>
         <li>
           <i class="fa fa-eye"></i>
@@ -172,133 +191,124 @@ ga('send', 'pageview');
       
             
             <!--
-    self_category: IDEA
-    self_tags: IDEA，编辑器，JetBrains
-    osChina_sys_category: 编程语言
-    csdn_article_category: 原创
-    csdn_blog_category: 编程语言
+    self_category: 
+    self_tags: 
+    osChina_sys_category: 
+    csdn_article_category: 
+    csdn_blog_category: 
 -->
-<p>&emsp;&emsp;这是IDEA快捷键拆解系列的第二篇。 </p>
-<p>&emsp;&emsp;以下是关于File导航项及其每一子项的拆解，其中，加粗部分的选项是博主认为比较重要的。</p>
-<ul>
-<li>File<ol>
-<li>New<ul>
-<li><strong>Project （ 新建项目 ）</strong></li>
-<li>Project from Existing Sources （ 从本地导入项目，包括Eclipse、Maven、Gradle项目等 ）</li>
-<li>Project from Version Control （ 版本控制，含以下五种版本管理系统 ）<ol>
-<li><strong>GitHub</strong></li>
-<li><strong>Git</strong></li>
-<li>Mercurial</li>
-<li>Subversion</li>
-<li>TFS</li>
-</ol>
-</li>
-</ul>
-<hr>
-<ul>
-<li><strong>Module（ 新建子模块 ）</strong></li>
-<li>Module from Existing Sources （ 从本地导入模块，包括Eclipse、Maven、Gradle项目等 ）</li>
-</ul>
-<hr>
-<ul>
-<li>Java Class</li>
-<li>Aspect</li>
-<li>File</li>
-<li>Scratch File <code>Ctrl + Alt + Shift + Insert</code></li>
-<li>Directory</li>
-<li>FXML File</li>
-</ul>
-<hr>
-<ul>
-<li>package-info.java</li>
-<li>HTML File</li>
-<li>Styleshoot</li>
-<li>JavaScript File</li>
-<li>TypeScript File</li>
-<li>CFML/CFC file</li>
-<li>CoffeeScript File</li>
-<li>JavaFXApplication</li>
-<li><strong>Singleton （ 新建单例类（ 饿汉模式 ））</strong></li>
-<li>XSLT Stylesheet</li>
-</ul>
-<hr>
-<h2 id="Edit-File-Templates-（-编辑文件模板-）"><a href="#Edit-File-Templates-（-编辑文件模板-）" class="headerlink" title=" - Edit File Templates （ 编辑文件模板 ）"></a> - <strong>Edit File Templates （ 编辑文件模板 ）</strong></h2><ul>
-<li>GUI Form （ Swing开发中，用于快速创建GUI表单类 ）</li>
-<li>Dialog （ Swing开发中，用于创建GUI对话类 ）</li>
-<li>Form Snapshot</li>
-<li>Resource Bundle</li>
-<li>XML Configuration File （ 创建XML配置文件 ）<ol>
-<li>JSP Tag Library Descriptor （ JSP标签库描述 ）</li>
-<li>Spring Config （ Spring配置文件 ）</li>
-</ol>
-</li>
-<li>Diagram （ 图表建模 ）<ol>
-<li>Java Class Diagram</li>
-<li>Module Dependencies</li>
-</ol>
-</li>
-<li>Google Guice （ 谷歌开源的一款依赖注入框架 ）<ol>
-<li>Guice Module</li>
-<li>Guice Provider</li>
-<li>Guice Binding Annotation</li>
-<li>Guice Scope Annotation</li>
-<li>Guice Method Interceptor</li>
-</ol>
-</li>
-</ul>
-<hr>
-<ul>
-<li>Data Source （ 数据源 ）</li>
-</ul>
-</li>
-<li><strong>Open（ 从本地打开 ）</strong></li>
-<li>Open URL（ 通过URL打开 ）</li>
-<li><strong>Open Recent… （ 选择最近的项目打开 ）</strong></li>
-<li><strong>Close Project （ 关闭项目，回到欢迎界面 ）</strong></li>
-</ol>
-<hr>
+<blockquote>
+<p>本文转载自公众号：<code>闪电侠的博客</code><br>JetBrain 是一家伟大的公司，一直致力于为开发者开发世界上最好用的集成开发环境</p>
+</blockquote>
+<p>就在上周，JetBrain 公司发布了 Java 集成开发环境 IntelliJ IDEA 最新版本 <code>2018.3 Beta</code>，本篇文章，我将根据官方博客以及自己的理解来为大家解读一下这次更新有哪些重磅的功能。</p>
+<h2 id="1-重构类、文件、符号，Action-搜索"><a href="#1-重构类、文件、符号，Action-搜索" class="headerlink" title="1. 重构类、文件、符号，Action 搜索"></a>1. 重构类、文件、符号，Action 搜索</h2><p>IntelliJ IDEA（以下简称 IDEA） 中的搜索可以分为以下几类</p>
 <ol>
-<li><strong>Settings （ 设置 ）</strong> <code>Ctrl + Alt + S</code></li>
-<li><strong>Project Structure  ( 项目结构 ）</strong> <code>Ctrl + Alt + Shift + S</code></li>
-<li>Other Settings ( 其它配置 )<ul>
-<li><strong>Default Settings （ 默认设置 ）</strong></li>
-<li><strong>Default Project Structure ( 默认项目结构 ）</strong></li>
-</ul>
+<li><p>类搜索，比如 Java，Groovy，Scala 等类文件</p>
+</li>
+<li><p>文件搜索，类文件之外的所有文件</p>
+</li>
+<li><p>符号搜索，包括接口名，类名，函数名，成员变量等</p>
+</li>
+<li><p>Action 搜索，找到你的操作</p>
+</li>
+<li><p>字符串搜索及替换</p>
 </li>
 </ol>
-<hr>
+<p>在 IDEA 的世界里，搜索无处不在，你几乎可以瞬间找到你想要找到的任何一行代码甚至任何一个字。新版中，IDEA 更是将类、文件、符号、Action 搜索与双 <code>Shift</code> 键调出来的 <code>SearchEverywhere</code> 无缝地结合在一起。</p>
+<p>在老的版本中，类、文件、符号、Action 搜索是独立的快捷键，在新版中，任意一种类型的搜索行为被触发，将弹出来以下窗口</p>
+<p><img src="http://image.mariojd.cn/happyjared/20181029/6UmdCbHeJgwdRHKa7xOiciaAe2pzshee.gif" alt="重构类、文件、符号，Action 搜索"></p>
+<p>从以上演示可以看到，我们调出搜索类的窗口，该窗口将首先会展示基于类名搜索的结果，如果你想复用当前输入的字符基于其他的语义（比如文件或者符号）进行搜索，只需要按 Tab 键，结果瞬间就出来了。</p>
+<h2 id="2-重新设计的结构搜索-替换对话框"><a href="#2-重新设计的结构搜索-替换对话框" class="headerlink" title="2. 重新设计的结构搜索/替换对话框"></a>2. 重新设计的结构搜索/替换对话框</h2><p>其实，IDEA 里面除了以上五种类型的搜索，还有一种非常强大的搜索叫做 <code>结构化搜索</code>，你可以基于一定的代码结构搜到你所需要的结果。</p>
+<p>举个栗子：如果我们想搜索所有的 try catch 语句块，在调出结构化搜索框之后，可以输入以下文本</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  $TryStatement$;</span><br><span class="line">&#125; <span class="keyword">catch</span> ($ExceptionType$ $Exception$) &#123;</span><br><span class="line">  $CatchStatement$;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后，IDEA 就会把所有的 try catch 语句块搜索出来，而新版更是强化了这个功能，下面我用两张动图演示一下这次更新的两个功能</p>
+<p>结构化搜索由于输入的文本比较长，所以一般我们会自己预置一些模板，然后给模板命名，然后结构化搜索的时候呢，我们就可以直接基于这个模板名来搜索，新版更新的第一个功能就是，在文本输入框里，按下智能补全键，可以迅速调出模板，按照最近的搜索历史排序，然后再按下回车，文本就自动给你填充上了，你还可以点击左上角的搜索 icon，也会展示你最近的搜索记录，这些记录是以文本的方式展示的</p>
+<p><img src="http://image.mariojd.cn/happyjared/20181029/WQJfBygBmAzKRKMH51gpqkBmNlmCyXzjCscsA.gif" alt="重新设计的结构搜索"></p>
+<p>上面的文本就是系统内置的结构化模板 <code>try&#39;s</code>，点击完 <code>Find</code> 按钮之后，所有的 try catch 都会展示出来，我们还可以进一步过滤，比如，我们想要找出 catch 到的 exception 的名字为 <code>flash</code>，给对应的模板变量加上一个 Text 类型的 filter 即可迅速定位</p>
+<p><img src="http://image.mariojd.cn/happyjared/20181029/ghkyYeuLuvQt1fVhOSVYEovic877Xd.gif" alt="替换对话框"></p>
+<h2 id="3-运行一切"><a href="#3-运行一切" class="headerlink" title="3. 运行一切"></a>3. 运行一切</h2><p>你可以双击 <code>ctrl</code> 键，调出 <code>RunAnything</code> 窗口，你可以输入点什么来运行任意可以运行的东西，比如起 tomcat 容器，单元测试，甚至可以运行终端指令，gradle、maven 构建命令</p>
+<p><img src="http://image.mariojd.cn/happyjared/20181029/RHKa7xOiciaAe2pzsheeRupiaZ11.gif" alt="运行一切"></p>
+<p>另外，你还可以按住 shift 键，那么所有支持 debug 的运行将秒变 debug 模式</p>
+<h2 id="4-重构插件中心"><a href="#4-重构插件中心" class="headerlink" title="4. 重构插件中心"></a>4. 重构插件中心</h2><p>IDEA 中很多强大的功能都是通过插件来实现的，随便举个栗子，装个语言插件，IDEA 摇身一变为 nodejs IDE、php IDE、python IDE、scala IDE、go IDE，我自己就安装了 30+ 非常好用的插件。</p>
+<p>而在新版的 IDEA 中，JetBrain 更是对插件中心进行全面改版，如下图</p>
+<p><img src="http://image.mariojd.cn/happyjared/20181029/gwdRHKa7xOiciaAe2pzsheeR.gif" alt="重构插件中心"></p>
+<p>调出插件配置之后，页面分为三大部分</p>
 <ol>
-<li>Import Settings</li>
-<li>Export Settings</li>
-<li><strong>Export to Eclipse （ 导出Eclipse项目 ）</strong></li>
-<li>Settings Repository</li>
-</ol>
-<hr>
-<ol>
-<li>Save All <code>Ctrl + S</code></li>
-<li>Synchronized <code>Ctrl + Alt + Y</code></li>
-<li><strong>Invalidate Caches/Restart ( 清除项目索引缓存 )</strong></li>
-</ol>
-<hr>
-<ol>
-<li>Export to HTML</li>
-<li>Print</li>
-<li>Add Favorites…</li>
-<li><strong>File Encoding （ 设置文件编码 ）</strong></li>
-<li>Line Separators… （ 设置行分隔符 ）</li>
-<li>Make File Read-only</li>
-</ol>
-<hr>
-<h2 id="22-Power-Save-Mode"><a href="#22-Power-Save-Mode" class="headerlink" title="  22. Power Save Mode"></a>  22. Power Save Mode</h2><ol>
-<li><strong>Exit （ 直接关闭所有的IDEA项目，跟Close Project的区别是不会再回到欢迎界面，可使用快捷键<code>Alt + F4</code>一个个的关闭 ）</strong></li>
-</ol>
+<li><p><code>Marketplace</code>： 插件市场，你可以搜索到你想要的插件</p>
 </li>
-</ul>
+<li><p><code>Installed</code>： 当前安装的所有的插件，你还可以点击左上角搜索小 icon，按类别查看当前已安装的插件，其中的 <code>custom</code> 选项便是自己下载安装的插件</p>
+</li>
+<li><p><code>Updates</code>：当前安装过的插件如果有更新，都会在这里显示出来</p>
+</li>
+<li><p>最后一个是配置项，你可以自定义你的插件仓库，你可以给配置插件下载的 http 代理（尤其是国外网络访问差的时候），你还可以从本地硬盘中安装插件</p>
+</li>
+</ol>
+<h2 id="5-不断改进的版本控制系统"><a href="#5-不断改进的版本控制系统" class="headerlink" title="5. 不断改进的版本控制系统"></a>5. 不断改进的版本控制系统</h2><p>我个人对于版本控制，是不太喜欢用图形界面的，但是 IDEA 对于版本控制的设计真是太好用了，只能沦陷了，嘿嘿~</p>
+<h3 id="5-1-GitHub-Pull-Requests"><a href="#5-1-GitHub-Pull-Requests" class="headerlink" title="5.1 GitHub Pull Requests"></a>5.1 GitHub Pull Requests</h3><p>新版中，加入了对 GitHub Pull Requests 的支持，现在你可以直接在电脑上创建或者查看某个项目的 Pull Request 了</p>
+<p>你还可以基于某个 Pull Requests 直接创建一个分支，或者直接在 Github 上查看当前的 Pull Request，这个功能对于开源工作者来说是一件非常幸福的事。</p>
+<p><img src="http://image.mariojd.cn/happyjared/20181029/3jiaoiadoZABfAnGRu19wKvUiaN.png" alt="GitHub Pull Requests"></p>
+<h3 id="5-2-Git-子模块支持"><a href="#5-2-Git-子模块支持" class="headerlink" title="5.2 Git 子模块支持"></a>5.2 Git 子模块支持</h3><p>此外，新本 IDEA 对于 Git 子模块的支持也更加友好了。如果你的 Git 项目中包含 Git 子模块，在 clone 代码的时候，也会一并 clone 到本地，另外，项目中任何文件有变更，提交 commit，IDEA 也会智能匹配到外层模块或者子模块，一并提交 commit，进而同时 push 到多个仓库。</p>
+<h3 id="5-3-Improved-Annotate-support"><a href="#5-3-Improved-Annotate-support" class="headerlink" title="5.3 Improved Annotate support"></a>5.3 Improved Annotate support</h3><p>我们有时候会不经意地格式化自己或者别人写过的代码，这就导致了每次提交代码的时候，即使只更新了一两处代码，最后 diff 出来也会显得很乱，然而其中大部分乱的地方是因为空格导致的。</p>
+<p>在新版 IDEA 中，我们在对比文件的时候，可以选择忽略空格</p>
+<p><img src="http://image.mariojd.cn/happyjared/20181029/dRHKa7xOiciaAe2pzsheeRu7HgzicJC5II.png" alt="Improved Annotate support"></p>
+<p>注意：这个选项默认是打开的</p>
+<p>另外，在合并代码的时候，你也可以选择忽略空格</p>
+<p><img src="http://image.mariojd.cn/happyjared/20181029/RHKa7xOiciaAe2pzsheeRu4l5uqQNFykBhWrgoAIG.png" alt="Improved Annotate support"></p>
+<p>这样在解决冲突的时候，你也不会看到空格相关的改动，省下的很多宝贵的注意力。</p>
+<h2 id="6-全新主题"><a href="#6-全新主题" class="headerlink" title="6. 全新主题"></a>6. 全新主题</h2><p>IDEA 终于在这一版新增了一款默认主题，该主题为一款高对比度主题，应该会有很多人会喜欢吧</p>
+<p><img src="http://image.mariojd.cn/happyjared/20181029/CbHeJgwdRHKa7xOiciaAe2pzsheeRudfbX3sO1.png" alt="全新主题"></p>
+<p>预计在不久的将来，IDEA 会在主题这方面下功夫，毕竟笔者觉得 VS Code 的主题还是蛮好看的，IDEA 可以吸收过来。</p>
+<h2 id="7-编辑器改进"><a href="#7-编辑器改进" class="headerlink" title="7. 编辑器改进"></a>7. 编辑器改进</h2><h3 id="7-1-多行-TODO-注释"><a href="#7-1-多行-TODO-注释" class="headerlink" title="7.1 多行 TODO 注释"></a>7.1 多行 TODO 注释</h3><p>在 IDEA 中，只要你在注释中添加了 <code>todo</code> 关键词，在边条栏中的 <code>todo</code> 选项卡中就可以看到当前所有待未完成的功能，如下图</p>
+<p><img src="http://image.mariojd.cn/happyjared/20181029/gwdRHKa7xOiciaAe2pzsheeRuUK.png" alt="多行 TODO 注释"></p>
+<p>老版本中，是不支持 多行 <code>todo</code> 注释的显示的，而在新版本中，如果 <code>todo</code> 注释有多行，你只需要在下面几行前面再添加一个空格即可</p>
+<p><img src="http://image.mariojd.cn/happyjared/20181029/7xOiciaAe2pzsheeRuFmzBhe9DupKszSMnbPqNb.gif" alt="多行 TODO 注释"></p>
+<h3 id="7-2-缩进状态栏"><a href="#7-2-缩进状态栏" class="headerlink" title="7.2 缩进状态栏"></a>7.2 缩进状态栏</h3><p>IDEA 现在可以在状态栏中显示当前文件的缩进是几个空格，你可以点击这个状态栏，控制当前文件的缩进风格。</p>
+<p><img src="http://image.mariojd.cn/happyjared/20181029/6UmdCbHeJgwdRHKa7xOiciaAe2.png" alt="缩进状态栏"></p>
+<p>比如，你的项目缩进风格是4个空格，然后某个新人写了个 tab 风格的源文件提交了，你可以直接点击弹出菜单的 <code>ConfigureIndentsForJava...</code>，然后做一些修改即可</p>
+<h3 id="7-3-TAB-快速切换源文件"><a href="#7-3-TAB-快速切换源文件" class="headerlink" title="7.3 TAB 快速切换源文件"></a>7.3 TAB 快速切换源文件</h3><p><img src="http://image.mariojd.cn/happyjared/20181029/605IDoicZIRwbggicmwQEuicYxIRE.gif" alt="TAB 快速切换源文件"></p>
+<p>你现在可以使用 Tab+数字，迅速切换到你想要的文件，这比鼠标点击要快一些</p>
+<h3 id="7-4-多行字符串搜索"><a href="#7-4-多行字符串搜索" class="headerlink" title="7.4 多行字符串搜索"></a>7.4 多行字符串搜索</h3><p>在新版 IDEA 中，不仅仅能够搜索字符串，而且能够搜索整个段落</p>
+<p><img src="http://image.mariojd.cn/happyjared/20181029/xOiciaAe2pzsheeRuWOicOAZq.png" alt="多行字符串搜索"></p>
+<h2 id="8-JVM-调试器"><a href="#8-JVM-调试器" class="headerlink" title="8. JVM 调试器"></a>8. JVM 调试器</h2><h3 id="8-1-attach-到任意-Java-进程"><a href="#8-1-attach-到任意-Java-进程" class="headerlink" title="8.1 attach 到任意 Java 进程"></a>8.1 attach 到任意 Java 进程</h3><p>IDEA 的 debug 功能无论是对于调试找错还是阅读源码，都发挥了非常重要的作用，新版 IDEA 对 debug 功能进一步加强，现在不仅仅能 debug 当前的应用，而且能够 attach 到任意的 Java 进程，attach 之后，你就可以看到该进程的线程状态，并且使用强大的 Memory View 功能可以看到当前内存的状态。</p>
+<p><img src="http://image.mariojd.cn/happyjared/20181029/RucXtCibxyB4flNicWG1wkHxuoKqmmmZmL.png" alt="attach 到任意 Java 进程"></p>
+<h3 id="8-2-远程调试支持异步栈追踪"><a href="#8-2-远程调试支持异步栈追踪" class="headerlink" title="8.2 远程调试支持异步栈追踪"></a>8.2 远程调试支持异步栈追踪</h3><p>IDEA 支持远程 debug 几乎和本地 debug 一样，只需要远程端口开启即可。</p>
+<p><img src="http://image.mariojd.cn/happyjared/20181029/gwdRHKa7xOiciaAe2pzsheeRuFR.png" alt="远程调试支持异步栈追踪"></p>
+<p>IDEA 也支持异步线程的调试，断点打在某一行，你不仅可以看到这行对应线程的调用栈，还能看到启动对应线程的外部线程的调用栈。</p>
+<p><img src="http://image.mariojd.cn/happyjared/20181029/VibSZfv2gU1pfK29NRwEkeF7lhgPb.gif" alt="远程调试支持异步栈追踪"></p>
+<p>新版中，对远程调试也加入了异步栈的支持，采用以下两个步骤即可</p>
+<ol>
+<li><p>拷贝 <code>/lib/rt/debugger-agent.jar</code> 到远程机器</p>
+</li>
+<li><p>添加启动参数 <code>-javaagent:debugger-agent.jar</code> 到远程机器</p>
+</li>
+</ol>
+<h2 id="9-运行配置"><a href="#9-运行配置" class="headerlink" title="9. 运行配置"></a>9. 运行配置</h2><h3 id="9-1-配置宏"><a href="#9-1-配置宏" class="headerlink" title="9.1 配置宏"></a>9.1 配置宏</h3><p>我们在运行应用程序的时候，有的时候需要设定不同的启动参数来查看不同的效果，在以前，这些参数都需要你手动敲进去，并且经常会忘记当前启动参数的测试目的，非常麻烦。</p>
+<p>现在，你可以提前将参数通过宏的方式输入，调试的时候，通过调整宏，你不用反复修改启动参数文本，通过宏文本还可以一目了然看到当前的启动参数的测试目的是什么。</p>
+<p><img src="http://image.mariojd.cn/happyjared/20181029/2pzsheeRuPtibBsZWGRcNGgkra6YCg.png" alt="配置宏"></p>
+<h3 id="9-2-使用文本作为控制台输入"><a href="#9-2-使用文本作为控制台输入" class="headerlink" title="9.2 使用文本作为控制台输入"></a>9.2 使用文本作为控制台输入</h3><p>有的时候需要在控制台输入一些文本，然后再运行程序，这个对于调试来说非常不便，新版 IDEA 支持指定一个文本文件作为控制台输入，这样，你就可以预先定义好控制台输入，重复利用，提高效率</p>
+<p><img src="http://image.mariojd.cn/happyjared/20181029/XqNBrLcZHXkuC9A43qKwI.png" alt="使用文本作为控制台输入"></p>
+<h2 id="10-JVM-Profiler"><a href="#10-JVM-Profiler" class="headerlink" title="10. JVM Profiler"></a>10. JVM Profiler</h2><p>最后一个重磅功能，应该可以说是本次更新最大的亮点，IDEA 现在可以分析 Java 程序的性能分析了，包括如下几个方面</p>
+<ol>
+<li><p>火焰图分析 CPU 性能消耗，你可以分析 Java 进程的所有线程的 CPU 消耗火焰图，也可以只选择一个线程来分析</p>
+</li>
+<li><p>方法调用图，可以找到在某个线程中，消耗 cpu 最多的方法</p>
+</li>
+<li><p>方法列表，可以看到每个方法的调用次数，点进去还可以看到详细的调用栈</p>
+</li>
+</ol>
+<p>下面用一章动图来展示一下，具体的细节读者可自行探索</p>
+<p><img src="http://image.mariojd.cn/happyjared/20181029/HKa7xOiciaAe2pzsheeRuPaiaJ2jqtV9Pw6cBjBcziaQqib.gif" alt="JVM Profiler"></p>
+<p>有了这个神器之后，你不需要额外的 profiler 工具，就可以直接在 IDEA 里面完成应用程序的性能分析。预计不久的将来，Eclipse MAT 相关的功能可能也会移植到 IDEA 中，届时，Java 应用程序性能分析，堆分析，gc 分析将统统可以在 IDEA 里面运行，真正的 All In One 时代即将到来！</p>
+<h2 id="11-More……"><a href="#11-More……" class="headerlink" title="11. More……"></a>11. More……</h2><p>除此之外，本次更新还有大量的小功能的更新，在你使用新版 IDEA 的时候就会体验到，这里就不一一赘述了，赶紧下载体验吧，下载地址：<a href="https://www.jetbrains.com/idea/nextversion/" target="_blank" rel="noopener">https://www.jetbrains.com/idea/nextversion/</a></p>
+<p>这篇文章更多的是解析本次更新，其实上个版本的更新也有很多重磅的功能，如果你想了解这些，可以参考一下这篇文章 <a href="https://mp.weixin.qq.com/s/ouN-taiG7HXIRqdssdnQ0A" target="_blank" rel="noopener">IntelliJ IDEA 2018.1正式发布</a>，希望能够帮助你</p>
+<blockquote>
+<p>原文地址：<a href="https://mp.weixin.qq.com/s/t-bMsFFHgpLXbPW5Iwh7rQ" target="_blank" rel="noopener">IntelliJ IDEA 重大更新：支持CPU火焰图，新增酷炫主题</a><br>欢迎关注我的个人公众号：超级码里奥<br>如果这对您有帮助，欢迎点赞和分享，转载请注明出处  </p>
+</blockquote>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年08月23日 14:10</p>
-        <p>原始链接： <a class="post-url" href="/idea-shortcut-key-disassembly-series-two.html" title="IDEA快捷键拆解系列（二）：File篇">https://blog.mariojd.cn/idea-shortcut-key-disassembly-series-two.html</a></p>
+        <p>最后更新： 2018年10月29日 15:34</p>
+        <p>原始链接： <a class="post-url" href="/idea-2018.3-beat.html" title="IntelliJ IDEA 2018.3 Beta 重大更新：支持CPU火焰图，新增酷炫主题">https://blog.mariojd.cn/idea-2018.3-beat.html</a></p>
         <footer>
             <a href="https://blog.mariojd.cn">
                 <img src="/images/logo.png" alt="happyJared">
@@ -355,7 +365,7 @@ ga('send', 'pageview');
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.mariojd.cn/idea-shortcut-key-disassembly-series-two.html&title=《IDEA快捷键拆解系列（二）：File篇》 — happyJared - 博客&pic=https://image.mariojd.cn/201829/idea2017.1.png" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.mariojd.cn/idea-2018.3-beat.html&title=《IntelliJ IDEA 2018.3 Beta 重大更新：支持CPU火焰图，新增酷炫主题》 — happyJared - 博客&pic=https://image.mariojd.cn/happyjared/20181029/idea-2018.3-beat.png" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -365,22 +375,22 @@ ga('send', 'pageview');
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mariojd.cn/idea-shortcut-key-disassembly-series-two.html&title=《IDEA快捷键拆解系列（二）：File篇》 — happyJared - 博客&source=Java developer, like Python and Javascript too，为人乐观、积极、向上、勤奋、和善、好相处，讲卫生，爱学习，爱..." data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mariojd.cn/idea-2018.3-beat.html&title=《IntelliJ IDEA 2018.3 Beta 重大更新：支持CPU火焰图，新增酷炫主题》 — happyJared - 博客&source=Java developer, like Python and Javascript too，为人乐观、积极、向上、勤奋、和善、好相处，讲卫生，爱学习，爱..." data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
           <li>
-            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.mariojd.cn/idea-shortcut-key-disassembly-series-two.html" data-title="Facebook">
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.mariojd.cn/idea-2018.3-beat.html" data-title="Facebook">
               <i class="fa fa-facebook"></i>
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《IDEA快捷键拆解系列（二）：File篇》 — happyJared - 博客&url=https://blog.mariojd.cn/idea-shortcut-key-disassembly-series-two.html&via=https://blog.mariojd.cn" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《IntelliJ IDEA 2018.3 Beta 重大更新：支持CPU火焰图，新增酷炫主题》 — happyJared - 博客&url=https://blog.mariojd.cn/idea-2018.3-beat.html&via=https://blog.mariojd.cn" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
           <li>
-            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://blog.mariojd.cn/idea-shortcut-key-disassembly-series-two.html" data-title="Google+">
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://blog.mariojd.cn/idea-2018.3-beat.html" data-title="Google+">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -390,7 +400,7 @@ ga('send', 'pageview');
 <div class="post-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;" id="wxShare-close">×</a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://blog.mariojd.cn/idea-shortcut-key-disassembly-series-two.html" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://blog.mariojd.cn/idea-2018.3-beat.html" alt="微信分享二维码">
 </div>
 
 <div class="mask"></div>
@@ -404,10 +414,6 @@ ga('send', 'pageview');
       
     <a href="/tags/IDEA/" class="color5">IDEA</a>
       
-    <a href="/tags/编辑器/" class="color4">编辑器</a>
-      
-    <a href="/tags/JetBrains/" class="color5">JetBrains</a>
-      
   </li>
 
         </ul>
@@ -419,26 +425,16 @@ ga('send', 'pageview');
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Edit-File-Templates-（-编辑文件模板-）"><span class="post-toc-text"> - Edit File Templates （ 编辑文件模板 ）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#22-Power-Save-Mode"><span class="post-toc-text">  22. Power Save Mode</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-重构类、文件、符号，Action-搜索"><span class="post-toc-text">1. 重构类、文件、符号，Action 搜索</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-重新设计的结构搜索-替换对话框"><span class="post-toc-text">2. 重新设计的结构搜索/替换对话框</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-运行一切"><span class="post-toc-text">3. 运行一切</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-重构插件中心"><span class="post-toc-text">4. 重构插件中心</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-不断改进的版本控制系统"><span class="post-toc-text">5. 不断改进的版本控制系统</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-1-GitHub-Pull-Requests"><span class="post-toc-text">5.1 GitHub Pull Requests</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-2-Git-子模块支持"><span class="post-toc-text">5.2 Git 子模块支持</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5-3-Improved-Annotate-support"><span class="post-toc-text">5.3 Improved Annotate support</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-全新主题"><span class="post-toc-text">6. 全新主题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-编辑器改进"><span class="post-toc-text">7. 编辑器改进</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#7-1-多行-TODO-注释"><span class="post-toc-text">7.1 多行 TODO 注释</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#7-2-缩进状态栏"><span class="post-toc-text">7.2 缩进状态栏</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#7-3-TAB-快速切换源文件"><span class="post-toc-text">7.3 TAB 快速切换源文件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#7-4-多行字符串搜索"><span class="post-toc-text">7.4 多行字符串搜索</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#8-JVM-调试器"><span class="post-toc-text">8. JVM 调试器</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#8-1-attach-到任意-Java-进程"><span class="post-toc-text">8.1 attach 到任意 Java 进程</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#8-2-远程调试支持异步栈追踪"><span class="post-toc-text">8.2 远程调试支持异步栈追踪</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#9-运行配置"><span class="post-toc-text">9. 运行配置</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#9-1-配置宏"><span class="post-toc-text">9.1 配置宏</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#9-2-使用文本作为控制台输入"><span class="post-toc-text">9.2 使用文本作为控制台输入</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#10-JVM-Profiler"><span class="post-toc-text">10. JVM Profiler</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#11-More……"><span class="post-toc-text">11. More……</span></a></li></ol>
         </nav>
     </aside>
     
 
 <nav id="article-nav">
   
-    <a href="/idea-shortcut-key-disassembly-series-three.html" id="article-nav-newer" class="article-nav-link-wrap">
-
-      <span class="article-nav-title">
-        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
-        
-          IDEA快捷键拆解系列（三）：Edit篇
-        
-      </span>
-    </a>
   
-  
-    <a href="/python-learning-resources-collation.html" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">Python学习资源整理</span>
+    <a href="/linux-bash.html" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Linux私房菜：走进bash</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   
@@ -447,7 +443,7 @@ ga('send', 'pageview');
 
 
     
-        <div id="SOHUCS" sid="IDEA快捷键拆解系列（二）：File篇" ></div>
+        <div id="SOHUCS" sid="IntelliJ IDEA 2018.3 Beta 重大更新：支持CPU火焰图，新增酷炫主题" ></div>
 <script type="text/javascript">
     (function(){
         var appid = 'cytsi4W0L';

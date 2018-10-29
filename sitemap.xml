@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.mariojd.cn/about/index.html</loc>
+    
+    <lastmod>2018-10-29T07:27:57.732Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.mariojd.cn/intellij-idea2018.1-officially-released.html</loc>
     
     <lastmod>2018-10-29T07:24:40.042Z</lastmod>
@@ -47,13 +54,6 @@
     <loc>https://blog.mariojd.cn/python_spider_knowledge_system.html</loc>
     
     <lastmod>2018-10-29T07:24:40.032Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.mariojd.cn/about/index.html</loc>
-    
-    <lastmod>2018-10-23T05:37:10.662Z</lastmod>
     
   </url>
   

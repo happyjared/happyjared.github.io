@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>APP自动化：Appium极简上手 | happyJared - 博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="happyJared - 博客。保持勤學習的心，做好寫代碼這事。我有一个公众号：超级码里奥。" />
+  
+  <meta name="description" content="像Selenium可以操控Web浏览器，手机APP平台也有类似的自动化测试工具：Appium；全文分基础介绍、环境搭建和案例演示三部分介绍Appium，以帮助Learner快速的上手。  基础介绍Appium是一个开源的自动化测试框架，用于原生，混合和移动Web应用程序。 它使用WebDriver协议驱动iOS，Android和Windows应用程序。关于它的运作流程，用图来介绍会更加生动形象">
+<meta name="keywords" content="python,appium">
+<meta property="og:type" content="article">
+<meta property="og:title" content="APP自动化：Appium极简上手">
+<meta property="og:url" content="https://blog.mariojd.cn/get-started-with-appium.html">
+<meta property="og:site_name" content="happyJared - 博客">
+<meta property="og:description" content="像Selenium可以操控Web浏览器，手机APP平台也有类似的自动化测试工具：Appium；全文分基础介绍、环境搭建和案例演示三部分介绍Appium，以帮助Learner快速的上手。  基础介绍Appium是一个开源的自动化测试框架，用于原生，混合和移动Web应用程序。 它使用WebDriver协议驱动iOS，Android和Windows应用程序。关于它的运作流程，用图来介绍会更加生动形象">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://image.mariojd.cn/happyjared/20181030/Nd9GcRnhRoLusz8RMt6P3dBn_po4ozGjHWB.png">
+<meta property="og:image" content="http://image.mariojd.cn/happyjared/20181030/20181030111040.png">
+<meta property="og:image" content="http://image.mariojd.cn/happyjared/20181030/20181030111212.png">
+<meta property="og:image" content="http://image.mariojd.cn/happyjared/20181030/20181030134047.png">
+<meta property="og:image" content="http://image.mariojd.cn/happyjared/20181030/20181030134400.png">
+<meta property="og:image" content="http://image.mariojd.cn/happyjared/20181030/20181030134702.png">
+<meta property="og:image" content="http://image.mariojd.cn/happyjared/20181030/20181030150015.png">
+<meta property="og:image" content="http://image.mariojd.cn/happyjared/20181030/20181030150055.png">
+<meta property="og:image" content="http://image.mariojd.cn/happyjared/20181030/20181030160014.gif">
+<meta property="og:updated_time" content="2018-10-30T08:06:30.552Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="APP自动化：Appium极简上手">
+<meta name="twitter:description" content="像Selenium可以操控Web浏览器，手机APP平台也有类似的自动化测试工具：Appium；全文分基础介绍、环境搭建和案例演示三部分介绍Appium，以帮助Learner快速的上手。  基础介绍Appium是一个开源的自动化测试框架，用于原生，混合和移动Web应用程序。 它使用WebDriver协议驱动iOS，Android和Windows应用程序。关于它的运作流程，用图来介绍会更加生动形象">
+<meta name="twitter:image" content="http://image.mariojd.cn/happyjared/20181030/Nd9GcRnhRoLusz8RMt6P3dBn_po4ozGjHWB.png">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-127138870-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?7d6076888c62ff336f5b580c57fd4141";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+  
+  <div style="display: none;">
+    <script src="//s22.cnzz.com/z_stat.php?id=1274993267&web_id=1274993267" language="JavaScript"></script>
+  </div>
+
+
+</head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <!--<div id="banner"></div>-->
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title"></span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-h-square"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-window-restore"></i>
+                        <span>归档</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>关于</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <!--<div id="header-title">-->
+                    <!---->
+                <!--</div>-->
+                <div id="header-description">
+                    <div id="hitokoto" style="height:24px;line-height:24px;">
+                        
+                            保持勤學習的心，做好寫代碼這事
+                                                    
+                    </div>
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="github" target="_blank" href="//github.com/happyjared">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="简书" target="_blank" href="//www.jianshu.com/u/000a530f461c">
+                            <i class="fa fa-book fa-2x"></i></a>
+                    
+                        <a title="企鹅号" target="_blank" href="//wpa.qq.com/msgrd?v=3&uin=1394223902&site=qq&menu=yes">
+                            <i class="fa fa-qq fa-2x"></i></a>
+                    
+                        <a title="公众号" target="_blank" href="//image.mariojd.cn/qrcode_for_supermmario_1280.jpg">
+                            <i class="fa fa-wechat fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-APP自动化：Appium极简上手" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      APP自动化：Appium极简上手
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/Appium/">Appium</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-10-30
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <!--
+    self_category: 
+    self_tags: 
+    osChina_sys_category: 
+    csdn_article_category: 
+    csdn_blog_category: 
+-->
+<blockquote>
+<p>像<code>Selenium</code>可以操控Web浏览器，手机APP平台也有类似的自动化测试工具：<code>Appium</code>；<br>全文分基础介绍、环境搭建和案例演示三部分介绍<code>Appium</code>，以帮助Learner快速的上手。</p>
+</blockquote>
+<h3 id="基础介绍"><a href="#基础介绍" class="headerlink" title="基础介绍"></a>基础介绍</h3><p>Appium是一个开源的自动化测试框架，用于原生，混合和移动Web应用程序。 它使用WebDriver协议驱动iOS，Android和Windows应用程序。关于它的运作流程，用图来介绍会更加生动形象一些：</p>
+<p><img src="http://image.mariojd.cn/happyjared/20181030/Nd9GcRnhRoLusz8RMt6P3dBn_po4ozGjHWB.png" alt="Appium运行流程、原理"></p>
+<p>在上图中，左边这部分是<code>Appium-Client</code>，通俗点来说，是用于间接驱动最右边的设备执行预定的自动化测试流程，支持使用多种主流的编程语言进行编写，这也是测试开发人员需要关注的核心部分；中间的<code>Appium-Server</code>是衔接左边客户端以及右边APP设备端的重要桥梁，一般仅需要配置好环境及启动运行；右边这块，当然就是实际执行自动化测试的终端，如IOS真机、Android真机，或者是模拟器。</p>
+<h3 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h3><ul>
+<li>NodeJS</li>
+</ul>
+<p>Appium是使用nodejs实现的，因此Node是解释器，首先要确认安装好</p>
+<ul>
+<li><p>Appium-Server</p>
+<ul>
+<li>nodejs</li>
+<li><a href="https://github.com/appium/appium-desktop/releases" target="_blank" rel="noopener">appium-desktop</a></li>
+</ul>
+</li>
+</ul>
+<p>上述的两种方式都可以搭建<code>Appium-Server</code>环境，后面演示会基于Appium-Desktop。(PS：下载太慢了?分享个<a href="https://pan.baidu.com/s/1QQcYcDlOngdFjLhaJWAXCg" target="_blank" rel="noopener">百度网盘</a>)</p>
+<ul>
+<li><p>Andrioid SDK</p>
+<ul>
+<li><a href="https://android-sdk.en.softonic.com/" target="_blank" rel="noopener">android sdk</a></li>
+<li><a href="https://developer.android.com/studio/" target="_blank" rel="noopener">android studio</a></li>
+</ul>
+</li>
+</ul>
+<p>上述方式可以直接和间接搭建安装<code>Android</code>环境，因为后面要用到<code>adb</code>这个工具，所以需要配置好<code>ANDROID_HOME</code>这个环境变量。(PS：下载太慢了?分享个<a href="https://pan.baidu.com/s/1Y7UC8S2Plsieo59MPmQgMw" target="_blank" rel="noopener">百度网盘</a>)</p>
+<ul>
+<li>Appium-Python-Client</li>
+</ul>
+<p>后面会用到Python来编写Appium客户端：<code>pip install Appium-Python-Client</code></p>
+<p>okay，准备好以上几个环境后，启动Appium测试一下：</p>
+<p><img src="http://image.mariojd.cn/happyjared/20181030/20181030111040.png" alt="Appium Desktop Server"></p>
+<p><img src="http://image.mariojd.cn/happyjared/20181030/20181030111212.png" alt="Appium Desktop Server"></p>
+<h3 id="案例演示"><a href="#案例演示" class="headerlink" title="案例演示"></a>案例演示</h3><p>下面演示在安卓真机上的自动登录<code>Keep</code>(APP)。</p>
+<ol>
+<li>获取设备名称。操作流程：开启手机的开发和调试模式，连接电脑授权认证，<code>Window + R</code>输入并运行<code>cmd</code>，用<code>adb devices -l</code>查看：</li>
+</ol>
+<p><img src="http://image.mariojd.cn/happyjared/20181030/20181030134047.png" alt="获取设备号"></p>
+<ol>
+<li>启动Appium Server进行调试：</li>
+</ol>
+<p><img src="http://image.mariojd.cn/happyjared/20181030/20181030134400.png" alt="Inspector Session"></p>
+<p><img src="http://image.mariojd.cn/happyjared/20181030/20181030134702.png" alt="Desired Capabilities"></p>
+<p>从上图可以看到，启动App Session需要有以下几个参数(点击了解更详细的<a href="https://appium.io/docs/en/writing-running-appium/caps/" target="_blank" rel="noopener">Appium Desired Capabilities</a>）:</p>
+<ul>
+<li><code>platformName</code>，如<code>Android</code>、<code>iOS</code>等</li>
+<li><code>deviceName</code>，参考前面是如何获取的</li>
+<li><code>appPackage</code>和<code>appActivity</code>，获取<a href="https://blog.csdn.net/mtbaby/article/details/78676477" target="_blank" rel="noopener">参考这里</a></li>
+</ul>
+<p>综上所述，这里对应<code>Keep</code>的信息如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;platformName&quot;: &quot;Android&quot;,</span><br><span class="line">  &quot;deviceName&quot;: &quot;WAS_AL00&quot;,</span><br><span class="line">  &quot;appPackage&quot;: &quot;com.gotokeep.keep&quot;,</span><br><span class="line">  &quot;appActivity&quot;: &quot;com.gotokeep.keep.splash.SplashActivity&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>点击<code>Start Session</code>，之后可以看到手机端启动了<code>Keep</code>，并且在Appium Server端中同步展示：</p>
+<p><img src="http://image.mariojd.cn/happyjared/20181030/20181030150015.png" alt="Start Session"></p>
+<p><img src="http://image.mariojd.cn/happyjared/20181030/20181030150055.png" alt="Keep"></p>
+<p>上述的操作通常只是用来方便获取控件id及定位的，下面基于Python编写完整的<code>Appium-Client</code>以实现自动登录操作：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> appium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.common.by <span class="keyword">import</span> By</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.support.ui <span class="keyword">import</span> WebDriverWait</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.support <span class="keyword">import</span> expected_conditions <span class="keyword">as</span> EC</span><br><span class="line"></span><br><span class="line">server = <span class="string">'http://localhost:4723/wd/hub'</span>  <span class="comment"># Appium Server, 端口默认为4723</span></span><br><span class="line">desired_capabilities = &#123;</span><br><span class="line">    <span class="string">'platformName'</span>: <span class="string">'Android'</span>,</span><br><span class="line">    <span class="string">'deviceName'</span>: <span class="string">'WAS_AL00'</span>,  <span class="comment"># 需替换成你的deviceName</span></span><br><span class="line">    <span class="string">'appPackage'</span>: <span class="string">'com.gotokeep.keep'</span>,</span><br><span class="line">    <span class="string">'appActivity'</span>: <span class="string">'com.gotokeep.keep.splash.SplashActivity'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">driver = webdriver.Remote(server, desired_capabilities)</span><br><span class="line">wait = WebDriverWait(driver, <span class="number">10</span>)  <span class="comment"># 最大查找等待超时时间：10s</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_permission</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="string">"""允许APP获取的某些权限"""</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        ask = wait.until(EC.presence_of_element_located((By.ID, <span class="string">'com.android.packageinstaller:id/do_not_ask_checkbox'</span>)))</span><br><span class="line">        ask.click()</span><br><span class="line">        allow = wait.until(</span><br><span class="line">            EC.presence_of_element_located((By.ID, <span class="string">'com.android.packageinstaller:id/permission_allow_button'</span>)))</span><br><span class="line">        allow.click()</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 允许两项授权</span></span><br><span class="line">get_permission()</span><br><span class="line">get_permission()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 点击“立即使用”</span></span><br><span class="line">welcome = wait.until(EC.presence_of_element_located((By.ID, <span class="string">'com.gotokeep.keep:id/btn_bottom_in_video_welcome'</span>)))</span><br><span class="line">welcome.click()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换“密码登录”(同样可以使用第三方进行授权登录)</span></span><br><span class="line">driver.tap([(<span class="number">900</span>, <span class="number">110</span>)])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输入“手机号”</span></span><br><span class="line">phone = driver.find_element_by_accessibility_id(<span class="string">'Phone Number In Login'</span>)</span><br><span class="line">phone.send_keys(<span class="string">'13988888888'</span>)  <span class="comment"># 替换成实际的账号</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 输入“密码”</span></span><br><span class="line">password = driver.find_element_by_accessibility_id(<span class="string">'Password In Login'</span>)</span><br><span class="line">password.send_keys(<span class="string">'123456'</span>)  <span class="comment"># 替换成实际的密码</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 点击“登录”</span></span><br><span class="line">login = driver.find_element_by_id(<span class="string">'com.gotokeep.keep:id/btn_action'</span>)</span><br><span class="line">login.click()</span><br></pre></td></tr></table></figure>
+<p>最后，附上运行效果图：</p>
+<p><img src="http://image.mariojd.cn/happyjared/20181030/20181030160014.gif" alt="效果图"></p>
+<blockquote>
+<p><a href="https://github.com/happyjared/python-learning/tree/master/auto/keepium.py" target="_blank" rel="noopener">示例源码</a><br>欢迎关注我的个人公众号：超级码里奥<br>如果这对您有帮助，欢迎点赞和分享，转载请注明出处  </p>
+</blockquote>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年10月30日 16:06</p>
+        <p>原始链接： <a class="post-url" href="/get-started-with-appium.html" title="APP自动化：Appium极简上手">https://blog.mariojd.cn/get-started-with-appium.html</a></p>
+        <footer>
+            <a href="https://blog.mariojd.cn">
+                <img src="/images/logo.png" alt="happyJared">
+                happyJared
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        支持创作
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.mariojd.cn/get-started-with-appium.html&title=《APP自动化：Appium极简上手》 — happyJared - 博客&pic=https://image.mariojd.cn/happyjared/20181030/get-started-with-appium.jpg" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mariojd.cn/get-started-with-appium.html&title=《APP自动化：Appium极简上手》 — happyJared - 博客&source=Java developer, like Python and Javascript too，为人乐观、积极、向上、勤奋、和善、好相处，讲卫生，爱学习，爱..." data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.mariojd.cn/get-started-with-appium.html" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《APP自动化：Appium极简上手》 — happyJared - 博客&url=https://blog.mariojd.cn/get-started-with-appium.html&via=https://blog.mariojd.cn" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://blog.mariojd.cn/get-started-with-appium.html" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://blog.mariojd.cn/get-started-with-appium.html" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/python/" class="color2">python</a>
+      
+    <a href="/tags/appium/" class="color2">appium</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#基础介绍"><span class="post-toc-text">基础介绍</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#环境搭建"><span class="post-toc-text">环境搭建</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#案例演示"><span class="post-toc-text">案例演示</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+  
+    <a href="/idea-2018.3-beat.html" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">IntelliJ IDEA 2018.3 Beta 重大更新：支持CPU火焰图，新增酷炫主题</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        <div id="SOHUCS" sid="APP自动化：Appium极简上手" ></div>
+<script type="text/javascript">
+    (function(){
+        var appid = 'cytsi4W0L';
+        var conf = 'prod_302a63175740fd2ee2587f9345477b4c';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+    <span style='margin-left:5px'>
+    	粤ICP备17033077号-1
+    </span>
+</p>
+
+ 
+      <p>
+        <!-- Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>  -->
+        <!-- Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a> -->
+        Copyright &copy; 2018 happyJared 
+		    Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a>
+
+        <script type="text/javascript" src="//js.users.51.la/19683707.js"></script>   
+        <!-- <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1274993267'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1274993267%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script> -->
+        <br>
+      </p>
+    </div>
+  </div>
+</footer>
+
+    <script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
+
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "https://blog.mariojd.cn",
+      animate: false,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/Appium/">Appium</a><a class="category-link" href="/categories/Chocolatey/">Chocolatey</a><a class="category-link" href="/categories/Docker/">Docker</a><a class="category-link" href="/categories/Docker/Elasticsearch/">Elasticsearch</a><a class="category-link" href="/categories/Docker/MySQL/">MySQL</a><a class="category-link" href="/categories/Docker/PostgreSQL/">PostgreSQL</a><a class="category-link" href="/categories/Docker/Redis/">Redis</a><a class="category-link" href="/categories/IDEA/">IDEA</a><a class="category-link" href="/categories/Java/">Java</a><a class="category-link" href="/categories/Java/Lombok/">Lombok</a><a class="category-link" href="/categories/Java/Spring-Boot/">Spring Boot</a><a class="category-link" href="/categories/Java/Spring-Boot/Swagger/">Swagger</a><a class="category-link" href="/categories/Java/热部署/">热部署</a><a class="category-link" href="/categories/Jmeter/">Jmeter</a><a class="category-link" href="/categories/Linux/">Linux</a><a class="category-link" href="/categories/Python/">Python</a><a class="category-link" href="/categories/Python/Selenium/">Selenium</a><a class="category-link" href="/categories/Python/Selenium/Windows-Batch/">Windows Batch</a><a class="category-link" href="/categories/Spring/">Spring</a><a class="category-link" href="/categories/hexo/">hexo</a><a class="category-link" href="/categories/python/">python</a><a class="category-link" href="/categories/websocket/">websocket</a><a class="category-link" href="/categories/中间件/">中间件</a><a class="category-link" href="/categories/学习资源/">学习资源</a><a class="category-link" href="/categories/开源/">开源</a><a class="category-link" href="/categories/开源/YApi/">YApi</a><a class="category-link" href="/categories/开源/YApi/Swagger/">Swagger</a><a class="category-link" href="/categories/开源项目/">开源项目</a><a class="category-link" href="/categories/抓包工具/">抓包工具</a><a class="category-link" href="/categories/数据库中间件/">数据库中间件</a><a class="category-link" href="/categories/数据库中间件/Mycat/">Mycat</a><a class="category-link" href="/categories/编辑器/">编辑器</a><a class="category-link" href="/categories/编辑器/个人感悟/">个人感悟</a><a class="category-link" href="/categories/编辑器/快捷键/">快捷键</a><a class="category-link" href="/categories/设计模式/">设计模式</a><a class="category-link" href="/categories/随笔/">随笔</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/AcpectJ/" style="font-size: 10px;">AcpectJ</a> <a href="/tags/Aop/" style="font-size: 10px;">Aop</a> <a href="/tags/Chocolatey/" style="font-size: 10px;">Chocolatey</a> <a href="/tags/Eclipse/" style="font-size: 11px;">Eclipse</a> <a href="/tags/Faker/" style="font-size: 11px;">Faker</a> <a href="/tags/Fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/tags/GitHub-Pages/" style="font-size: 11px;">GitHub Pages</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDEA/" style="font-size: 20px;">IDEA</a> <a href="/tags/Java/" style="font-size: 16px;">Java</a> <a href="/tags/Java类库/" style="font-size: 10px;">Java类库</a> <a href="/tags/JetBrains/" style="font-size: 18px;">JetBrains</a> <a href="/tags/Jmeter/" style="font-size: 12px;">Jmeter</a> <a href="/tags/Lombok/" style="font-size: 10px;">Lombok</a> <a href="/tags/Mycat/" style="font-size: 13px;">Mycat</a> <a href="/tags/ORM/" style="font-size: 11px;">ORM</a> <a href="/tags/Peewee/" style="font-size: 10px;">Peewee</a> <a href="/tags/Python/" style="font-size: 12px;">Python</a> <a href="/tags/RestTemplate/" style="font-size: 10px;">RestTemplate</a> <a href="/tags/SQLAlchemy/" style="font-size: 10px;">SQLAlchemy</a> <a href="/tags/Spring/" style="font-size: 11px;">Spring</a> <a href="/tags/Spring-Boot/" style="font-size: 13px;">Spring Boot</a> <a href="/tags/Spring-Data-Elasticsearch/" style="font-size: 10px;">Spring Data Elasticsearch</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/appium/" style="font-size: 10px;">appium</a> <a href="/tags/base-command/" style="font-size: 10px;">base command</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/bat/" style="font-size: 10px;">bat</a> <a href="/tags/bat脚本/" style="font-size: 10px;">bat脚本</a> <a href="/tags/beautifulsoup4/" style="font-size: 10px;">beautifulsoup4</a> <a href="/tags/boss/" style="font-size: 10px;">boss</a> <a href="/tags/builder/" style="font-size: 10px;">builder</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/chrome-plugin/" style="font-size: 10px;">chrome plugin</a> <a href="/tags/coding-net/" style="font-size: 10px;">coding.net</a> <a href="/tags/common-commands/" style="font-size: 11px;">common commands</a> <a href="/tags/csdn/" style="font-size: 10px;">csdn</a> <a href="/tags/design-patterns/" style="font-size: 15px;">design patterns</a> <a href="/tags/directory-management/" style="font-size: 10px;">directory management</a> <a href="/tags/directory-permission/" style="font-size: 10px;">directory permission</a> <a href="/tags/disk-management/" style="font-size: 10px;">disk management</a> <a href="/tags/docker/" style="font-size: 15px;">docker</a> <a href="/tags/elasticsearch/" style="font-size: 11px;">elasticsearch</a> <a href="/tags/elasticsearch-cluster/" style="font-size: 10px;">elasticsearch cluster</a> <a href="/tags/fiddler/" style="font-size: 10px;">fiddler</a> <a href="/tags/fiddler-capture/" style="font-size: 10px;">fiddler capture</a> <a href="/tags/file-management/" style="font-size: 10px;">file management</a> <a href="/tags/file-permission/" style="font-size: 10px;">file permission</a> <a href="/tags/head-plugin/" style="font-size: 10px;">head plugin</a> <a href="/tags/hexo/" style="font-size: 14px;">hexo</a> <a href="/tags/hexo-themes/" style="font-size: 10px;">hexo themes</a> <a href="/tags/hexo-translate-title/" style="font-size: 10px;">hexo-translate-title</a> <a href="/tags/hot-key/" style="font-size: 10px;">hot key</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/http-s/" style="font-size: 10px;">http(s)</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/https抓包/" style="font-size: 10px;">https抓包</a> <a href="/tags/ik-analysis/" style="font-size: 10px;">ik analysis</a> <a href="/tags/imooc/" style="font-size: 10px;">imooc</a> <a href="/tags/itchat/" style="font-size: 10px;">itchat</a> <a href="/tags/java8-stream/" style="font-size: 10px;">java8 stream</a> <a href="/tags/jvm/" style="font-size: 10px;">jvm</a> <a href="/tags/lagou/" style="font-size: 10px;">lagou</a> <a href="/tags/linux-backup/" style="font-size: 10px;">linux backup</a> <a href="/tags/linux-compress/" style="font-size: 10px;">linux compress</a> <a href="/tags/linux-packeage/" style="font-size: 10px;">linux packeage</a> <a href="/tags/linux-thing/" style="font-size: 14px;">linux thing</a> <a href="/tags/mind-mapping/" style="font-size: 12px;">mind mapping</a> <a href="/tags/mysql/" style="font-size: 12px;">mysql</a> <a href="/tags/nginx/" style="font-size: 11px;">nginx</a> <a href="/tags/oschina/" style="font-size: 10px;">oschina</a> <a href="/tags/postgresql/" style="font-size: 12px;">postgresql</a> <a href="/tags/prototype/" style="font-size: 10px;">prototype</a> <a href="/tags/python/" style="font-size: 17px;">python</a> <a href="/tags/python-core/" style="font-size: 10px;">python core</a> <a href="/tags/python-data-science/" style="font-size: 10px;">python data science</a> <a href="/tags/python-spider/" style="font-size: 10px;">python spider</a> <a href="/tags/python-standard-library/" style="font-size: 10px;">python standard library</a> <a href="/tags/redis/" style="font-size: 11px;">redis</a> <a href="/tags/redis-sentinel/" style="font-size: 10px;">redis-sentinel</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/scrapy/" style="font-size: 13px;">scrapy</a> <a href="/tags/selenium/" style="font-size: 14px;">selenium</a> <a href="/tags/shortcuts-key/" style="font-size: 10px;">shortcuts key</a> <a href="/tags/simple-factory/" style="font-size: 12px;">simple factory</a> <a href="/tags/singleton/" style="font-size: 10px;">singleton</a> <a href="/tags/spider/" style="font-size: 11px;">spider</a> <a href="/tags/spider-crawl/" style="font-size: 10px;">spider crawl</a> <a href="/tags/spring-boot/" style="font-size: 11px;">spring boot</a> <a href="/tags/spring-boot2/" style="font-size: 10px;">spring boot2</a> <a href="/tags/swagger/" style="font-size: 11px;">swagger</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vimium/" style="font-size: 10px;">vimium</a> <a href="/tags/websocket/" style="font-size: 10px;">websocket</a> <a href="/tags/weixin/" style="font-size: 10px;">weixin</a> <a href="/tags/ws-s/" style="font-size: 10px;">ws(s)</a> <a href="/tags/wss/" style="font-size: 10px;">wss</a> <a href="/tags/yapi/" style="font-size: 10px;">yapi</a> <a href="/tags/zealer/" style="font-size: 10px;">zealer</a> <a href="/tags/《Spring-in-action》/" style="font-size: 10px;">《Spring in action》</a> <a href="/tags/个人博客/" style="font-size: 11px;">个人博客</a> <a href="/tags/个人感悟/" style="font-size: 11px;">个人感悟</a> <a href="/tags/主从复制/" style="font-size: 11px;">主从复制</a> <a href="/tags/主从搭建/" style="font-size: 12px;">主从搭建</a> <a href="/tags/代理调试/" style="font-size: 10px;">代理调试</a> <a href="/tags/入门篇/" style="font-size: 10px;">入门篇</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/压测工具/" style="font-size: 12px;">压测工具</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/字符串机制/" style="font-size: 10px;">字符串机制</a> <a href="/tags/学习资源/" style="font-size: 11px;">学习资源</a> <a href="/tags/实践篇/" style="font-size: 11px;">实践篇</a> <a href="/tags/工厂方法/" style="font-size: 10px;">工厂方法</a> <a href="/tags/建造者/" style="font-size: 10px;">建造者</a> <a href="/tags/开源/" style="font-size: 10px;">开源</a> <a href="/tags/开源博客/" style="font-size: 11px;">开源博客</a> <a href="/tags/开源项目/" style="font-size: 11px;">开源项目</a> <a href="/tags/微信授权/" style="font-size: 10px;">微信授权</a> <a href="/tags/抽象工厂/" style="font-size: 10px;">抽象工厂</a> <a href="/tags/数据库中间件/" style="font-size: 13px;">数据库中间件</a> <a href="/tags/热部署/" style="font-size: 10px;">热部署</a> <a href="/tags/简书/" style="font-size: 10px;">简书</a> <a href="/tags/简单工厂/" style="font-size: 10px;">简单工厂</a> <a href="/tags/编辑器/" style="font-size: 19px;">编辑器</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a> <a href="/tags/读写分离/" style="font-size: 11px;">读写分离</a> <a href="/tags/跑步/" style="font-size: 10px;">跑步</a> <a href="/tags/配置篇/" style="font-size: 10px;">配置篇</a> <a href="/tags/钉钉运动/" style="font-size: 10px;">钉钉运动</a> <a href="/tags/阿里技术/" style="font-size: 10px;">阿里技术</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-h-square"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-window-restore"></i><span>归档</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>关于</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/AcpectJ/" style="font-size: 10px;">AcpectJ</a> <a href="/tags/Aop/" style="font-size: 10px;">Aop</a> <a href="/tags/Chocolatey/" style="font-size: 10px;">Chocolatey</a> <a href="/tags/Eclipse/" style="font-size: 11px;">Eclipse</a> <a href="/tags/Faker/" style="font-size: 11px;">Faker</a> <a href="/tags/Fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/tags/GitHub-Pages/" style="font-size: 11px;">GitHub Pages</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDEA/" style="font-size: 20px;">IDEA</a> <a href="/tags/Java/" style="font-size: 16px;">Java</a> <a href="/tags/Java类库/" style="font-size: 10px;">Java类库</a> <a href="/tags/JetBrains/" style="font-size: 18px;">JetBrains</a> <a href="/tags/Jmeter/" style="font-size: 12px;">Jmeter</a> <a href="/tags/Lombok/" style="font-size: 10px;">Lombok</a> <a href="/tags/Mycat/" style="font-size: 13px;">Mycat</a> <a href="/tags/ORM/" style="font-size: 11px;">ORM</a> <a href="/tags/Peewee/" style="font-size: 10px;">Peewee</a> <a href="/tags/Python/" style="font-size: 12px;">Python</a> <a href="/tags/RestTemplate/" style="font-size: 10px;">RestTemplate</a> <a href="/tags/SQLAlchemy/" style="font-size: 10px;">SQLAlchemy</a> <a href="/tags/Spring/" style="font-size: 11px;">Spring</a> <a href="/tags/Spring-Boot/" style="font-size: 13px;">Spring Boot</a> <a href="/tags/Spring-Data-Elasticsearch/" style="font-size: 10px;">Spring Data Elasticsearch</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/appium/" style="font-size: 10px;">appium</a> <a href="/tags/base-command/" style="font-size: 10px;">base command</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/bat/" style="font-size: 10px;">bat</a> <a href="/tags/bat脚本/" style="font-size: 10px;">bat脚本</a> <a href="/tags/beautifulsoup4/" style="font-size: 10px;">beautifulsoup4</a> <a href="/tags/boss/" style="font-size: 10px;">boss</a> <a href="/tags/builder/" style="font-size: 10px;">builder</a> <a href="/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/tags/chrome-plugin/" style="font-size: 10px;">chrome plugin</a> <a href="/tags/coding-net/" style="font-size: 10px;">coding.net</a> <a href="/tags/common-commands/" style="font-size: 11px;">common commands</a> <a href="/tags/csdn/" style="font-size: 10px;">csdn</a> <a href="/tags/design-patterns/" style="font-size: 15px;">design patterns</a> <a href="/tags/directory-management/" style="font-size: 10px;">directory management</a> <a href="/tags/directory-permission/" style="font-size: 10px;">directory permission</a> <a href="/tags/disk-management/" style="font-size: 10px;">disk management</a> <a href="/tags/docker/" style="font-size: 15px;">docker</a> <a href="/tags/elasticsearch/" style="font-size: 11px;">elasticsearch</a> <a href="/tags/elasticsearch-cluster/" style="font-size: 10px;">elasticsearch cluster</a> <a href="/tags/fiddler/" style="font-size: 10px;">fiddler</a> <a href="/tags/fiddler-capture/" style="font-size: 10px;">fiddler capture</a> <a href="/tags/file-management/" style="font-size: 10px;">file management</a> <a href="/tags/file-permission/" style="font-size: 10px;">file permission</a> <a href="/tags/head-plugin/" style="font-size: 10px;">head plugin</a> <a href="/tags/hexo/" style="font-size: 14px;">hexo</a> <a href="/tags/hexo-themes/" style="font-size: 10px;">hexo themes</a> <a href="/tags/hexo-translate-title/" style="font-size: 10px;">hexo-translate-title</a> <a href="/tags/hot-key/" style="font-size: 10px;">hot key</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/http-s/" style="font-size: 10px;">http(s)</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/https抓包/" style="font-size: 10px;">https抓包</a> <a href="/tags/ik-analysis/" style="font-size: 10px;">ik analysis</a> <a href="/tags/imooc/" style="font-size: 10px;">imooc</a> <a href="/tags/itchat/" style="font-size: 10px;">itchat</a> <a href="/tags/java8-stream/" style="font-size: 10px;">java8 stream</a> <a href="/tags/jvm/" style="font-size: 10px;">jvm</a> <a href="/tags/lagou/" style="font-size: 10px;">lagou</a> <a href="/tags/linux-backup/" style="font-size: 10px;">linux backup</a> <a href="/tags/linux-compress/" style="font-size: 10px;">linux compress</a> <a href="/tags/linux-packeage/" style="font-size: 10px;">linux packeage</a> <a href="/tags/linux-thing/" style="font-size: 14px;">linux thing</a> <a href="/tags/mind-mapping/" style="font-size: 12px;">mind mapping</a> <a href="/tags/mysql/" style="font-size: 12px;">mysql</a> <a href="/tags/nginx/" style="font-size: 11px;">nginx</a> <a href="/tags/oschina/" style="font-size: 10px;">oschina</a> <a href="/tags/postgresql/" style="font-size: 12px;">postgresql</a> <a href="/tags/prototype/" style="font-size: 10px;">prototype</a> <a href="/tags/python/" style="font-size: 17px;">python</a> <a href="/tags/python-core/" style="font-size: 10px;">python core</a> <a href="/tags/python-data-science/" style="font-size: 10px;">python data science</a> <a href="/tags/python-spider/" style="font-size: 10px;">python spider</a> <a href="/tags/python-standard-library/" style="font-size: 10px;">python standard library</a> <a href="/tags/redis/" style="font-size: 11px;">redis</a> <a href="/tags/redis-sentinel/" style="font-size: 10px;">redis-sentinel</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/scrapy/" style="font-size: 13px;">scrapy</a> <a href="/tags/selenium/" style="font-size: 14px;">selenium</a> <a href="/tags/shortcuts-key/" style="font-size: 10px;">shortcuts key</a> <a href="/tags/simple-factory/" style="font-size: 12px;">simple factory</a> <a href="/tags/singleton/" style="font-size: 10px;">singleton</a> <a href="/tags/spider/" style="font-size: 11px;">spider</a> <a href="/tags/spider-crawl/" style="font-size: 10px;">spider crawl</a> <a href="/tags/spring-boot/" style="font-size: 11px;">spring boot</a> <a href="/tags/spring-boot2/" style="font-size: 10px;">spring boot2</a> <a href="/tags/swagger/" style="font-size: 11px;">swagger</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vimium/" style="font-size: 10px;">vimium</a> <a href="/tags/websocket/" style="font-size: 10px;">websocket</a> <a href="/tags/weixin/" style="font-size: 10px;">weixin</a> <a href="/tags/ws-s/" style="font-size: 10px;">ws(s)</a> <a href="/tags/wss/" style="font-size: 10px;">wss</a> <a href="/tags/yapi/" style="font-size: 10px;">yapi</a> <a href="/tags/zealer/" style="font-size: 10px;">zealer</a> <a href="/tags/《Spring-in-action》/" style="font-size: 10px;">《Spring in action》</a> <a href="/tags/个人博客/" style="font-size: 11px;">个人博客</a> <a href="/tags/个人感悟/" style="font-size: 11px;">个人感悟</a> <a href="/tags/主从复制/" style="font-size: 11px;">主从复制</a> <a href="/tags/主从搭建/" style="font-size: 12px;">主从搭建</a> <a href="/tags/代理调试/" style="font-size: 10px;">代理调试</a> <a href="/tags/入门篇/" style="font-size: 10px;">入门篇</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/压测工具/" style="font-size: 12px;">压测工具</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/字符串机制/" style="font-size: 10px;">字符串机制</a> <a href="/tags/学习资源/" style="font-size: 11px;">学习资源</a> <a href="/tags/实践篇/" style="font-size: 11px;">实践篇</a> <a href="/tags/工厂方法/" style="font-size: 10px;">工厂方法</a> <a href="/tags/建造者/" style="font-size: 10px;">建造者</a> <a href="/tags/开源/" style="font-size: 10px;">开源</a> <a href="/tags/开源博客/" style="font-size: 11px;">开源博客</a> <a href="/tags/开源项目/" style="font-size: 11px;">开源项目</a> <a href="/tags/微信授权/" style="font-size: 10px;">微信授权</a> <a href="/tags/抽象工厂/" style="font-size: 10px;">抽象工厂</a> <a href="/tags/数据库中间件/" style="font-size: 13px;">数据库中间件</a> <a href="/tags/热部署/" style="font-size: 10px;">热部署</a> <a href="/tags/简书/" style="font-size: 10px;">简书</a> <a href="/tags/简单工厂/" style="font-size: 10px;">简单工厂</a> <a href="/tags/编辑器/" style="font-size: 19px;">编辑器</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a> <a href="/tags/读写分离/" style="font-size: 11px;">读写分离</a> <a href="/tags/跑步/" style="font-size: 10px;">跑步</a> <a href="/tags/配置篇/" style="font-size: 10px;">配置篇</a> <a href="/tags/钉钉运动/" style="font-size: 10px;">钉钉运动</a> <a href="/tags/阿里技术/" style="font-size: 10px;">阿里技术</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>

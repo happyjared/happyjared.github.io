@@ -17,7 +17,7 @@
 <meta property="og:description" content="本文内容精简、整理、摘抄、有感于《鸟哥的Linux私房菜 - 基础篇第四版》第十章 • 认识与学习BASH。  Bash功能 命令编辑修复能力：history。用户bash指令使用记录文件：~/.bash_history  命令与文件补全：tab  命令别名设定：alias  工作控制、前景和背景控制  程序化脚本：shell scripts  通配符：wildcard   指令操作   快捷">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://image.mariojd.cn/happyjared/20181018/20181018141303.png">
-<meta property="og:updated_time" content="2018-10-22T03:49:11.948Z">
+<meta property="og:updated_time" content="2018-11-08T08:55:59.287Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux私房菜：走进bash">
 <meta name="twitter:description" content="本文内容精简、整理、摘抄、有感于《鸟哥的Linux私房菜 - 基础篇第四版》第十章 • 认识与学习BASH。  Bash功能 命令编辑修复能力：history。用户bash指令使用记录文件：~/.bash_history  命令与文件补全：tab  命令别名设定：alias  工作控制、前景和背景控制  程序化脚本：shell scripts  通配符：wildcard   指令操作   快捷">
@@ -379,13 +379,15 @@ ga('send', 'pageview');
 <li><code>c</code>以字符为单位取出行的固定字符区间，后接区间范围，如<code>10-</code>表示取出第10个字符到最后，<code>export | cut -c 12-</code></li>
 </ul>
 </li>
-<li><p><code>grep [-acinv] [--color=auto] &#39;搜寻字符串&#39; filename</code></p>
+<li><p><code>grep [-acinvAB] [--color=auto] &#39;搜寻字符串&#39; filename</code></p>
 <ul>
 <li><code>a</code>将binary文件转成text文件后再搜索</li>
 <li><code>c</code>计算出现次数</li>
 <li><code>i</code>忽略大小写</li>
 <li><code>n</code>输出行号</li>
 <li><code>v</code>反向选择未搜索匹配到的</li>
+<li><code>An</code>列出该行之后的n行</li>
+<li><code>Bn</code>列出该行之前的n行</li>
 </ul>
 </li>
 </ul>
@@ -445,7 +447,7 @@ ga('send', 'pageview');
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年10月22日 11:49</p>
+        <p>最后更新： 2018年11月08日 16:55</p>
         <p>原始链接： <a class="post-url" href="/linux-bash.html" title="Linux私房菜：走进bash">https://blog.mariojd.cn/linux-bash.html</a></p>
         <footer>
             <a href="https://blog.mariojd.cn">

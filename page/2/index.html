@@ -76,6 +76,11 @@ ga('send', 'pageview');
                         <span>主页</span>
                     </a>
                     
+                    <a target="_blank" href="https://mp.mariojd.cn">
+                        <i class="fa fa-dot-circle-o"></i>
+                        <span>洞见</span>
+                    </a>
+                    
                     <a  href="/archives">
                         <i class="fa fa-window-restore"></i>
                         <span>归档</span>
@@ -132,6 +137,75 @@ ga('send', 'pageview');
 </header>
       <div class="outer">
         <section id="main" class="body-wrap">
+  
+    <article id="post-Docker + Elasticsearch 集群环境搭建" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/elasticsearch-cluster-environment-construction-based-docker.html"  target="_blank"  >Docker + Elasticsearch 集群环境搭建</a>
+    </h1>
+  
+
+          
+              <span class="header-cate">
+                <i class="fa fa-map-marker"></i>
+                  
+                  <a href="/categories/Docker/">Docker</a>
+                  
+                  <a href="/categories/Elasticsearch/">Elasticsearch</a>
+                  
+              </span>
+          
+      </header>
+    
+    <div class="article-entry " itemprop="articleBody">
+      
+        <div class="article-img">
+            <a href="/elasticsearch-cluster-environment-construction-based-docker.html"  target="_blank" >
+                
+                <img src="https://image.mariojd.cn/smallstory/2018926/elasticsearch-cluster-environment-construction-based-docker.png" alt="Docker + Elasticsearch 集群环境搭建" title="Docker + Elasticsearch 集群环境搭建">
+                
+            </a>
+        </div>
+        <div class="article-feed">
+            <p>
+                
+无论是安装包形式还是基于Docker，搭建Elasticsearch集群环境还是较为简单的，实操的时候还遇到过一丢小问题，本文用于记录下操作过程。
+运行先用docker分别启动两个es服务，由于后面需要进行配置，这里假设es1所在的机器公网ip为：123.11.23.1，es2所在机器ip：123.11.23.2
+# 运行ES1docker run --name es1 -e &quot;...
+            </p>
+        </div>
+      
+        
+    </div>
+    <footer class="article-footer">
+        
+        <ul class="article-footer-menu">
+            
+                <li><i class="fa fa-calendar"></i>2018-09-26</li>
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/docker/" class="color2">docker</a>
+      
+    <a href="/tags/elasticsearchcluster/" class="color2">elasticsearch cluster</a>
+      
+  </li>
+
+        </ul>
+        
+            <a href="/elasticsearch-cluster-environment-construction-based-docker.html#more" class="article-more-link"  target="_blank" >&lt;&lt; 阅读全文 &gt;&gt;</a>
+        
+    </footer>
+  </div>
+</article>
+
+
   
     <article id="post-爬虫进阶：Scrapy抓取boss直聘、拉勾心得经验" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -202,75 +276,6 @@ sleep休眠
         </ul>
         
             <a href="/share-scrapy-experience-in-crawl-zhipin-and-lagou.html#more" class="article-more-link"  target="_blank" >&lt;&lt; 阅读全文 &gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-Docker + Elasticsearch 集群环境搭建" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/elasticsearch-cluster-environment-construction-based-docker.html"  target="_blank"  >Docker + Elasticsearch 集群环境搭建</a>
-    </h1>
-  
-
-          
-              <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                  
-                  <a href="/categories/Docker/">Docker</a>
-                  
-                  <a href="/categories/Elasticsearch/">Elasticsearch</a>
-                  
-              </span>
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/elasticsearch-cluster-environment-construction-based-docker.html"  target="_blank" >
-                
-                <img src="https://image.mariojd.cn/smallstory/2018926/elasticsearch-cluster-environment-construction-based-docker.png" alt="Docker + Elasticsearch 集群环境搭建" title="Docker + Elasticsearch 集群环境搭建">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                
-无论是安装包形式还是基于Docker，搭建Elasticsearch集群环境还是较为简单的，实操的时候还遇到过一丢小问题，本文用于记录下操作过程。
-运行先用docker分别启动两个es服务，由于后面需要进行配置，这里假设es1所在的机器公网ip为：123.11.23.1，es2所在机器ip：123.11.23.2
-# 运行ES1docker run --name es1 -e &quot;...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2018-09-26</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/docker/" class="color2">docker</a>
-      
-    <a href="/tags/elasticsearchcluster/" class="color2">elasticsearch cluster</a>
-      
-  </li>
-
-        </ul>
-        
-            <a href="/elasticsearch-cluster-environment-construction-based-docker.html#more" class="article-more-link"  target="_blank" >&lt;&lt; 阅读全文 &gt;&gt;</a>
         
     </footer>
   </div>
@@ -1265,6 +1270,12 @@ pyt...
             <li>
                 <a  href="/">
                     <i class="fa fa-h-square"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a target="_blank" href="https://mp.mariojd.cn">
+                    <i class="fa fa-dot-circle-o"></i><span>洞见</span>
                 </a>
             </li>
             

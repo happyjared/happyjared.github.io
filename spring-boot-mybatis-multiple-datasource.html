@@ -3,28 +3,23 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Docker + anoyi-blog 打造专属个人简书 | happyJared - 博客</title>
+  <title>Spring Boot 1.0 &amp;&amp; 2.0 + Mybatis 多数据源配置与使用 | happyJared - 博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="happyJared - 博客。保持勤學習的心，做好寫代碼這事。我有一个公众号：超级码里奥。" />
   
-  <meta name="description" content="写在前面&amp;emsp;&amp;emsp;anoyi-blog，一款有趣的开源个人博客建站工具，简单梳理下分享给大家。该工具基于 Docker， 可快速搭建和一键生成个人博客，用于实时解析简书文章、作者信息，专为个性化而生！ Docker命令docker run -d --name myblog \-e JIANSHU_ID=000a530f461c \-e WEB_NAME=happyJared \-e">
-<meta name="keywords" content="docker,博客">
+  <meta name="description" content="环境说明 Spring Boot 1.5.17.RELEASE 或 Spring Boot 2.1.0.RELEASE MySQL v5.6.19 PostgreSQL v10.4   无特殊说明，以下所说的环境均指 Spring Boot 2.1.0.RELEASE，如果使用的是 Spring Boot 1.5.17.RELEASE 这个版本，只需要调整下面有做说明的几处地方  连接配置在ap">
+<meta name="keywords" content="spring boot,multiple datasource,mybatis">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Docker + anoyi-blog 打造专属个人简书">
-<meta property="og:url" content="https://blog.mariojd.cn/anoyi-blog-to-build-an-exclusive-personal-book-based-docker.html">
+<meta property="og:title" content="Spring Boot 1.0 &amp;&amp; 2.0 + Mybatis 多数据源配置与使用">
+<meta property="og:url" content="https://blog.mariojd.cn/spring-boot-mybatis-multiple-datasource.html">
 <meta property="og:site_name" content="happyJared - 博客">
-<meta property="og:description" content="写在前面&amp;emsp;&amp;emsp;anoyi-blog，一款有趣的开源个人博客建站工具，简单梳理下分享给大家。该工具基于 Docker， 可快速搭建和一键生成个人博客，用于实时解析简书文章、作者信息，专为个性化而生！ Docker命令docker run -d --name myblog \-e JIANSHU_ID=000a530f461c \-e WEB_NAME=happyJared \-e">
+<meta property="og:description" content="环境说明 Spring Boot 1.5.17.RELEASE 或 Spring Boot 2.1.0.RELEASE MySQL v5.6.19 PostgreSQL v10.4   无特殊说明，以下所说的环境均指 Spring Boot 2.1.0.RELEASE，如果使用的是 Spring Boot 1.5.17.RELEASE 这个版本，只需要调整下面有做说明的几处地方  连接配置在ap">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://image.mariojd.cn/2018427/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180427150448.png">
-<meta property="og:image" content="http://image.mariojd.cn/2018427/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180427151942.png">
-<meta property="og:image" content="http://image.mariojd.cn/2018427/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180427154904.png">
-<meta property="og:image" content="http://image.mariojd.cn/2018427/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180427160310.png">
-<meta property="og:updated_time" content="2018-09-29T03:20:10.734Z">
+<meta property="og:updated_time" content="2018-11-24T09:34:51.439Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Docker + anoyi-blog 打造专属个人简书">
-<meta name="twitter:description" content="写在前面&amp;emsp;&amp;emsp;anoyi-blog，一款有趣的开源个人博客建站工具，简单梳理下分享给大家。该工具基于 Docker， 可快速搭建和一键生成个人博客，用于实时解析简书文章、作者信息，专为个性化而生！ Docker命令docker run -d --name myblog \-e JIANSHU_ID=000a530f461c \-e WEB_NAME=happyJared \-e">
-<meta name="twitter:image" content="http://image.mariojd.cn/2018427/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180427150448.png">
+<meta name="twitter:title" content="Spring Boot 1.0 &amp;&amp; 2.0 + Mybatis 多数据源配置与使用">
+<meta name="twitter:description" content="环境说明 Spring Boot 1.5.17.RELEASE 或 Spring Boot 2.1.0.RELEASE MySQL v5.6.19 PostgreSQL v10.4   无特殊说明，以下所说的环境均指 Spring Boot 2.1.0.RELEASE，如果使用的是 Spring Boot 1.5.17.RELEASE 这个版本，只需要调整下面有做说明的几处地方  连接配置在ap">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -143,14 +138,14 @@ ga('send', 'pageview');
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap"><article id="post-Docker + anoyi-blog 打造专属个人简书" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main" class="body-wrap"><article id="post-Spring Boot 1.0 &amp;&amp; 2.0 + Mybatis 多数据源配置与使用" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="post-title" itemprop="name">
-      Docker + anoyi-blog 打造专属个人简书
+      Spring Boot 1.0 &amp;&amp; 2.0 + Mybatis 多数据源配置与使用
     </h1>
     <div class="post-title-bar">
       <ul>
@@ -158,12 +153,12 @@ ga('send', 'pageview');
               <li>
                   <i class="fa fa-book"></i>
                   
-                      <a href="/categories/开源/">开源</a>
+                      <a href="/categories/Java/">Java</a>
                   
               </li>
           
         <li>
-          <i class="fa fa-calendar"></i>  2018-04-27
+          <i class="fa fa-calendar"></i>  2018-11-22
         </li>
         <li>
           <i class="fa fa-eye"></i>
@@ -180,97 +175,43 @@ ga('send', 'pageview');
       
             
             <!--
-    self_category: 开源
-    self_tags: 博客，docker
-    osChina_sys_category: 其他类型
-    csdn_article_category: 原创
-    csdn_blog_category: 后端
+    self_category: 
+    self_tags: 
+    osChina_sys_category: 
+    csdn_article_category: 
+    csdn_blog_category: 
 -->
-<h3 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h3><p>&emsp;&emsp;anoyi-blog，一款有趣的开源个人博客建站工具，简单梳理下分享给大家。该工具基于 Docker， 可快速搭建和一键生成个人博客，用于实时解析简书文章、作者信息，专为个性化而生！</p>
-<h3 id="Docker命令"><a href="#Docker命令" class="headerlink" title="Docker命令"></a>Docker命令</h3><figure class="highlight docker"><table><tr><td class="code"><pre><span class="line">docker <span class="keyword">run</span><span class="bash"> -d --name myblog \</span></span><br><span class="line"><span class="bash">-e JIANSHU_ID=000a530f461c \</span></span><br><span class="line"><span class="bash">-e WEB_NAME=happyJared \</span></span><br><span class="line"><span class="bash">-e GITHUB=<span class="string">"https://github.com/happyjared"</span> \</span></span><br><span class="line"><span class="bash">-e GITLAB=<span class="string">"https://github.com/happyjared"</span> \</span></span><br><span class="line"><span class="bash">-e QQ=12345678 \</span></span><br><span class="line"><span class="bash">-e ICP=粤ICP备12345678号 \</span></span><br><span class="line"><span class="bash">-e REWARD_IMAGES=<span class="string">"https://upload.jianshu.io/users/qrcodes/9709135/myweixin.png?imageMogr2/auto-orient/strip|imageView2/1/w/84/h/84"</span> \</span></span><br><span class="line"><span class="bash">-e REWARD_DESC=<span class="string">"赞赏支持"</span> \</span></span><br><span class="line"><span class="bash">-e BLOG_TITLE=<span class="string">"博客标题"</span> \</span></span><br><span class="line"><span class="bash">-e BLOG_DESC=<span class="string">"博客描述"</span> \</span></span><br><span class="line"><span class="bash">-p 20184:8080 registry.cn-hangzhou.aliyuncs.com/anoy/blog</span></span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;docker run之后，访问 <a href="http://localhost:20184/" target="_blank" rel="noopener">http://localhost:20184/</a> 可查看生成的博客，映射其他端口可配置： -p {port}:8080</p>
-<p><img src="http://image.mariojd.cn/2018427/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180427150448.png" alt="myblog" title="myblog"></p>
-<p><img src="http://image.mariojd.cn/2018427/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180427151942.png" alt="myblog" title="myblog"></p>
-<h3 id="配置说明"><a href="#配置说明" class="headerlink" title="配置说明"></a>配置说明</h3><table>
-<thead>
-<tr>
-<th>变量</th>
-<th>说明</th>
-<th>示例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>JIANSHU_ID</td>
-<td>简书ID</td>
-<td><a href="https://www.jianshu.com/u/000a530f461c，" target="_blank" rel="noopener">https://www.jianshu.com/u/000a530f461c，</a> 点击“简书”-&gt;“我的主页”，这里只需要取000a530f461c即可</td>
-</tr>
-<tr>
-<td>WEB_NAME</td>
-<td>网站名称</td>
-<td>happyJared</td>
-</tr>
-<tr>
-<td>GITHUB</td>
-<td>Github 地址</td>
-<td><a href="https://github.com/happyjared" target="_blank" rel="noopener">https://github.com/happyjared</a></td>
-</tr>
-<tr>
-<td>GITLAB</td>
-<td>Gitlab 地址</td>
-<td><a href="https://github.com/happyjared" target="_blank" rel="noopener">https://github.com/happyjared</a></td>
-</tr>
-<tr>
-<td>QQ</td>
-<td>QQ 号（用于发起聊天沟通）</td>
-<td>12345678</td>
-</tr>
-<tr>
-<td>ICP</td>
-<td>ICP 备案号</td>
-<td>粤ICP备12345678号</td>
-</tr>
-<tr>
-<td>REWARD_IMAGES</td>
-<td>打赏二维码图片链接地址</td>
-<td>多个图片可用 , 分隔</td>
-</tr>
-<tr>
-<td>REWARD_DESC</td>
-<td>打赏提示语</td>
-<td>赞赏支持</td>
-</tr>
-<tr>
-<td>BLOG_TITLE</td>
-<td>博客标题</td>
-<td>博客标题</td>
-</tr>
-<tr>
-<td>BLOG_DESC</td>
-<td>博客描述</td>
-<td>博客描述</td>
-</tr>
-<tr>
-<td>DING_TALK</td>
-<td>钉钉机器人 API 地址</td>
-<td>参考<a href="https://open-doc.dingtalk.com/docs/doc.htm?spm=a219a.7629140.0.0.3kcBZY&amp;docType=1&amp;articleId=105735&amp;treeId=257&amp;platformId=34" target="_blank" rel="noopener">钉钉自定义机器人</a> 示例：-e DING_TALK=”<a href="https://oapi.dingtalk.com/robot/send?access_token=b1586fba8caf2c98bf6f1174b4ec57c75941553a15a75c437422f55fc1b76cd1" target="_blank" rel="noopener">https://oapi.dingtalk.com/robot/send?access_token=b1586fba8caf2c98bf6f1174b4ec57c75941553a15a75c437422f55fc1b76cd1</a>“</td>
-</tr>
-</tbody>
-</table>
-<h3 id="简单分析"><a href="#简单分析" class="headerlink" title="简单分析"></a>简单分析</h3><p><img src="http://image.mariojd.cn/2018427/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180427154904.png" alt="docker logs myblog" title="docker logs myblog"></p>
-<p>&emsp;&emsp;查看启动日志，通过运行命令<code>docker logs myblog</code>，可以看到 anoyi-blog 是基于 Spring Bootv2.0.0.RELEASE开发的，使用了 Undertow 作为Web服务器</p>
-<p><img src="http://image.mariojd.cn/2018427/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180427160310.png" alt="docker inspect myblog" title="docker inspect myblog"></p>
-<p>&emsp;&emsp;运行命令<code>docker inspect anoyi-blog</code>，可以看到完整的启动脚本</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">java -jar -server /app.jar --jianshu.user-id=$JIANSHU_ID --custom.web-name=$WEB_NAME --custom.github-url=$GITHUB --custom.gitlab-url=$GITLAB --custom.qq=$QQ --custom.icp=$ICP --custom.reward-images=$REWARD_IMAGES --custom.reward-desc=$REWARD_DESC --custom.blog-title=$BLOG_TITLE --custom.blog-desc=$BLOG_DESC --custom.ding-talk=$DING_TALK</span><br></pre></td></tr></table></figure>
-<h3 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h3><p>&emsp;&emsp;可以看到，利用 docker + anoyi-blog 来打造个人简书博客还是很方便的。但相比于两大静态博客主流框架：jekyll 和 hexo ，anoyi-blog 在可定制化方面确实显得较为欠缺。</p>
-<h3 id="参考地址"><a href="#参考地址" class="headerlink" title="参考地址"></a>参考地址</h3><blockquote>
-<p><a href="https://mp.weixin.qq.com/s/jQzzCek1O1kq6bouxSGJGw" target="_blank" rel="noopener">开源博客 ANOYI-BLOG 使用指南</a><br><a href="https://cr.console.aliyun.com/?spm=a2c4e.11153940.blogcont70756.13.6fb8203brk0ewz#/imageDesc/cn-hangzhou/anoy/blog/detail" target="_blank" rel="noopener">anoy/blog - 阿里云镜像</a></p>
+<h3 id="环境说明"><a href="#环境说明" class="headerlink" title="环境说明"></a>环境说明</h3><ul>
+<li>Spring Boot 1.5.17.RELEASE <code>或</code> Spring Boot 2.1.0.RELEASE</li>
+<li>MySQL v5.6.19</li>
+<li>PostgreSQL v10.4</li>
+</ul>
+<blockquote>
+<p>无特殊说明，以下所说的环境均指 <code>Spring Boot 2.1.0.RELEASE</code>，如果使用的是 <code>Spring Boot 1.5.17.RELEASE</code> 这个版本，只需要调整下面有做说明的几处地方</p>
+</blockquote>
+<h3 id="连接配置"><a href="#连接配置" class="headerlink" title="连接配置"></a>连接配置</h3><p>在<code>application.yml</code>中定义如下信息：</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line"><span class="attr">  jpa:</span></span><br><span class="line"><span class="attr">    hibernate:</span></span><br><span class="line">      <span class="comment"># 多数据源下，该属性不生效，需要在配置中额外指定，这里仅表示普通定义</span></span><br><span class="line"><span class="attr">      ddl-auto:</span> <span class="string">create-drop</span></span><br><span class="line"><span class="attr">    properties:</span></span><br><span class="line"><span class="attr">      hibernate:</span></span><br><span class="line"><span class="attr">        show_sql:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">        format_sql:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">        jdbc:</span></span><br><span class="line"><span class="attr">          lob:</span></span><br><span class="line"><span class="attr">            non_contextual_creation:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">    open-in-view:</span> <span class="literal">false</span></span><br><span class="line">  <span class="comment"># 定义不同数据源的连接信息</span></span><br><span class="line"><span class="attr">  datasource:</span></span><br><span class="line"><span class="attr">    hikari:</span></span><br><span class="line"><span class="attr">      mysql:</span></span><br><span class="line">	    <span class="comment"># Spring Boot 1.0+ 版本：使用spring.datasource.url</span></span><br><span class="line">        <span class="comment"># Spring Boot 2.0+ 版本：使用spring.datasource.hikari.jdbc-url</span></span><br><span class="line"><span class="attr">        jdbc-url:</span> <span class="attr">jdbc:mysql://localhost:3306/test?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false&amp;serverTimezone=GMT%2B8</span></span><br><span class="line"><span class="attr">        username:</span> <span class="string">root</span></span><br><span class="line"><span class="attr">        password:</span> <span class="string">root</span></span><br><span class="line">        <span class="comment"># Spring Boot 1.0+ 版本：使用com.mysql.jdbc.Driver</span></span><br><span class="line">        <span class="comment"># Spring Boot 2.0+ 版本：使用com.mysql.cj.jdbc.Driver</span></span><br><span class="line"><span class="attr">        driver-class-name:</span> <span class="string">com.mysql.cj.jdbc.Driver</span></span><br><span class="line"><span class="attr">      postgres:</span></span><br><span class="line"><span class="attr">        jdbc-url:</span> <span class="attr">jdbc:postgresql://localhost:5432/postgres</span></span><br><span class="line"><span class="attr">        username:</span> <span class="string">postgres</span></span><br><span class="line"><span class="attr">        password:</span> <span class="string">postgres</span></span><br><span class="line"><span class="attr">        driver-class-name:</span> <span class="string">org.postgresql.Driver</span></span><br></pre></td></tr></table></figure>
+<h3 id="配置数据源"><a href="#配置数据源" class="headerlink" title="配置数据源"></a>配置数据源</h3><p>根据上面定义的配置信息，配置这两个数据源：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Spring Boot 1.0+ ，DataSourceBuilder所在包位置为：org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder</span></span><br><span class="line"><span class="comment">// Spring Boot 2.0+ ，DataSourceBuilder所在包位置为：org.springframework.boot.jdbc.DataSourceBuilder</span></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DataSourceConfig</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Primary</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="meta">@ConfigurationProperties</span>(<span class="string">"spring.datasource.hikari.mysql"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> DataSource <span class="title">mysqlDataSource</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> DataSourceBuilder.create().build();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="meta">@ConfigurationProperties</span>(<span class="string">"spring.datasource.hikari.postgres"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> DataSource <span class="title">postgresDataSource</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> DataSourceBuilder.create().build();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Mybatis-支持"><a href="#Mybatis-支持" class="headerlink" title="Mybatis 支持"></a>Mybatis 支持</h3><p>添加 <code>mysql</code> 对应数据源的 <code>Mybatis</code> 支持：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@MapperScan</span>(</span><br><span class="line">        <span class="comment">// 数据层所在包位置</span></span><br><span class="line">        basePackages = <span class="string">"cn.mariojd.springboot.multiple.datasource.mybatis.mysql.mapper"</span>,</span><br><span class="line">        sqlSessionTemplateRef = <span class="string">"mybatisMysqlSqlSessionTemplate"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MybatisMysqlDataSourceConfig</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Resource</span></span><br><span class="line">    <span class="meta">@Qualifier</span>(<span class="string">"mysqlDataSource"</span>)</span><br><span class="line">    <span class="keyword">private</span> DataSource dataSource;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="meta">@Primary</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> SqlSessionFactory <span class="title">mybatisMysqlSqlSessionFactory</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        SqlSessionFactoryBean factoryBean = <span class="keyword">new</span> SqlSessionFactoryBean();</span><br><span class="line">        factoryBean.setDataSource(dataSource);</span><br><span class="line">        <span class="comment">// 如果是xml形式，需要在此处指定mapper位置</span></span><br><span class="line">        <span class="comment">// factoryBean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:mybatis/mysql/mapper/*.xml"));</span></span><br><span class="line">        <span class="keyword">return</span> factoryBean.getObject();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="meta">@Primary</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> DataSourceTransactionManager <span class="title">mybatisMysqlTransactionManager</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> DataSourceTransactionManager(dataSource);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="meta">@Primary</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> SqlSessionTemplate <span class="title">mybatisMysqlSqlSessionTemplate</span><span class="params">(@Qualifier(<span class="string">"mybatisMysqlSqlSessionFactory"</span>)</span> SqlSessionFactory sqlSessionFactory) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> SqlSessionTemplate(sqlSessionFactory);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>添加 <code>postgres</code> 对应数据源的 <code>Mybatis</code> 支持：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@MapperScan</span>(</span><br><span class="line">        <span class="comment">// 数据层所在包位置</span></span><br><span class="line">        basePackages = <span class="string">"cn.mariojd.springboot.multiple.datasource.mybatis.postgres.mapper"</span>,</span><br><span class="line">        sqlSessionTemplateRef = <span class="string">"mybatisPostgresSqlSessionTemplate"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MybatisPostgresDataSourceConfig</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Resource</span></span><br><span class="line">    <span class="meta">@Qualifier</span>(<span class="string">"postgresDataSource"</span>)</span><br><span class="line">    <span class="keyword">private</span> DataSource dataSource;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> SqlSessionFactory <span class="title">mybatisPostgresSqlSessionFactory</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        SqlSessionFactoryBean factoryBean = <span class="keyword">new</span> SqlSessionFactoryBean();</span><br><span class="line">        factoryBean.setDataSource(dataSource);</span><br><span class="line">        <span class="comment">// 如果是xml形式，需要在此处指定mapper位置</span></span><br><span class="line">        <span class="comment">// factoryBean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:mybatis/postgres/mapper/*.xml"));</span></span><br><span class="line">        <span class="keyword">return</span> factoryBean.getObject();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> DataSourceTransactionManager <span class="title">mybatisPostgresTransactionManager</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> DataSourceTransactionManager(dataSource);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> SqlSessionTemplate <span class="title">mybatisPostgresSqlSessionTemplate</span><span class="params">(@Qualifier(<span class="string">"mybatisPostgresSqlSessionFactory"</span>)</span> SqlSessionFactory sqlSessionFactory) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> SqlSessionTemplate(sqlSessionFactory);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="相关定义"><a href="#相关定义" class="headerlink" title="相关定义"></a>相关定义</h3><p><code>mysql</code> 对应的数据源配置中，定义了实体 <code>Boy</code> 和对应的数据层接口 <code>BoyMapper</code>：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="meta">@NoArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Boy</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">BoyMapper</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Insert</span>(<span class="string">"INSERT INTO boy(id,name) VALUES(#&#123;boy.id&#125;,#&#123;boy.name&#125;)"</span>)</span><br><span class="line">    <span class="meta">@Options</span>(useGeneratedKeys = <span class="keyword">true</span>, keyProperty = <span class="string">"boy.id"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">insert</span><span class="params">(@Param(<span class="string">"boy"</span>)</span> Boy boy)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Select</span>(<span class="string">"SELECT id,name FROM boy"</span>)</span><br><span class="line">    <span class="meta">@Results</span>(&#123;</span><br><span class="line">            <span class="meta">@Result</span>(property = <span class="string">"id"</span>, column = <span class="string">"id"</span>, javaType = Integer.class, jdbcType = JdbcType.INTEGER),</span><br><span class="line">            <span class="meta">@Result</span>(property = <span class="string">"name"</span>, column = <span class="string">"name"</span>, javaType = String.class, jdbcType = JdbcType.VARCHAR),</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="function">List&lt;Boy&gt; <span class="title">findAll</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>postgres</code> 对应的数据源配置中，定义了实体 <code>Girl</code> 和对应的数据层接口 <code>GirlMapper</code>：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="meta">@NoArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Girl</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">GirlMapper</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Insert</span>(<span class="string">"INSERT INTO girl(id,name) VALUES(#&#123;girl.id&#125;,#&#123;girl.name&#125;)"</span>)</span><br><span class="line">    <span class="meta">@Options</span>(useGeneratedKeys = <span class="keyword">true</span>, keyProperty = <span class="string">"girl.id"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">insert</span><span class="params">(@Param(<span class="string">"girl"</span>)</span> Girl girl)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Select</span>(<span class="string">"SELECT id,name FROM girl"</span>)</span><br><span class="line">    <span class="meta">@Results</span>(&#123;</span><br><span class="line">            <span class="meta">@Result</span>(property = <span class="string">"id"</span>, column = <span class="string">"id"</span>, javaType = Integer.class, jdbcType = JdbcType.INTEGER),</span><br><span class="line">            <span class="meta">@Result</span>(property = <span class="string">"name"</span>, column = <span class="string">"name"</span>, javaType = String.class, jdbcType = JdbcType.VARCHAR),</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="function">List&lt;Girl&gt; <span class="title">findAll</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="单元测试"><a href="#单元测试" class="headerlink" title="单元测试"></a>单元测试</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RunWith</span>(SpringRunner.class)</span><br><span class="line"><span class="meta">@SpringBootTest</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SpringBootMybatisMultipleDataSourceTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Resource</span></span><br><span class="line">    <span class="keyword">private</span> BoyMapper boyMapper;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Resource</span></span><br><span class="line">    <span class="keyword">private</span> GirlMapper girlMapper;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        boyMapper.insert(<span class="keyword">new</span> Boy(<span class="number">1</span>, <span class="string">"大肖"</span>));</span><br><span class="line">        boyMapper.insert(<span class="keyword">new</span> Boy(<span class="number">2</span>, <span class="string">"大熊"</span>));</span><br><span class="line">        Assert.assertEquals(<span class="number">2</span>, boyMapper.findAll().size());</span><br><span class="line"></span><br><span class="line">        girlMapper.insert(<span class="keyword">new</span> Girl(<span class="number">1</span>, <span class="string">"小红"</span>));</span><br><span class="line">        girlMapper.insert(<span class="keyword">new</span> Girl(<span class="number">2</span>, <span class="string">"小花"</span>));</span><br><span class="line">        Assert.assertEquals(<span class="number">2</span>, girlMapper.findAll().size());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><a href="https://github.com/happyjared/java-learning/tree/master/spring-boot-multiple-datasource" target="_blank" rel="noopener">示例源码</a><br>欢迎关注我的个人公众号：超级码里奥<br>如果这对您有帮助，欢迎点赞和分享，转载请注明出处  </p>
 </blockquote>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年09月29日 11:20</p>
-        <p>原始链接： <a class="post-url" href="/anoyi-blog-to-build-an-exclusive-personal-book-based-docker.html" title="Docker + anoyi-blog 打造专属个人简书">https://blog.mariojd.cn/anoyi-blog-to-build-an-exclusive-personal-book-based-docker.html</a></p>
+        <p>最后更新： 2018年11月24日 17:34</p>
+        <p>原始链接： <a class="post-url" href="/spring-boot-mybatis-multiple-datasource.html" title="Spring Boot 1.0 &amp;&amp; 2.0 + Mybatis 多数据源配置与使用">https://blog.mariojd.cn/spring-boot-mybatis-multiple-datasource.html</a></p>
         <footer>
             <a href="https://blog.mariojd.cn">
                 <img src="/images/logo.png" alt="happyJared">
@@ -327,7 +268,7 @@ ga('send', 'pageview');
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.mariojd.cn/anoyi-blog-to-build-an-exclusive-personal-book-based-docker.html&title=《Docker + anoyi-blog 打造专属个人简书》 — happyJared - 博客&pic=https://image.mariojd.cn/2018427/3424642-be23e443ee90793b.png" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.mariojd.cn/spring-boot-mybatis-multiple-datasource.html&title=《Spring Boot 1.0 && 2.0 + Mybatis 多数据源配置与使用》 — happyJared - 博客&pic=https://image.mariojd.cn/happyjared/20181122/spring-boot-mybatis-multiple-datasource.png" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -337,22 +278,22 @@ ga('send', 'pageview');
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mariojd.cn/anoyi-blog-to-build-an-exclusive-personal-book-based-docker.html&title=《Docker + anoyi-blog 打造专属个人简书》 — happyJared - 博客&source=Java developer, like Python and Javascript too，为人乐观、积极、向上、勤奋、和善、好相处，讲卫生，爱学习，爱..." data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mariojd.cn/spring-boot-mybatis-multiple-datasource.html&title=《Spring Boot 1.0 && 2.0 + Mybatis 多数据源配置与使用》 — happyJared - 博客&source=Java developer, like Python and Javascript too，为人乐观、积极、向上、勤奋、和善、好相处，讲卫生，爱学习，爱..." data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
           <li>
-            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.mariojd.cn/anoyi-blog-to-build-an-exclusive-personal-book-based-docker.html" data-title="Facebook">
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.mariojd.cn/spring-boot-mybatis-multiple-datasource.html" data-title="Facebook">
               <i class="fa fa-facebook"></i>
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Docker + anoyi-blog 打造专属个人简书》 — happyJared - 博客&url=https://blog.mariojd.cn/anoyi-blog-to-build-an-exclusive-personal-book-based-docker.html&via=https://blog.mariojd.cn" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Spring Boot 1.0 && 2.0 + Mybatis 多数据源配置与使用》 — happyJared - 博客&url=https://blog.mariojd.cn/spring-boot-mybatis-multiple-datasource.html&via=https://blog.mariojd.cn" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
           <li>
-            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://blog.mariojd.cn/anoyi-blog-to-build-an-exclusive-personal-book-based-docker.html" data-title="Google+">
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://blog.mariojd.cn/spring-boot-mybatis-multiple-datasource.html" data-title="Google+">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -362,7 +303,7 @@ ga('send', 'pageview');
 <div class="post-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;" id="wxShare-close">×</a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://blog.mariojd.cn/anoyi-blog-to-build-an-exclusive-personal-book-based-docker.html" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://blog.mariojd.cn/spring-boot-mybatis-multiple-datasource.html" alt="微信分享二维码">
 </div>
 
 <div class="mask"></div>
@@ -374,9 +315,11 @@ ga('send', 'pageview');
   <li class="article-footer-tags">
     <i class="fa fa-tags"></i>
       
-    <a href="/tags/docker/" class="color2">docker</a>
+    <a href="/tags/springboot/" class="color2">spring boot</a>
       
-    <a href="/tags/博客/" class="color3">博客</a>
+    <a href="/tags/multipledatasource/" class="color5">multiple datasource</a>
+      
+    <a href="/tags/mybatis/" class="color3">mybatis</a>
       
   </li>
 
@@ -389,26 +332,16 @@ ga('send', 'pageview');
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#写在前面"><span class="post-toc-text">写在前面</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Docker命令"><span class="post-toc-text">Docker命令</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置说明"><span class="post-toc-text">配置说明</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#简单分析"><span class="post-toc-text">简单分析</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#写在最后"><span class="post-toc-text">写在最后</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参考地址"><span class="post-toc-text">参考地址</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#环境说明"><span class="post-toc-text">环境说明</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#连接配置"><span class="post-toc-text">连接配置</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置数据源"><span class="post-toc-text">配置数据源</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Mybatis-支持"><span class="post-toc-text">Mybatis 支持</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#相关定义"><span class="post-toc-text">相关定义</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#单元测试"><span class="post-toc-text">单元测试</span></a></li></ol>
         </nav>
     </aside>
     
 
 <nav id="article-nav">
   
-    <a href="/several-ways-of-initializing-resources-in-spring-boot.html" id="article-nav-newer" class="article-nav-link-wrap">
-
-      <span class="article-nav-title">
-        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
-        
-          Spring Boot中初始化资源的几种方式
-        
-      </span>
-    </a>
   
-  
-    <a href="/jmeter-pressure-test-based-on-websocket.html" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">Jmeter 压测 ws(s)</span>
+    <a href="/spring-boot-jpa-multiple-datasource.html" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Spring Boot 1.0 &amp;&amp; 2.0 + JPA 多数据源配置与使用</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   
@@ -417,7 +350,7 @@ ga('send', 'pageview');
 
 
     
-        <div id="SOHUCS" sid="Docker + anoyi-blog 打造专属个人简书" ></div>
+        <div id="SOHUCS" sid="Spring Boot 1.0 &amp;&amp; 2.0 + Mybatis 多数据源配置与使用" ></div>
 <script type="text/javascript">
     (function(){
         var appid = 'cytsi4W0L';

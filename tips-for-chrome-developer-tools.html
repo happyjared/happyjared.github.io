@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Chrome 开发者工具的小技巧 | happyJared - 博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="happyJared - 博客。保持勤學習的心，做好寫代碼這事。我有一个公众号：超级码里奥。" />
+  
+  <meta name="description" content="来源：陈皓 - 酷壳 CoolShell ；链接：https://coolshell.cn/articles/17634.html  Chrome的开发者工具是个很强大的东西，相信程序员们都不会陌生，不过有些小功能可能并不为大众所知，所以，写下这篇文章罗列一下可能你所不知道的功能，有的功能可能会比较实用，有的则不一定，也欢迎大家补充交流。  代码格式化 有很多css/js的代码都会被 mini">
+<meta name="keywords" content="chrome">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Chrome 开发者工具的小技巧">
+<meta property="og:url" content="https://blog.mariojd.cn/tips-for-chrome-developer-tools.html">
+<meta property="og:site_name" content="happyJared - 博客">
+<meta property="og:description" content="来源：陈皓 - 酷壳 CoolShell ；链接：https://coolshell.cn/articles/17634.html  Chrome的开发者工具是个很强大的东西，相信程序员们都不会陌生，不过有些小功能可能并不为大众所知，所以，写下这篇文章罗列一下可能你所不知道的功能，有的功能可能会比较实用，有的则不一定，也欢迎大家补充交流。  代码格式化 有很多css/js的代码都会被 mini">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://image.mariojd.cn/happyjared/20181214/1544749694024.jpg">
+<meta property="og:image" content="http://image.mariojd.cn/happyjared/20181214/1544749694276.jpg">
+<meta property="og:image" content="http://image.mariojd.cn/happyjared/20181214/1544749694440.jpg">
+<meta property="og:image" content="http://image.mariojd.cn/happyjared/20181214/1544749694112.jpg">
+<meta property="og:image" content="http://image.mariojd.cn/happyjared/20181214/1544749694144.jpg">
+<meta property="og:image" content="http://image.mariojd.cn/happyjared/20181214/1544749694296.jpg">
+<meta property="og:image" content="http://image.mariojd.cn/happyjared/20181214/1544749694276.jpg">
+<meta property="og:image" content="http://image.mariojd.cn/happyjared/20181214/1544749694864.png">
+<meta property="og:image" content="http://image.mariojd.cn/happyjared/20181214/1544749700002.png">
+<meta property="og:image" content="http://image.mariojd.cn/happyjared/20181214/1544749694164.png">
+<meta property="og:image" content="http://image.mariojd.cn/happyjared/20181214/1544749693920.png">
+<meta property="og:image" content="http://image.mariojd.cn/happyjared/20181214/1544749694144.png">
+<meta property="og:image" content="http://image.mariojd.cn/happyjared/20181214/1544749693940.png">
+<meta property="og:image" content="http://image.mariojd.cn/happyjared/20181214/1544749694148.png">
+<meta property="og:image" content="http://image.mariojd.cn/happyjared/20181214/1544749696047.png">
+<meta property="og:image" content="http://image.mariojd.cn/happyjared/20181214/1544749699614.png">
+<meta property="og:image" content="http://image.mariojd.cn/happyjared/20181214/1544749700002.png">
+<meta property="og:image" content="http://image.mariojd.cn/happyjared/20181214/1544749694112.png">
+<meta property="og:updated_time" content="2018-12-14T01:28:25.592Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chrome 开发者工具的小技巧">
+<meta name="twitter:description" content="来源：陈皓 - 酷壳 CoolShell ；链接：https://coolshell.cn/articles/17634.html  Chrome的开发者工具是个很强大的东西，相信程序员们都不会陌生，不过有些小功能可能并不为大众所知，所以，写下这篇文章罗列一下可能你所不知道的功能，有的功能可能会比较实用，有的则不一定，也欢迎大家补充交流。  代码格式化 有很多css/js的代码都会被 mini">
+<meta name="twitter:image" content="http://image.mariojd.cn/happyjared/20181214/1544749694024.jpg">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-127138870-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?7d6076888c62ff336f5b580c57fd4141";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+  
+  <div style="display: none;">
+    <script src="//s22.cnzz.com/z_stat.php?id=1274993267&web_id=1274993267" language="JavaScript"></script>
+  </div>
+
+
+</head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <!--<div id="banner"></div>-->
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title"></span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-h-square"></i>
+                        <span>主页</span>
+                    </a>
+                    
+                    <a target="_blank" href="https://mp.mariojd.cn">
+                        <i class="fa fa-dot-circle-o"></i>
+                        <span>洞见</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-window-restore"></i>
+                        <span>归档</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>关于</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <!--<div id="header-title">-->
+                    <!---->
+                <!--</div>-->
+                <div id="header-description">
+                    <div id="hitokoto" style="height:24px;line-height:24px;">
+                        
+                            保持勤學習的心，做好寫代碼這事
+                                                    
+                    </div>
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="github" target="_blank" href="//github.com/happyjared">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="简书" target="_blank" href="//www.jianshu.com/u/000a530f461c">
+                            <i class="fa fa-book fa-2x"></i></a>
+                    
+                        <a title="企鹅号" target="_blank" href="//wpa.qq.com/msgrd?v=3&uin=1394223902&site=qq&menu=yes">
+                            <i class="fa fa-qq fa-2x"></i></a>
+                    
+                        <a title="公众号" target="_blank" href="//image.mariojd.cn/qrcode_for_supermmario_1280.jpg">
+                            <i class="fa fa-wechat fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-Chrome 开发者工具的小技巧" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      Chrome 开发者工具的小技巧
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/Web/">Web</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-12-10
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <!--
+    self_category: 
+    self_tags: 
+    osChina_sys_category: 
+    csdn_article_category: 
+    csdn_blog_category: 
+-->
+<blockquote>
+<p>来源：陈皓 - 酷壳 CoolShell ；链接：<code>https://coolshell.cn/articles/17634.html</code></p>
+</blockquote>
+<p>Chrome的开发者工具是个很强大的东西，相信程序员们都不会陌生，不过有些小功能可能并不为大众所知，所以，写下这篇文章罗列一下可能你所不知道的功能，有的功能可能会比较实用，有的则不一定，也欢迎大家补充交流。</p>
+<blockquote>
+<h3 id="代码格式化"><a href="#代码格式化" class="headerlink" title="代码格式化"></a>代码格式化</h3></blockquote>
+<p>有很多css/js的代码都会被 minify 掉，你可以点击代码窗口左下角的那个 <strong><code>{ }</code></strong>  标签，chrome会帮你给格式化掉。</p>
+<p><img src="http://image.mariojd.cn/happyjared/20181214/1544749694024.jpg" alt="代码格式化"></p>
+<blockquote>
+<h3 id="强制DOM状态"><a href="#强制DOM状态" class="headerlink" title="强制DOM状态"></a>强制DOM状态</h3></blockquote>
+<p>有些HTML的DOM是有状态的，比如&lt;a&gt; 标签，其会有 active，hover， focus，visited这些状态，有时候，我们的CSS会来定关不同状态的样式，在分析网页查看网页上DOM的CSS样式时，我们可以点击CSS样式上的 <strong><code>:hov</code></strong> 这个小按钮来强制这个DOM的状态。</p>
+<p><img src="http://image.mariojd.cn/happyjared/20181214/1544749694276.jpg" alt="强制DOM状态"></p>
+<blockquote>
+<h3 id="动画"><a href="#动画" class="headerlink" title="动画"></a>动画</h3></blockquote>
+<p>现在的网页上都会有一些动画效果。在Chrome的开发者工具中，通过右上角的菜单中的 <code>More Tools</code> =&gt; <code>Animations</code> 呼出相关的选项卡。于是你就可以慢动作播放动画了（可以点选 <code>25%</code> 或 <code>10%</code>），然后，Chrome还可以帮你把动画录下来，你可以拉动动再画的过程，甚至可以做一些简单的修改。</p>
+<p><img src="http://image.mariojd.cn/happyjared/20181214/1544749694440.jpg" alt="动画"></p>
+<blockquote>
+<h3 id="直接编辑网页"><a href="#直接编辑网页" class="headerlink" title="直接编辑网页"></a>直接编辑网页</h3></blockquote>
+<p>在你的 console 里 输入下面的命令：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">document</span>.designMode = <span class="string">"on"</span>;</span><br></pre></td></tr></table></figure>
+<p>于是你就可以直接修改网页上的内容了。</p>
+<p>P.S. 下面这个抓屏中还演示了一个如何清空console的示例。你可以输入 clear() 或是 按 <code>Ctrl+L</code>（Windows下），<code>CMD + K</code> (Mac下)</p>
+<p><img src="http://image.mariojd.cn/happyjared/20181214/1544749694112.jpg" alt="清空console"></p>
+<blockquote>
+<h3 id="网络限速"><a href="#网络限速" class="headerlink" title="网络限速"></a>网络限速</h3></blockquote>
+<p>你可以设置你的网络的访问速度来模拟一个网络很慢的情况。</p>
+<p><img src="http://image.mariojd.cn/happyjared/20181214/1544749694144.jpg" alt="网络限速"></p>
+<blockquote>
+<h3 id="复制HTTP请求"><a href="#复制HTTP请求" class="headerlink" title="复制HTTP请求"></a>复制HTTP请求</h3></blockquote>
+<p>这个是我很喜欢 的一个功能，你可以在 network选项卡里，点击 XHR 过滤相关的Ajax请求，然后在相关的请求上点鼠标右键，在菜单中选择： <code>Copy</code> =&gt; <code>Copy as cURL</code>，然后就可以到你的命令行下去 执行 <code>curl</code> 的命令了。这个可以很容易做一些自动化的测试。</p>
+<p><img src="http://image.mariojd.cn/happyjared/20181214/1544749694296.jpg" alt="复制HTTP请求"></p>
+<p><strong>友情提示：这个操作有可能会把你的个人隐私信息复制出去，比如你个人登录后的cookie。</strong></p>
+<blockquote>
+<h3 id="抓个带手机的图"><a href="#抓个带手机的图" class="headerlink" title="抓个带手机的图"></a>抓个带手机的图</h3></blockquote>
+<p>这个可能有点无聊了，不过我觉得挺有意思的。</p>
+<p>在device显示中，先选择一个手机，然后在右上角选 <code>Show Device Frame</code>，然后你就看到手机的样子了，然后再到那个菜中中选 Capture snapshot，就可以抓下一个有手机样子的截图了。</p>
+<p><img src="http://image.mariojd.cn/happyjared/20181214/1544749694276.jpg" alt="带手机的图"></p>
+<p>我抓的图如下（当然，不是所有的手机都有frame的）</p>
+<p><img src="http://image.mariojd.cn/happyjared/20181214/1544749694864.png" alt="带手机的图"></p>
+<blockquote>
+<h3 id="设置断点"><a href="#设置断点" class="headerlink" title="设置断点"></a>设置断点</h3></blockquote>
+<p>除了给Javascript的源代码上设置断点调试，你还可以：</p>
+<h3 id="给DOM设置断点"><a href="#给DOM设置断点" class="headerlink" title="给DOM设置断点"></a>给DOM设置断点</h3><p>选中一个DOM，然后在右键菜单中选 Break on … 你可以看到如下三个选项：</p>
+<p><img src="http://image.mariojd.cn/happyjared/20181214/1544749700002.png" alt="给DOM设置断点"></p>
+<h4 id="给XHR和Event-Lisener设置断点"><a href="#给XHR和Event-Lisener设置断点" class="headerlink" title="给XHR和Event Lisener设置断点"></a>给XHR和Event Lisener设置断点</h4><p>在 Sources 面页中，你可以看到右边的那堆break points中，除了上面我们说的给DOM设置断点，你还可以给XHR和Event Listener设置断点，载图如下：</p>
+<p><img src="http://image.mariojd.cn/happyjared/20181214/1544749694164.png" alt="给XHR和Event Lisener设置断点"></p>
+<blockquote>
+<h3 id="关于Console中的技巧"><a href="#关于Console中的技巧" class="headerlink" title="关于Console中的技巧"></a>关于Console中的技巧</h3></blockquote>
+<h4 id="DOM操作"><a href="#DOM操作" class="headerlink" title="DOM操作"></a>DOM操作</h4><ul>
+<li><p>chrome会帮你buffer 5个你查看过的DOM对象，你可以直接在Console中用 $0, $1, $2, $3, $4来访问。</p>
+</li>
+<li><p>你还可以使用像jQuery那样的语法来获得DOM对象，如：<code>$(&quot;#mydiv&quot;)</code></p>
+</li>
+<li><p>你还可使用 <code>$$(&quot;.class&quot;)</code> 来选择所有满足条件的DOM对象。</p>
+</li>
+<li><p>你可以使用 <code>getEventListeners($(&quot;selector&quot;))</code> 来查看某个DOM对象上的事件（如下图所示）。</p>
+</li>
+</ul>
+<p><img src="http://image.mariojd.cn/happyjared/20181214/1544749693920.png" alt="DOM操作"></p>
+<ul>
+<li>你还可以使用 <code>monitorEvents($(&quot;selector&quot;))</code> 来监控相关的事件。比如：</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">monitorEvents(<span class="built_in">document</span>.body, <span class="string">"click"</span>);</span><br></pre></td></tr></table></figure>
+<p><img src="http://image.mariojd.cn/happyjared/20181214/1544749694144.png" alt="DOM操作"></p>
+<h4 id="Console中的一些函数"><a href="#Console中的一些函数" class="headerlink" title="Console中的一些函数"></a>Console中的一些函数</h4><p><strong>1）monitor函数</strong></p>
+<p>使用 monitor函数来监控一函数，如下面的示例</p>
+<p><img src="http://image.mariojd.cn/happyjared/20181214/1544749693940.png" alt="monitor函数"></p>
+<p><strong>2）copy函数</strong></p>
+<p>copy函数可以把一个变量的值copy到剪贴板上。</p>
+<p><strong>3）inspect函数</strong></p>
+<p>inspect函数可以让你控制台跳到你需要查看的对象上。如：</p>
+<p><img src="http://image.mariojd.cn/happyjared/20181214/1544749694148.png" alt="inspect函数"></p>
+<p>更多的函数请参数官方文档：<a href="https://developers.google.com/web/tools/chrome-devtools/console/command-line-reference" target="_blank" rel="noopener"><code>Using the Console / Command Line Reference</code></a></p>
+<h4 id="Console的输出"><a href="#Console的输出" class="headerlink" title="Console的输出"></a>Console的输出</h4><p>我们知道，除了<code>console.log</code>之外，还有<code>console.debug</code>，<code>console.info</code>，<code>console.warn</code>，<code>console.error</code>这些不同级别的输出。另外一个鲜为人知的功能是，<code>console.log</code>中，你还可以对输出的文本加上css的样式，如下所示：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">"%c左耳朵"</span>, <span class="string">"font-size:90px;color:#888"</span>);</span><br></pre></td></tr></table></figure>
+<p><img src="http://image.mariojd.cn/happyjared/20181214/1544749696047.png" alt="Console的输出"></p>
+<p>于是，你可以定义一些相关的log函数，如：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.todo = <span class="function"><span class="keyword">function</span>(<span class="params"> msg</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log( <span class="string">'%c%s %s %s'</span>, <span class="string">'font-size:20px; color:yellow; background-color: blue;'</span>, <span class="string">'--'</span>, msg, <span class="string">'--'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.important = <span class="function"><span class="keyword">function</span>(<span class="params"> msg</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log( <span class="string">'%c%s %s %s'</span>, <span class="string">'font-size:20px; color:brown; font-weight: bold; text-decoration: underline;'</span>, <span class="string">'--'</span>, msg, <span class="string">'--'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="http://image.mariojd.cn/happyjared/20181214/1544749699614.png" alt="log函数"></p>
+<p>关于console.log中的格式化，你可以参看如下表格：</p>
+<table>
+<thead>
+<tr>
+<th>指示符</th>
+<th>输出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>%s</td>
+<td>格式化输出一个字符串变量</td>
+</tr>
+<tr>
+<td>%i or %d</td>
+<td>格式化输出一个整型变量的值</td>
+</tr>
+<tr>
+<td>%f</td>
+<td>格式化输出一个浮点数变量的值</td>
+</tr>
+<tr>
+<td>%o</td>
+<td>格式化输出一个DOM对象</td>
+</tr>
+<tr>
+<td>%O</td>
+<td>格式化输出一个Javascript对象</td>
+</tr>
+<tr>
+<td>%c</td>
+<td>为后面的字符串加上CSS样式</td>
+</tr>
+</tbody>
+</table>
+<p>除了console.log打印js的数组，你还可以使用console.table来打印，如下所示：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> pets = [</span><br><span class="line">  &#123; <span class="attr">animal</span>: <span class="string">'Horse'</span>, <span class="attr">name</span>: <span class="string">'Pony'</span>, <span class="attr">age</span>: <span class="number">23</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">animal</span>: <span class="string">'Dog'</span>, <span class="attr">name</span>: <span class="string">'Snoopy'</span>, <span class="attr">age</span>: <span class="number">13</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">animal</span>: <span class="string">'Cat'</span>, <span class="attr">name</span>: <span class="string">'Tom'</span>, <span class="attr">age</span>: <span class="number">18</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">animal</span>: <span class="string">'Mouse'</span>, <span class="attr">name</span>: <span class="string">'Jerry'</span>, <span class="attr">age</span>: <span class="number">12</span>&#125;</span><br><span class="line">];</span><br><span class="line"><span class="built_in">console</span>.table(pets)</span><br></pre></td></tr></table></figure>
+<p><img src="http://image.mariojd.cn/happyjared/20181214/1544749700002.png" alt="console.table"></p>
+<blockquote>
+<h3 id="关于console对象"><a href="#关于console对象" class="headerlink" title="关于console对象"></a>关于console对象</h3></blockquote>
+<ul>
+<li>console对象除了上面的打日志的功能，其还有很多功能，比如：</li>
+<li>console.trace() 可以打出js的函数调用栈</li>
+<li>console.time() 和 console.timeEnd() 可以帮你计算一段代码间消耗的时间。</li>
+<li>console.profile() 和 console.profileEnd() 可以让你查看CPU的消耗。</li>
+<li>console.count() 可以让你看到相同的日志当前被打印的次数。</li>
+<li>console.assert(expression, object) 可以让你assert一个表达式</li>
+</ul>
+<p>这些东西都可以看看<a href="https://developers.google.com/web/tools/chrome-devtools/console/console-reference" target="_blank" rel="noopener"><code>Google的Console API的文档</code></a>。</p>
+<p>其实，还有很多东西，你可以参看Google的官方文档 - <a href="https://developers.google.com/web/tools/chrome-devtools/" target="_blank" rel="noopener"><code>Chrome DevTools</code></a></p>
+<blockquote>
+<h3 id="关于快捷键"><a href="#关于快捷键" class="headerlink" title="关于快捷键"></a>关于快捷键</h3></blockquote>
+<p>点击在 DevTools的右上角的那三个坚排的小点，你会看到一个菜单，点选 <code>Shortcuts</code>，你就可以看到所有的快捷键了</p>
+<p><img src="http://image.mariojd.cn/happyjared/20181214/1544749694112.png" alt="快捷键"></p>
+<p>如果你知道更多，也欢迎补充！（全文完）</p>
+<blockquote>
+<p>欢迎关注我的个人公众号：超级码里奥<br>如果这对您有帮助，欢迎点赞和分享，转载请注明出处  </p>
+</blockquote>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2018年12月14日 09:28</p>
+        <p>原始链接： <a class="post-url" href="/tips-for-chrome-developer-tools.html" title="Chrome 开发者工具的小技巧">https://blog.mariojd.cn/tips-for-chrome-developer-tools.html</a></p>
+        <footer>
+            <a href="https://blog.mariojd.cn">
+                <img src="/images/logo.png" alt="happyJared">
+                happyJared
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        支持创作
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.mariojd.cn/tips-for-chrome-developer-tools.html&title=《Chrome 开发者工具的小技巧》 — happyJared - 博客&pic=https://image.mariojd.cn/happyjared/20181214/tips-for-chrome-developer-tools.jpg" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mariojd.cn/tips-for-chrome-developer-tools.html&title=《Chrome 开发者工具的小技巧》 — happyJared - 博客&source=Java developer, like Python and Javascript too，为人乐观、积极、向上、勤奋、和善、好相处，讲卫生，爱学习，爱..." data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.mariojd.cn/tips-for-chrome-developer-tools.html" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Chrome 开发者工具的小技巧》 — happyJared - 博客&url=https://blog.mariojd.cn/tips-for-chrome-developer-tools.html&via=https://blog.mariojd.cn" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://blog.mariojd.cn/tips-for-chrome-developer-tools.html" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://blog.mariojd.cn/tips-for-chrome-developer-tools.html" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/chrome/" class="color2">chrome</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#代码格式化"><span class="post-toc-text">代码格式化</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#强制DOM状态"><span class="post-toc-text">强制DOM状态</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#动画"><span class="post-toc-text">动画</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#直接编辑网页"><span class="post-toc-text">直接编辑网页</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#网络限速"><span class="post-toc-text">网络限速</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#复制HTTP请求"><span class="post-toc-text">复制HTTP请求</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#抓个带手机的图"><span class="post-toc-text">抓个带手机的图</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#设置断点"><span class="post-toc-text">设置断点</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#给DOM设置断点"><span class="post-toc-text">给DOM设置断点</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#给XHR和Event-Lisener设置断点"><span class="post-toc-text">给XHR和Event Lisener设置断点</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#关于Console中的技巧"><span class="post-toc-text">关于Console中的技巧</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#DOM操作"><span class="post-toc-text">DOM操作</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Console中的一些函数"><span class="post-toc-text">Console中的一些函数</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Console的输出"><span class="post-toc-text">Console的输出</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#关于console对象"><span class="post-toc-text">关于console对象</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#关于快捷键"><span class="post-toc-text">关于快捷键</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+  
+    <a href="/java-exception.html" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Java异常知识点思考与总结</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        <div id="SOHUCS" sid="Chrome 开发者工具的小技巧" ></div>
+<script type="text/javascript">
+    (function(){
+        var appid = 'cytsi4W0L';
+        var conf = 'prod_302a63175740fd2ee2587f9345477b4c';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+    <span style='margin-left:5px'>
+    	粤ICP备17033077号-1
+    </span>
+</p>
+
+ 
+      <p>
+        <!-- Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>  -->
+        <!-- Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a> -->
+        Copyright &copy; 2018 happyJared 
+		    Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a>
+
+        <script type="text/javascript" src="//js.users.51.la/19683707.js"></script>   
+        <!-- <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1274993267'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1274993267%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script> -->
+        <br>
+      </p>
+    </div>
+  </div>
+</footer>
+
+    <script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
+
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "https://blog.mariojd.cn",
+      animate: false,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/Chocolatey/">Chocolatey</a><a class="category-link" href="/categories/Docker/">Docker</a><a class="category-link" href="/categories/Docker/Elasticsearch/">Elasticsearch</a><a class="category-link" href="/categories/Docker/MySQL/">MySQL</a><a class="category-link" href="/categories/Docker/PostgreSQL/">PostgreSQL</a><a class="category-link" href="/categories/Docker/Redis/">Redis</a><a class="category-link" href="/categories/IDEA/">IDEA</a><a class="category-link" href="/categories/Java/">Java</a><a class="category-link" href="/categories/Java/Lombok/">Lombok</a><a class="category-link" href="/categories/Java/Spring-Boot/">Spring Boot</a><a class="category-link" href="/categories/Java/Spring-Boot/Swagger/">Swagger</a><a class="category-link" href="/categories/Java/热部署/">热部署</a><a class="category-link" href="/categories/Jmeter/">Jmeter</a><a class="category-link" href="/categories/Linux/">Linux</a><a class="category-link" href="/categories/Python/">Python</a><a class="category-link" href="/categories/Python/Selenium/">Selenium</a><a class="category-link" href="/categories/Python/Selenium/Windows-Batch/">Windows Batch</a><a class="category-link" href="/categories/Spring/">Spring</a><a class="category-link" href="/categories/Web/">Web</a><a class="category-link" href="/categories/hexo/">hexo</a><a class="category-link" href="/categories/python/">python</a><a class="category-link" href="/categories/websocket/">websocket</a><a class="category-link" href="/categories/中间件/">中间件</a><a class="category-link" href="/categories/前端/">前端</a><a class="category-link" href="/categories/学习资源/">学习资源</a><a class="category-link" href="/categories/开源/">开源</a><a class="category-link" href="/categories/开源/YApi/">YApi</a><a class="category-link" href="/categories/开源/YApi/Swagger/">Swagger</a><a class="category-link" href="/categories/开源和中间件/">开源和中间件</a><a class="category-link" href="/categories/开源项目/">开源项目</a><a class="category-link" href="/categories/抓包工具/">抓包工具</a><a class="category-link" href="/categories/数据库中间件/">数据库中间件</a><a class="category-link" href="/categories/数据库中间件/Mycat/">Mycat</a><a class="category-link" href="/categories/编辑器/">编辑器</a><a class="category-link" href="/categories/编辑器/个人感悟/">个人感悟</a><a class="category-link" href="/categories/编辑器/快捷键/">快捷键</a><a class="category-link" href="/categories/设计模式/">设计模式</a><a class="category-link" href="/categories/随笔/">随笔</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/AcpectJ/" style="font-size: 10px;">AcpectJ</a> <a href="/tags/Aop/" style="font-size: 10px;">Aop</a> <a href="/tags/Chocolatey/" style="font-size: 10px;">Chocolatey</a> <a href="/tags/Eclipse/" style="font-size: 11px;">Eclipse</a> <a href="/tags/Faker/" style="font-size: 11px;">Faker</a> <a href="/tags/Fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/tags/GitHub-Pages/" style="font-size: 11px;">GitHub Pages</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDEA/" style="font-size: 20px;">IDEA</a> <a href="/tags/Java/" style="font-size: 16px;">Java</a> <a href="/tags/Java类库/" style="font-size: 10px;">Java类库</a> <a href="/tags/JetBrains/" style="font-size: 18px;">JetBrains</a> <a href="/tags/Jmeter/" style="font-size: 12px;">Jmeter</a> <a href="/tags/Lombok/" style="font-size: 10px;">Lombok</a> <a href="/tags/Mycat/" style="font-size: 13px;">Mycat</a> <a href="/tags/ORM/" style="font-size: 11px;">ORM</a> <a href="/tags/Peewee/" style="font-size: 10px;">Peewee</a> <a href="/tags/Python/" style="font-size: 12px;">Python</a> <a href="/tags/RestTemplate/" style="font-size: 10px;">RestTemplate</a> <a href="/tags/SQLAlchemy/" style="font-size: 10px;">SQLAlchemy</a> <a href="/tags/Spring/" style="font-size: 11px;">Spring</a> <a href="/tags/Spring-Boot/" style="font-size: 13px;">Spring Boot</a> <a href="/tags/Spring-Data-Elasticsearch/" style="font-size: 10px;">Spring Data Elasticsearch</a> <a href="/tags/Spring-in-action/" style="font-size: 10px;">Spring in action</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/appium/" style="font-size: 10px;">appium</a> <a href="/tags/base-command/" style="font-size: 10px;">base command</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/bat/" style="font-size: 10px;">bat</a> <a href="/tags/bat脚本/" style="font-size: 10px;">bat脚本</a> <a href="/tags/beautifulsoup4/" style="font-size: 10px;">beautifulsoup4</a> <a href="/tags/boss/" style="font-size: 10px;">boss</a> <a href="/tags/builder/" style="font-size: 10px;">builder</a> <a href="/tags/chrome/" style="font-size: 11px;">chrome</a> <a href="/tags/chrome-plugin/" style="font-size: 10px;">chrome plugin</a> <a href="/tags/coding-net/" style="font-size: 10px;">coding.net</a> <a href="/tags/common-commands/" style="font-size: 11px;">common commands</a> <a href="/tags/csdn/" style="font-size: 10px;">csdn</a> <a href="/tags/design-patterns/" style="font-size: 15px;">design patterns</a> <a href="/tags/directory-management/" style="font-size: 10px;">directory management</a> <a href="/tags/directory-permission/" style="font-size: 10px;">directory permission</a> <a href="/tags/disk-management/" style="font-size: 10px;">disk management</a> <a href="/tags/docker/" style="font-size: 15px;">docker</a> <a href="/tags/elasticsearch/" style="font-size: 11px;">elasticsearch</a> <a href="/tags/elasticsearch-cluster/" style="font-size: 10px;">elasticsearch cluster</a> <a href="/tags/fiddler/" style="font-size: 10px;">fiddler</a> <a href="/tags/fiddler-capture/" style="font-size: 10px;">fiddler capture</a> <a href="/tags/file-management/" style="font-size: 10px;">file management</a> <a href="/tags/file-permission/" style="font-size: 10px;">file permission</a> <a href="/tags/head-plugin/" style="font-size: 10px;">head plugin</a> <a href="/tags/hexo/" style="font-size: 14px;">hexo</a> <a href="/tags/hexo-themes/" style="font-size: 10px;">hexo themes</a> <a href="/tags/hexo-translate-title/" style="font-size: 10px;">hexo-translate-title</a> <a href="/tags/hot-key/" style="font-size: 10px;">hot key</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/http-proxy/" style="font-size: 10px;">http proxy</a> <a href="/tags/http-s/" style="font-size: 10px;">http(s)</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/https抓包/" style="font-size: 10px;">https抓包</a> <a href="/tags/ik-analysis/" style="font-size: 10px;">ik analysis</a> <a href="/tags/imooc/" style="font-size: 10px;">imooc</a> <a href="/tags/itchat/" style="font-size: 10px;">itchat</a> <a href="/tags/java-error/" style="font-size: 10px;">java error</a> <a href="/tags/java-exception/" style="font-size: 10px;">java exception</a> <a href="/tags/java8-stream/" style="font-size: 10px;">java8 stream</a> <a href="/tags/jsonp/" style="font-size: 10px;">jsonp</a> <a href="/tags/jvm/" style="font-size: 10px;">jvm</a> <a href="/tags/lagou/" style="font-size: 10px;">lagou</a> <a href="/tags/linux-backup/" style="font-size: 10px;">linux backup</a> <a href="/tags/linux-compress/" style="font-size: 10px;">linux compress</a> <a href="/tags/linux-packeage/" style="font-size: 10px;">linux packeage</a> <a href="/tags/linux-thing/" style="font-size: 14px;">linux thing</a> <a href="/tags/mind-mapping/" style="font-size: 12px;">mind mapping</a> <a href="/tags/mitmproxy/" style="font-size: 10px;">mitmproxy</a> <a href="/tags/multiple-datasource/" style="font-size: 11px;">multiple datasource</a> <a href="/tags/mybatis/" style="font-size: 10px;">mybatis</a> <a href="/tags/mysql/" style="font-size: 12px;">mysql</a> <a href="/tags/nginx/" style="font-size: 11px;">nginx</a> <a href="/tags/oschina/" style="font-size: 10px;">oschina</a> <a href="/tags/postgresql/" style="font-size: 12px;">postgresql</a> <a href="/tags/prototype/" style="font-size: 10px;">prototype</a> <a href="/tags/python/" style="font-size: 17px;">python</a> <a href="/tags/python-core/" style="font-size: 10px;">python core</a> <a href="/tags/python-data-science/" style="font-size: 10px;">python data science</a> <a href="/tags/python-spider/" style="font-size: 10px;">python spider</a> <a href="/tags/python-standard-library/" style="font-size: 10px;">python standard library</a> <a href="/tags/redis/" style="font-size: 11px;">redis</a> <a href="/tags/redis-sentinel/" style="font-size: 10px;">redis-sentinel</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/scrapy/" style="font-size: 13px;">scrapy</a> <a href="/tags/selenium/" style="font-size: 14px;">selenium</a> <a href="/tags/shortcuts-key/" style="font-size: 10px;">shortcuts key</a> <a href="/tags/simple-factory/" style="font-size: 12px;">simple factory</a> <a href="/tags/singleton/" style="font-size: 10px;">singleton</a> <a href="/tags/spider/" style="font-size: 11px;">spider</a> <a href="/tags/spider-crawl/" style="font-size: 10px;">spider crawl</a> <a href="/tags/spring-boot/" style="font-size: 14px;">spring boot</a> <a href="/tags/spring-boot2/" style="font-size: 10px;">spring boot2</a> <a href="/tags/spring-data-jpa/" style="font-size: 11px;">spring data jpa</a> <a href="/tags/swagger/" style="font-size: 11px;">swagger</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vimium/" style="font-size: 10px;">vimium</a> <a href="/tags/websocket/" style="font-size: 10px;">websocket</a> <a href="/tags/weixin/" style="font-size: 10px;">weixin</a> <a href="/tags/ws-s/" style="font-size: 10px;">ws(s)</a> <a href="/tags/wss/" style="font-size: 10px;">wss</a> <a href="/tags/yapi/" style="font-size: 10px;">yapi</a> <a href="/tags/zealer/" style="font-size: 10px;">zealer</a> <a href="/tags/个人博客/" style="font-size: 11px;">个人博客</a> <a href="/tags/个人感悟/" style="font-size: 11px;">个人感悟</a> <a href="/tags/主从复制/" style="font-size: 11px;">主从复制</a> <a href="/tags/主从搭建/" style="font-size: 12px;">主从搭建</a> <a href="/tags/代理调试/" style="font-size: 10px;">代理调试</a> <a href="/tags/入门篇/" style="font-size: 10px;">入门篇</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/压测工具/" style="font-size: 12px;">压测工具</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/字符串机制/" style="font-size: 10px;">字符串机制</a> <a href="/tags/学习资源/" style="font-size: 11px;">学习资源</a> <a href="/tags/实践篇/" style="font-size: 11px;">实践篇</a> <a href="/tags/工厂方法/" style="font-size: 10px;">工厂方法</a> <a href="/tags/建造者/" style="font-size: 10px;">建造者</a> <a href="/tags/开源/" style="font-size: 10px;">开源</a> <a href="/tags/开源博客/" style="font-size: 11px;">开源博客</a> <a href="/tags/开源项目/" style="font-size: 11px;">开源项目</a> <a href="/tags/微信授权/" style="font-size: 10px;">微信授权</a> <a href="/tags/抽象工厂/" style="font-size: 10px;">抽象工厂</a> <a href="/tags/数据库中间件/" style="font-size: 13px;">数据库中间件</a> <a href="/tags/热部署/" style="font-size: 10px;">热部署</a> <a href="/tags/简书/" style="font-size: 10px;">简书</a> <a href="/tags/简单工厂/" style="font-size: 10px;">简单工厂</a> <a href="/tags/编辑器/" style="font-size: 19px;">编辑器</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a> <a href="/tags/读写分离/" style="font-size: 11px;">读写分离</a> <a href="/tags/跑步/" style="font-size: 10px;">跑步</a> <a href="/tags/配置篇/" style="font-size: 10px;">配置篇</a> <a href="/tags/钉钉运动/" style="font-size: 10px;">钉钉运动</a> <a href="/tags/阿里技术/" style="font-size: 10px;">阿里技术</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-h-square"></i><span>主页</span>
+                </a>
+            </li>
+            
+            <li>
+                <a target="_blank" href="https://mp.mariojd.cn">
+                    <i class="fa fa-dot-circle-o"></i><span>洞见</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-window-restore"></i><span>归档</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>关于</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/AcpectJ/" style="font-size: 10px;">AcpectJ</a> <a href="/tags/Aop/" style="font-size: 10px;">Aop</a> <a href="/tags/Chocolatey/" style="font-size: 10px;">Chocolatey</a> <a href="/tags/Eclipse/" style="font-size: 11px;">Eclipse</a> <a href="/tags/Faker/" style="font-size: 11px;">Faker</a> <a href="/tags/Fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/tags/GitHub-Pages/" style="font-size: 11px;">GitHub Pages</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDEA/" style="font-size: 20px;">IDEA</a> <a href="/tags/Java/" style="font-size: 16px;">Java</a> <a href="/tags/Java类库/" style="font-size: 10px;">Java类库</a> <a href="/tags/JetBrains/" style="font-size: 18px;">JetBrains</a> <a href="/tags/Jmeter/" style="font-size: 12px;">Jmeter</a> <a href="/tags/Lombok/" style="font-size: 10px;">Lombok</a> <a href="/tags/Mycat/" style="font-size: 13px;">Mycat</a> <a href="/tags/ORM/" style="font-size: 11px;">ORM</a> <a href="/tags/Peewee/" style="font-size: 10px;">Peewee</a> <a href="/tags/Python/" style="font-size: 12px;">Python</a> <a href="/tags/RestTemplate/" style="font-size: 10px;">RestTemplate</a> <a href="/tags/SQLAlchemy/" style="font-size: 10px;">SQLAlchemy</a> <a href="/tags/Spring/" style="font-size: 11px;">Spring</a> <a href="/tags/Spring-Boot/" style="font-size: 13px;">Spring Boot</a> <a href="/tags/Spring-Data-Elasticsearch/" style="font-size: 10px;">Spring Data Elasticsearch</a> <a href="/tags/Spring-in-action/" style="font-size: 10px;">Spring in action</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/appium/" style="font-size: 10px;">appium</a> <a href="/tags/base-command/" style="font-size: 10px;">base command</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/bat/" style="font-size: 10px;">bat</a> <a href="/tags/bat脚本/" style="font-size: 10px;">bat脚本</a> <a href="/tags/beautifulsoup4/" style="font-size: 10px;">beautifulsoup4</a> <a href="/tags/boss/" style="font-size: 10px;">boss</a> <a href="/tags/builder/" style="font-size: 10px;">builder</a> <a href="/tags/chrome/" style="font-size: 11px;">chrome</a> <a href="/tags/chrome-plugin/" style="font-size: 10px;">chrome plugin</a> <a href="/tags/coding-net/" style="font-size: 10px;">coding.net</a> <a href="/tags/common-commands/" style="font-size: 11px;">common commands</a> <a href="/tags/csdn/" style="font-size: 10px;">csdn</a> <a href="/tags/design-patterns/" style="font-size: 15px;">design patterns</a> <a href="/tags/directory-management/" style="font-size: 10px;">directory management</a> <a href="/tags/directory-permission/" style="font-size: 10px;">directory permission</a> <a href="/tags/disk-management/" style="font-size: 10px;">disk management</a> <a href="/tags/docker/" style="font-size: 15px;">docker</a> <a href="/tags/elasticsearch/" style="font-size: 11px;">elasticsearch</a> <a href="/tags/elasticsearch-cluster/" style="font-size: 10px;">elasticsearch cluster</a> <a href="/tags/fiddler/" style="font-size: 10px;">fiddler</a> <a href="/tags/fiddler-capture/" style="font-size: 10px;">fiddler capture</a> <a href="/tags/file-management/" style="font-size: 10px;">file management</a> <a href="/tags/file-permission/" style="font-size: 10px;">file permission</a> <a href="/tags/head-plugin/" style="font-size: 10px;">head plugin</a> <a href="/tags/hexo/" style="font-size: 14px;">hexo</a> <a href="/tags/hexo-themes/" style="font-size: 10px;">hexo themes</a> <a href="/tags/hexo-translate-title/" style="font-size: 10px;">hexo-translate-title</a> <a href="/tags/hot-key/" style="font-size: 10px;">hot key</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/http-proxy/" style="font-size: 10px;">http proxy</a> <a href="/tags/http-s/" style="font-size: 10px;">http(s)</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/https抓包/" style="font-size: 10px;">https抓包</a> <a href="/tags/ik-analysis/" style="font-size: 10px;">ik analysis</a> <a href="/tags/imooc/" style="font-size: 10px;">imooc</a> <a href="/tags/itchat/" style="font-size: 10px;">itchat</a> <a href="/tags/java-error/" style="font-size: 10px;">java error</a> <a href="/tags/java-exception/" style="font-size: 10px;">java exception</a> <a href="/tags/java8-stream/" style="font-size: 10px;">java8 stream</a> <a href="/tags/jsonp/" style="font-size: 10px;">jsonp</a> <a href="/tags/jvm/" style="font-size: 10px;">jvm</a> <a href="/tags/lagou/" style="font-size: 10px;">lagou</a> <a href="/tags/linux-backup/" style="font-size: 10px;">linux backup</a> <a href="/tags/linux-compress/" style="font-size: 10px;">linux compress</a> <a href="/tags/linux-packeage/" style="font-size: 10px;">linux packeage</a> <a href="/tags/linux-thing/" style="font-size: 14px;">linux thing</a> <a href="/tags/mind-mapping/" style="font-size: 12px;">mind mapping</a> <a href="/tags/mitmproxy/" style="font-size: 10px;">mitmproxy</a> <a href="/tags/multiple-datasource/" style="font-size: 11px;">multiple datasource</a> <a href="/tags/mybatis/" style="font-size: 10px;">mybatis</a> <a href="/tags/mysql/" style="font-size: 12px;">mysql</a> <a href="/tags/nginx/" style="font-size: 11px;">nginx</a> <a href="/tags/oschina/" style="font-size: 10px;">oschina</a> <a href="/tags/postgresql/" style="font-size: 12px;">postgresql</a> <a href="/tags/prototype/" style="font-size: 10px;">prototype</a> <a href="/tags/python/" style="font-size: 17px;">python</a> <a href="/tags/python-core/" style="font-size: 10px;">python core</a> <a href="/tags/python-data-science/" style="font-size: 10px;">python data science</a> <a href="/tags/python-spider/" style="font-size: 10px;">python spider</a> <a href="/tags/python-standard-library/" style="font-size: 10px;">python standard library</a> <a href="/tags/redis/" style="font-size: 11px;">redis</a> <a href="/tags/redis-sentinel/" style="font-size: 10px;">redis-sentinel</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/scrapy/" style="font-size: 13px;">scrapy</a> <a href="/tags/selenium/" style="font-size: 14px;">selenium</a> <a href="/tags/shortcuts-key/" style="font-size: 10px;">shortcuts key</a> <a href="/tags/simple-factory/" style="font-size: 12px;">simple factory</a> <a href="/tags/singleton/" style="font-size: 10px;">singleton</a> <a href="/tags/spider/" style="font-size: 11px;">spider</a> <a href="/tags/spider-crawl/" style="font-size: 10px;">spider crawl</a> <a href="/tags/spring-boot/" style="font-size: 14px;">spring boot</a> <a href="/tags/spring-boot2/" style="font-size: 10px;">spring boot2</a> <a href="/tags/spring-data-jpa/" style="font-size: 11px;">spring data jpa</a> <a href="/tags/swagger/" style="font-size: 11px;">swagger</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vimium/" style="font-size: 10px;">vimium</a> <a href="/tags/websocket/" style="font-size: 10px;">websocket</a> <a href="/tags/weixin/" style="font-size: 10px;">weixin</a> <a href="/tags/ws-s/" style="font-size: 10px;">ws(s)</a> <a href="/tags/wss/" style="font-size: 10px;">wss</a> <a href="/tags/yapi/" style="font-size: 10px;">yapi</a> <a href="/tags/zealer/" style="font-size: 10px;">zealer</a> <a href="/tags/个人博客/" style="font-size: 11px;">个人博客</a> <a href="/tags/个人感悟/" style="font-size: 11px;">个人感悟</a> <a href="/tags/主从复制/" style="font-size: 11px;">主从复制</a> <a href="/tags/主从搭建/" style="font-size: 12px;">主从搭建</a> <a href="/tags/代理调试/" style="font-size: 10px;">代理调试</a> <a href="/tags/入门篇/" style="font-size: 10px;">入门篇</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/压测工具/" style="font-size: 12px;">压测工具</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/字符串机制/" style="font-size: 10px;">字符串机制</a> <a href="/tags/学习资源/" style="font-size: 11px;">学习资源</a> <a href="/tags/实践篇/" style="font-size: 11px;">实践篇</a> <a href="/tags/工厂方法/" style="font-size: 10px;">工厂方法</a> <a href="/tags/建造者/" style="font-size: 10px;">建造者</a> <a href="/tags/开源/" style="font-size: 10px;">开源</a> <a href="/tags/开源博客/" style="font-size: 11px;">开源博客</a> <a href="/tags/开源项目/" style="font-size: 11px;">开源项目</a> <a href="/tags/微信授权/" style="font-size: 10px;">微信授权</a> <a href="/tags/抽象工厂/" style="font-size: 10px;">抽象工厂</a> <a href="/tags/数据库中间件/" style="font-size: 13px;">数据库中间件</a> <a href="/tags/热部署/" style="font-size: 10px;">热部署</a> <a href="/tags/简书/" style="font-size: 10px;">简书</a> <a href="/tags/简单工厂/" style="font-size: 10px;">简单工厂</a> <a href="/tags/编辑器/" style="font-size: 19px;">编辑器</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a> <a href="/tags/读写分离/" style="font-size: 11px;">读写分离</a> <a href="/tags/跑步/" style="font-size: 10px;">跑步</a> <a href="/tags/配置篇/" style="font-size: 10px;">配置篇</a> <a href="/tags/钉钉运动/" style="font-size: 10px;">钉钉运动</a> <a href="/tags/阿里技术/" style="font-size: 10px;">阿里技术</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+<script src="/js/search.js"></script>
+<script src="/js/main.js"></script>
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  <script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+
+  <script src="/js/pop-img.js"></script>
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>

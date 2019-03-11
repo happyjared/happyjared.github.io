@@ -3,21 +3,26 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: coding.net | happyJared - 博客</title>
+  <title>如何在 Jar 包外管理 Spring Boot 应用的配置文件 | happyJared - 博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="happyJared - 博客。保持勤學習的心，做好寫代碼這事。我有一个公众号：超级码里奥。" />
   
-  <meta name="description" content="Java developer, like Python and Javascript too，为人乐观、积极、向上、勤奋、和善、好相处，讲卫生，爱学习，爱码字，爱技术，爱生活">
-<meta property="og:type" content="website">
-<meta property="og:title" content="happyJared - 博客">
-<meta property="og:url" content="https://blog.mariojd.cn/tags/coding-net/index.html">
+  <meta name="description" content="常见的 spring boot 应用多是打包成 jar 包运行在服务器，这包含了一系列的配置文件以及第三方的依赖，不过这也引发了常见的思考：除application.properties之外的其它配置文件变动，是否需要重新打包再重新部署？如日志配置文件、mybatis 的 xml 文件。 先来看看 Spring Boot 是如何加载核心配置文件的，在org.springframework.boo">
+<meta name="keywords" content="spring boot">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何在 Jar 包外管理 Spring Boot 应用的配置文件">
+<meta property="og:url" content="https://blog.mariojd.cn/how-to-manage-the-config-file-of-the-spring-boot-application-outside-the-jar-package.html">
 <meta property="og:site_name" content="happyJared - 博客">
-<meta property="og:description" content="Java developer, like Python and Javascript too，为人乐观、积极、向上、勤奋、和善、好相处，讲卫生，爱学习，爱码字，爱技术，爱生活">
+<meta property="og:description" content="常见的 spring boot 应用多是打包成 jar 包运行在服务器，这包含了一系列的配置文件以及第三方的依赖，不过这也引发了常见的思考：除application.properties之外的其它配置文件变动，是否需要重新打包再重新部署？如日志配置文件、mybatis 的 xml 文件。 先来看看 Spring Boot 是如何加载核心配置文件的，在org.springframework.boo">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://image.mariojd.cn/happyjared/2019311/20190311163249.png">
+<meta property="og:image" content="http://image.mariojd.cn/happyjared/2019311/20190311163633.png">
+<meta property="og:updated_time" content="2019-03-11T08:40:02.061Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="happyJared - 博客">
-<meta name="twitter:description" content="Java developer, like Python and Javascript too，为人乐观、积极、向上、勤奋、和善、好相处，讲卫生，爱学习，爱码字，爱技术，爱生活">
+<meta name="twitter:title" content="如何在 Jar 包外管理 Spring Boot 应用的配置文件">
+<meta name="twitter:description" content="常见的 spring boot 应用多是打包成 jar 包运行在服务器，这包含了一系列的配置文件以及第三方的依赖，不过这也引发了常见的思考：除application.properties之外的其它配置文件变动，是否需要重新打包再重新部署？如日志配置文件、mybatis 的 xml 文件。 先来看看 Spring Boot 是如何加载核心配置文件的，在org.springframework.boo">
+<meta name="twitter:image" content="http://image.mariojd.cn/happyjared/2019311/20190311163249.png">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -141,55 +146,231 @@ ga('send', 'pageview');
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap">
-  
-  
+        <section id="main" class="body-wrap"><article id="post-如何在 Jar 包外管理 Spring Boot 应用的配置文件" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/solve-the-problem-that-baidu-spiders-are-unable-to-crawl-hexo-blogs.html" class="archive-article-date">
-  <time datetime="2018-06-27T16:00:00.000Z" itemprop="datePublished">06-28</time>
-</a>
-      
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/solve-the-problem-that-baidu-spiders-are-unable-to-crawl-hexo-blogs.html"  target="_blank"  >解决百度蜘蛛无法爬取Hexo博客的问题</a>
+    <h1 class="post-title" itemprop="name">
+      如何在 Jar 包外管理 Spring Boot 应用的配置文件
     </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/Java/">Java</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2019-03-05
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
   
 
-    </header>
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
       
-        <div class="archive-post-footer">
+            
+            <!--
+    self_category: 
+    self_tags: 
+    osChina_sys_category: 
+    csdn_article_category: 
+    csdn_blog_category: 
+-->
+<p>常见的 spring boot 应用多是打包成 jar 包运行在服务器，这包含了一系列的配置文件以及第三方的依赖，不过这也引发了常见的思考：除<code>application.properties</code>之外的其它配置文件变动，是否需要重新打包再重新部署？如日志配置文件、mybatis 的 xml 文件。</p>
+<p>先来看看 Spring Boot 是如何加载核心配置文件的，在<code>org.springframework.boot.context.config.ConfigFileApplicationListener</code>的内部类<code>Loader</code>的<code>load()</code>可以查看具体实现，以下优先级从高到低依次为：</p>
+<ol>
+<li><p>通过启动命令指定：<code>java -jar -Dspring.config.location=xxx/application.properties demo.jar</code></p>
+</li>
+<li><p>Jar 包同级目录下的 <code>config</code> 目录</p>
+</li>
+<li><p>Jar 包同级目录</p>
+</li>
+<li><p>classpath (<code>resources</code>) 同级目录下的 <code>config</code> 目录</p>
+</li>
+<li><p>classpath (<code>resources</code>) 目录</p>
+</li>
+</ol>
+<p>留意到这段代码定义：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 默认的搜索路径，对应了上面描述的优先级</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String DEFAULT_SEARCH_LOCATIONS = <span class="string">"classpath:/,classpath:/config/,file:./,file:./config/"</span>;</span><br></pre></td></tr></table></figure>
+<p>而 classpath 路径是可以指定的，在<code>Application</code>启动类添加如下代码，来看看默认的 jar 应用程序对应的 resources 位置：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DemoApplication</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		SpringApplication.run(DemoApplication.class, args);</span><br><span class="line">		System.out.println(DemoApplication.class.getResource(<span class="string">"/"</span>));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>相应的输出结果为：<code>jar:file:/C:/xxx/demo.jar!/BOOT-INF/classes!/</code></p>
+<p>因为<code>java -jar</code>所指定及对应的优先级是最高的，所以启动时设定 classpath 就可以达到想要的效果：<strong>将配置文件从 Jar 包独立出来进行管理</strong>。</p>
+<p>以下是该对应扩展方式的几种说明：</p>
+<ul>
+<li><code>-Xbootclasspath:</code> 完全替换基本的 Java class 搜索路径（不常用）</li>
+<li><code>-Xbootclasspath/p:</code> 将 classpath 添加在核心class搜索路径前面（不常用，避免引起冲突）</li>
+<li><code>-Xbootclasspath/a:</code> 将classpath添加在核心class搜索路径后面 （<strong>常用</strong>）</li>
+</ul>
+<p>最后，这里通过指定当前目录下的<code>resources</code>文件夹进行了简单测试：<code>java -jar -Xbootclasspath/a:./resources/ demo.jar</code>，观察启动日志是否可以读取 logback 配置：</p>
+<p><img src="http://image.mariojd.cn/happyjared/2019311/20190311163249.png" alt="resources"></p>
+<p>相应的输出及日志为：<code>file:/C:/xxx/demo-project/target/resources/</code>，结果符合预期。</p>
+<p><img src="http://image.mariojd.cn/happyjared/2019311/20190311163633.png" alt="测试"></p>
+<h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><blockquote>
+<p><a href="https://blog.csdn.net/xrq0508/article/details/80050119" target="_blank" rel="noopener">springboot项目实现jar包外配置文件管理</a><br><a href="https://blog.csdn.net/sayyy/article/details/81120749" target="_blank" rel="noopener">-jar参数运行应用时，设置classpath的方法</a>  </p>
+<p>欢迎关注我的个人公众号：超级码里奥<br>如果这对您有帮助，欢迎点赞和分享，转载请注明出处  </p>
+</blockquote>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2019年03月11日 16:40</p>
+        <p>原始链接： <a class="post-url" href="/how-to-manage-the-config-file-of-the-spring-boot-application-outside-the-jar-package.html" title="如何在 Jar 包外管理 Spring Boot 应用的配置文件">https://blog.mariojd.cn/how-to-manage-the-config-file-of-the-spring-boot-application-outside-the-jar-package.html</a></p>
+        <footer>
+            <a href="https://blog.mariojd.cn">
+                <img src="/images/logo.png" alt="happyJared">
+                happyJared
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        支持创作
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.mariojd.cn/how-to-manage-the-config-file-of-the-spring-boot-application-outside-the-jar-package.html&title=《如何在 Jar 包外管理 Spring Boot 应用的配置文件》 — happyJared - 博客&pic=https://image.mariojd.cn/happyjared/201935/how-to-manage-the-config-file-of-the-spring-boot-application-outside-the-jar-package.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mariojd.cn/how-to-manage-the-config-file-of-the-spring-boot-application-outside-the-jar-package.html&title=《如何在 Jar 包外管理 Spring Boot 应用的配置文件》 — happyJared - 博客&source=Java developer, like Python and Javascript too，为人乐观、积极、向上、勤奋、和善、好相处，讲卫生，爱学习，爱..." data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.mariojd.cn/how-to-manage-the-config-file-of-the-spring-boot-application-outside-the-jar-package.html" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《如何在 Jar 包外管理 Spring Boot 应用的配置文件》 — happyJared - 博客&url=https://blog.mariojd.cn/how-to-manage-the-config-file-of-the-spring-boot-application-outside-the-jar-package.html&via=https://blog.mariojd.cn" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://blog.mariojd.cn/how-to-manage-the-config-file-of-the-spring-boot-application-outside-the-jar-package.html" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://blog.mariojd.cn/how-to-manage-the-config-file-of-the-spring-boot-application-outside-the-jar-package.html" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
             
   <li class="article-footer-tags">
     <i class="fa fa-tags"></i>
       
-    <a href="/tags/hexo/" class="color5">hexo</a>
-      
-    <a href="/tags/coding.net/" class="color1">coding.net</a>
+    <a href="/tags/springboot/" class="color2">spring boot</a>
       
   </li>
 
-        </div>
-      
+        </ul>
+        
+    </footer>
   </div>
 </article>
 
-  
-  
-    </div></section>
-  
 
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参考链接"><span class="post-toc-text">参考链接</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+  
+    <a href="/apollo-config-center-of-ctripcorp-quick-start.html" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">携程 Apollo 配置中心：Quick Start</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        <div id="SOHUCS" sid="如何在 Jar 包外管理 Spring Boot 应用的配置文件" ></div>
+<script type="text/javascript">
+    (function(){
+        var appid = 'cytsi4W0L';
+        var conf = 'prod_302a63175740fd2ee2587f9345477b4c';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+    
 </section>
         
       </div>

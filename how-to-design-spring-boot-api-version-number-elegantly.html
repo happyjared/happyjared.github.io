@@ -3,21 +3,25 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: 学习资源 | happyJared - 博客</title>
+  <title>如何优雅的设计 Spring Boot API 接口版本号 | happyJared - 博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="happyJared - 博客。保持勤學習的心，做好寫代碼這事。我有一个公众号：超级码里奥。" />
   
-  <meta name="description" content="Java developer, like Python and Javascript too，为人乐观、积极、向上、勤奋、和善、好相处，讲卫生，爱学习，爱码字，爱技术，爱生活">
-<meta property="og:type" content="website">
-<meta property="og:title" content="happyJared - 博客">
-<meta property="og:url" content="https://blog.mariojd.cn/tags/学习资源/index.html">
+  <meta name="description" content="一般来说，系统上线以后，需求仍会发生变动，功能也会迭代更新。可能是接口参数发生变更，也有可能是业务逻辑需要调整，如果直接在原来的接口上进行修改，必然会影响原有服务的正常运行。 常见的解决方案，是在接口路径中加入版本号用于区分，此外还可以在参数甚至 header 里带上版本号。这里以在请求路径中带上版本号为例，如：http://IP:PORT/api/v1/test ，v1 即代表的是版本号。当然">
+<meta name="keywords" content="spring boot">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何优雅的设计 Spring Boot API 接口版本号">
+<meta property="og:url" content="https://blog.mariojd.cn/how-to-design-spring-boot-api-version-number-elegantly.html">
 <meta property="og:site_name" content="happyJared - 博客">
-<meta property="og:description" content="Java developer, like Python and Javascript too，为人乐观、积极、向上、勤奋、和善、好相处，讲卫生，爱学习，爱码字，爱技术，爱生活">
+<meta property="og:description" content="一般来说，系统上线以后，需求仍会发生变动，功能也会迭代更新。可能是接口参数发生变更，也有可能是业务逻辑需要调整，如果直接在原来的接口上进行修改，必然会影响原有服务的正常运行。 常见的解决方案，是在接口路径中加入版本号用于区分，此外还可以在参数甚至 header 里带上版本号。这里以在请求路径中带上版本号为例，如：http://IP:PORT/api/v1/test ，v1 即代表的是版本号。当然">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://image.mariojd.cn/happyjared/2019314/20190314173052.png">
+<meta property="og:updated_time" content="2019-03-14T09:35:12.367Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="happyJared - 博客">
-<meta name="twitter:description" content="Java developer, like Python and Javascript too，为人乐观、积极、向上、勤奋、和善、好相处，讲卫生，爱学习，爱码字，爱技术，爱生活">
+<meta name="twitter:title" content="如何优雅的设计 Spring Boot API 接口版本号">
+<meta name="twitter:description" content="一般来说，系统上线以后，需求仍会发生变动，功能也会迭代更新。可能是接口参数发生变更，也有可能是业务逻辑需要调整，如果直接在原来的接口上进行修改，必然会影响原有服务的正常运行。 常见的解决方案，是在接口路径中加入版本号用于区分，此外还可以在参数甚至 header 里带上版本号。这里以在请求路径中带上版本号为例，如：http://IP:PORT/api/v1/test ，v1 即代表的是版本号。当然">
+<meta name="twitter:image" content="http://image.mariojd.cn/happyjared/2019314/20190314173052.png">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -141,89 +145,220 @@ ga('send', 'pageview');
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap">
-  
-  
+        <section id="main" class="body-wrap"><article id="post-如何优雅的设计 Spring Boot API 接口版本号" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/dry-goods-finishing-of-ali-tech.html" class="archive-article-date">
-  <time datetime="2018-04-17T16:00:00.000Z" itemprop="datePublished">04-18</time>
-</a>
-      
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/dry-goods-finishing-of-ali-tech.html"  target="_blank"  >阿里技术精华干货整理</a>
+    <h1 class="post-title" itemprop="name">
+      如何优雅的设计 Spring Boot API 接口版本号
     </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/Java/">Java</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2019-03-14
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
   
 
-    </header>
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
       
-        <div class="archive-post-footer">
+            
+            <!--
+    self_category: 
+    self_tags: 
+    osChina_sys_category: 
+    csdn_article_category: 
+    csdn_blog_category: 
+-->
+<p>一般来说，系统上线以后，需求仍会发生变动，功能也会迭代更新。可能是接口参数发生变更，也有可能是业务逻辑需要调整，如果直接在原来的接口上进行修改，必然会影响原有服务的正常运行。</p>
+<p>常见的解决方案，是在接口路径中加入版本号用于区分，此外还可以在参数甚至 header 里带上版本号。这里以在请求路径中带上版本号为例，如：<a href="http://IP:PORT/api/v1/test" target="_blank" rel="noopener">http://IP:PORT/api/v1/test</a> ，v1 即代表的是版本号。当然了，可以像这样，直接写死在 <code>@RequestMapping(&quot;api/v1/test&quot;)</code> 属性中，不过下面提供了更为优雅的解决方案。</p>
+<ul>
+<li><p>自定义版本号标记注解</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Target</span>(&#123;ElementType.METHOD, ElementType.TYPE&#125;)</span><br><span class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> ApiVersion &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 标识版本号，从1开始</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">value</span><span class="params">()</span> <span class="keyword">default</span> 1</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重写相应的 RequestCondition</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@Slf</span>4j</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ApiVersionCondition</span> <span class="keyword">implements</span> <span class="title">RequestCondition</span>&lt;<span class="title">ApiVersionCondition</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 接口路径中的版本号前缀，如: api/v[1-n]/test</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> Pattern VERSION_PREFIX_PATTERN = Pattern.compile(<span class="string">"/v(\\d+)/"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> apiVersion;</span><br><span class="line"></span><br><span class="line">    ApiVersionCondition(<span class="keyword">int</span> apiVersion) &#123;</span><br><span class="line">        <span class="keyword">this</span>.apiVersion = apiVersion;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ApiVersionCondition <span class="title">combine</span><span class="params">(ApiVersionCondition other)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 最近优先原则，方法定义的 @ApiVersion &gt; 类定义的 @ApiVersion</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ApiVersionCondition(other.getApiVersion());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ApiVersionCondition <span class="title">getMatchingCondition</span><span class="params">(HttpServletRequest request)</span> </span>&#123;</span><br><span class="line">        Matcher m = VERSION_PREFIX_PATTERN.matcher(request.getRequestURI());</span><br><span class="line">        <span class="keyword">if</span> (m.find()) &#123;</span><br><span class="line">            <span class="comment">// 获得符合匹配条件的ApiVersionCondition</span></span><br><span class="line">            <span class="keyword">int</span> version = Integer.valueOf(m.group(<span class="number">1</span>));</span><br><span class="line">            <span class="keyword">if</span> (version &gt;= getApiVersion()) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(ApiVersionCondition other, HttpServletRequest request)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 当出现多个符合匹配条件的ApiVersionCondition，优先匹配版本号较大的</span></span><br><span class="line">        <span class="keyword">return</span> other.getApiVersion() - getApiVersion();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>重写部分 RequestMappingHandlerMapping 的方法</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Slf</span>4j</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomRequestMappingHandlerMapping</span> <span class="keyword">extends</span> <span class="title">RequestMappingHandlerMapping</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> RequestCondition&lt;?&gt; getCustomTypeCondition(Class&lt;?&gt; handlerType) &#123;</span><br><span class="line">        <span class="comment">// 扫描类上的 @ApiVersion</span></span><br><span class="line">        ApiVersion apiVersion = AnnotationUtils.findAnnotation(handlerType, ApiVersion.class);</span><br><span class="line">        <span class="keyword">return</span> createRequestCondition(apiVersion);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> RequestCondition&lt;?&gt; getCustomMethodCondition(Method method) &#123;</span><br><span class="line">        <span class="comment">// 扫描方法上的 @ApiVersion</span></span><br><span class="line">        ApiVersion apiVersion = AnnotationUtils.findAnnotation(method, ApiVersion.class);</span><br><span class="line">        <span class="keyword">return</span> createRequestCondition(apiVersion);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> RequestCondition&lt;ApiVersionCondition&gt; <span class="title">createRequestCondition</span><span class="params">(ApiVersion apiVersion)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (Objects.isNull(apiVersion)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> value = apiVersion.value();</span><br><span class="line">        Assert.isTrue(value &gt;= <span class="number">1</span>, <span class="string">"Api Version Must be greater than or equal to 1"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ApiVersionCondition(value);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>配置注册自定义的 CustomRequestMappingHandlerMapping</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Slf</span>4j</span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WebMvcConfig</span> <span class="keyword">extends</span> <span class="title">WebMvcConfigurationSupport</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> RequestMappingHandlerMapping <span class="title">requestMappingHandlerMapping</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> CustomRequestMappingHandlerMapping();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>编写接口，标记上相应的 <code>@ApiVersion</code></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Slf</span>4j</span><br><span class="line"><span class="meta">@ApiVersion</span></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"api/&#123;version&#125;/test"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">test01</span><span class="params">(@PathVariable String version)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"test01 : "</span> + version;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@GetMapping</span></span><br><span class="line">    <span class="meta">@ApiVersion</span>(<span class="number">2</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">test02</span><span class="params">(@PathVariable String version)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"test02 : "</span> + version;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>启动 Application，测试及查看结果</li>
+</ul>
+<p><img src="http://image.mariojd.cn/happyjared/2019314/20190314173052.png" alt="测试结果"></p>
+<blockquote>
+<p><a href="https://github.com/happyjared/spring-boot-learning/tree/master/spring-boot-api-version" target="_blank" rel="noopener">示例源码</a><br>欢迎关注我的个人公众号：超级码里奥<br>如果这对您有帮助，欢迎点赞和分享，转载请注明出处  </p>
+</blockquote>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2019年03月14日 17:35</p>
+        <p>原始链接： <a class="post-url" href="/how-to-design-spring-boot-api-version-number-elegantly.html" title="如何优雅的设计 Spring Boot API 接口版本号">https://blog.mariojd.cn/how-to-design-spring-boot-api-version-number-elegantly.html</a></p>
+        <footer>
+            <a href="https://blog.mariojd.cn">
+                <img src="/images/logo.png" alt="happyJared">
+                happyJared
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        支持创作
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://blog.mariojd.cn/how-to-design-spring-boot-api-version-number-elegantly.html&title=《如何优雅的设计 Spring Boot API 接口版本号》 — happyJared - 博客&pic=https://image.mariojd.cn/happyjared/2019314/how-to-design-spring-boot-api-version-number-elegantly.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mariojd.cn/how-to-design-spring-boot-api-version-number-elegantly.html&title=《如何优雅的设计 Spring Boot API 接口版本号》 — happyJared - 博客&source=Java developer, like Python and Javascript too，为人乐观、积极、向上、勤奋、和善、好相处，讲卫生，爱学习，爱..." data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://blog.mariojd.cn/how-to-design-spring-boot-api-version-number-elegantly.html" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《如何优雅的设计 Spring Boot API 接口版本号》 — happyJared - 博客&url=https://blog.mariojd.cn/how-to-design-spring-boot-api-version-number-elegantly.html&via=https://blog.mariojd.cn" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://blog.mariojd.cn/how-to-design-spring-boot-api-version-number-elegantly.html" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://blog.mariojd.cn/how-to-design-spring-boot-api-version-number-elegantly.html" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
             
   <li class="article-footer-tags">
     <i class="fa fa-tags"></i>
       
-    <a href="/tags/学习资源/" class="color5">学习资源</a>
-      
-    <a href="/tags/阿里技术/" class="color5">阿里技术</a>
+    <a href="/tags/springboot/" class="color2">spring boot</a>
       
   </li>
 
-        </div>
-      
+        </ul>
+        
+    </footer>
   </div>
 </article>
 
+
+
+<nav id="article-nav">
   
+  
+    <a href="/apollo-config-center-of-ctripcorp-example.html" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">携程 Apollo 配置中心：Example</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
     
+        <div id="SOHUCS" sid="如何优雅的设计 Spring Boot API 接口版本号" ></div>
+<script type="text/javascript">
+    (function(){
+        var appid = 'cytsi4W0L';
+        var conf = 'prod_302a63175740fd2ee2587f9345477b4c';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/python-learning-resources-collation.html" class="archive-article-date">
-  <time datetime="2018-03-04T16:00:00.000Z" itemprop="datePublished">03-05</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/python-learning-resources-collation.html"  target="_blank"  >Python学习资源整理</a>
-    </h1>
-  
-
-    </header>
-      
-        <div class="archive-post-footer">
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/Python/" class="color2">Python</a>
-      
-    <a href="/tags/学习资源/" class="color5">学习资源</a>
-      
-  </li>
-
-        </div>
-      
-  </div>
-</article>
-
-  
-  
-    </div></section>
-  
-
 </section>
         
       </div>

@@ -5,10 +5,10 @@
     
   <url>
     <loc>https://blog.mariojd.cn/several-practical-and-easily-overlooked-redis-features.html</loc>
-    <lastmod>2019-03-15T06:50:33.262Z</lastmod>
+    <lastmod>2019-03-15T06:54:38.232Z</lastmod>
     <data>
         <display>
-        <title>那些容易被大家遗忘的 Redis 功能</title>
+        <title>那些容易被遗忘的 Redis 功能</title>
         <pubTime>2019-03-14T16:00:00.000Z</pubTime>
         
         <tag>redis</tag>

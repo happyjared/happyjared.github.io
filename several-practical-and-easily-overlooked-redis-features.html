@@ -24,7 +24,8 @@
 <meta property="og:image" content="http://image.mariojd.cn/happyjared/2019315/20190315134600.png">
 <meta property="og:image" content="http://image.mariojd.cn/happyjared/2019315/2019031523811101.png">
 <meta property="og:image" content="http://image.mariojd.cn/happyjared/2019315/20190315135519.png">
-<meta property="og:updated_time" content="2019-03-15T09:29:19.329Z">
+<meta property="og:image" content="http://image.mariojd.cn/happyjared/2019318/20190318150916.png">
+<meta property="og:updated_time" content="2019-03-18T09:26:15.217Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="那些容易被遗忘的 Redis 功能">
 <meta name="twitter:description" content="1. 强大的排序Redis 的 SORT 命令可以对列表（List）、集合（Set）和有序集合（Sorted Set）的元素值进行排序（快排算法）。  对列表（List）键进行排序：  127.0.0.1:6379&amp;gt; lpush numbers 3 4 1 5 2(integer) 5# 按插入顺序返回列表元素127.0.0.1:6379&amp;gt; lrange numbers 0 -11)">
@@ -315,13 +316,18 @@ ga('send', 'pageview');
 <li>扫描大 KEY：<code>redis-cli --bigkeys -i 0.1</code></li>
 </ul>
 <p><img src="http://image.mariojd.cn/happyjared/2019315/20190315135519.png" alt="redis-cli --bigkeys"></p>
+<ul>
+<li>查看执行命令统计的快照：<code>info commandstats</code></li>
+</ul>
+<p><img src="http://image.mariojd.cn/happyjared/2019318/20190318150916.png" alt="info commandstats"></p>
+<p>输出包含命令执行了多少次，执行所耗费的毫秒数(含总时间及平均时间)，重置统计结果使用 <code>CONFIG RESETSTAT</code></p>
 <blockquote>
 <p>欢迎关注我的个人公众号：超级码里奥<br>如果这对您有帮助，欢迎点赞和分享，转载请注明出处  </p>
 </blockquote>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2019年03月15日 17:29</p>
+        <p>最后更新： 2019年03月18日 17:26</p>
         <p>原始链接： <a class="post-url" href="/several-practical-and-easily-overlooked-redis-features.html" title="那些容易被遗忘的 Redis 功能">https://blog.mariojd.cn/several-practical-and-easily-overlooked-redis-features.html</a></p>
         <footer>
             <a href="https://blog.mariojd.cn">

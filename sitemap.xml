@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.mariojd.cn/spring-data-rest-simple-reference-example.html</loc>
+    
+    <lastmod>2019-04-02T08:43:22.391Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.mariojd.cn/time-annotation-in-spring-data-jpa.html</loc>
+    
+    <lastmod>2019-04-02T08:43:22.389Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.mariojd.cn/idea-shortcut-key-disassembly-series-sixteen.html</loc>
+    
+    <lastmod>2019-04-02T08:43:22.384Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.mariojd.cn/several-practical-and-easily-overlooked-redis-features.html</loc>
     
     <lastmod>2019-03-18T09:26:15.217Z</lastmod>
@@ -107,13 +128,6 @@
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/time-annotation-in-spring-data-jpa.html</loc>
-    
-    <lastmod>2018-12-04T08:30:01.057Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.mariojd.cn/spring-boot-mybatis-multiple-datasource.html</loc>
     
     <lastmod>2018-11-24T09:34:51.439Z</lastmod>
@@ -205,20 +219,6 @@
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/python_data_science_knowledge_system.html</loc>
-    
-    <lastmod>2018-10-29T07:24:40.032Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.mariojd.cn/python_spider_knowledge_system.html</loc>
-    
-    <lastmod>2018-10-29T07:24:40.032Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.mariojd.cn/python_core_knowledge_system.html</loc>
     
     <lastmod>2018-10-29T07:24:40.032Z</lastmod>
@@ -233,7 +233,21 @@
   </url>
   
   <url>
+    <loc>https://blog.mariojd.cn/python_data_science_knowledge_system.html</loc>
+    
+    <lastmod>2018-10-29T07:24:40.032Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.mariojd.cn/these-little-tricks-in-intellij-idea.html</loc>
+    
+    <lastmod>2018-10-29T07:24:40.032Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.mariojd.cn/python_spider_knowledge_system.html</loc>
     
     <lastmod>2018-10-29T07:24:40.032Z</lastmod>
     
@@ -303,14 +317,7 @@
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/singleton-of-design-pattern.html</loc>
-    
-    <lastmod>2018-09-29T03:20:10.874Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.mariojd.cn/head-first-design-patterns.html</loc>
+    <loc>https://blog.mariojd.cn/prototype-of-design-pattern.html</loc>
     
     <lastmod>2018-09-29T03:20:10.874Z</lastmod>
     
@@ -331,14 +338,21 @@
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/prototype-of-design-pattern.html</loc>
+    <loc>https://blog.mariojd.cn/head-first-design-patterns.html</loc>
     
     <lastmod>2018-09-29T03:20:10.874Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/solve-the-problem-that-baidu-spiders-are-unable-to-crawl-hexo-blogs.html</loc>
+    <loc>https://blog.mariojd.cn/singleton-of-design-pattern.html</loc>
+    
+    <lastmod>2018-09-29T03:20:10.874Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.mariojd.cn/record-an-accident-of-a-migration-of-wss-websocket.html</loc>
     
     <lastmod>2018-09-29T03:20:10.864Z</lastmod>
     
@@ -352,13 +366,6 @@
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/record-an-accident-of-a-migration-of-wss-websocket.html</loc>
-    
-    <lastmod>2018-09-29T03:20:10.864Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.mariojd.cn/use-python-to-analyze-wechat-friends.html</loc>
     
     <lastmod>2018-09-29T03:20:10.864Z</lastmod>
@@ -366,16 +373,9 @@
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/share-scrapy-experience-in-crawl-zhipin-and-lagou.html</loc>
+    <loc>https://blog.mariojd.cn/solve-the-problem-that-baidu-spiders-are-unable-to-crawl-hexo-blogs.html</loc>
     
-    <lastmod>2018-09-29T03:20:10.854Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.mariojd.cn/getting-started-with-scrapy.html</loc>
-    
-    <lastmod>2018-09-29T03:20:10.854Z</lastmod>
+    <lastmod>2018-09-29T03:20:10.864Z</lastmod>
     
   </url>
   
@@ -394,9 +394,16 @@
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/several-solutions-to-realize-java-hot-deployment.html</loc>
+    <loc>https://blog.mariojd.cn/getting-started-with-scrapy.html</loc>
     
-    <lastmod>2018-09-29T03:20:10.844Z</lastmod>
+    <lastmod>2018-09-29T03:20:10.854Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.mariojd.cn/share-scrapy-experience-in-crawl-zhipin-and-lagou.html</loc>
+    
+    <lastmod>2018-09-29T03:20:10.854Z</lastmod>
     
   </url>
   
@@ -415,16 +422,16 @@
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/15-examples-of-java8-stream-usage.html</loc>
+    <loc>https://blog.mariojd.cn/several-solutions-to-realize-java-hot-deployment.html</loc>
     
     <lastmod>2018-09-29T03:20:10.844Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/about-jmeter.html</loc>
+    <loc>https://blog.mariojd.cn/15-examples-of-java8-stream-usage.html</loc>
     
-    <lastmod>2018-09-29T03:20:10.834Z</lastmod>
+    <lastmod>2018-09-29T03:20:10.844Z</lastmod>
     
   </url>
   
@@ -450,6 +457,13 @@
   </url>
   
   <url>
+    <loc>https://blog.mariojd.cn/about-jmeter.html</loc>
+    
+    <lastmod>2018-09-29T03:20:10.834Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.mariojd.cn/vimium-that-allows-chrome-to-work-efficiently.html</loc>
     
     <lastmod>2018-09-29T03:20:10.834Z</lastmod>
@@ -458,13 +472,6 @@
   
   <url>
     <loc>https://blog.mariojd.cn/problems-in-spring-boot2-with-elasticsearch-and-postgresql.html</loc>
-    
-    <lastmod>2018-09-29T03:20:10.824Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.mariojd.cn/spring-boot-integrated-swagger-simple-tutorial.html</loc>
     
     <lastmod>2018-09-29T03:20:10.824Z</lastmod>
     
@@ -492,16 +499,9 @@
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/python-and-selenium-automatically-publish-articles-in-oschina.html</loc>
+    <loc>https://blog.mariojd.cn/spring-boot-integrated-swagger-simple-tutorial.html</loc>
     
-    <lastmod>2018-09-29T03:20:10.814Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.mariojd.cn/python-and-selenium-automatic-publishing-article-in-jianshu.html</loc>
-    
-    <lastmod>2018-09-29T03:20:10.814Z</lastmod>
+    <lastmod>2018-09-29T03:20:10.824Z</lastmod>
     
   </url>
   
@@ -520,7 +520,21 @@
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/mycat-practice-based-mysql.html</loc>
+    <loc>https://blog.mariojd.cn/python-and-selenium-automatically-publish-articles-in-oschina.html</loc>
+    
+    <lastmod>2018-09-29T03:20:10.814Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.mariojd.cn/python-and-selenium-automatic-publishing-article-in-jianshu.html</loc>
+    
+    <lastmod>2018-09-29T03:20:10.814Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.mariojd.cn/linux-file-and-directory-permission.html</loc>
     
     <lastmod>2018-09-29T03:20:10.804Z</lastmod>
     
@@ -534,14 +548,21 @@
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/go-back-to-learn-linux.html</loc>
+    <loc>https://blog.mariojd.cn/mycat-practice-based-postgresql.html</loc>
     
     <lastmod>2018-09-29T03:20:10.804Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/linux-file-and-directory-permission.html</loc>
+    <loc>https://blog.mariojd.cn/mycat-practice-based-mysql.html</loc>
+    
+    <lastmod>2018-09-29T03:20:10.804Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.mariojd.cn/go-back-to-learn-linux.html</loc>
     
     <lastmod>2018-09-29T03:20:10.804Z</lastmod>
     
@@ -555,9 +576,9 @@
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/mycat-practice-based-postgresql.html</loc>
+    <loc>https://blog.mariojd.cn/jmeter-pressure-test-based-on-http.html</loc>
     
-    <lastmod>2018-09-29T03:20:10.804Z</lastmod>
+    <lastmod>2018-09-29T03:20:10.794Z</lastmod>
     
   </url>
   
@@ -576,9 +597,9 @@
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/jmeter-pressure-test-based-on-http.html</loc>
+    <loc>https://blog.mariojd.cn/idea-shortcut-key-disassembly-series-nineteen.html</loc>
     
-    <lastmod>2018-09-29T03:20:10.794Z</lastmod>
+    <lastmod>2018-09-29T03:20:10.784Z</lastmod>
     
   </url>
   
@@ -597,14 +618,7 @@
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/idea-shortcut-key-disassembly-series-nineteen.html</loc>
-    
-    <lastmod>2018-09-29T03:20:10.784Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.mariojd.cn/custom-blog-theme-for-hexo.html</loc>
+    <loc>https://blog.mariojd.cn/custom-domain-name-http-upgrade-https-for-hexo.html</loc>
     
     <lastmod>2018-09-29T03:20:10.774Z</lastmod>
     
@@ -618,7 +632,7 @@
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/custom-domain-name-http-upgrade-https-for-hexo.html</loc>
+    <loc>https://blog.mariojd.cn/custom-blog-theme-for-hexo.html</loc>
     
     <lastmod>2018-09-29T03:20:10.774Z</lastmod>
     
@@ -632,14 +646,14 @@
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/hexo-integration-of-github-pages.html</loc>
+    <loc>https://blog.mariojd.cn/add-the-title-translation-plugin-for-hexo.html</loc>
     
     <lastmod>2018-09-29T03:20:10.764Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/add-the-title-translation-plugin-for-hexo.html</loc>
+    <loc>https://blog.mariojd.cn/hexo-integration-of-github-pages.html</loc>
     
     <lastmod>2018-09-29T03:20:10.764Z</lastmod>
     
@@ -782,13 +796,6 @@
     <loc>https://blog.mariojd.cn/idea-shortcut-key-disassembly-series-twelve.html</loc>
     
     <lastmod>2018-08-23T06:09:29.883Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.mariojd.cn/idea-shortcut-key-disassembly-series-sixteen.html</loc>
-    
-    <lastmod>2018-08-23T06:09:18.588Z</lastmod>
     
   </url>
   

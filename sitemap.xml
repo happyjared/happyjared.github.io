@@ -4,7 +4,14 @@
   <url>
     <loc>https://blog.mariojd.cn/spring-data-rest-simple-reference-example.html</loc>
     
-    <lastmod>2019-04-02T08:43:22.391Z</lastmod>
+    <lastmod>2019-04-09T02:30:19.868Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.mariojd.cn/spring-boot-caching-example.html</loc>
+    
+    <lastmod>2019-04-09T02:30:19.848Z</lastmod>
     
   </url>
   
@@ -219,13 +226,6 @@
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/python_core_knowledge_system.html</loc>
-    
-    <lastmod>2018-10-29T07:24:40.032Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.mariojd.cn/python_standard_library_knowledge_system.html</loc>
     
     <lastmod>2018-10-29T07:24:40.032Z</lastmod>
@@ -240,6 +240,13 @@
   </url>
   
   <url>
+    <loc>https://blog.mariojd.cn/python_spider_knowledge_system.html</loc>
+    
+    <lastmod>2018-10-29T07:24:40.032Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.mariojd.cn/these-little-tricks-in-intellij-idea.html</loc>
     
     <lastmod>2018-10-29T07:24:40.032Z</lastmod>
@@ -247,7 +254,7 @@
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/python_spider_knowledge_system.html</loc>
+    <loc>https://blog.mariojd.cn/python_core_knowledge_system.html</loc>
     
     <lastmod>2018-10-29T07:24:40.032Z</lastmod>
     
@@ -317,6 +324,20 @@
   </url>
   
   <url>
+    <loc>https://blog.mariojd.cn/singleton-of-design-pattern.html</loc>
+    
+    <lastmod>2018-09-29T03:20:10.874Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.mariojd.cn/head-first-design-patterns.html</loc>
+    
+    <lastmod>2018-09-29T03:20:10.874Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.mariojd.cn/prototype-of-design-pattern.html</loc>
     
     <lastmod>2018-09-29T03:20:10.874Z</lastmod>
@@ -338,34 +359,6 @@
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/head-first-design-patterns.html</loc>
-    
-    <lastmod>2018-09-29T03:20:10.874Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.mariojd.cn/singleton-of-design-pattern.html</loc>
-    
-    <lastmod>2018-09-29T03:20:10.874Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.mariojd.cn/record-an-accident-of-a-migration-of-wss-websocket.html</loc>
-    
-    <lastmod>2018-09-29T03:20:10.864Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.mariojd.cn/solve-the-problem-that-idea-cannot-prompt-to-import-java.util.Date.html</loc>
-    
-    <lastmod>2018-09-29T03:20:10.864Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.mariojd.cn/use-python-to-analyze-wechat-friends.html</loc>
     
     <lastmod>2018-09-29T03:20:10.864Z</lastmod>
@@ -380,7 +373,21 @@
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/use-scrapy-crawl-imooc.html</loc>
+    <loc>https://blog.mariojd.cn/solve-the-problem-that-idea-cannot-prompt-to-import-java.util.Date.html</loc>
+    
+    <lastmod>2018-09-29T03:20:10.864Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.mariojd.cn/record-an-accident-of-a-migration-of-wss-websocket.html</loc>
+    
+    <lastmod>2018-09-29T03:20:10.864Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.mariojd.cn/share-scrapy-experience-in-crawl-zhipin-and-lagou.html</loc>
     
     <lastmod>2018-09-29T03:20:10.854Z</lastmod>
     
@@ -394,6 +401,13 @@
   </url>
   
   <url>
+    <loc>https://blog.mariojd.cn/use-scrapy-crawl-imooc.html</loc>
+    
+    <lastmod>2018-09-29T03:20:10.854Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.mariojd.cn/getting-started-with-scrapy.html</loc>
     
     <lastmod>2018-09-29T03:20:10.854Z</lastmod>
@@ -401,9 +415,9 @@
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/share-scrapy-experience-in-crawl-zhipin-and-lagou.html</loc>
+    <loc>https://blog.mariojd.cn/15-examples-of-java8-stream-usage.html</loc>
     
-    <lastmod>2018-09-29T03:20:10.854Z</lastmod>
+    <lastmod>2018-09-29T03:20:10.844Z</lastmod>
     
   </url>
   
@@ -429,14 +443,7 @@
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/15-examples-of-java8-stream-usage.html</loc>
-    
-    <lastmod>2018-09-29T03:20:10.844Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.mariojd.cn/efficient-easily-powerful-visual-interface-management-platform-about-yapi.html</loc>
+    <loc>https://blog.mariojd.cn/access-to-rest-services-using-spring-resttemplate.html</loc>
     
     <lastmod>2018-09-29T03:20:10.834Z</lastmod>
     
@@ -450,7 +457,7 @@
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/access-to-rest-services-using-spring-resttemplate.html</loc>
+    <loc>https://blog.mariojd.cn/vimium-that-allows-chrome-to-work-efficiently.html</loc>
     
     <lastmod>2018-09-29T03:20:10.834Z</lastmod>
     
@@ -464,35 +471,14 @@
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/vimium-that-allows-chrome-to-work-efficiently.html</loc>
+    <loc>https://blog.mariojd.cn/efficient-easily-powerful-visual-interface-management-platform-about-yapi.html</loc>
     
     <lastmod>2018-09-29T03:20:10.834Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/problems-in-spring-boot2-with-elasticsearch-and-postgresql.html</loc>
-    
-    <lastmod>2018-09-29T03:20:10.824Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.mariojd.cn/several-ways-of-initializing-resources-in-spring-boot.html</loc>
-    
-    <lastmod>2018-09-29T03:20:10.824Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.mariojd.cn/several-ways-to-read-configuration-properties-in-spring-boot.html</loc>
-    
-    <lastmod>2018-09-29T03:20:10.824Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.mariojd.cn/crawl-wechat-articles-and-comments-with-fiddler-and-python.html</loc>
     
     <lastmod>2018-09-29T03:20:10.824Z</lastmod>
     
@@ -506,7 +492,28 @@
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/python-and-selenium-automatically-publishes-articles-in-csdn.html</loc>
+    <loc>https://blog.mariojd.cn/problems-in-spring-boot2-with-elasticsearch-and-postgresql.html</loc>
+    
+    <lastmod>2018-09-29T03:20:10.824Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.mariojd.cn/crawl-wechat-articles-and-comments-with-fiddler-and-python.html</loc>
+    
+    <lastmod>2018-09-29T03:20:10.824Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.mariojd.cn/several-ways-to-read-configuration-properties-in-spring-boot.html</loc>
+    
+    <lastmod>2018-09-29T03:20:10.824Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.mariojd.cn/python-and-selenium-automatic-publishing-article-in-jianshu.html</loc>
     
     <lastmod>2018-09-29T03:20:10.814Z</lastmod>
     
@@ -520,6 +527,13 @@
   </url>
   
   <url>
+    <loc>https://blog.mariojd.cn/python-and-selenium-automatically-publishes-articles-in-csdn.html</loc>
+    
+    <lastmod>2018-09-29T03:20:10.814Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.mariojd.cn/python-and-selenium-automatically-publish-articles-in-oschina.html</loc>
     
     <lastmod>2018-09-29T03:20:10.814Z</lastmod>
@@ -527,14 +541,7 @@
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/python-and-selenium-automatic-publishing-article-in-jianshu.html</loc>
-    
-    <lastmod>2018-09-29T03:20:10.814Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.mariojd.cn/linux-file-and-directory-permission.html</loc>
+    <loc>https://blog.mariojd.cn/go-back-to-learn-linux.html</loc>
     
     <lastmod>2018-09-29T03:20:10.804Z</lastmod>
     
@@ -548,21 +555,7 @@
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/mycat-practice-based-postgresql.html</loc>
-    
-    <lastmod>2018-09-29T03:20:10.804Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.mariojd.cn/mycat-practice-based-mysql.html</loc>
-    
-    <lastmod>2018-09-29T03:20:10.804Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.mariojd.cn/go-back-to-learn-linux.html</loc>
+    <loc>https://blog.mariojd.cn/linux-file-and-directory-permission.html</loc>
     
     <lastmod>2018-09-29T03:20:10.804Z</lastmod>
     
@@ -576,9 +569,16 @@
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/jmeter-pressure-test-based-on-http.html</loc>
+    <loc>https://blog.mariojd.cn/mycat-practice-based-mysql.html</loc>
     
-    <lastmod>2018-09-29T03:20:10.794Z</lastmod>
+    <lastmod>2018-09-29T03:20:10.804Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.mariojd.cn/mycat-practice-based-postgresql.html</loc>
+    
+    <lastmod>2018-09-29T03:20:10.804Z</lastmod>
     
   </url>
   
@@ -597,14 +597,14 @@
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/idea-shortcut-key-disassembly-series-nineteen.html</loc>
+    <loc>https://blog.mariojd.cn/jmeter-pressure-test-based-on-http.html</loc>
     
-    <lastmod>2018-09-29T03:20:10.784Z</lastmod>
+    <lastmod>2018-09-29T03:20:10.794Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/idea-shortcut-disassembly-series-eighteen.html</loc>
+    <loc>https://blog.mariojd.cn/idea-shortcut-key-disassembly-series-nineteen.html</loc>
     
     <lastmod>2018-09-29T03:20:10.784Z</lastmod>
     
@@ -618,6 +618,13 @@
   </url>
   
   <url>
+    <loc>https://blog.mariojd.cn/idea-shortcut-disassembly-series-eighteen.html</loc>
+    
+    <lastmod>2018-09-29T03:20:10.784Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.mariojd.cn/custom-domain-name-http-upgrade-https-for-hexo.html</loc>
     
     <lastmod>2018-09-29T03:20:10.774Z</lastmod>
@@ -625,14 +632,14 @@
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/idea-shortcut-key-disassembly-series-one.html</loc>
+    <loc>https://blog.mariojd.cn/custom-blog-theme-for-hexo.html</loc>
     
     <lastmod>2018-09-29T03:20:10.774Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/custom-blog-theme-for-hexo.html</loc>
+    <loc>https://blog.mariojd.cn/idea-shortcut-key-disassembly-series-one.html</loc>
     
     <lastmod>2018-09-29T03:20:10.774Z</lastmod>
     
@@ -681,14 +688,14 @@
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/common-questions-with-answer-in-spring-data-elasticsearch.html</loc>
+    <loc>https://blog.mariojd.cn/elasticsearch6.3.2-in-practice.html</loc>
     
     <lastmod>2018-09-29T03:20:10.744Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/elasticsearch6.3.2-in-practice.html</loc>
+    <loc>https://blog.mariojd.cn/common-questions-with-answer-in-spring-data-elasticsearch.html</loc>
     
     <lastmod>2018-09-29T03:20:10.744Z</lastmod>
     
@@ -709,14 +716,14 @@
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/mysql-master-and-slave-environment-construction-based-docker.html</loc>
+    <loc>https://blog.mariojd.cn/elasticsearch-cluster-environment-construction-based-docker.html</loc>
     
     <lastmod>2018-09-29T03:20:10.714Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/elasticsearch-cluster-environment-construction-based-docker.html</loc>
+    <loc>https://blog.mariojd.cn/mysql-master-and-slave-environment-construction-based-docker.html</loc>
     
     <lastmod>2018-09-29T03:20:10.714Z</lastmod>
     

@@ -4,18 +4,16 @@
 
     
   <url>
-    <loc>https://blog.mariojd.cn/spring-data-rest-simple-reference-example.html</loc>
-    <lastmod>2019-04-09T02:30:19.868Z</lastmod>
+    <loc>https://blog.mariojd.cn/spring-boot-caching-example.html</loc>
+    <lastmod>2019-04-09T02:46:17.107Z</lastmod>
     <data>
         <display>
-        <title>让 Restful API 更加 Simpler：Spring Data Rest</title>
-        <pubTime>2019-04-01T16:00:00.000Z</pubTime>
+        <title>为 Spring Boot 应用添加 Redis Caching</title>
+        <pubTime>2019-04-07T16:00:00.000Z</pubTime>
         
         <tag>spring boot</tag>
          
-        <tag>spring data rest</tag>
-         
-        <tag>restful api</tag>
+        <tag>spring cache</tag>
          
          
            
@@ -28,16 +26,18 @@
 
     
   <url>
-    <loc>https://blog.mariojd.cn/spring-boot-caching-example.html</loc>
-    <lastmod>2019-04-09T02:30:19.848Z</lastmod>
+    <loc>https://blog.mariojd.cn/spring-data-rest-simple-reference-example.html</loc>
+    <lastmod>2019-04-09T02:30:19.868Z</lastmod>
     <data>
         <display>
-        <title>为 Spring Boot 应用添加 Redis Caching</title>
-        <pubTime>2019-04-07T16:00:00.000Z</pubTime>
+        <title>让 Restful API 更加 Simpler：Spring Data Rest</title>
+        <pubTime>2019-04-01T16:00:00.000Z</pubTime>
         
         <tag>spring boot</tag>
          
-        <tag>spring cache</tag>
+        <tag>spring data rest</tag>
+         
+        <tag>restful api</tag>
          
          
            

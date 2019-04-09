@@ -4,6 +4,66 @@
 
     
   <url>
+    <loc>https://blog.mariojd.cn/2018.html</loc>
+    <lastmod>2019-04-09T08:12:25.856Z</lastmod>
+    <data>
+        <display>
+        <title>2018戊戌年看过的书和电影</title>
+        <pubTime>2017-12-31T16:00:00.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="岁月" url="https://blog.mariojd.cn/categories/%E5%B2%81%E6%9C%88/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/2019.html</loc>
+    <lastmod>2019-04-09T08:12:25.856Z</lastmod>
+    <data>
+        <display>
+        <title>2019己亥年看过的书和电影</title>
+        <pubTime>2018-12-31T16:00:00.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="岁月" url="https://blog.mariojd.cn/categories/%E5%B2%81%E6%9C%88/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/spring-boot-jetcache-example.html</loc>
+    <lastmod>2019-04-09T08:12:25.856Z</lastmod>
+    <data>
+        <display>
+        <title>Alibaba 开源通用缓存访问框架：JetCache</title>
+        <pubTime>2019-04-08T16:00:00.000Z</pubTime>
+        
+        <tag>redis</tag>
+         
+        <tag>spring boot</tag>
+         
+        <tag>jetcache</tag>
+         
+         
+           
+             
+              <breadCrumb title="Java" url="https://blog.mariojd.cn/categories/Java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://blog.mariojd.cn/spring-boot-caching-example.html</loc>
     <lastmod>2019-04-09T02:46:17.107Z</lastmod>
     <data>
@@ -671,6 +731,30 @@
 
     
   <url>
+    <loc>https://blog.mariojd.cn/those-little-tricks-that-people-love-to-put-up-with-in-intellij-idea.html</loc>
+    <lastmod>2018-10-29T07:24:40.042Z</lastmod>
+    <data>
+        <display>
+        <title>Intellij IDEA 神器那些让人爱不释手的小技巧</title>
+        <pubTime>2018-06-13T16:00:00.000Z</pubTime>
+        
+        <tag>IDEA</tag>
+         
+        <tag>编辑器</tag>
+         
+        <tag>Java</tag>
+         
+         
+           
+             
+              <breadCrumb title="IDEA" url="https://blog.mariojd.cn/categories/IDEA/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://blog.mariojd.cn/intellij-idea2018.1-officially-released.html</loc>
     <lastmod>2018-10-29T07:24:40.042Z</lastmod>
     <data>
@@ -695,23 +779,21 @@
 
     
   <url>
-    <loc>https://blog.mariojd.cn/those-little-tricks-that-people-love-to-put-up-with-in-intellij-idea.html</loc>
-    <lastmod>2018-10-29T07:24:40.042Z</lastmod>
+    <loc>https://blog.mariojd.cn/python_core_knowledge_system.html</loc>
+    <lastmod>2018-10-29T07:24:40.032Z</lastmod>
     <data>
         <display>
-        <title>Intellij IDEA 神器那些让人爱不释手的小技巧</title>
-        <pubTime>2018-06-13T16:00:00.000Z</pubTime>
+        <title>17幅思维导图告诉你 - Python核心知识体系</title>
+        <pubTime>2018-10-11T16:00:00.000Z</pubTime>
         
-        <tag>IDEA</tag>
+        <tag>python</tag>
          
-        <tag>编辑器</tag>
-         
-        <tag>Java</tag>
+        <tag>python core</tag>
          
          
            
              
-              <breadCrumb title="IDEA" url="https://blog.mariojd.cn/categories/IDEA/"/>
+              <breadCrumb title="Python" url="https://blog.mariojd.cn/categories/Python/"/>
           
         </display>
     </data>
@@ -767,30 +849,6 @@
 
     
   <url>
-    <loc>https://blog.mariojd.cn/python_spider_knowledge_system.html</loc>
-    <lastmod>2018-10-29T07:24:40.032Z</lastmod>
-    <data>
-        <display>
-        <title>4张思维导图告诉你 - Python爬虫知识体系</title>
-        <pubTime>2018-10-12T16:00:00.000Z</pubTime>
-        
-        <tag>python</tag>
-         
-        <tag>python spider</tag>
-         
-        <tag>mind mapping</tag>
-         
-         
-           
-             
-              <breadCrumb title="Python" url="https://blog.mariojd.cn/categories/Python/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://blog.mariojd.cn/these-little-tricks-in-intellij-idea.html</loc>
     <lastmod>2018-10-29T07:24:40.032Z</lastmod>
     <data>
@@ -815,16 +873,18 @@
 
     
   <url>
-    <loc>https://blog.mariojd.cn/python_core_knowledge_system.html</loc>
+    <loc>https://blog.mariojd.cn/python_spider_knowledge_system.html</loc>
     <lastmod>2018-10-29T07:24:40.032Z</lastmod>
     <data>
         <display>
-        <title>17幅思维导图告诉你 - Python核心知识体系</title>
-        <pubTime>2018-10-11T16:00:00.000Z</pubTime>
+        <title>4张思维导图告诉你 - Python爬虫知识体系</title>
+        <pubTime>2018-10-12T16:00:00.000Z</pubTime>
         
         <tag>python</tag>
          
-        <tag>python core</tag>
+        <tag>python spider</tag>
+         
+        <tag>mind mapping</tag>
          
          
            
@@ -1049,74 +1109,6 @@
 
     
   <url>
-    <loc>https://blog.mariojd.cn/singleton-of-design-pattern.html</loc>
-    <lastmod>2018-09-29T03:20:10.874Z</lastmod>
-    <data>
-        <display>
-        <title>设计模式入门：单例模式</title>
-        <pubTime>2018-07-26T16:00:00.000Z</pubTime>
-        
-        <tag>design patterns</tag>
-         
-        <tag>singleton</tag>
-         
-        <tag>单例</tag>
-         
-         
-           
-             
-              <breadCrumb title="设计模式" url="https://blog.mariojd.cn/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/head-first-design-patterns.html</loc>
-    <lastmod>2018-09-29T03:20:10.874Z</lastmod>
-    <data>
-        <display>
-        <title>设计模式入门</title>
-        <pubTime>2018-07-17T16:00:00.000Z</pubTime>
-        
-        <tag>design patterns</tag>
-         
-         
-           
-             
-              <breadCrumb title="设计模式" url="https://blog.mariojd.cn/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/prototype-of-design-pattern.html</loc>
-    <lastmod>2018-09-29T03:20:10.874Z</lastmod>
-    <data>
-        <display>
-        <title>设计模式入门：原型模式</title>
-        <pubTime>2018-07-30T16:00:00.000Z</pubTime>
-        
-        <tag>design patterns</tag>
-         
-        <tag>prototype</tag>
-         
-        <tag>原型</tag>
-         
-         
-           
-             
-              <breadCrumb title="设计模式" url="https://blog.mariojd.cn/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://blog.mariojd.cn/builder-of-design-pattern.html</loc>
     <lastmod>2018-09-29T03:20:10.874Z</lastmod>
     <data>
@@ -1129,6 +1121,30 @@
         <tag>builder</tag>
          
         <tag>建造者</tag>
+         
+         
+           
+             
+              <breadCrumb title="设计模式" url="https://blog.mariojd.cn/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/singleton-of-design-pattern.html</loc>
+    <lastmod>2018-09-29T03:20:10.874Z</lastmod>
+    <data>
+        <display>
+        <title>设计模式入门：单例模式</title>
+        <pubTime>2018-07-26T16:00:00.000Z</pubTime>
+        
+        <tag>design patterns</tag>
+         
+        <tag>singleton</tag>
+         
+        <tag>单例</tag>
          
          
            
@@ -1165,23 +1181,43 @@
 
     
   <url>
-    <loc>https://blog.mariojd.cn/use-python-to-analyze-wechat-friends.html</loc>
-    <lastmod>2018-09-29T03:20:10.864Z</lastmod>
+    <loc>https://blog.mariojd.cn/prototype-of-design-pattern.html</loc>
+    <lastmod>2018-09-29T03:20:10.874Z</lastmod>
     <data>
         <display>
-        <title>用python快速分析你的微信好友</title>
-        <pubTime>2018-08-25T16:00:00.000Z</pubTime>
+        <title>设计模式入门：原型模式</title>
+        <pubTime>2018-07-30T16:00:00.000Z</pubTime>
         
-        <tag>python</tag>
+        <tag>design patterns</tag>
          
-        <tag>itchat</tag>
+        <tag>prototype</tag>
          
-        <tag>weixin</tag>
+        <tag>原型</tag>
          
          
            
              
-              <breadCrumb title="Python" url="https://blog.mariojd.cn/categories/Python/"/>
+              <breadCrumb title="设计模式" url="https://blog.mariojd.cn/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/head-first-design-patterns.html</loc>
+    <lastmod>2018-09-29T03:20:10.874Z</lastmod>
+    <data>
+        <display>
+        <title>设计模式入门</title>
+        <pubTime>2018-07-17T16:00:00.000Z</pubTime>
+        
+        <tag>design patterns</tag>
+         
+         
+           
+             
+              <breadCrumb title="设计模式" url="https://blog.mariojd.cn/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
           
         </display>
     </data>
@@ -1252,6 +1288,30 @@
            
              
               <breadCrumb title="websocket" url="https://blog.mariojd.cn/categories/websocket/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/use-python-to-analyze-wechat-friends.html</loc>
+    <lastmod>2018-09-29T03:20:10.864Z</lastmod>
+    <data>
+        <display>
+        <title>用python快速分析你的微信好友</title>
+        <pubTime>2018-08-25T16:00:00.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+        <tag>itchat</tag>
+         
+        <tag>weixin</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="https://blog.mariojd.cn/categories/Python/"/>
           
         </display>
     </data>
@@ -1371,28 +1431,6 @@
 
     
   <url>
-    <loc>https://blog.mariojd.cn/construction-of-redis-high-availability-cluster-based-on-docker.html</loc>
-    <lastmod>2018-09-29T03:20:10.844Z</lastmod>
-    <data>
-        <display>
-        <title>基于Docker的Redis高可用集群搭建（redis-sentinel）</title>
-        <pubTime>2018-07-03T16:00:00.000Z</pubTime>
-        
-        <tag>docker</tag>
-         
-        <tag>redis-sentinel</tag>
-         
-         
-           
-             
-              <breadCrumb title="Docker" url="https://blog.mariojd.cn/categories/Docker/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://blog.mariojd.cn/chrome-shortcut-key-for-engineer-culture.html</loc>
     <lastmod>2018-09-29T03:20:10.844Z</lastmod>
     <data>
@@ -1435,6 +1473,50 @@
           
              
               <breadCrumb title="热部署" url="https://blog.mariojd.cn/categories/Java/%E7%83%AD%E9%83%A8%E7%BD%B2/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/construction-of-redis-high-availability-cluster-based-on-docker.html</loc>
+    <lastmod>2018-09-29T03:20:10.844Z</lastmod>
+    <data>
+        <display>
+        <title>基于Docker的Redis高可用集群搭建（redis-sentinel）</title>
+        <pubTime>2018-07-03T16:00:00.000Z</pubTime>
+        
+        <tag>docker</tag>
+         
+        <tag>redis-sentinel</tag>
+         
+         
+           
+             
+              <breadCrumb title="Docker" url="https://blog.mariojd.cn/categories/Docker/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/vimium-that-allows-chrome-to-work-efficiently.html</loc>
+    <lastmod>2018-09-29T03:20:10.834Z</lastmod>
+    <data>
+        <display>
+        <title>Vimium - 让Chrome高效工作的神器</title>
+        <pubTime>2018-06-26T16:00:00.000Z</pubTime>
+        
+        <tag>vimium</tag>
+         
+        <tag>chrome plugin</tag>
+         
+         
+           
+             
+              <breadCrumb title="开源" url="https://blog.mariojd.cn/categories/%E5%BC%80%E6%BA%90/"/>
           
         </display>
     </data>
@@ -1488,21 +1570,27 @@
 
     
   <url>
-    <loc>https://blog.mariojd.cn/vimium-that-allows-chrome-to-work-efficiently.html</loc>
+    <loc>https://blog.mariojd.cn/efficient-easily-powerful-visual-interface-management-platform-about-yapi.html</loc>
     <lastmod>2018-09-29T03:20:10.834Z</lastmod>
     <data>
         <display>
-        <title>Vimium - 让Chrome高效工作的神器</title>
-        <pubTime>2018-06-26T16:00:00.000Z</pubTime>
+        <title>YApi - 高效、易用、功能强大的可视化接口管理平台</title>
+        <pubTime>2018-06-25T16:00:00.000Z</pubTime>
         
-        <tag>vimium</tag>
+        <tag>swagger</tag>
          
-        <tag>chrome plugin</tag>
+        <tag>yapi</tag>
          
          
            
              
               <breadCrumb title="开源" url="https://blog.mariojd.cn/categories/%E5%BC%80%E6%BA%90/"/>
+          
+             
+              <breadCrumb title="YApi" url="https://blog.mariojd.cn/categories/%E5%BC%80%E6%BA%90/YApi/"/>
+          
+             
+              <breadCrumb title="Swagger" url="https://blog.mariojd.cn/categories/%E5%BC%80%E6%BA%90/YApi/Swagger/"/>
           
         </display>
     </data>
@@ -1532,34 +1620,6 @@
 
     
   <url>
-    <loc>https://blog.mariojd.cn/efficient-easily-powerful-visual-interface-management-platform-about-yapi.html</loc>
-    <lastmod>2018-09-29T03:20:10.834Z</lastmod>
-    <data>
-        <display>
-        <title>YApi - 高效、易用、功能强大的可视化接口管理平台</title>
-        <pubTime>2018-06-25T16:00:00.000Z</pubTime>
-        
-        <tag>swagger</tag>
-         
-        <tag>yapi</tag>
-         
-         
-           
-             
-              <breadCrumb title="开源" url="https://blog.mariojd.cn/categories/%E5%BC%80%E6%BA%90/"/>
-          
-             
-              <breadCrumb title="YApi" url="https://blog.mariojd.cn/categories/%E5%BC%80%E6%BA%90/YApi/"/>
-          
-             
-              <breadCrumb title="Swagger" url="https://blog.mariojd.cn/categories/%E5%BC%80%E6%BA%90/YApi/Swagger/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://blog.mariojd.cn/several-ways-of-initializing-resources-in-spring-boot.html</loc>
     <lastmod>2018-09-29T03:20:10.824Z</lastmod>
     <data>
@@ -1582,27 +1642,21 @@
 
     
   <url>
-    <loc>https://blog.mariojd.cn/spring-boot-integrated-swagger-simple-tutorial.html</loc>
+    <loc>https://blog.mariojd.cn/several-ways-to-read-configuration-properties-in-spring-boot.html</loc>
     <lastmod>2018-09-29T03:20:10.824Z</lastmod>
     <data>
         <display>
-        <title>Spring Boot集成Swagger简易教程</title>
-        <pubTime>2018-06-24T16:00:00.000Z</pubTime>
+        <title>Spring Boot中读取配置属性的几种方式</title>
+        <pubTime>2018-07-11T16:00:00.000Z</pubTime>
         
-        <tag>spring boot</tag>
+        <tag>Spring Boot</tag>
          
-        <tag>swagger</tag>
+        <tag>Java</tag>
          
          
            
              
               <breadCrumb title="Java" url="https://blog.mariojd.cn/categories/Java/"/>
-          
-             
-              <breadCrumb title="Spring Boot" url="https://blog.mariojd.cn/categories/Java/Spring-Boot/"/>
-          
-             
-              <breadCrumb title="Swagger" url="https://blog.mariojd.cn/categories/Java/Spring-Boot/Swagger/"/>
           
         </display>
     </data>
@@ -1656,21 +1710,27 @@
 
     
   <url>
-    <loc>https://blog.mariojd.cn/several-ways-to-read-configuration-properties-in-spring-boot.html</loc>
+    <loc>https://blog.mariojd.cn/spring-boot-integrated-swagger-simple-tutorial.html</loc>
     <lastmod>2018-09-29T03:20:10.824Z</lastmod>
     <data>
         <display>
-        <title>Spring Boot中读取配置属性的几种方式</title>
-        <pubTime>2018-07-11T16:00:00.000Z</pubTime>
+        <title>Spring Boot集成Swagger简易教程</title>
+        <pubTime>2018-06-24T16:00:00.000Z</pubTime>
         
-        <tag>Spring Boot</tag>
+        <tag>spring boot</tag>
          
-        <tag>Java</tag>
+        <tag>swagger</tag>
          
          
            
              
               <breadCrumb title="Java" url="https://blog.mariojd.cn/categories/Java/"/>
+          
+             
+              <breadCrumb title="Spring Boot" url="https://blog.mariojd.cn/categories/Java/Spring-Boot/"/>
+          
+             
+              <breadCrumb title="Swagger" url="https://blog.mariojd.cn/categories/Java/Spring-Boot/Swagger/"/>
           
         </display>
     </data>
@@ -1698,36 +1758,6 @@
           
              
               <breadCrumb title="Selenium" url="https://blog.mariojd.cn/categories/Python/Selenium/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/python-and-selenium-automatically-publish-articles-about-add-bat-script.html</loc>
-    <lastmod>2018-09-29T03:20:10.814Z</lastmod>
-    <data>
-        <display>
-        <title>Python + Selenium 自动发布文章（四）：加入 bat 脚本</title>
-        <pubTime>2018-05-18T16:00:00.000Z</pubTime>
-        
-        <tag>python</tag>
-         
-        <tag>selenium</tag>
-         
-        <tag>bat</tag>
-         
-         
-           
-             
-              <breadCrumb title="Python" url="https://blog.mariojd.cn/categories/Python/"/>
-          
-             
-              <breadCrumb title="Selenium" url="https://blog.mariojd.cn/categories/Python/Selenium/"/>
-          
-             
-              <breadCrumb title="Windows Batch" url="https://blog.mariojd.cn/categories/Python/Selenium/Windows-Batch/"/>
           
         </display>
     </data>
@@ -1789,70 +1819,29 @@
 
     
   <url>
-    <loc>https://blog.mariojd.cn/go-back-to-learn-linux.html</loc>
-    <lastmod>2018-09-29T03:20:10.804Z</lastmod>
+    <loc>https://blog.mariojd.cn/python-and-selenium-automatically-publish-articles-about-add-bat-script.html</loc>
+    <lastmod>2018-09-29T03:20:10.814Z</lastmod>
     <data>
         <display>
-        <title>Linux私房菜：回头去学</title>
-        <pubTime>2018-09-26T16:00:00.000Z</pubTime>
+        <title>Python + Selenium 自动发布文章（四）：加入 bat 脚本</title>
+        <pubTime>2018-05-18T16:00:00.000Z</pubTime>
         
-        <tag>linux thing</tag>
+        <tag>python</tag>
+         
+        <tag>selenium</tag>
+         
+        <tag>bat</tag>
          
          
            
              
-              <breadCrumb title="Linux" url="https://blog.mariojd.cn/categories/Linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/mycat-configuration.html</loc>
-    <lastmod>2018-09-29T03:20:10.804Z</lastmod>
-    <data>
-        <display>
-        <title>Mycat（配置篇）</title>
-        <pubTime>2018-03-01T16:00:00.000Z</pubTime>
-        
-        <tag>Mycat</tag>
-         
-        <tag>数据库中间件</tag>
-         
-        <tag>配置篇</tag>
-         
-         
-           
-             
-              <breadCrumb title="数据库中间件" url="https://blog.mariojd.cn/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E9%97%B4%E4%BB%B6/"/>
+              <breadCrumb title="Python" url="https://blog.mariojd.cn/categories/Python/"/>
           
              
-              <breadCrumb title="Mycat" url="https://blog.mariojd.cn/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E9%97%B4%E4%BB%B6/Mycat/"/>
+              <breadCrumb title="Selenium" url="https://blog.mariojd.cn/categories/Python/Selenium/"/>
           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/linux-file-and-directory-permission.html</loc>
-    <lastmod>2018-09-29T03:20:10.804Z</lastmod>
-    <data>
-        <display>
-        <title>Linux私房菜：文件目录权限那点事</title>
-        <pubTime>2018-09-27T16:00:00.000Z</pubTime>
-        
-        <tag>linux thing</tag>
-         
-        <tag>file permission</tag>
-         
-        <tag>directory permission</tag>
-         
-         
-           
              
-              <breadCrumb title="Linux" url="https://blog.mariojd.cn/categories/Linux/"/>
+              <breadCrumb title="Windows Batch" url="https://blog.mariojd.cn/categories/Python/Selenium/Windows-Batch/"/>
           
         </display>
     </data>
@@ -1884,6 +1873,30 @@
 
     
   <url>
+    <loc>https://blog.mariojd.cn/linux-file-and-directory-permission.html</loc>
+    <lastmod>2018-09-29T03:20:10.804Z</lastmod>
+    <data>
+        <display>
+        <title>Linux私房菜：文件目录权限那点事</title>
+        <pubTime>2018-09-27T16:00:00.000Z</pubTime>
+        
+        <tag>linux thing</tag>
+         
+        <tag>file permission</tag>
+         
+        <tag>directory permission</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="https://blog.mariojd.cn/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://blog.mariojd.cn/mycat-practice-based-mysql.html</loc>
     <lastmod>2018-09-29T03:20:10.804Z</lastmod>
     <data>
@@ -1902,6 +1915,33 @@
         <tag>主从复制</tag>
          
         <tag>读写分离</tag>
+         
+         
+           
+             
+              <breadCrumb title="数据库中间件" url="https://blog.mariojd.cn/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E9%97%B4%E4%BB%B6/"/>
+          
+             
+              <breadCrumb title="Mycat" url="https://blog.mariojd.cn/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E9%97%B4%E4%BB%B6/Mycat/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/mycat-configuration.html</loc>
+    <lastmod>2018-09-29T03:20:10.804Z</lastmod>
+    <data>
+        <display>
+        <title>Mycat（配置篇）</title>
+        <pubTime>2018-03-01T16:00:00.000Z</pubTime>
+        
+        <tag>Mycat</tag>
+         
+        <tag>数据库中间件</tag>
+         
+        <tag>配置篇</tag>
          
          
            
@@ -1950,6 +1990,26 @@
 
     
   <url>
+    <loc>https://blog.mariojd.cn/go-back-to-learn-linux.html</loc>
+    <lastmod>2018-09-29T03:20:10.804Z</lastmod>
+    <data>
+        <display>
+        <title>Linux私房菜：回头去学</title>
+        <pubTime>2018-09-26T16:00:00.000Z</pubTime>
+        
+        <tag>linux thing</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="https://blog.mariojd.cn/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://blog.mariojd.cn/idea-shortcut-key-disassembly-series-postscript.html</loc>
     <lastmod>2018-09-29T03:20:10.794Z</lastmod>
     <data>
@@ -1979,6 +2039,30 @@
 
     
   <url>
+    <loc>https://blog.mariojd.cn/jmeter-pressure-test-based-on-http.html</loc>
+    <lastmod>2018-09-29T03:20:10.794Z</lastmod>
+    <data>
+        <display>
+        <title>Jmeter 压测 http(s)</title>
+        <pubTime>2018-04-23T16:00:00.000Z</pubTime>
+        
+        <tag>Jmeter</tag>
+         
+        <tag>http(s)</tag>
+         
+        <tag>压测工具</tag>
+         
+         
+           
+             
+              <breadCrumb title="Jmeter" url="https://blog.mariojd.cn/categories/Jmeter/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://blog.mariojd.cn/java-class-library-about-lombok.html</loc>
     <lastmod>2018-09-29T03:20:10.794Z</lastmod>
     <data>
@@ -1999,30 +2083,6 @@
           
              
               <breadCrumb title="Lombok" url="https://blog.mariojd.cn/categories/Java/Lombok/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/jmeter-pressure-test-based-on-http.html</loc>
-    <lastmod>2018-09-29T03:20:10.794Z</lastmod>
-    <data>
-        <display>
-        <title>Jmeter 压测 http(s)</title>
-        <pubTime>2018-04-23T16:00:00.000Z</pubTime>
-        
-        <tag>Jmeter</tag>
-         
-        <tag>http(s)</tag>
-         
-        <tag>压测工具</tag>
-         
-         
-           
-             
-              <breadCrumb title="Jmeter" url="https://blog.mariojd.cn/categories/Jmeter/"/>
           
         </display>
     </data>
@@ -2111,54 +2171,6 @@
 
     
   <url>
-    <loc>https://blog.mariojd.cn/custom-domain-name-http-upgrade-https-for-hexo.html</loc>
-    <lastmod>2018-09-29T03:20:10.774Z</lastmod>
-    <data>
-        <display>
-        <title>Hexo，自定义域名http升级https</title>
-        <pubTime>2018-05-02T16:00:00.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-        <tag>http</tag>
-         
-        <tag>https</tag>
-         
-         
-           
-             
-              <breadCrumb title="hexo" url="https://blog.mariojd.cn/categories/hexo/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://blog.mariojd.cn/custom-blog-theme-for-hexo.html</loc>
-    <lastmod>2018-09-29T03:20:10.774Z</lastmod>
-    <data>
-        <display>
-        <title>Hexo，自定义博客主题</title>
-        <pubTime>2018-05-03T16:00:00.000Z</pubTime>
-        
-        <tag>hexo</tag>
-         
-        <tag>hexo themes</tag>
-         
-        <tag>开源博客</tag>
-         
-         
-           
-             
-              <breadCrumb title="hexo" url="https://blog.mariojd.cn/categories/hexo/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://blog.mariojd.cn/idea-shortcut-key-disassembly-series-one.html</loc>
     <lastmod>2018-09-29T03:20:10.774Z</lastmod>
     <data>
@@ -2215,16 +2227,66 @@
 
     
   <url>
-    <loc>https://blog.mariojd.cn/add-the-title-translation-plugin-for-hexo.html</loc>
-    <lastmod>2018-09-29T03:20:10.764Z</lastmod>
+    <loc>https://blog.mariojd.cn/custom-blog-theme-for-hexo.html</loc>
+    <lastmod>2018-09-29T03:20:10.774Z</lastmod>
     <data>
         <display>
-        <title>Hexo，添加标题翻译插件</title>
-        <pubTime>2018-06-27T16:00:00.000Z</pubTime>
+        <title>Hexo，自定义博客主题</title>
+        <pubTime>2018-05-03T16:00:00.000Z</pubTime>
         
         <tag>hexo</tag>
          
-        <tag>hexo-translate-title</tag>
+        <tag>hexo themes</tag>
+         
+        <tag>开源博客</tag>
+         
+         
+           
+             
+              <breadCrumb title="hexo" url="https://blog.mariojd.cn/categories/hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/custom-domain-name-http-upgrade-https-for-hexo.html</loc>
+    <lastmod>2018-09-29T03:20:10.774Z</lastmod>
+    <data>
+        <display>
+        <title>Hexo，自定义域名http升级https</title>
+        <pubTime>2018-05-02T16:00:00.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+        <tag>http</tag>
+         
+        <tag>https</tag>
+         
+         
+           
+             
+              <breadCrumb title="hexo" url="https://blog.mariojd.cn/categories/hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/deploying-the-article-using-the-bat-script-for-hexo.html</loc>
+    <lastmod>2018-09-29T03:20:10.764Z</lastmod>
+    <data>
+        <display>
+        <title>Hexo，使用bat脚本部署文章</title>
+        <pubTime>2018-05-13T16:00:00.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+        <tag>开源博客</tag>
+         
+        <tag>bat脚本</tag>
          
          
            
@@ -2263,18 +2325,16 @@
 
     
   <url>
-    <loc>https://blog.mariojd.cn/deploying-the-article-using-the-bat-script-for-hexo.html</loc>
+    <loc>https://blog.mariojd.cn/add-the-title-translation-plugin-for-hexo.html</loc>
     <lastmod>2018-09-29T03:20:10.764Z</lastmod>
     <data>
         <display>
-        <title>Hexo，使用bat脚本部署文章</title>
-        <pubTime>2018-05-13T16:00:00.000Z</pubTime>
+        <title>Hexo，添加标题翻译插件</title>
+        <pubTime>2018-06-27T16:00:00.000Z</pubTime>
         
         <tag>hexo</tag>
          
-        <tag>开源博客</tag>
-         
-        <tag>bat脚本</tag>
+        <tag>hexo-translate-title</tag>
          
          
            
@@ -2425,31 +2485,6 @@
 
     
   <url>
-    <loc>https://blog.mariojd.cn/elasticsearch-cluster-environment-construction-based-docker.html</loc>
-    <lastmod>2018-09-29T03:20:10.714Z</lastmod>
-    <data>
-        <display>
-        <title>Docker + Elasticsearch 集群环境搭建</title>
-        <pubTime>2018-09-25T16:00:00.000Z</pubTime>
-        
-        <tag>docker</tag>
-         
-        <tag>elasticsearch cluster</tag>
-         
-         
-           
-             
-              <breadCrumb title="Docker" url="https://blog.mariojd.cn/categories/Docker/"/>
-          
-             
-              <breadCrumb title="Elasticsearch" url="https://blog.mariojd.cn/categories/Docker/Elasticsearch/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://blog.mariojd.cn/mysql-master-and-slave-environment-construction-based-docker.html</loc>
     <lastmod>2018-09-29T03:20:10.714Z</lastmod>
     <data>
@@ -2470,6 +2505,31 @@
           
              
               <breadCrumb title="MySQL" url="https://blog.mariojd.cn/categories/Docker/MySQL/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://blog.mariojd.cn/elasticsearch-cluster-environment-construction-based-docker.html</loc>
+    <lastmod>2018-09-29T03:20:10.714Z</lastmod>
+    <data>
+        <display>
+        <title>Docker + Elasticsearch 集群环境搭建</title>
+        <pubTime>2018-09-25T16:00:00.000Z</pubTime>
+        
+        <tag>docker</tag>
+         
+        <tag>elasticsearch cluster</tag>
+         
+         
+           
+             
+              <breadCrumb title="Docker" url="https://blog.mariojd.cn/categories/Docker/"/>
+          
+             
+              <breadCrumb title="Elasticsearch" url="https://blog.mariojd.cn/categories/Docker/Elasticsearch/"/>
           
         </display>
     </data>

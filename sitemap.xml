@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.mariojd.cn/life/index.html</loc>
+    
+    <lastmod>2019-04-10T08:39:22.525Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.mariojd.cn/about/index.html</loc>
     
-    <lastmod>2019-04-10T08:20:14.600Z</lastmod>
+    <lastmod>2019-04-10T08:38:53.018Z</lastmod>
     
   </url>
   
@@ -19,13 +26,6 @@
     <loc>https://blog.mariojd.cn/spring-boot-jetcache-example.html</loc>
     
     <lastmod>2019-04-10T08:13:55.656Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.mariojd.cn/life/index.html</loc>
-    
-    <lastmod>2019-04-10T08:13:23.887Z</lastmod>
     
   </url>
   

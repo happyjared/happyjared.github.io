@@ -202,14 +202,14 @@ ga('send', 'pageview');
 </ol>
 </li>
 </ul>
-<figure class="highlight docker"><table><tr><td class="code"><pre><span class="line">docker <span class="keyword">run</span> -d -p 27017:27017 --name mongodb -e MONGO_INITDB_ROOT_USERNAME=mongoadmin -e MONGO_INITDB_ROOT_PASSWORD=mongoadmin mongo:4.1.6</span><br></pre></td></tr></table></figure>
+<figure class="highlight docker"><table><tr><td class="code"><pre><span class="line">docker <span class="keyword">run</span><span class="bash"> -d -p 27017:27017 --name mongodb -e MONGO_INITDB_ROOT_USERNAME=mongoadmin -e MONGO_INITDB_ROOT_PASSWORD=mongoadmin mongo:4.1.6</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li><ol>
 <li>启动 Mongo-Express，设置登录用户及密码</li>
 </ol>
 </li>
 </ul>
-<figure class="highlight docker"><table><tr><td class="code"><pre><span class="line">docker <span class="keyword">run</span> -it --restart=always --name mongo-express --link mongodb:mongo-db -d -p 8081:8081 -e ME_CONFIG_OPTIONS_EDITORTHEME="3024-night" -e ME_CONFIG_BASICAUTH_USERNAME="mongoexpress" -e ME_CONFIG_BASICAUTH_PASSWORD="mongoexpress" -e ME_CONFIG_MONGODB_ADMINUSERNAME="mongoadmin" -e ME_CONFIG_MONGODB_ADMINPASSWORD="mongoadmin" mongo-express</span><br></pre></td></tr></table></figure>
+<figure class="highlight docker"><table><tr><td class="code"><pre><span class="line">docker <span class="keyword">run</span><span class="bash"> -it --restart=always --name mongo-express --link mongodb:mongo-db -d -p 8081:8081 -e ME_CONFIG_OPTIONS_EDITORTHEME=<span class="string">"3024-night"</span> -e ME_CONFIG_BASICAUTH_USERNAME=<span class="string">"mongoexpress"</span> -e ME_CONFIG_BASICAUTH_PASSWORD=<span class="string">"mongoexpress"</span> -e ME_CONFIG_MONGODB_ADMINUSERNAME=<span class="string">"mongoadmin"</span> -e ME_CONFIG_MONGODB_ADMINPASSWORD=<span class="string">"mongoadmin"</span> mongo-express</span></span><br></pre></td></tr></table></figure>
 <p>补充：<code>docker network ls</code>可以查看当前所有的 Docker NETWORK</p>
 <p>也可以用 Docker Compose 来合并上两步操作：</p>
 <ul>

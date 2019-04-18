@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.mariojd.cn/life/index.html</loc>
+    
+    <lastmod>2019-04-18T07:30:36.062Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.mariojd.cn/about/index.html</loc>
+    
+    <lastmod>2019-04-18T07:30:07.911Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.mariojd.cn/druid-spring-boot-example.html</loc>
     
     <lastmod>2019-04-16T02:08:12.459Z</lastmod>
@@ -26,20 +40,6 @@
     <loc>https://blog.mariojd.cn/spring-boot-actuator-example.html</loc>
     
     <lastmod>2019-04-12T06:36:06.058Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.mariojd.cn/about/index.html</loc>
-    
-    <lastmod>2019-04-12T06:32:33.137Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.mariojd.cn/life/index.html</loc>
-    
-    <lastmod>2019-04-10T09:01:41.063Z</lastmod>
     
   </url>
   

@@ -24,7 +24,7 @@
 <meta property="og:image" content="http://image.mariojd.cn/xsj/2018422/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180422132746.png">
 <meta property="og:image" content="http://image.mariojd.cn/xsj/2018422/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180422140421.png">
 <meta property="og:image" content="http://image.mariojd.cn/xsj/2018422/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180422142356.png">
-<meta property="og:updated_time" content="2018-09-29T03:20:10.864Z">
+<meta property="og:updated_time" content="2019-05-05T06:18:13.498Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="记录一次迁移wss WebSocket的事故">
 <meta name="twitter:description" content="&amp;emsp;&amp;emsp;今天是2018年04月21日。 &amp;emsp;&amp;emsp;过去的这一个多月里，我的工（开）作（发）任务转战回了游戏。短短的一个月里，催着输出两款h5游戏，再加上对接、联调，想想真是够辛（ku）苦（bi）的。本人负责后端，也就是服务端这块的游戏主流程输出。去年下半年，在前任大佬的带领下，做过一两款棋牌类的手游，虽然目前的运营状况不太乐观。不过好在，过去学的那点皮毛也还没丢光，">
@@ -244,7 +244,7 @@ ga('send', 'pageview');
 <blockquote>
 <p>WebSocket connection to ‘wss://{ip}:{port}/‘ failed: Error in connection establishment: net::ERR_SSL_PROTOCOL_ERROR</p>
 </blockquote>
-<p>&emsp;&emsp;之前在Http的情况下，客户端一直是用ip+port的形式来连接服务端，当然了也不会出现什么问题。很明显，在更改成Https后，若还是以这种方式连接服务端，浏览器就会报 SSL 协议错误，这很明显就是证书的问题。如果这时候还用 IP + 端口号 的方式连接 WebSocket ，是根本就没有证书存在的（即使我们在Nginx配置了SSL证书，但这种方式其实是不会走Nginx代理的），所以在生成环境下，更推荐大家用域名的方式来连接。于是，立刻又联系前端，再一次做更改，修改为 wss://{域名}/ 进行连接。我以为这样就真的解决了，没想到还是too young too simple，没一会下个问题又来了，测试反馈的结果还是不可以，第三次打开浏览器控制面板，果然又是一个新的错误信息。 </p>
+<p>&emsp;&emsp;之前在Http的情况下，客户端一直是用ip+port的形式来连接服务端，当然了也不会出现什么问题。很明显，在更改成Https后，若还是以这种方式连接服务端，浏览器就会报 SSL 协议错误，这很明显就是证书的问题。如果这时候还用 IP + 端口号 的方式连接 WebSocket ，是根本就没有证书存在的（即使我们在Nginx配置了SSL证书，但这种方式其实是不会走Nginx代理的），所以在生产环境下，更推荐大家用域名的方式来连接。于是，立刻又联系前端，再一次做更改，修改为 wss://{域名}/ 进行连接。我以为这样就真的解决了，没想到还是too young too simple，没一会下个问题又来了，测试反馈的结果还是不可以，第三次打开浏览器控制面板，果然又是一个新的错误信息。 </p>
 <p><img src="http://image.mariojd.cn/xsj/2018422/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20180422142356.png" alt="浏览器控制面板异常信息" title="浏览器控制面板异常信息"></p>
 <blockquote>
 <p>WebSocket connection to ‘wss://{域名}/‘ failed: Error during WebSocket handshake: Unexpected response code: 400</p>
@@ -261,7 +261,7 @@ ga('send', 'pageview');
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年09月29日 11:20</p>
+        <p>最后更新： 2019年05月05日 14:18</p>
         <p>原始链接： <a class="post-url" href="/record-an-accident-of-a-migration-of-wss-websocket.html" title="记录一次迁移wss WebSocket的事故">https://blog.mariojd.cn/record-an-accident-of-a-migration-of-wss-websocket.html</a></p>
         <footer>
             <a href="https://blog.mariojd.cn">

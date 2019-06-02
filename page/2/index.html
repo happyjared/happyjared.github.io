@@ -148,6 +148,147 @@ ga('send', 'pageview');
       <div class="outer">
         <section id="main" class="body-wrap">
   
+    <article id="post-基于 Spring Data JPA 聊聊悲观锁和乐观锁" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/practice-pessimistic-and-optimistic-lock-with-spring-data-jpa.html"  target="_blank"  >基于 Spring Data JPA 聊聊悲观锁和乐观锁</a>
+    </h1>
+  
+
+          
+              <span class="header-cate">
+                <i class="fa fa-map-marker"></i>
+                  
+                  <a href="/categories/Java/">Java</a>
+                  
+              </span>
+          
+      </header>
+    
+    <div class="article-entry " itemprop="articleBody">
+      
+        <div class="article-img">
+            <a href="/practice-pessimistic-and-optimistic-lock-with-spring-data-jpa.html"  target="_blank" >
+                
+                <img src="https://image.mariojd.cn/happyjared/2019215/practice-pessimistic-and-optimistic-lock-with-spring-data-jpa.png" alt="基于 Spring Data JPA 聊聊悲观锁和乐观锁" title="基于 Spring Data JPA 聊聊悲观锁和乐观锁">
+                
+            </a>
+        </div>
+        <div class="article-feed">
+            <p>
+                
+举个场景：多线程、多进程应用在对数据库的同一数据进行非幂等操作时，如果没有添加相应的锁机制进行校验、判断，通常会导致数据的脏写。抛开分布式锁这种解决思路，简单的来讲，可以优先考虑从数据库层面去解决这个问题。
+数据库锁分为乐观锁和悲观锁，前者适合读多写少的场景，后者适合读少写多的场景。乐观锁的实现通常是采用加版本号的形式，即如果更新时版本号未发生改变，则本次操作是成功的，且当前版本号的信息也...
+            </p>
+        </div>
+      
+        
+    </div>
+    <footer class="article-footer">
+        
+        <ul class="article-footer-menu">
+            
+                <li><i class="fa fa-calendar"></i>2019-02-16</li>
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/springdatajpa/" class="color1">spring data jpa</a>
+      
+    <a href="/tags/java/" class="color5">java</a>
+      
+    <a href="/tags/乐观锁/" class="color4">乐观锁</a>
+      
+    <a href="/tags/悲观锁/" class="color4">悲观锁</a>
+      
+  </li>
+
+        </ul>
+        
+            <a href="/practice-pessimistic-and-optimistic-lock-with-spring-data-jpa.html#more" class="article-more-link"  target="_blank" >&lt;&lt; 阅读全文 &gt;&gt;</a>
+        
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article id="post-Java 获取视频时长及截取帧截图" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/captures-video-length-and-intercepts-screenshots-with-java.html"  target="_blank"  >Java 获取视频时长及截取帧截图</a>
+    </h1>
+  
+
+          
+              <span class="header-cate">
+                <i class="fa fa-map-marker"></i>
+                  
+                  <a href="/categories/Java/">Java</a>
+                  
+              </span>
+          
+      </header>
+    
+    <div class="article-entry " itemprop="articleBody">
+      
+        <div class="article-img">
+            <a href="/captures-video-length-and-intercepts-screenshots-with-java.html"  target="_blank" >
+                
+                <img src="https://image.mariojd.cn/happyjared/2019215/captures-video-length-and-intercepts-screenshots-with-java.jpg" alt="Java 获取视频时长及截取帧截图" title="Java 获取视频时长及截取帧截图">
+                
+            </a>
+        </div>
+        <div class="article-feed">
+            <p>
+                
+前言只是最近碰到有这方面的项目需求，所以简单 Mark 下本文。下面的示例是参考过他人分享的文章，之后本人再自行实践、调整和测试过的，希望对有这方面需求的人有所帮助。
+示例
+添加依赖
+
+&lt;dependency&gt;    &lt;groupId&gt;org.bytedeco&lt;/groupId&gt;    &lt;artifactId&gt;javacv-platform&...
+            </p>
+        </div>
+      
+        
+    </div>
+    <footer class="article-footer">
+        
+        <ul class="article-footer-menu">
+            
+                <li><i class="fa fa-calendar"></i>2019-02-15</li>
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/java/" class="color5">java</a>
+      
+    <a href="/tags/javacv/" class="color2">javacv</a>
+      
+    <a href="/tags/ffmpeg/" class="color2">ffmpeg</a>
+      
+  </li>
+
+        </ul>
+        
+            <a href="/captures-video-length-and-intercepts-screenshots-with-java.html#more" class="article-more-link"  target="_blank" >&lt;&lt; 阅读全文 &gt;&gt;</a>
+        
+    </footer>
+  </div>
+</article>
+
+
+  
     <article id="post-Python 程序打包工具：py2exe 和 PyInstaller" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -215,7 +356,7 @@ ga('send', 'pageview');
 
 
   
-    <article id="post-Java服务端参数校验 - JSR 303介绍及实践" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Java 服务端参数校验 - JSR 303介绍及实践" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -422,14 +563,14 @@ Chrome的开发者工具是个很强大的东西，相信程序员们都不会�
 
 
   
-    <article id="post-Java异常知识点思考与总结" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Java 异常知识点思考与总结" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/java-exception.html"  target="_blank"  >Java异常知识点思考与总结</a>
+      <a class="article-title" href="/java-exception.html"  target="_blank"  >Java 异常知识点思考与总结</a>
     </h1>
   
 
@@ -448,7 +589,7 @@ Chrome的开发者工具是个很强大的东西，相信程序员们都不会�
         <div class="article-img">
             <a href="/java-exception.html"  target="_blank" >
                 
-                <img src="https://image.mariojd.cn/happyjared/2018123/java-exception.jpg" alt="Java异常知识点思考与总结" title="Java异常知识点思考与总结">
+                <img src="https://image.mariojd.cn/happyjared/2018123/java-exception.jpg" alt="Java 异常知识点思考与总结" title="Java 异常知识点思考与总结">
                 
             </a>
         </div>
@@ -705,14 +846,14 @@ PostgreSQL v10.4
 
 
   
-    <article id="post-Ajax跨域问题及其解决方案" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Ajax 跨域问题及其解决方案" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/ajax-cross-domain-problem-and-solution.html"  target="_blank"  >Ajax跨域问题及其解决方案</a>
+      <a class="article-title" href="/ajax-cross-domain-problem-and-solution.html"  target="_blank"  >Ajax 跨域问题及其解决方案</a>
     </h1>
   
 
@@ -731,7 +872,7 @@ PostgreSQL v10.4
         <div class="article-img">
             <a href="/ajax-cross-domain-problem-and-solution.html"  target="_blank" >
                 
-                <img src="https://image.mariojd.cn/xsj/20181117/5a8fc3cace8e5.jpg" alt="Ajax跨域问题及其解决方案" title="Ajax跨域问题及其解决方案">
+                <img src="https://image.mariojd.cn/xsj/20181117/5a8fc3cace8e5.jpg" alt="Ajax 跨域问题及其解决方案" title="Ajax 跨域问题及其解决方案">
                 
             </a>
         </div>
@@ -779,14 +920,14 @@ PostgreSQL v10.4
 
 
   
-    <article id="post-小巧实用的HTTP代理抓包工具：mitmproxy" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-小巧实用的 HTTP 代理抓包工具：mitmproxy" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/get-started-with-mitmproxy.html"  target="_blank"  >小巧实用的HTTP代理抓包工具：mitmproxy</a>
+      <a class="article-title" href="/get-started-with-mitmproxy.html"  target="_blank"  >小巧实用的 HTTP 代理抓包工具：mitmproxy</a>
     </h1>
   
 
@@ -805,7 +946,7 @@ PostgreSQL v10.4
         <div class="article-img">
             <a href="/get-started-with-mitmproxy.html"  target="_blank" >
                 
-                <img src="https://image.mariojd.cn/happyjared/20181030/get-started-with-mitmproxy.png" alt="小巧实用的HTTP代理抓包工具：mitmproxy" title="小巧实用的HTTP代理抓包工具：mitmproxy">
+                <img src="https://image.mariojd.cn/happyjared/20181030/get-started-with-mitmproxy.png" alt="小巧实用的 HTTP 代理抓包工具：mitmproxy" title="小巧实用的 HTTP 代理抓包工具：mitmproxy">
                 
             </a>
         </div>
@@ -848,14 +989,14 @@ PostgreSQL v10.4
 
 
   
-    <article id="post-APP自动化：Appium极简上手" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-APP 自动化：Appium 极简上手" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/get-started-with-appium.html"  target="_blank"  >APP自动化：Appium极简上手</a>
+      <a class="article-title" href="/get-started-with-appium.html"  target="_blank"  >APP 自动化：Appium 极简上手</a>
     </h1>
   
 
@@ -874,7 +1015,7 @@ PostgreSQL v10.4
         <div class="article-img">
             <a href="/get-started-with-appium.html"  target="_blank" >
                 
-                <img src="https://image.mariojd.cn/happyjared/20181030/get-started-with-appium.jpg" alt="APP自动化：Appium极简上手" title="APP自动化：Appium极简上手">
+                <img src="https://image.mariojd.cn/happyjared/20181030/get-started-with-appium.jpg" alt="APP 自动化：Appium 极简上手" title="APP 自动化：Appium 极简上手">
                 
             </a>
         </div>
@@ -916,14 +1057,14 @@ PostgreSQL v10.4
 
 
   
-    <article id="post-IntelliJ IDEA 2018.3 Beta 重大更新：支持CPU火焰图，新增酷炫主题" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-IntelliJ IDEA 2018.3 Beta 重大更新：支持 CPU 火焰图，新增酷炫主题" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/idea-2018.3-beat.html"  target="_blank"  >IntelliJ IDEA 2018.3 Beta 重大更新：支持CPU火焰图，新增酷炫主题</a>
+      <a class="article-title" href="/idea-2018.3-beat.html"  target="_blank"  >IntelliJ IDEA 2018.3 Beta 重大更新：支持 CPU 火焰图，新增酷炫主题</a>
     </h1>
   
 
@@ -942,7 +1083,7 @@ PostgreSQL v10.4
         <div class="article-img">
             <a href="/idea-2018.3-beat.html"  target="_blank" >
                 
-                <img src="https://image.mariojd.cn/happyjared/20181029/idea-2018.3-beat.png" alt="IntelliJ IDEA 2018.3 Beta 重大更新：支持CPU火焰图，新增酷炫主题" title="IntelliJ IDEA 2018.3 Beta 重大更新：支持CPU火焰图，新增酷炫主题">
+                <img src="https://image.mariojd.cn/happyjared/20181029/idea-2018.3-beat.png" alt="IntelliJ IDEA 2018.3 Beta 重大更新：支持 CPU 火焰图，新增酷炫主题" title="IntelliJ IDEA 2018.3 Beta 重大更新：支持 CPU 火焰图，新增酷炫主题">
                 
             </a>
         </div>
@@ -983,14 +1124,14 @@ PostgreSQL v10.4
 
 
   
-    <article id="post-Linux私房菜：走进bash" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Linux 私房菜：走进bash" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/linux-bash.html"  target="_blank"  >Linux私房菜：走进bash</a>
+      <a class="article-title" href="/linux-bash.html"  target="_blank"  >Linux 私房菜：走进 bash</a>
     </h1>
   
 
@@ -1009,7 +1150,7 @@ PostgreSQL v10.4
         <div class="article-img">
             <a href="/linux-bash.html"  target="_blank" >
                 
-                <img src="https://image.mariojd.cn/happyjared/20181018/linux-bash.jpg" alt="Linux私房菜：走进bash" title="Linux私房菜：走进bash">
+                <img src="https://image.mariojd.cn/happyjared/20181018/linux-bash.jpg" alt="Linux 私房菜：走进 bash" title="Linux 私房菜：走进 bash">
                 
             </a>
         </div>
@@ -1058,177 +1199,6 @@ Bash功能
         </ul>
         
             <a href="/linux-bash.html#more" class="article-more-link"  target="_blank" >&lt;&lt; 阅读全文 &gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-Linux私房菜：vi与vim编辑器" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/linux-vi-and-vim.html"  target="_blank"  >Linux私房菜：vi与vim编辑器</a>
-    </h1>
-  
-
-          
-              <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                  
-                  <a href="/categories/Linux/">Linux</a>
-                  
-              </span>
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/linux-vi-and-vim.html"  target="_blank" >
-                
-                <img src="https://image.mariojd.cn/happyjared/20181017/linux-vi-and-vim.jpg" alt="Linux私房菜：vi与vim编辑器" title="Linux私房菜：vi与vim编辑器">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                
-
-本文内容精简、整理、摘抄、有感于《鸟哥的Linux私房菜 - 基础篇第四版》第九章 • vim程序编辑器。
-
-vi/vim模式
-一般指令模式 ( command mode )
-
-vi/vim File，打开文件后即进入当前模式
-
-
-编辑模式 ( edit mode )
-
-一般指令模式下，按i,I,a,A,o,O,r,R任意键进入
-
-
-指令列命令模式 ( command-line mode...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2018-10-17</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/vi/" class="color3">vi</a>
-      
-    <a href="/tags/vim/" class="color4">vim</a>
-      
-  </li>
-
-        </ul>
-        
-            <a href="/linux-vi-and-vim.html#more" class="article-more-link"  target="_blank" >&lt;&lt; 阅读全文 &gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-Linux私房菜：打包、压缩和备份" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/linux-packaging-compression-and-backup.html"  target="_blank"  >Linux私房菜：打包、压缩和备份</a>
-    </h1>
-  
-
-          
-              <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                  
-                  <a href="/categories/Linux/">Linux</a>
-                  
-              </span>
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/linux-packaging-compression-and-backup.html"  target="_blank" >
-                
-                <img src="https://image.mariojd.cn/happyjared/20181016/linux-packaging-compression-and-backup.jpg" alt="Linux私房菜：打包、压缩和备份" title="Linux私房菜：打包、压缩和备份">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                
-
-本文内容精简、整理、摘抄、有感于《鸟哥的Linux私房菜》第八章 • 文件与文件系统的压缩、打包和备份。
-
-压缩目前常见的Linux压缩命令包括有gzip、bzip2和最新的xz，下表是一些常见的压缩文件扩展名及对应指令关系：
-
-
-
-扩展名
-指令
-说明
-
-
-
-
-*.Z
-compress
-已经不流行，gzip可以代替
-
-
-*.zip
-zip
-window下常见的压缩格式
-
-
-*.gz
-gz...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2018-10-16</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/linuxpackeage/" class="color5">linux packeage</a>
-      
-    <a href="/tags/linuxcompress/" class="color5">linux compress</a>
-      
-    <a href="/tags/linuxbackup/" class="color3">linux backup</a>
-      
-  </li>
-
-        </ul>
-        
-            <a href="/linux-packaging-compression-and-backup.html#more" class="article-more-link"  target="_blank" >&lt;&lt; 阅读全文 &gt;&gt;</a>
         
     </footer>
   </div>
@@ -1322,7 +1292,7 @@ gz...
             <a class="category-link" href="/categories/Chocolatey/">Chocolatey</a><a class="category-link" href="/categories/Docker/">Docker</a><a class="category-link" href="/categories/Docker/Elasticsearch/">Elasticsearch</a><a class="category-link" href="/categories/Docker/MySQL/">MySQL</a><a class="category-link" href="/categories/Docker/PostgreSQL/">PostgreSQL</a><a class="category-link" href="/categories/Docker/Redis/">Redis</a><a class="category-link" href="/categories/IDEA/">IDEA</a><a class="category-link" href="/categories/Java/">Java</a><a class="category-link" href="/categories/Java/Lombok/">Lombok</a><a class="category-link" href="/categories/Java/Spring-Boot/">Spring Boot</a><a class="category-link" href="/categories/Java/Spring-Boot/Swagger/">Swagger</a><a class="category-link" href="/categories/Java/热部署/">热部署</a><a class="category-link" href="/categories/Jmeter/">Jmeter</a><a class="category-link" href="/categories/Linux/">Linux</a><a class="category-link" href="/categories/Micro-Service/">Micro Service</a><a class="category-link" href="/categories/Python/">Python</a><a class="category-link" href="/categories/Python/Selenium/">Selenium</a><a class="category-link" href="/categories/Python/Selenium/Windows-Batch/">Windows Batch</a><a class="category-link" href="/categories/Redis/">Redis</a><a class="category-link" href="/categories/Spring/">Spring</a><a class="category-link" href="/categories/Web/">Web</a><a class="category-link" href="/categories/hexo/">hexo</a><a class="category-link" href="/categories/python/">python</a><a class="category-link" href="/categories/websocket/">websocket</a><a class="category-link" href="/categories/中间件/">中间件</a><a class="category-link" href="/categories/前端/">前端</a><a class="category-link" href="/categories/学习资源/">学习资源</a><a class="category-link" href="/categories/开源/">开源</a><a class="category-link" href="/categories/开源/YApi/">YApi</a><a class="category-link" href="/categories/开源/YApi/Swagger/">Swagger</a><a class="category-link" href="/categories/开源和中间件/">开源和中间件</a><a class="category-link" href="/categories/开源项目/">开源项目</a><a class="category-link" href="/categories/抓包工具/">抓包工具</a><a class="category-link" href="/categories/数据库中间件/">数据库中间件</a><a class="category-link" href="/categories/数据库中间件/Mycat/">Mycat</a><a class="category-link" href="/categories/编辑器/">编辑器</a><a class="category-link" href="/categories/编辑器/个人感悟/">个人感悟</a><a class="category-link" href="/categories/编辑器/快捷键/">快捷键</a><a class="category-link" href="/categories/设计模式/">设计模式</a><a class="category-link" href="/categories/随笔/">随笔</a>
         </div>
         <div id="sidebar-menu-box-tags">
-            <a href="/tags/AcpectJ/" style="font-size: 10px;">AcpectJ</a> <a href="/tags/Aop/" style="font-size: 10px;">Aop</a> <a href="/tags/Chocolatey/" style="font-size: 10px;">Chocolatey</a> <a href="/tags/Config-Center/" style="font-size: 10.83px;">Config Center</a> <a href="/tags/Ctrip-Apollo/" style="font-size: 10.83px;">Ctrip Apollo</a> <a href="/tags/Eclipse/" style="font-size: 10.83px;">Eclipse</a> <a href="/tags/Faker/" style="font-size: 10.83px;">Faker</a> <a href="/tags/Fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/tags/GitHub-Pages/" style="font-size: 10.83px;">GitHub Pages</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDEA/" style="font-size: 20px;">IDEA</a> <a href="/tags/JSR-303/" style="font-size: 10px;">JSR 303</a> <a href="/tags/Java/" style="font-size: 15.83px;">Java</a> <a href="/tags/Java类库/" style="font-size: 10px;">Java类库</a> <a href="/tags/JetBrains/" style="font-size: 18.33px;">JetBrains</a> <a href="/tags/Jmeter/" style="font-size: 11.67px;">Jmeter</a> <a href="/tags/Lombok/" style="font-size: 10px;">Lombok</a> <a href="/tags/Micro-Service/" style="font-size: 10.83px;">Micro Service</a> <a href="/tags/Mycat/" style="font-size: 12.5px;">Mycat</a> <a href="/tags/ORM/" style="font-size: 10.83px;">ORM</a> <a href="/tags/Peewee/" style="font-size: 10px;">Peewee</a> <a href="/tags/Python/" style="font-size: 11.67px;">Python</a> <a href="/tags/RestTemplate/" style="font-size: 10px;">RestTemplate</a> <a href="/tags/SQLAlchemy/" style="font-size: 10px;">SQLAlchemy</a> <a href="/tags/Spring/" style="font-size: 10.83px;">Spring</a> <a href="/tags/Spring-Boot/" style="font-size: 13.33px;">Spring Boot</a> <a href="/tags/Spring-Data-Elasticsearch/" style="font-size: 10px;">Spring Data Elasticsearch</a> <a href="/tags/Spring-in-action/" style="font-size: 10px;">Spring in action</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/appium/" style="font-size: 10px;">appium</a> <a href="/tags/base-command/" style="font-size: 10px;">base command</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/bat/" style="font-size: 10px;">bat</a> <a href="/tags/bat脚本/" style="font-size: 10px;">bat脚本</a> <a href="/tags/beautifulsoup4/" style="font-size: 10px;">beautifulsoup4</a> <a href="/tags/boss/" style="font-size: 10px;">boss</a> <a href="/tags/builder/" style="font-size: 10px;">builder</a> <a href="/tags/chrome/" style="font-size: 10.83px;">chrome</a> <a href="/tags/chrome-plugin/" style="font-size: 10px;">chrome plugin</a> <a href="/tags/coding-net/" style="font-size: 10px;">coding.net</a> <a href="/tags/common-commands/" style="font-size: 10.83px;">common commands</a> <a href="/tags/csdn/" style="font-size: 10px;">csdn</a> <a href="/tags/design-patterns/" style="font-size: 14.17px;">design patterns</a> <a href="/tags/directory-management/" style="font-size: 10px;">directory management</a> <a href="/tags/directory-permission/" style="font-size: 10px;">directory permission</a> <a href="/tags/disk-management/" style="font-size: 10px;">disk management</a> <a href="/tags/docker/" style="font-size: 15px;">docker</a> <a href="/tags/docker-compose/" style="font-size: 10px;">docker compose</a> <a href="/tags/druid/" style="font-size: 10px;">druid</a> <a href="/tags/elasticsearch/" style="font-size: 10.83px;">elasticsearch</a> <a href="/tags/elasticsearch-cluster/" style="font-size: 10px;">elasticsearch cluster</a> <a href="/tags/ffmpeg/" style="font-size: 10px;">ffmpeg</a> <a href="/tags/fiddler/" style="font-size: 10px;">fiddler</a> <a href="/tags/fiddler-capture/" style="font-size: 10px;">fiddler capture</a> <a href="/tags/file-management/" style="font-size: 10px;">file management</a> <a href="/tags/file-permission/" style="font-size: 10px;">file permission</a> <a href="/tags/head-plugin/" style="font-size: 10px;">head plugin</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/hexo-themes/" style="font-size: 10px;">hexo themes</a> <a href="/tags/hexo-translate-title/" style="font-size: 10px;">hexo-translate-title</a> <a href="/tags/hot-key/" style="font-size: 10px;">hot key</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/http-proxy/" style="font-size: 10px;">http proxy</a> <a href="/tags/http-s/" style="font-size: 10px;">http(s)</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/https抓包/" style="font-size: 10px;">https抓包</a> <a href="/tags/ik-analysis/" style="font-size: 10px;">ik analysis</a> <a href="/tags/imooc/" style="font-size: 10px;">imooc</a> <a href="/tags/itchat/" style="font-size: 10px;">itchat</a> <a href="/tags/jasypt-spring-boot/" style="font-size: 10px;">jasypt spring boot</a> <a href="/tags/java/" style="font-size: 10.83px;">java</a> <a href="/tags/java-error/" style="font-size: 10px;">java error</a> <a href="/tags/java-exception/" style="font-size: 10px;">java exception</a> <a href="/tags/java8-stream/" style="font-size: 10px;">java8 stream</a> <a href="/tags/javacv/" style="font-size: 10px;">javacv</a> <a href="/tags/jetcache/" style="font-size: 10px;">jetcache</a> <a href="/tags/jsonp/" style="font-size: 10px;">jsonp</a> <a href="/tags/jvm/" style="font-size: 10px;">jvm</a> <a href="/tags/lagou/" style="font-size: 10px;">lagou</a> <a href="/tags/linux-backup/" style="font-size: 10px;">linux backup</a> <a href="/tags/linux-compress/" style="font-size: 10px;">linux compress</a> <a href="/tags/linux-packeage/" style="font-size: 10px;">linux packeage</a> <a href="/tags/linux-thing/" style="font-size: 13.33px;">linux thing</a> <a href="/tags/mind-mapping/" style="font-size: 11.67px;">mind mapping</a> <a href="/tags/mitmproxy/" style="font-size: 10px;">mitmproxy</a> <a href="/tags/mongo-express/" style="font-size: 10px;">mongo-express</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/multiple-datasource/" style="font-size: 10.83px;">multiple datasource</a> <a href="/tags/mybatis/" style="font-size: 10px;">mybatis</a> <a href="/tags/mysql/" style="font-size: 11.67px;">mysql</a> <a href="/tags/nginx/" style="font-size: 10.83px;">nginx</a> <a href="/tags/oschina/" style="font-size: 10px;">oschina</a> <a href="/tags/postgresql/" style="font-size: 11.67px;">postgresql</a> <a href="/tags/prototype/" style="font-size: 10px;">prototype</a> <a href="/tags/py2exe/" style="font-size: 10px;">py2exe</a> <a href="/tags/pyinstaller/" style="font-size: 10px;">pyinstaller</a> <a href="/tags/python/" style="font-size: 17.5px;">python</a> <a href="/tags/python-core/" style="font-size: 10px;">python core</a> <a href="/tags/python-data-science/" style="font-size: 10px;">python data science</a> <a href="/tags/python-spider/" style="font-size: 10px;">python spider</a> <a href="/tags/python-standard-library/" style="font-size: 10px;">python standard library</a> <a href="/tags/redis/" style="font-size: 12.5px;">redis</a> <a href="/tags/redis-sentinel/" style="font-size: 10px;">redis-sentinel</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/restful-api/" style="font-size: 10px;">restful api</a> <a href="/tags/scrapy/" style="font-size: 12.5px;">scrapy</a> <a href="/tags/selenium/" style="font-size: 13.33px;">selenium</a> <a href="/tags/shortcuts-key/" style="font-size: 10px;">shortcuts key</a> <a href="/tags/simple-factory/" style="font-size: 11.67px;">simple factory</a> <a href="/tags/singleton/" style="font-size: 10px;">singleton</a> <a href="/tags/spider/" style="font-size: 10.83px;">spider</a> <a href="/tags/spider-crawl/" style="font-size: 10px;">spider crawl</a> <a href="/tags/spring-boot/" style="font-size: 16.67px;">spring boot</a> <a href="/tags/spring-boot-actuator/" style="font-size: 10px;">spring boot actuator</a> <a href="/tags/spring-boot-admin/" style="font-size: 10px;">spring boot admin</a> <a href="/tags/spring-boot2/" style="font-size: 10px;">spring boot2</a> <a href="/tags/spring-cache/" style="font-size: 10px;">spring cache</a> <a href="/tags/spring-data-jpa/" style="font-size: 12.5px;">spring data jpa</a> <a href="/tags/spring-data-rest/" style="font-size: 10px;">spring data rest</a> <a href="/tags/swagger/" style="font-size: 10.83px;">swagger</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vimium/" style="font-size: 10px;">vimium</a> <a href="/tags/websocket/" style="font-size: 10px;">websocket</a> <a href="/tags/weixin/" style="font-size: 10px;">weixin</a> <a href="/tags/ws-s/" style="font-size: 10px;">ws(s)</a> <a href="/tags/wss/" style="font-size: 10px;">wss</a> <a href="/tags/yapi/" style="font-size: 10px;">yapi</a> <a href="/tags/zealer/" style="font-size: 10px;">zealer</a> <a href="/tags/个人博客/" style="font-size: 10.83px;">个人博客</a> <a href="/tags/个人感悟/" style="font-size: 10.83px;">个人感悟</a> <a href="/tags/主从复制/" style="font-size: 10.83px;">主从复制</a> <a href="/tags/主从搭建/" style="font-size: 11.67px;">主从搭建</a> <a href="/tags/乐观锁/" style="font-size: 10px;">乐观锁</a> <a href="/tags/代理调试/" style="font-size: 10px;">代理调试</a> <a href="/tags/入门篇/" style="font-size: 10px;">入门篇</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/压测工具/" style="font-size: 11.67px;">压测工具</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/字符串机制/" style="font-size: 10px;">字符串机制</a> <a href="/tags/学习资源/" style="font-size: 10.83px;">学习资源</a> <a href="/tags/实践篇/" style="font-size: 10.83px;">实践篇</a> <a href="/tags/工厂方法/" style="font-size: 10px;">工厂方法</a> <a href="/tags/建造者/" style="font-size: 10px;">建造者</a> <a href="/tags/开源/" style="font-size: 10px;">开源</a> <a href="/tags/开源博客/" style="font-size: 10.83px;">开源博客</a> <a href="/tags/开源项目/" style="font-size: 10.83px;">开源项目</a> <a href="/tags/微信授权/" style="font-size: 10px;">微信授权</a> <a href="/tags/悲观锁/" style="font-size: 10px;">悲观锁</a> <a href="/tags/抽象工厂/" style="font-size: 10px;">抽象工厂</a> <a href="/tags/数据库中间件/" style="font-size: 12.5px;">数据库中间件</a> <a href="/tags/热部署/" style="font-size: 10px;">热部署</a> <a href="/tags/简书/" style="font-size: 10px;">简书</a> <a href="/tags/简单工厂/" style="font-size: 10px;">简单工厂</a> <a href="/tags/编辑器/" style="font-size: 19.17px;">编辑器</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a> <a href="/tags/读写分离/" style="font-size: 10.83px;">读写分离</a> <a href="/tags/跑步/" style="font-size: 10px;">跑步</a> <a href="/tags/配置篇/" style="font-size: 10px;">配置篇</a> <a href="/tags/钉钉运动/" style="font-size: 10px;">钉钉运动</a> <a href="/tags/阿里技术/" style="font-size: 10px;">阿里技术</a>
+            <a href="/tags/AcpectJ/" style="font-size: 10px;">AcpectJ</a> <a href="/tags/Aop/" style="font-size: 10px;">Aop</a> <a href="/tags/Chocolatey/" style="font-size: 10px;">Chocolatey</a> <a href="/tags/Config-Center/" style="font-size: 10.91px;">Config Center</a> <a href="/tags/Ctrip-Apollo/" style="font-size: 10.91px;">Ctrip Apollo</a> <a href="/tags/Eclipse/" style="font-size: 10.91px;">Eclipse</a> <a href="/tags/Faker/" style="font-size: 10.91px;">Faker</a> <a href="/tags/Fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/tags/GitHub-Pages/" style="font-size: 10.91px;">GitHub Pages</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDEA/" style="font-size: 20px;">IDEA</a> <a href="/tags/JSR-303/" style="font-size: 10px;">JSR 303</a> <a href="/tags/Java/" style="font-size: 16.36px;">Java</a> <a href="/tags/Java类库/" style="font-size: 10px;">Java类库</a> <a href="/tags/JetBrains/" style="font-size: 18.18px;">JetBrains</a> <a href="/tags/Jmeter/" style="font-size: 11.82px;">Jmeter</a> <a href="/tags/Lombok/" style="font-size: 10px;">Lombok</a> <a href="/tags/Micro-Service/" style="font-size: 10.91px;">Micro Service</a> <a href="/tags/Mycat/" style="font-size: 12.73px;">Mycat</a> <a href="/tags/ORM/" style="font-size: 10.91px;">ORM</a> <a href="/tags/Peewee/" style="font-size: 10px;">Peewee</a> <a href="/tags/Python/" style="font-size: 11.82px;">Python</a> <a href="/tags/RestTemplate/" style="font-size: 10px;">RestTemplate</a> <a href="/tags/SQLAlchemy/" style="font-size: 10px;">SQLAlchemy</a> <a href="/tags/Spring/" style="font-size: 10.91px;">Spring</a> <a href="/tags/Spring-Boot/" style="font-size: 13.64px;">Spring Boot</a> <a href="/tags/Spring-Data-Elasticsearch/" style="font-size: 10px;">Spring Data Elasticsearch</a> <a href="/tags/Spring-in-action/" style="font-size: 10px;">Spring in action</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/appium/" style="font-size: 10px;">appium</a> <a href="/tags/base-command/" style="font-size: 10px;">base command</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/bat/" style="font-size: 10px;">bat</a> <a href="/tags/bat脚本/" style="font-size: 10px;">bat脚本</a> <a href="/tags/beautifulsoup4/" style="font-size: 10px;">beautifulsoup4</a> <a href="/tags/boss/" style="font-size: 10px;">boss</a> <a href="/tags/builder/" style="font-size: 10px;">builder</a> <a href="/tags/chrome/" style="font-size: 10.91px;">chrome</a> <a href="/tags/chrome-plugin/" style="font-size: 10px;">chrome plugin</a> <a href="/tags/coding-net/" style="font-size: 10px;">coding.net</a> <a href="/tags/common-commands/" style="font-size: 10.91px;">common commands</a> <a href="/tags/csdn/" style="font-size: 10px;">csdn</a> <a href="/tags/design-patterns/" style="font-size: 14.55px;">design patterns</a> <a href="/tags/directory-management/" style="font-size: 10px;">directory management</a> <a href="/tags/directory-permission/" style="font-size: 10px;">directory permission</a> <a href="/tags/disk-management/" style="font-size: 10px;">disk management</a> <a href="/tags/docker/" style="font-size: 15.45px;">docker</a> <a href="/tags/docker-compose/" style="font-size: 10px;">docker compose</a> <a href="/tags/druid/" style="font-size: 10px;">druid</a> <a href="/tags/elasticsearch/" style="font-size: 10.91px;">elasticsearch</a> <a href="/tags/elasticsearch-cluster/" style="font-size: 10px;">elasticsearch cluster</a> <a href="/tags/ffmpeg/" style="font-size: 10px;">ffmpeg</a> <a href="/tags/fiddler/" style="font-size: 10px;">fiddler</a> <a href="/tags/fiddler-capture/" style="font-size: 10px;">fiddler capture</a> <a href="/tags/file-management/" style="font-size: 10px;">file management</a> <a href="/tags/file-permission/" style="font-size: 10px;">file permission</a> <a href="/tags/head-plugin/" style="font-size: 10px;">head plugin</a> <a href="/tags/hexo/" style="font-size: 13.64px;">hexo</a> <a href="/tags/hexo-themes/" style="font-size: 10px;">hexo themes</a> <a href="/tags/hexo-translate-title/" style="font-size: 10px;">hexo-translate-title</a> <a href="/tags/hot-key/" style="font-size: 10px;">hot key</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/http-proxy/" style="font-size: 10px;">http proxy</a> <a href="/tags/http-s/" style="font-size: 10px;">http(s)</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/https抓包/" style="font-size: 10px;">https抓包</a> <a href="/tags/ik-analysis/" style="font-size: 10px;">ik analysis</a> <a href="/tags/imooc/" style="font-size: 10px;">imooc</a> <a href="/tags/itchat/" style="font-size: 10px;">itchat</a> <a href="/tags/jasypt-spring-boot/" style="font-size: 10px;">jasypt spring boot</a> <a href="/tags/java/" style="font-size: 10.91px;">java</a> <a href="/tags/java-error/" style="font-size: 10px;">java error</a> <a href="/tags/java-exception/" style="font-size: 10px;">java exception</a> <a href="/tags/java8-stream/" style="font-size: 10px;">java8 stream</a> <a href="/tags/javacv/" style="font-size: 10px;">javacv</a> <a href="/tags/jetcache/" style="font-size: 10px;">jetcache</a> <a href="/tags/jsonp/" style="font-size: 10px;">jsonp</a> <a href="/tags/jvm/" style="font-size: 10px;">jvm</a> <a href="/tags/lagou/" style="font-size: 10px;">lagou</a> <a href="/tags/linux-backup/" style="font-size: 10px;">linux backup</a> <a href="/tags/linux-compress/" style="font-size: 10px;">linux compress</a> <a href="/tags/linux-packeage/" style="font-size: 10px;">linux packeage</a> <a href="/tags/linux-thing/" style="font-size: 13.64px;">linux thing</a> <a href="/tags/mind-mapping/" style="font-size: 11.82px;">mind mapping</a> <a href="/tags/mitmproxy/" style="font-size: 10px;">mitmproxy</a> <a href="/tags/mongo-express/" style="font-size: 10px;">mongo-express</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/multiple-datasource/" style="font-size: 10.91px;">multiple datasource</a> <a href="/tags/mybatis/" style="font-size: 10px;">mybatis</a> <a href="/tags/mysql/" style="font-size: 11.82px;">mysql</a> <a href="/tags/nginx/" style="font-size: 10.91px;">nginx</a> <a href="/tags/oschina/" style="font-size: 10px;">oschina</a> <a href="/tags/postgresql/" style="font-size: 11.82px;">postgresql</a> <a href="/tags/prototype/" style="font-size: 10px;">prototype</a> <a href="/tags/py2exe/" style="font-size: 10px;">py2exe</a> <a href="/tags/pyinstaller/" style="font-size: 10px;">pyinstaller</a> <a href="/tags/python/" style="font-size: 17.27px;">python</a> <a href="/tags/python-core/" style="font-size: 10px;">python core</a> <a href="/tags/python-data-science/" style="font-size: 10px;">python data science</a> <a href="/tags/python-spider/" style="font-size: 10px;">python spider</a> <a href="/tags/python-standard-library/" style="font-size: 10px;">python standard library</a> <a href="/tags/redis/" style="font-size: 12.73px;">redis</a> <a href="/tags/redis-sentinel/" style="font-size: 10px;">redis-sentinel</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/restful-api/" style="font-size: 10px;">restful api</a> <a href="/tags/scrapy/" style="font-size: 12.73px;">scrapy</a> <a href="/tags/selenium/" style="font-size: 13.64px;">selenium</a> <a href="/tags/shortcuts-key/" style="font-size: 10px;">shortcuts key</a> <a href="/tags/simple-factory/" style="font-size: 11.82px;">simple factory</a> <a href="/tags/singleton/" style="font-size: 10px;">singleton</a> <a href="/tags/spider/" style="font-size: 10.91px;">spider</a> <a href="/tags/spider-crawl/" style="font-size: 10px;">spider crawl</a> <a href="/tags/spring-boot/" style="font-size: 17.27px;">spring boot</a> <a href="/tags/spring-boot-actuator/" style="font-size: 10px;">spring boot actuator</a> <a href="/tags/spring-boot-admin/" style="font-size: 10px;">spring boot admin</a> <a href="/tags/spring-boot2/" style="font-size: 10px;">spring boot2</a> <a href="/tags/spring-cache/" style="font-size: 10px;">spring cache</a> <a href="/tags/spring-data-jpa/" style="font-size: 12.73px;">spring data jpa</a> <a href="/tags/spring-data-rest/" style="font-size: 10px;">spring data rest</a> <a href="/tags/swagger/" style="font-size: 10.91px;">swagger</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vimium/" style="font-size: 10px;">vimium</a> <a href="/tags/websocket/" style="font-size: 10px;">websocket</a> <a href="/tags/weixin/" style="font-size: 10px;">weixin</a> <a href="/tags/ws-s/" style="font-size: 10px;">ws(s)</a> <a href="/tags/wss/" style="font-size: 10px;">wss</a> <a href="/tags/yapi/" style="font-size: 10px;">yapi</a> <a href="/tags/zealer/" style="font-size: 10px;">zealer</a> <a href="/tags/个人博客/" style="font-size: 10.91px;">个人博客</a> <a href="/tags/个人感悟/" style="font-size: 10.91px;">个人感悟</a> <a href="/tags/主从复制/" style="font-size: 10.91px;">主从复制</a> <a href="/tags/主从搭建/" style="font-size: 11.82px;">主从搭建</a> <a href="/tags/乐观锁/" style="font-size: 10px;">乐观锁</a> <a href="/tags/代理调试/" style="font-size: 10px;">代理调试</a> <a href="/tags/入门篇/" style="font-size: 10px;">入门篇</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/压测工具/" style="font-size: 11.82px;">压测工具</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/字符串机制/" style="font-size: 10px;">字符串机制</a> <a href="/tags/学习资源/" style="font-size: 10.91px;">学习资源</a> <a href="/tags/实践篇/" style="font-size: 10.91px;">实践篇</a> <a href="/tags/工厂方法/" style="font-size: 10px;">工厂方法</a> <a href="/tags/建造者/" style="font-size: 10px;">建造者</a> <a href="/tags/开源/" style="font-size: 10px;">开源</a> <a href="/tags/开源博客/" style="font-size: 10.91px;">开源博客</a> <a href="/tags/开源项目/" style="font-size: 10.91px;">开源项目</a> <a href="/tags/微信授权/" style="font-size: 10px;">微信授权</a> <a href="/tags/悲观锁/" style="font-size: 10px;">悲观锁</a> <a href="/tags/抽象工厂/" style="font-size: 10px;">抽象工厂</a> <a href="/tags/数据库中间件/" style="font-size: 12.73px;">数据库中间件</a> <a href="/tags/热部署/" style="font-size: 10px;">热部署</a> <a href="/tags/简书/" style="font-size: 10px;">简书</a> <a href="/tags/简单工厂/" style="font-size: 10px;">简单工厂</a> <a href="/tags/编辑器/" style="font-size: 19.09px;">编辑器</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a> <a href="/tags/读写分离/" style="font-size: 10.91px;">读写分离</a> <a href="/tags/跑步/" style="font-size: 10px;">跑步</a> <a href="/tags/配置篇/" style="font-size: 10px;">配置篇</a> <a href="/tags/钉钉运动/" style="font-size: 10px;">钉钉运动</a> <a href="/tags/阿里技术/" style="font-size: 10px;">阿里技术</a>
         </div>
     </div>
     <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
@@ -1373,7 +1343,7 @@ gz...
     <div class="mobile-header-tag-container">
         <span class="title">Tags</span>
         <div id="mobile-header-container-tags">
-            <a href="/tags/AcpectJ/" style="font-size: 10px;">AcpectJ</a> <a href="/tags/Aop/" style="font-size: 10px;">Aop</a> <a href="/tags/Chocolatey/" style="font-size: 10px;">Chocolatey</a> <a href="/tags/Config-Center/" style="font-size: 10.83px;">Config Center</a> <a href="/tags/Ctrip-Apollo/" style="font-size: 10.83px;">Ctrip Apollo</a> <a href="/tags/Eclipse/" style="font-size: 10.83px;">Eclipse</a> <a href="/tags/Faker/" style="font-size: 10.83px;">Faker</a> <a href="/tags/Fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/tags/GitHub-Pages/" style="font-size: 10.83px;">GitHub Pages</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDEA/" style="font-size: 20px;">IDEA</a> <a href="/tags/JSR-303/" style="font-size: 10px;">JSR 303</a> <a href="/tags/Java/" style="font-size: 15.83px;">Java</a> <a href="/tags/Java类库/" style="font-size: 10px;">Java类库</a> <a href="/tags/JetBrains/" style="font-size: 18.33px;">JetBrains</a> <a href="/tags/Jmeter/" style="font-size: 11.67px;">Jmeter</a> <a href="/tags/Lombok/" style="font-size: 10px;">Lombok</a> <a href="/tags/Micro-Service/" style="font-size: 10.83px;">Micro Service</a> <a href="/tags/Mycat/" style="font-size: 12.5px;">Mycat</a> <a href="/tags/ORM/" style="font-size: 10.83px;">ORM</a> <a href="/tags/Peewee/" style="font-size: 10px;">Peewee</a> <a href="/tags/Python/" style="font-size: 11.67px;">Python</a> <a href="/tags/RestTemplate/" style="font-size: 10px;">RestTemplate</a> <a href="/tags/SQLAlchemy/" style="font-size: 10px;">SQLAlchemy</a> <a href="/tags/Spring/" style="font-size: 10.83px;">Spring</a> <a href="/tags/Spring-Boot/" style="font-size: 13.33px;">Spring Boot</a> <a href="/tags/Spring-Data-Elasticsearch/" style="font-size: 10px;">Spring Data Elasticsearch</a> <a href="/tags/Spring-in-action/" style="font-size: 10px;">Spring in action</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/appium/" style="font-size: 10px;">appium</a> <a href="/tags/base-command/" style="font-size: 10px;">base command</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/bat/" style="font-size: 10px;">bat</a> <a href="/tags/bat脚本/" style="font-size: 10px;">bat脚本</a> <a href="/tags/beautifulsoup4/" style="font-size: 10px;">beautifulsoup4</a> <a href="/tags/boss/" style="font-size: 10px;">boss</a> <a href="/tags/builder/" style="font-size: 10px;">builder</a> <a href="/tags/chrome/" style="font-size: 10.83px;">chrome</a> <a href="/tags/chrome-plugin/" style="font-size: 10px;">chrome plugin</a> <a href="/tags/coding-net/" style="font-size: 10px;">coding.net</a> <a href="/tags/common-commands/" style="font-size: 10.83px;">common commands</a> <a href="/tags/csdn/" style="font-size: 10px;">csdn</a> <a href="/tags/design-patterns/" style="font-size: 14.17px;">design patterns</a> <a href="/tags/directory-management/" style="font-size: 10px;">directory management</a> <a href="/tags/directory-permission/" style="font-size: 10px;">directory permission</a> <a href="/tags/disk-management/" style="font-size: 10px;">disk management</a> <a href="/tags/docker/" style="font-size: 15px;">docker</a> <a href="/tags/docker-compose/" style="font-size: 10px;">docker compose</a> <a href="/tags/druid/" style="font-size: 10px;">druid</a> <a href="/tags/elasticsearch/" style="font-size: 10.83px;">elasticsearch</a> <a href="/tags/elasticsearch-cluster/" style="font-size: 10px;">elasticsearch cluster</a> <a href="/tags/ffmpeg/" style="font-size: 10px;">ffmpeg</a> <a href="/tags/fiddler/" style="font-size: 10px;">fiddler</a> <a href="/tags/fiddler-capture/" style="font-size: 10px;">fiddler capture</a> <a href="/tags/file-management/" style="font-size: 10px;">file management</a> <a href="/tags/file-permission/" style="font-size: 10px;">file permission</a> <a href="/tags/head-plugin/" style="font-size: 10px;">head plugin</a> <a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a> <a href="/tags/hexo-themes/" style="font-size: 10px;">hexo themes</a> <a href="/tags/hexo-translate-title/" style="font-size: 10px;">hexo-translate-title</a> <a href="/tags/hot-key/" style="font-size: 10px;">hot key</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/http-proxy/" style="font-size: 10px;">http proxy</a> <a href="/tags/http-s/" style="font-size: 10px;">http(s)</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/https抓包/" style="font-size: 10px;">https抓包</a> <a href="/tags/ik-analysis/" style="font-size: 10px;">ik analysis</a> <a href="/tags/imooc/" style="font-size: 10px;">imooc</a> <a href="/tags/itchat/" style="font-size: 10px;">itchat</a> <a href="/tags/jasypt-spring-boot/" style="font-size: 10px;">jasypt spring boot</a> <a href="/tags/java/" style="font-size: 10.83px;">java</a> <a href="/tags/java-error/" style="font-size: 10px;">java error</a> <a href="/tags/java-exception/" style="font-size: 10px;">java exception</a> <a href="/tags/java8-stream/" style="font-size: 10px;">java8 stream</a> <a href="/tags/javacv/" style="font-size: 10px;">javacv</a> <a href="/tags/jetcache/" style="font-size: 10px;">jetcache</a> <a href="/tags/jsonp/" style="font-size: 10px;">jsonp</a> <a href="/tags/jvm/" style="font-size: 10px;">jvm</a> <a href="/tags/lagou/" style="font-size: 10px;">lagou</a> <a href="/tags/linux-backup/" style="font-size: 10px;">linux backup</a> <a href="/tags/linux-compress/" style="font-size: 10px;">linux compress</a> <a href="/tags/linux-packeage/" style="font-size: 10px;">linux packeage</a> <a href="/tags/linux-thing/" style="font-size: 13.33px;">linux thing</a> <a href="/tags/mind-mapping/" style="font-size: 11.67px;">mind mapping</a> <a href="/tags/mitmproxy/" style="font-size: 10px;">mitmproxy</a> <a href="/tags/mongo-express/" style="font-size: 10px;">mongo-express</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/multiple-datasource/" style="font-size: 10.83px;">multiple datasource</a> <a href="/tags/mybatis/" style="font-size: 10px;">mybatis</a> <a href="/tags/mysql/" style="font-size: 11.67px;">mysql</a> <a href="/tags/nginx/" style="font-size: 10.83px;">nginx</a> <a href="/tags/oschina/" style="font-size: 10px;">oschina</a> <a href="/tags/postgresql/" style="font-size: 11.67px;">postgresql</a> <a href="/tags/prototype/" style="font-size: 10px;">prototype</a> <a href="/tags/py2exe/" style="font-size: 10px;">py2exe</a> <a href="/tags/pyinstaller/" style="font-size: 10px;">pyinstaller</a> <a href="/tags/python/" style="font-size: 17.5px;">python</a> <a href="/tags/python-core/" style="font-size: 10px;">python core</a> <a href="/tags/python-data-science/" style="font-size: 10px;">python data science</a> <a href="/tags/python-spider/" style="font-size: 10px;">python spider</a> <a href="/tags/python-standard-library/" style="font-size: 10px;">python standard library</a> <a href="/tags/redis/" style="font-size: 12.5px;">redis</a> <a href="/tags/redis-sentinel/" style="font-size: 10px;">redis-sentinel</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/restful-api/" style="font-size: 10px;">restful api</a> <a href="/tags/scrapy/" style="font-size: 12.5px;">scrapy</a> <a href="/tags/selenium/" style="font-size: 13.33px;">selenium</a> <a href="/tags/shortcuts-key/" style="font-size: 10px;">shortcuts key</a> <a href="/tags/simple-factory/" style="font-size: 11.67px;">simple factory</a> <a href="/tags/singleton/" style="font-size: 10px;">singleton</a> <a href="/tags/spider/" style="font-size: 10.83px;">spider</a> <a href="/tags/spider-crawl/" style="font-size: 10px;">spider crawl</a> <a href="/tags/spring-boot/" style="font-size: 16.67px;">spring boot</a> <a href="/tags/spring-boot-actuator/" style="font-size: 10px;">spring boot actuator</a> <a href="/tags/spring-boot-admin/" style="font-size: 10px;">spring boot admin</a> <a href="/tags/spring-boot2/" style="font-size: 10px;">spring boot2</a> <a href="/tags/spring-cache/" style="font-size: 10px;">spring cache</a> <a href="/tags/spring-data-jpa/" style="font-size: 12.5px;">spring data jpa</a> <a href="/tags/spring-data-rest/" style="font-size: 10px;">spring data rest</a> <a href="/tags/swagger/" style="font-size: 10.83px;">swagger</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vimium/" style="font-size: 10px;">vimium</a> <a href="/tags/websocket/" style="font-size: 10px;">websocket</a> <a href="/tags/weixin/" style="font-size: 10px;">weixin</a> <a href="/tags/ws-s/" style="font-size: 10px;">ws(s)</a> <a href="/tags/wss/" style="font-size: 10px;">wss</a> <a href="/tags/yapi/" style="font-size: 10px;">yapi</a> <a href="/tags/zealer/" style="font-size: 10px;">zealer</a> <a href="/tags/个人博客/" style="font-size: 10.83px;">个人博客</a> <a href="/tags/个人感悟/" style="font-size: 10.83px;">个人感悟</a> <a href="/tags/主从复制/" style="font-size: 10.83px;">主从复制</a> <a href="/tags/主从搭建/" style="font-size: 11.67px;">主从搭建</a> <a href="/tags/乐观锁/" style="font-size: 10px;">乐观锁</a> <a href="/tags/代理调试/" style="font-size: 10px;">代理调试</a> <a href="/tags/入门篇/" style="font-size: 10px;">入门篇</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/压测工具/" style="font-size: 11.67px;">压测工具</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/字符串机制/" style="font-size: 10px;">字符串机制</a> <a href="/tags/学习资源/" style="font-size: 10.83px;">学习资源</a> <a href="/tags/实践篇/" style="font-size: 10.83px;">实践篇</a> <a href="/tags/工厂方法/" style="font-size: 10px;">工厂方法</a> <a href="/tags/建造者/" style="font-size: 10px;">建造者</a> <a href="/tags/开源/" style="font-size: 10px;">开源</a> <a href="/tags/开源博客/" style="font-size: 10.83px;">开源博客</a> <a href="/tags/开源项目/" style="font-size: 10.83px;">开源项目</a> <a href="/tags/微信授权/" style="font-size: 10px;">微信授权</a> <a href="/tags/悲观锁/" style="font-size: 10px;">悲观锁</a> <a href="/tags/抽象工厂/" style="font-size: 10px;">抽象工厂</a> <a href="/tags/数据库中间件/" style="font-size: 12.5px;">数据库中间件</a> <a href="/tags/热部署/" style="font-size: 10px;">热部署</a> <a href="/tags/简书/" style="font-size: 10px;">简书</a> <a href="/tags/简单工厂/" style="font-size: 10px;">简单工厂</a> <a href="/tags/编辑器/" style="font-size: 19.17px;">编辑器</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a> <a href="/tags/读写分离/" style="font-size: 10.83px;">读写分离</a> <a href="/tags/跑步/" style="font-size: 10px;">跑步</a> <a href="/tags/配置篇/" style="font-size: 10px;">配置篇</a> <a href="/tags/钉钉运动/" style="font-size: 10px;">钉钉运动</a> <a href="/tags/阿里技术/" style="font-size: 10px;">阿里技术</a>
+            <a href="/tags/AcpectJ/" style="font-size: 10px;">AcpectJ</a> <a href="/tags/Aop/" style="font-size: 10px;">Aop</a> <a href="/tags/Chocolatey/" style="font-size: 10px;">Chocolatey</a> <a href="/tags/Config-Center/" style="font-size: 10.91px;">Config Center</a> <a href="/tags/Ctrip-Apollo/" style="font-size: 10.91px;">Ctrip Apollo</a> <a href="/tags/Eclipse/" style="font-size: 10.91px;">Eclipse</a> <a href="/tags/Faker/" style="font-size: 10.91px;">Faker</a> <a href="/tags/Fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/tags/GitHub-Pages/" style="font-size: 10.91px;">GitHub Pages</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/IDEA/" style="font-size: 20px;">IDEA</a> <a href="/tags/JSR-303/" style="font-size: 10px;">JSR 303</a> <a href="/tags/Java/" style="font-size: 16.36px;">Java</a> <a href="/tags/Java类库/" style="font-size: 10px;">Java类库</a> <a href="/tags/JetBrains/" style="font-size: 18.18px;">JetBrains</a> <a href="/tags/Jmeter/" style="font-size: 11.82px;">Jmeter</a> <a href="/tags/Lombok/" style="font-size: 10px;">Lombok</a> <a href="/tags/Micro-Service/" style="font-size: 10.91px;">Micro Service</a> <a href="/tags/Mycat/" style="font-size: 12.73px;">Mycat</a> <a href="/tags/ORM/" style="font-size: 10.91px;">ORM</a> <a href="/tags/Peewee/" style="font-size: 10px;">Peewee</a> <a href="/tags/Python/" style="font-size: 11.82px;">Python</a> <a href="/tags/RestTemplate/" style="font-size: 10px;">RestTemplate</a> <a href="/tags/SQLAlchemy/" style="font-size: 10px;">SQLAlchemy</a> <a href="/tags/Spring/" style="font-size: 10.91px;">Spring</a> <a href="/tags/Spring-Boot/" style="font-size: 13.64px;">Spring Boot</a> <a href="/tags/Spring-Data-Elasticsearch/" style="font-size: 10px;">Spring Data Elasticsearch</a> <a href="/tags/Spring-in-action/" style="font-size: 10px;">Spring in action</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/appium/" style="font-size: 10px;">appium</a> <a href="/tags/base-command/" style="font-size: 10px;">base command</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/bat/" style="font-size: 10px;">bat</a> <a href="/tags/bat脚本/" style="font-size: 10px;">bat脚本</a> <a href="/tags/beautifulsoup4/" style="font-size: 10px;">beautifulsoup4</a> <a href="/tags/boss/" style="font-size: 10px;">boss</a> <a href="/tags/builder/" style="font-size: 10px;">builder</a> <a href="/tags/chrome/" style="font-size: 10.91px;">chrome</a> <a href="/tags/chrome-plugin/" style="font-size: 10px;">chrome plugin</a> <a href="/tags/coding-net/" style="font-size: 10px;">coding.net</a> <a href="/tags/common-commands/" style="font-size: 10.91px;">common commands</a> <a href="/tags/csdn/" style="font-size: 10px;">csdn</a> <a href="/tags/design-patterns/" style="font-size: 14.55px;">design patterns</a> <a href="/tags/directory-management/" style="font-size: 10px;">directory management</a> <a href="/tags/directory-permission/" style="font-size: 10px;">directory permission</a> <a href="/tags/disk-management/" style="font-size: 10px;">disk management</a> <a href="/tags/docker/" style="font-size: 15.45px;">docker</a> <a href="/tags/docker-compose/" style="font-size: 10px;">docker compose</a> <a href="/tags/druid/" style="font-size: 10px;">druid</a> <a href="/tags/elasticsearch/" style="font-size: 10.91px;">elasticsearch</a> <a href="/tags/elasticsearch-cluster/" style="font-size: 10px;">elasticsearch cluster</a> <a href="/tags/ffmpeg/" style="font-size: 10px;">ffmpeg</a> <a href="/tags/fiddler/" style="font-size: 10px;">fiddler</a> <a href="/tags/fiddler-capture/" style="font-size: 10px;">fiddler capture</a> <a href="/tags/file-management/" style="font-size: 10px;">file management</a> <a href="/tags/file-permission/" style="font-size: 10px;">file permission</a> <a href="/tags/head-plugin/" style="font-size: 10px;">head plugin</a> <a href="/tags/hexo/" style="font-size: 13.64px;">hexo</a> <a href="/tags/hexo-themes/" style="font-size: 10px;">hexo themes</a> <a href="/tags/hexo-translate-title/" style="font-size: 10px;">hexo-translate-title</a> <a href="/tags/hot-key/" style="font-size: 10px;">hot key</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/http-proxy/" style="font-size: 10px;">http proxy</a> <a href="/tags/http-s/" style="font-size: 10px;">http(s)</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/https抓包/" style="font-size: 10px;">https抓包</a> <a href="/tags/ik-analysis/" style="font-size: 10px;">ik analysis</a> <a href="/tags/imooc/" style="font-size: 10px;">imooc</a> <a href="/tags/itchat/" style="font-size: 10px;">itchat</a> <a href="/tags/jasypt-spring-boot/" style="font-size: 10px;">jasypt spring boot</a> <a href="/tags/java/" style="font-size: 10.91px;">java</a> <a href="/tags/java-error/" style="font-size: 10px;">java error</a> <a href="/tags/java-exception/" style="font-size: 10px;">java exception</a> <a href="/tags/java8-stream/" style="font-size: 10px;">java8 stream</a> <a href="/tags/javacv/" style="font-size: 10px;">javacv</a> <a href="/tags/jetcache/" style="font-size: 10px;">jetcache</a> <a href="/tags/jsonp/" style="font-size: 10px;">jsonp</a> <a href="/tags/jvm/" style="font-size: 10px;">jvm</a> <a href="/tags/lagou/" style="font-size: 10px;">lagou</a> <a href="/tags/linux-backup/" style="font-size: 10px;">linux backup</a> <a href="/tags/linux-compress/" style="font-size: 10px;">linux compress</a> <a href="/tags/linux-packeage/" style="font-size: 10px;">linux packeage</a> <a href="/tags/linux-thing/" style="font-size: 13.64px;">linux thing</a> <a href="/tags/mind-mapping/" style="font-size: 11.82px;">mind mapping</a> <a href="/tags/mitmproxy/" style="font-size: 10px;">mitmproxy</a> <a href="/tags/mongo-express/" style="font-size: 10px;">mongo-express</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/multiple-datasource/" style="font-size: 10.91px;">multiple datasource</a> <a href="/tags/mybatis/" style="font-size: 10px;">mybatis</a> <a href="/tags/mysql/" style="font-size: 11.82px;">mysql</a> <a href="/tags/nginx/" style="font-size: 10.91px;">nginx</a> <a href="/tags/oschina/" style="font-size: 10px;">oschina</a> <a href="/tags/postgresql/" style="font-size: 11.82px;">postgresql</a> <a href="/tags/prototype/" style="font-size: 10px;">prototype</a> <a href="/tags/py2exe/" style="font-size: 10px;">py2exe</a> <a href="/tags/pyinstaller/" style="font-size: 10px;">pyinstaller</a> <a href="/tags/python/" style="font-size: 17.27px;">python</a> <a href="/tags/python-core/" style="font-size: 10px;">python core</a> <a href="/tags/python-data-science/" style="font-size: 10px;">python data science</a> <a href="/tags/python-spider/" style="font-size: 10px;">python spider</a> <a href="/tags/python-standard-library/" style="font-size: 10px;">python standard library</a> <a href="/tags/redis/" style="font-size: 12.73px;">redis</a> <a href="/tags/redis-sentinel/" style="font-size: 10px;">redis-sentinel</a> <a href="/tags/requests/" style="font-size: 10px;">requests</a> <a href="/tags/restful-api/" style="font-size: 10px;">restful api</a> <a href="/tags/scrapy/" style="font-size: 12.73px;">scrapy</a> <a href="/tags/selenium/" style="font-size: 13.64px;">selenium</a> <a href="/tags/shortcuts-key/" style="font-size: 10px;">shortcuts key</a> <a href="/tags/simple-factory/" style="font-size: 11.82px;">simple factory</a> <a href="/tags/singleton/" style="font-size: 10px;">singleton</a> <a href="/tags/spider/" style="font-size: 10.91px;">spider</a> <a href="/tags/spider-crawl/" style="font-size: 10px;">spider crawl</a> <a href="/tags/spring-boot/" style="font-size: 17.27px;">spring boot</a> <a href="/tags/spring-boot-actuator/" style="font-size: 10px;">spring boot actuator</a> <a href="/tags/spring-boot-admin/" style="font-size: 10px;">spring boot admin</a> <a href="/tags/spring-boot2/" style="font-size: 10px;">spring boot2</a> <a href="/tags/spring-cache/" style="font-size: 10px;">spring cache</a> <a href="/tags/spring-data-jpa/" style="font-size: 12.73px;">spring data jpa</a> <a href="/tags/spring-data-rest/" style="font-size: 10px;">spring data rest</a> <a href="/tags/swagger/" style="font-size: 10.91px;">swagger</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/vimium/" style="font-size: 10px;">vimium</a> <a href="/tags/websocket/" style="font-size: 10px;">websocket</a> <a href="/tags/weixin/" style="font-size: 10px;">weixin</a> <a href="/tags/ws-s/" style="font-size: 10px;">ws(s)</a> <a href="/tags/wss/" style="font-size: 10px;">wss</a> <a href="/tags/yapi/" style="font-size: 10px;">yapi</a> <a href="/tags/zealer/" style="font-size: 10px;">zealer</a> <a href="/tags/个人博客/" style="font-size: 10.91px;">个人博客</a> <a href="/tags/个人感悟/" style="font-size: 10.91px;">个人感悟</a> <a href="/tags/主从复制/" style="font-size: 10.91px;">主从复制</a> <a href="/tags/主从搭建/" style="font-size: 11.82px;">主从搭建</a> <a href="/tags/乐观锁/" style="font-size: 10px;">乐观锁</a> <a href="/tags/代理调试/" style="font-size: 10px;">代理调试</a> <a href="/tags/入门篇/" style="font-size: 10px;">入门篇</a> <a href="/tags/单例/" style="font-size: 10px;">单例</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/压测工具/" style="font-size: 11.82px;">压测工具</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/字符串机制/" style="font-size: 10px;">字符串机制</a> <a href="/tags/学习资源/" style="font-size: 10.91px;">学习资源</a> <a href="/tags/实践篇/" style="font-size: 10.91px;">实践篇</a> <a href="/tags/工厂方法/" style="font-size: 10px;">工厂方法</a> <a href="/tags/建造者/" style="font-size: 10px;">建造者</a> <a href="/tags/开源/" style="font-size: 10px;">开源</a> <a href="/tags/开源博客/" style="font-size: 10.91px;">开源博客</a> <a href="/tags/开源项目/" style="font-size: 10.91px;">开源项目</a> <a href="/tags/微信授权/" style="font-size: 10px;">微信授权</a> <a href="/tags/悲观锁/" style="font-size: 10px;">悲观锁</a> <a href="/tags/抽象工厂/" style="font-size: 10px;">抽象工厂</a> <a href="/tags/数据库中间件/" style="font-size: 12.73px;">数据库中间件</a> <a href="/tags/热部署/" style="font-size: 10px;">热部署</a> <a href="/tags/简书/" style="font-size: 10px;">简书</a> <a href="/tags/简单工厂/" style="font-size: 10px;">简单工厂</a> <a href="/tags/编辑器/" style="font-size: 19.09px;">编辑器</a> <a href="/tags/读书笔记/" style="font-size: 10px;">读书笔记</a> <a href="/tags/读写分离/" style="font-size: 10.91px;">读写分离</a> <a href="/tags/跑步/" style="font-size: 10px;">跑步</a> <a href="/tags/配置篇/" style="font-size: 10px;">配置篇</a> <a href="/tags/钉钉运动/" style="font-size: 10px;">钉钉运动</a> <a href="/tags/阿里技术/" style="font-size: 10px;">阿里技术</a>
         </div>
     </div>
 </div>

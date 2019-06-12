@@ -148,81 +148,6 @@ ga('send', 'pageview');
       <div class="outer">
         <section id="main" class="body-wrap">
   
-    <article id="post-IDEA 快捷键拆解系列（十四）：Help 篇" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/idea-shortcut-key-disassembly-series-fourteen.html"  target="_blank"  >IDEA 快捷键拆解系列（十四）：Help 篇</a>
-    </h1>
-  
-
-          
-              <span class="header-cate">
-                <i class="fa fa-map-marker"></i>
-                  
-                  <a href="/categories/编辑器/">编辑器</a>
-                  
-                  <a href="/categories/快捷键/">快捷键</a>
-                  
-              </span>
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/idea-shortcut-key-disassembly-series-fourteen.html"  target="_blank" >
-                
-                <img src="https://image.mariojd.cn/201829/idea2017.1.png" alt="IDEA 快捷键拆解系列（十四）：Help 篇" title="IDEA 快捷键拆解系列（十四）：Help 篇">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                
-&emsp;&emsp;这是IDEA快捷键拆解系列的第十四篇。 
-&emsp;&emsp;以下是关于Help导航项及其每一子项的拆解介绍，其中，加粗部分的选项是博主认为比较重要的。
-
-Help  1. Find Action （ 通过描述动作，查找相关命令 ） Ctrl + Shift + A
-Help （ 查找相关帮助，含快捷键等 ）
-Getting started
-Keymap Ref...
-            </p>
-        </div>
-      
-        
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2019-06-02</li>
-            
-            
-  <li class="article-footer-tags">
-    <i class="fa fa-tags"></i>
-      
-    <a href="/tags/IDEA/" class="color5">IDEA</a>
-      
-    <a href="/tags/编辑器/" class="color4">编辑器</a>
-      
-    <a href="/tags/JetBrains/" class="color5">JetBrains</a>
-      
-  </li>
-
-        </ul>
-        
-            <a href="/idea-shortcut-key-disassembly-series-fourteen.html#more" class="article-more-link"  target="_blank" >&lt;&lt; 阅读全文 &gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
     <article id="post-Spring Boot 内嵌 Web 容器介绍及常见运行参数" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1159,6 +1084,76 @@ Apollo（阿波罗）是携程开源的分布式配置中心，能够集中化�
         </ul>
         
             <a href="/custom-database-naming-strategy-for-jpa.html#more" class="article-more-link"  target="_blank" >&lt;&lt; 阅读全文 &gt;&gt;</a>
+        
+    </footer>
+  </div>
+</article>
+
+
+  
+    <article id="post-基于 Spring Data JPA 聊聊悲观锁和乐观锁" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/practice-pessimistic-and-optimistic-lock-with-spring-data-jpa.html"  target="_blank"  >基于 Spring Data JPA 聊聊悲观锁和乐观锁</a>
+    </h1>
+  
+
+          
+              <span class="header-cate">
+                <i class="fa fa-map-marker"></i>
+                  
+                  <a href="/categories/Java/">Java</a>
+                  
+              </span>
+          
+      </header>
+    
+    <div class="article-entry " itemprop="articleBody">
+      
+        <div class="article-img">
+            <a href="/practice-pessimistic-and-optimistic-lock-with-spring-data-jpa.html"  target="_blank" >
+                
+                <img src="https://image.mariojd.cn/happyjared/2019215/practice-pessimistic-and-optimistic-lock-with-spring-data-jpa.png" alt="基于 Spring Data JPA 聊聊悲观锁和乐观锁" title="基于 Spring Data JPA 聊聊悲观锁和乐观锁">
+                
+            </a>
+        </div>
+        <div class="article-feed">
+            <p>
+                
+举个场景：多线程、多进程应用在对数据库的同一数据进行非幂等操作时，如果没有添加相应的锁机制进行校验、判断，通常会导致数据的脏写。抛开分布式锁这种解决思路，简单的来讲，可以优先考虑从数据库层面去解决这个问题。
+数据库锁分为乐观锁和悲观锁，前者适合读多写少的场景，后者适合读少写多的场景。乐观锁的实现通常是采用加版本号的形式，即如果更新时版本号未发生改变，则本次操作是成功的，且当前版本号的信息也...
+            </p>
+        </div>
+      
+        
+    </div>
+    <footer class="article-footer">
+        
+        <ul class="article-footer-menu">
+            
+                <li><i class="fa fa-calendar"></i>2019-02-16</li>
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/springdatajpa/" class="color1">spring data jpa</a>
+      
+    <a href="/tags/java/" class="color5">java</a>
+      
+    <a href="/tags/乐观锁/" class="color4">乐观锁</a>
+      
+    <a href="/tags/悲观锁/" class="color4">悲观锁</a>
+      
+  </li>
+
+        </ul>
+        
+            <a href="/practice-pessimistic-and-optimistic-lock-with-spring-data-jpa.html#more" class="article-more-link"  target="_blank" >&lt;&lt; 阅读全文 &gt;&gt;</a>
         
     </footer>
   </div>

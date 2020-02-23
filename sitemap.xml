@@ -2,13 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://blog.mariojd.cn/life/filename.html</loc>
-    
-    <lastmod>2020-02-23T05:52:35.710Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://blog.mariojd.cn/life/index.html</loc>
     
     <lastmod>2020-02-23T05:52:22.079Z</lastmod>
@@ -23,14 +16,14 @@
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/record-an-accident-of-a-migration-of-wss-websocket.html</loc>
+    <loc>https://blog.mariojd.cn/oriented-face-in-spring.html</loc>
     
     <lastmod>2019-06-02T11:41:35.983Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/oriented-face-in-spring.html</loc>
+    <loc>https://blog.mariojd.cn/record-an-accident-of-a-migration-of-wss-websocket.html</loc>
     
     <lastmod>2019-06-02T11:41:35.983Z</lastmod>
     
@@ -457,14 +450,14 @@
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/idea-shortcut-key-disassembly-series-nine.html</loc>
+    <loc>https://blog.mariojd.cn/idea-shortcut-key-disassembly-series-two.html</loc>
     
     <lastmod>2019-06-02T11:41:35.958Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/idea-shortcut-key-disassembly-series-two.html</loc>
+    <loc>https://blog.mariojd.cn/idea-shortcut-key-disassembly-series-nine.html</loc>
     
     <lastmod>2019-06-02T11:41:35.958Z</lastmod>
     
@@ -919,14 +912,14 @@
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/elasticsearch-cluster-environment-construction-based-docker.html</loc>
+    <loc>https://blog.mariojd.cn/mysql-master-and-slave-environment-construction-based-docker.html</loc>
     
     <lastmod>2018-09-29T03:20:10.714Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://blog.mariojd.cn/mysql-master-and-slave-environment-construction-based-docker.html</loc>
+    <loc>https://blog.mariojd.cn/elasticsearch-cluster-environment-construction-based-docker.html</loc>
     
     <lastmod>2018-09-29T03:20:10.714Z</lastmod>
     
